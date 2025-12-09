@@ -14,3 +14,6 @@ ui/dist/
 # Ignore all HTML files
 *.html
 
+# Large ontology OWL files
+*.owl
+
