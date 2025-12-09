@@ -1,0 +1,52 @@
+biomarker_key,analyte_core,analyte_class,fluid,analyte_label_example
+abeta38_csf,Aβ38,amyloid,CSF,Aβ38 (CSF)
+abeta40_csf,Aβ40,amyloid,CSF,Aβ40 (CSF)
+abeta40_plasma_serum,Aβ40,amyloid,Plasma/Serum,Aβ40 (Plasma/Serum)
+abeta42_csf,Aβ42,amyloid,CSF,Aβ42 (CSF)
+abeta42_plasma,Aβ42,amyloid,Plasma,Aβ42 (Plasma)
+abeta42_plasma_serum,Aβ42,amyloid,Plasma/Serum,Aβ42 (Plasma/Serum)
+albumin_ratio,albumin ratio,other,,albumin ratio
+ffi_vs_ad_tau_total_csf,FFI vs AD: tau-total,tau,CSF,FFI vs AD: tau-total (CSF)
+gcjd_vs_ad,gCJD vs AD,other,,gCJD vs AD
+gfap_csf,GFAP,inflammation,CSF,GFAP (CSF)
+gfap_plasma_serum,GFAP,inflammation,Plasma/Serum,GFAP (Plasma/Serum)
+hfabp_csf,hFABP,other,CSF,hFABP (CSF)
+hfabp_plasma_serum,hFABP,other,Plasma/Serum,hFABP (Plasma/Serum)
+lvppa_vs_ad,lvPPA vs AD,other,,lvPPA vs AD
+mcp_1_csf,MCP-1,inflammation,CSF,MCP-1 (CSF)
+mcp_1_plasma_serum,MCP-1,inflammation,Plasma/Serum,MCP-1 (Plasma/Serum)
+msa_vs_ad,MSA vs AD,other,,MSA vs AD
+neurogranin,neurogranin,other,,neurogranin
+neurogranin_csf,neurogranin,other,CSF,neurogranin (CSF)
+neurogranin_plasma_serum,neurogranin,other,Plasma/Serum,neurogranin (Plasma/Serum)
+nfl_csf,NFL,neurodegeneration,CSF,NFL (CSF)
+nfl_plasma_serum,NFL,neurodegeneration,Plasma/Serum,NFL (Plasma/Serum)
+nph_vs_ad,NPH vs AD,other,,NPH vs AD
+nse_csf,NSE,other,CSF,NSE (CSF)
+nse_plasma_serum,NSE,other,Plasma/Serum,NSE (Plasma/Serum)
+pca_vs_ad,PCA vs AD,other,,PCA vs AD
+pd_vs_ad,PD vs AD,other,,PD vs AD
+pdd_vs_ad,PDD vs AD,other,,PDD vs AD
+psp_vs_ad,PSP vs AD,other,,PSP vs AD
+sapp_csf,sAPPα,other,CSF,sAPPα (CSF)
+sapp_plasma_serum,sAPPα,other,Plasma/Serum,sAPPα (Plasma/Serum)
+sappbeta_csf,sAPPβ,other,CSF,sAPPβ (CSF)
+sappbeta_plasma_serum,sAPPβ,other,Plasma/Serum,sAPPβ (Plasma/Serum)
+scjd_vs_ad,sCJD vs AD,other,,sCJD vs AD
+strem2_csf,sTREM2,inflammation,CSF,sTREM2 (CSF)
+synuclein_csf,α-synuclein,other,CSF,α-synuclein (CSF)
+synuclein_plasma_serum,α-synuclein,other,Plasma/Serum,α-synuclein (Plasma/Serum)
+tau_181_csf,tau-181,tau,CSF,tau-181 (CSF)
+tau_p181_csf,tau-p181,tau,CSF,tau-p181 (CSF)
+tau_p181_plasma_serum,tau-p181,tau,Plasma/Serum,tau-p181 (Plasma/Serum)
+tau_p217_csf,tau-p217,tau,CSF,tau-p217 (CSF)
+tau_p217_plasma_serum,tau-p217,tau,Plasma/Serum,tau-p217 (Plasma/Serum)
+tau_p231_csf,tau-p231,tau,CSF,tau-p231 (CSF)
+tau_phospho_csf,tau-phospho,tau,CSF,tau-phospho (CSF)
+tau_total_csf,tau-total,tau,CSF,tau-total (CSF)
+tau_total_plasma_serum,tau-total,tau,Plasma/Serum,tau-total (Plasma/Serum)
+vad_vs_ad,VaD vs AD,other,,VaD vs AD
+vlp_1_csf,VLP-1,other,CSF,VLP-1 (CSF)
+ykl_40_csf,YKL-40,inflammation,CSF,YKL-40 (CSF)
+ykl_40_plasma,YKL-40,inflammation,Plasma,YKL-40 (Plasma)
+ykl_40_plasma_serum,YKL-40,inflammation,Plasma/Serum,YKL-40 (Plasma/Serum)

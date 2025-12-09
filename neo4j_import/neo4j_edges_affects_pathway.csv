@@ -1,0 +1,181 @@
+source_id:START_ID(Drug),target_id:END_ID(Pathway),action_type,is_primary_target,source,target_notes
+aab-003,GO:0034205,antibody,True,AlzForum.Therapeutics,AAB-003 is a humanized version of the anti-Aβ mouse antibody 3D6 and a derivative of bapineuzumab (AAB-001).
+aab-003,GO:0050435,antibody,True,AlzForum.Therapeutics,AAB-003 is a humanized version of the anti-Aβ mouse antibody 3D6 and a derivative of bapineuzumab (AAB-001).
+abbv-916,GO:0034205,antibody,True,AlzForum.Therapeutics,ABBV-916 is a monoclonal antibody to Aβ.
+abbv-916,GO:0050435,antibody,True,AlzForum.Therapeutics,ABBV-916 is a monoclonal antibody to Aβ.
+abvac40,GO:0034205,antibody,True,AlzForum.Therapeutics,ABvac40 is an investigational vaccine targeting the C terminus of Aβ40.
+abvac40,GO:0050435,antibody,True,AlzForum.Therapeutics,ABvac40 is an investigational vaccine targeting the C terminus of Aβ40.
+aci-24060,GO:0034205,antibody,True,AlzForum.Therapeutics,ACI-24 is a liposome vaccine designed to elicit an antibody response against aggregated Aβ peptides without concomitant pro-inflammatory T cell activation.
+aci-24060,GO:0050435,antibody,True,AlzForum.Therapeutics,ACI-24 is a liposome vaccine designed to elicit an antibody response against aggregated Aβ peptides without concomitant pro-inflammatory T cell activation.
+acitretin,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Acitretin is a retinoid drug used primarily to treat severe psoriasis.
+acitretin,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Acitretin is a retinoid drug used primarily to treat severe psoriasis.
+aduhelm,GO:0034205,antibody,True,AlzForum.Therapeutics,"BIIB037 is a high-affinity, fully human IgG1 monoclonal antibody against a conformational epitope found on Aβ."
+aduhelm,GO:0050435,antibody,True,AlzForum.Therapeutics,"BIIB037 is a high-affinity, fully human IgG1 monoclonal antibody against a conformational epitope found on Aβ."
+affitope-ad02,GO:0034205,antibody,True,AlzForum.Therapeutics,Affitope AD02 is a synthetic peptide of six amino acids that mimics the N-terminus of Aβ.
+affitope-ad02,GO:0050435,antibody,True,AlzForum.Therapeutics,Affitope AD02 is a synthetic peptide of six amino acids that mimics the N-terminus of Aβ.
+agb101,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"AGB101 is a proprietary, once-daily, extended-release, low-dose formulation of the FDA-approved atypical anti-convulsant medication levetiracetam."
+agb101,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"AGB101 is a proprietary, once-daily, extended-release, low-dose formulation of the FDA-approved atypical anti-convulsant medication levetiracetam."
+alia-1758,GO:0034205,antibody,True,AlzForum.Therapeutics,ALIA-1758 is a bispecific antibody construct.
+alia-1758,GO:0050435,antibody,True,AlzForum.Therapeutics,ALIA-1758 is a bispecific antibody construct.
+alx-001,GO:0034205,small_molecule,True,AlzForum.Therapeutics,ALX-001 is an allosteric modulator of the metabotropic glutamate receptor type 5 (mGluR5).
+alx-001,GO:0050435,small_molecule,True,AlzForum.Therapeutics,ALX-001 is an allosteric modulator of the metabotropic glutamate receptor type 5 (mGluR5).
+alz-101,GO:0034205,antibody,True,AlzForum.Therapeutics,"This candidate vaccine is designed to provoke an immune response specific to soluble oligomeric Aβ assemblies, but not to monomeric or fibrillar Aβ."
+alz-101,GO:0050435,antibody,True,AlzForum.Therapeutics,"This candidate vaccine is designed to provoke an immune response specific to soluble oligomeric Aβ assemblies, but not to monomeric or fibrillar Aβ."
+alz-801,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This is a prodrug of homotaurine, a modified amino acid previously developed under the names tramiprosate and Alzhemed™."
+alz-801,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This is a prodrug of homotaurine, a modified amino acid previously developed under the names tramiprosate and Alzhemed™."
+alzhemedtm,GO:0034205,supplement,True,AlzForum.Therapeutics,Alzhemed was designed as an anti-amyloid therapy.
+alzhemedtm,GO:0050435,supplement,True,AlzForum.Therapeutics,Alzhemed was designed as an anti-amyloid therapy.
+alzt-op1,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"ALZT-OP1 is a combination regimen of two FDA-approved drugs, cromolyn (designated ALZT OP1a) and ibuprofen (designated ALZT OP1b)."
+alzt-op1,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"ALZT-OP1 is a combination regimen of two FDA-approved drugs, cromolyn (designated ALZT OP1a) and ibuprofen (designated ALZT OP1b)."
+amilomotide,GO:0034205,antibody,True,AlzForum.Therapeutics,"This is an active vaccination strategy that aims to elicit a strong antibody response while avoiding inflammatory T cell activation (reviewed in Lemere and Masliah, 2010 )."
+amilomotide,GO:0050435,antibody,True,AlzForum.Therapeutics,"This is an active vaccination strategy that aims to elicit a strong antibody response while avoiding inflammatory T cell activation (reviewed in Lemere and Masliah, 2010 )."
+an-1792,GO:0034205,antibody,True,AlzForum.Therapeutics,AN-1792 was the first active immunotherapy strategy for Alzheimer's disease.
+an-1792,GO:0050435,antibody,True,AlzForum.Therapeutics,AN-1792 was the first active immunotherapy strategy for Alzheimer's disease.
+atabecestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,This is a tablet drug affecting amyloid precursor protein (APP) and its processing products.
+atabecestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,This is a tablet drug affecting amyloid precursor protein (APP) and its processing products.
+av-1959d,GO:0034205,antibody,True,AlzForum.Therapeutics,AV-1959D is an NIH-funded DNA vaccine designed to elicit antibodies to Aβ peptides without activating potentially harmful autoreactive T cells.
+av-1959d,GO:0050435,antibody,True,AlzForum.Therapeutics,AV-1959D is an NIH-funded DNA vaccine designed to elicit antibodies to Aβ peptides without activating potentially harmful autoreactive T cells.
+avagacestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This arylsulfonamide γ-secretase inhibitor was reported to selectively block processing of the enzyme's APP substrate, relatively sparing Notch processing."
+avagacestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This arylsulfonamide γ-secretase inhibitor was reported to selectively block processing of the enzyme's APP substrate, relatively sparing Notch processing."
+azd3293,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"AZD3293 is an inhibitor of BACE1, the β-secretase sheddase that cleaves the APP protein to release APP's C99 fragment."
+azd3293,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"AZD3293 is an inhibitor of BACE1, the β-secretase sheddase that cleaves the APP protein to release APP's C99 fragment."
+azeliragon,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Azeliragon is an oral, small-molecule inhibitor of RAGE, a cell-surface receptor of the immunoglobulin superfamily."
+azeliragon,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Azeliragon is an oral, small-molecule inhibitor of RAGE, a cell-surface receptor of the immunoglobulin superfamily."
+bapineuzumab,GO:0034205,antibody,True,AlzForum.Therapeutics,"Bapineuzumab is a humanized form of murine monoclonal antibody 3D6, which targets the N-terminal region of Aβ."
+bapineuzumab,GO:0050435,antibody,True,AlzForum.Therapeutics,"Bapineuzumab is a humanized form of murine monoclonal antibody 3D6, which targets the N-terminal region of Aβ."
+bexarotene,GO:0034205,small_molecule,True,AlzForum.Therapeutics,This retinoid drug is approved by the FDA and EMA to treat T cell lymphoma of the skin.
+bexarotene,GO:0050435,small_molecule,True,AlzForum.Therapeutics,This retinoid drug is approved by the FDA and EMA to treat T cell lymphoma of the skin.
+bi-1181181,GO:0034205,small_molecule,True,AlzForum.Therapeutics,This compound is an inhibitor targeted to the catalytic site of the enzymes BACE1 and BACE2.
+bi-1181181,GO:0050435,small_molecule,True,AlzForum.Therapeutics,This compound is an inhibitor targeted to the catalytic site of the enzymes BACE1 and BACE2.
+buntanetap,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Buntanetap, previously known as posiphen or ANVS-401, is the pure (+) enantiomer, i.e."
+buntanetap,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Buntanetap, previously known as posiphen or ANVS-401, is the pure (+) enantiomer, i.e."
+chf-5074,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This compound was initially reported as a γ-secretase modulator but is now portrayed as acting on multiple targets, particularly microglia."
+chf-5074,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This compound was initially reported as a γ-secretase modulator but is now portrayed as acting on multiple targets, particularly microglia."
+clioquinol,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Clioquinol is an old drug that was used to treat fungal and protozoal infections but was found to be neurotoxic when used chronically at high doses.
+clioquinol,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Clioquinol is an old drug that was used to treat fungal and protozoal infections but was found to be neurotoxic when used chronically at high doses.
+cpg-1018r,GO:0034205,antibody,True,AlzForum.Therapeutics,"CpG 1018 is a proprietary immune adjuvant made up of short, unmethylated cytosine-phosphate-guanine oligodeoxynucleotides (CpG ODNs)."
+cpg-1018r,GO:0050435,antibody,True,AlzForum.Therapeutics,"CpG 1018 is a proprietary immune adjuvant made up of short, unmethylated cytosine-phosphate-guanine oligodeoxynucleotides (CpG ODNs)."
+crenezumab,GO:0034205,antibody,True,AlzForum.Therapeutics,Crenezumab represents a passive immunotherapy approach in which patients are treated with monoclonal antibodies that specifically recognize Aβ peptides.
+crenezumab,GO:0050435,antibody,True,AlzForum.Therapeutics,Crenezumab represents a passive immunotherapy approach in which patients are treated with monoclonal antibodies that specifically recognize Aβ peptides.
+cs6253,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This agonist peptide increases the activity of the adenosine triphosphate-binding cassette transporter A1 (ABCA1), which regulates cholesterol efflux from cells."
+cs6253,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This agonist peptide increases the activity of the adenosine triphosphate-binding cassette transporter A1 (ABCA1), which regulates cholesterol efflux from cells."
+dnl919,GO:0034205,antibody,True,AlzForum.Therapeutics,This TREM2 agonist antibody activates microglia to phagocytose amyloid.
+dnl919,GO:0050435,antibody,True,AlzForum.Therapeutics,This TREM2 agonist antibody activates microglia to phagocytose amyloid.
+efavirenz,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Efavirenz is an FDA-approved anti-retroviral medication used for human immunodeficiency virus infection.
+efavirenz,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Efavirenz is an FDA-approved anti-retroviral medication used for human immunodeficiency virus infection.
+elenbecestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Elenbecestat is a small-molecule inhibitor of BACE, aka the β-secretase enzyme."
+elenbecestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Elenbecestat is a small-molecule inhibitor of BACE, aka the β-secretase enzyme."
+elnd005,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Originally developed by Transition Therapeutics, ELND005 was temporarily taken over by Elan Corporation, Speranza's parent company."
+elnd005,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Originally developed by Transition Therapeutics, ELND005 was temporarily taken over by Elan Corporation, Speranza's parent company."
+epigallocatechin-gallate-egcg,GO:0034205,supplement,True,AlzForum.Therapeutics,EGCG is a polyphenolic flavonoid extracted from green tea leaves and widely considered to be the key bioactive ingredient of green tea.
+epigallocatechin-gallate-egcg,GO:0050435,supplement,True,AlzForum.Therapeutics,EGCG is a polyphenolic flavonoid extracted from green tea leaves and widely considered to be the key bioactive ingredient of green tea.
+evp-0962,GO:0034205,small_molecule,True,AlzForum.Therapeutics,EVP-0962 is a γ-secretase modulator.
+evp-0962,GO:0050435,small_molecule,True,AlzForum.Therapeutics,EVP-0962 is a γ-secretase modulator.
+flurizan,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Flurizan™ is the R-enantiomer of the nonsteroidal anti-inflammatory flurbiprofen, an NSAID that is structurally and pharmacologically related to ibuprofen and is used to treat several inflammatory conditions."
+flurizan,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Flurizan™ is the R-enantiomer of the nonsteroidal anti-inflammatory flurbiprofen, an NSAID that is structurally and pharmacologically related to ibuprofen and is used to treat several inflammatory conditions."
+focused-ultrasound-blood-brain-barrier,GO:0034205,device_or_procedure,True,AlzForum.Therapeutics,Focused ultrasound with microbubbles is a noninvasive procedure that transiently opens the blood-brain barrier (BBB) using low-intensity sound waves.
+focused-ultrasound-blood-brain-barrier,GO:0050435,device_or_procedure,True,AlzForum.Therapeutics,Focused ultrasound with microbubbles is a noninvasive procedure that transiently opens the blood-brain barrier (BBB) using low-intensity sound waves.
+gammagardr,GO:0034205,antibody,True,AlzForum.Therapeutics,Gammagard® is a preparation of pooled human plasma antibodies from blood donations.
+gammagardr,GO:0050435,antibody,True,AlzForum.Therapeutics,Gammagard® is a preparation of pooled human plasma antibodies from blood donations.
+gamunex,GO:0034205,antibody,True,AlzForum.Therapeutics,This immunoglobulin preparation is used in obstetric indications to prevent and treat blood conditions related to rhesus factor incompatibility.
+gamunex,GO:0050435,antibody,True,AlzForum.Therapeutics,This immunoglobulin preparation is used in obstetric indications to prevent and treat blood conditions related to rhesus factor incompatibility.
+gantenerumab,GO:0034205,antibody,True,AlzForum.Therapeutics,Gantenerumab is a fully human IgG1 antibody designed to bind with subnanomolar affinity to a conformational epitope on Aβ fibrils.
+gantenerumab,GO:0050435,antibody,True,AlzForum.Therapeutics,Gantenerumab is a fully human IgG1 antibody designed to bind with subnanomolar affinity to a conformational epitope on Aβ fibrils.
+gsk933776,GO:0034205,antibody,True,AlzForum.Therapeutics,GSK933776 is a humanized mouse IgG1 monoclonal antibody directed against the N-terminus of the Aβ peptide.
+gsk933776,GO:0050435,antibody,True,AlzForum.Therapeutics,GSK933776 is a humanized mouse IgG1 monoclonal antibody directed against the N-terminus of the Aβ peptide.
+gv-971,GO:0034205,small_molecule,True,AlzForum.Therapeutics,This mixture of acidic linear oligosaccharides is derived from brown algae.
+gv-971,GO:0050435,small_molecule,True,AlzForum.Therapeutics,This mixture of acidic linear oligosaccharides is derived from brown algae.
+ibc-ab002,GO:0034205,antibody,True,AlzForum.Therapeutics,"This humanized IgG1 antibody inhibits an immune checkpoint protein called programmed death ligand, aka PD-L1, stimulating the immune system."
+ibc-ab002,GO:0050435,antibody,True,AlzForum.Therapeutics,"This humanized IgG1 antibody inhibits an immune checkpoint protein called programmed death ligand, aka PD-L1, stimulating the immune system."
+ibuprofen,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Ibuprofen is an over-the-counter non-steroidal anti-inflammatory drug (NSAID).
+ibuprofen,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Ibuprofen is an over-the-counter non-steroidal anti-inflammatory drug (NSAID).
+kisunla,GO:0034205,antibody,True,AlzForum.Therapeutics,"Donanemab, aka N3pG, is a humanized IgG1 monoclonal antibody developed from mouse mE8-IgG2a."
+kisunla,GO:0050435,antibody,True,AlzForum.Therapeutics,"Donanemab, aka N3pG, is a humanized IgG1 monoclonal antibody developed from mouse mE8-IgG2a."
+lenalidomide,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Lenalidomide is an anti-cancer drug with pleiotropic anti-inflammatory, anti-angiogenic, and immune stimulatory activities."
+lenalidomide,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Lenalidomide is an anti-cancer drug with pleiotropic anti-inflammatory, anti-angiogenic, and immune stimulatory activities."
+leqembi,GO:0034205,antibody,True,AlzForum.Therapeutics,"BAN2401 is the humanized IgG1 version of the mouse monoclonal antibody mAb158, which selectively binds to large, soluble Aβ protofibrils."
+leqembi,GO:0050435,antibody,True,AlzForum.Therapeutics,"BAN2401 is the humanized IgG1 version of the mouse monoclonal antibody mAb158, which selectively binds to large, soluble Aβ protofibrils."
+levetiracetam,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Levetiracetam is an atypical anti-convulsant medication and a modulator of the synaptic vesicle protein modulator SV2A.
+levetiracetam,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Levetiracetam is an atypical anti-convulsant medication and a modulator of the synaptic vesicle protein modulator SV2A.
+lithium,GO:0034205,,True,AlzForum.Therapeutics,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lithium,GO:0050435,,True,AlzForum.Therapeutics,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lu-af20513,GO:0034205,antibody,True,AlzForum.Therapeutics,This active vaccine was designed to overcome the weak immune system of aged populations while avoiding auto-immune T cell responses.
+lu-af20513,GO:0050435,antibody,True,AlzForum.Therapeutics,This active vaccine was designed to overcome the weak immune system of aged populations while avoiding auto-immune T cell responses.
+lx1001,GO:0034205,gene_therapy,True,AlzForum.Therapeutics,This gene-therapy approach uses a viral vector to drive expression of human apolipoprotein E2 protein (APOE2) in the central nervous system.
+lx1001,GO:0050435,gene_therapy,True,AlzForum.Therapeutics,This gene-therapy approach uses a viral vector to drive expression of human apolipoprotein E2 protein (APOE2) in the central nervous system.
+ly2599666,GO:0034205,antibody,True,AlzForum.Therapeutics,"LY2599666 is an Fc-less, antigen-binding fragment of a monoclonal anti-Aβ antibody linked to polyethylene glycol."
+ly2599666,GO:0050435,antibody,True,AlzForum.Therapeutics,"LY2599666 is an Fc-less, antigen-binding fragment of a monoclonal anti-Aβ antibody linked to polyethylene glycol."
+ly2886721,GO:0034205,small_molecule,True,AlzForum.Therapeutics,LY2886721 was the first BACE inhibitor to reach Phase 2 clinical research.
+ly2886721,GO:0050435,small_molecule,True,AlzForum.Therapeutics,LY2886721 was the first BACE inhibitor to reach Phase 2 clinical research.
+ly3202626,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"LY3202626 is a potent small-molecule inhibitor of BACE1, the β-secretase enzyme that cleaves the APP protein to release its C99 fragment."
+ly3202626,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"LY3202626 is a potent small-molecule inhibitor of BACE1, the β-secretase enzyme that cleaves the APP protein to release its C99 fragment."
+medi1814,GO:0034205,antibody,True,AlzForum.Therapeutics,"Developed originally at MedImmune, now part of AstraZeneca, this antibody is being developed jointly by AstraZeneca and Eli Lilly."
+medi1814,GO:0050435,antibody,True,AlzForum.Therapeutics,"Developed originally at MedImmune, now part of AstraZeneca, this antibody is being developed jointly by AstraZeneca and Eli Lilly."
+memorem-transcranial-electromagnetic-treatment,GO:0034205,device_or_procedure,True,AlzForum.Therapeutics,"MemorEM™ is a patented, noninvasive technology that delivers ultrahigh radio frequency electromagnetic waves to the brain."
+memorem-transcranial-electromagnetic-treatment,GO:0050435,device_or_procedure,True,AlzForum.Therapeutics,"MemorEM™ is a patented, noninvasive technology that delivers ultrahigh radio frequency electromagnetic waves to the brain."
+mivelsiran,GO:0034205,gene_therapy,True,AlzForum.Therapeutics,This gene-silencing approach uses intrathecal injection of a small interfering RNA targeting the amyloid precursor protein mRNA as a potential treatment for Alzheimer’s disease and cerebral amyloid angiopathy.
+mivelsiran,GO:0050435,gene_therapy,True,AlzForum.Therapeutics,This gene-silencing approach uses intrathecal injection of a small interfering RNA targeting the amyloid precursor protein mRNA as a potential treatment for Alzheimer’s disease and cerebral amyloid angiopathy.
+nasal-insulin,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Insulin is the peptide hormone that is standard treatment for the management of Type 1 diabetes.
+nasal-insulin,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Insulin is the peptide hormone that is standard treatment for the management of Type 1 diabetes.
+nic5-15,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"NIC5-15 is pinitol, a naturally occurring cyclic sugar alcohol."
+nic5-15,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"NIC5-15 is pinitol, a naturally occurring cyclic sugar alcohol."
+nivegacetor,GO:0034205,small_molecule,True,AlzForum.Therapeutics,This second-generation γ-secretase modulator is in development for the treatment of Alzheimer's disease.
+nivegacetor,GO:0050435,small_molecule,True,AlzForum.Therapeutics,This second-generation γ-secretase modulator is in development for the treatment of Alzheimer's disease.
+octagam%C2%AE,GO:0034205,antibody,True,AlzForum.Therapeutics,NewGam/Octagam® is an intravenous immunoglobulin preparation by the Switzerland-based company Octapharma.
+octagam%C2%AE,GO:0050435,antibody,True,AlzForum.Therapeutics,NewGam/Octagam® is an intravenous immunoglobulin preparation by the Switzerland-based company Octapharma.
+pbt2,GO:0034205,small_molecule,True,AlzForum.Therapeutics,PBT2 is a metal protein-attenuating compound (MPAC) being developed for treatment of both Alzheimer's and Huntington's diseases.
+pbt2,GO:0050435,small_molecule,True,AlzForum.Therapeutics,PBT2 is a metal protein-attenuating compound (MPAC) being developed for treatment of both Alzheimer's and Huntington's diseases.
+pf-06648671,GO:0034205,small_molecule,True,AlzForum.Therapeutics,PF-06648671 is a γ-secretase modulator Pfizer was developing for the treatment of Alzheimer's disease.
+pf-06648671,GO:0050435,small_molecule,True,AlzForum.Therapeutics,PF-06648671 is a γ-secretase modulator Pfizer was developing for the treatment of Alzheimer's disease.
+pf-06751979,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Pfizer developed the BACE 1 inhibitor PF-06751979 for the treatment of Alzheimer's disease to Phase 1.
+pf-06751979,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Pfizer developed the BACE 1 inhibitor PF-06751979 for the treatment of Alzheimer's disease to Phase 1.
+pmn310,GO:0034205,antibody,True,AlzForum.Therapeutics,PMN310 is a humanized IgG1 monoclonal antibody to soluble Aβ oligomers.
+pmn310,GO:0050435,antibody,True,AlzForum.Therapeutics,PMN310 is a humanized IgG1 monoclonal antibody to soluble Aβ oligomers.
+ponezumab,GO:0034205,antibody,True,AlzForum.Therapeutics,Ponezumab (PF-04360365) is a therapeutic antibody originally developed by the small biotech company Rinat Neuroscience.
+ponezumab,GO:0050435,antibody,True,AlzForum.Therapeutics,Ponezumab (PF-04360365) is a therapeutic antibody originally developed by the small biotech company Rinat Neuroscience.
+pri-002,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This 12-residue, enantiomeric peptide is designed to interfere with oligomerization of Aβ42 by binding to, and stabilizing, Aβ42 monomers."
+pri-002,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This 12-residue, enantiomeric peptide is designed to interfere with oligomerization of Aβ42 by binding to, and stabilizing, Aβ42 monomers."
+prx012,GO:0034205,antibody,True,AlzForum.Therapeutics,PRX012 is a humanized monoclonal IgG1 antibody to an N-terminal epitope on Aβ.
+prx012,GO:0050435,antibody,True,AlzForum.Therapeutics,PRX012 is a humanized monoclonal IgG1 antibody to an N-terminal epitope on Aβ.
+remternetug,GO:0034205,antibody,True,AlzForum.Therapeutics,"Remternetug, previously LY3372993, is an investigational monoclonal antibody."
+remternetug,GO:0050435,antibody,True,AlzForum.Therapeutics,"Remternetug, previously LY3372993, is an investigational monoclonal antibody."
+rg7129,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"This is an orally administered inhibitor of the β-secretase BACE1, the sheddase enzyme that cleaves APP and sets up subsequent γ-secretase cleavage leading to generation of Aβ species."
+rg7129,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"This is an orally administered inhibitor of the β-secretase BACE1, the sheddase enzyme that cleaves APP and sets up subsequent γ-secretase cleavage leading to generation of Aβ species."
+s603,GO:0034205,small_molecule,True,AlzForum.Therapeutics,AS-S603 is a small molecule said to dissociate amyloid and tau protein aggregates.
+s603,GO:0050435,small_molecule,True,AlzForum.Therapeutics,AS-S603 is a small molecule said to dissociate amyloid and tau protein aggregates.
+sabirnetug,GO:0034205,antibody,True,AlzForum.Therapeutics,"This humanized IgG2 monoclonal antibody selectively binds soluble Aβ oligomers, aka Aβ-derived diffusible ligands (ADDLs)."
+sabirnetug,GO:0050435,antibody,True,AlzForum.Therapeutics,"This humanized IgG2 monoclonal antibody selectively binds soluble Aβ oligomers, aka Aβ-derived diffusible ligands (ADDLs)."
+sar228810,GO:0034205,antibody,True,AlzForum.Therapeutics,This is a monoclonal antibody directed primarily against soluble protofibrillar and fibrillar species of Aβ.
+sar228810,GO:0050435,antibody,True,AlzForum.Therapeutics,This is a monoclonal antibody directed primarily against soluble protofibrillar and fibrillar species of Aβ.
+semagacestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Semagacestat is a γ-secretase inhibitor that reduces Aβ40 and 42 production and secretion by the γ-secretase enzyme complex.
+semagacestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Semagacestat is a γ-secretase inhibitor that reduces Aβ40 and 42 production and secretion by the γ-secretase enzyme complex.
+sensory-stimulation-systems,GO:0034205,device_or_procedure,True,AlzForum.Therapeutics,"Sensory Stimulation Systems, and GENUS, refer to a noninvasive procedure, i.e., a ""digital therapeutic,"" being developed by Cognito Therapeutics."
+sensory-stimulation-systems,GO:0050435,device_or_procedure,True,AlzForum.Therapeutics,"Sensory Stimulation Systems, and GENUS, refer to a noninvasive procedure, i.e., a ""digital therapeutic,"" being developed by Cognito Therapeutics."
+shr-1707,GO:0034205,antibody,True,AlzForum.Therapeutics,"SHR-1707 is a humanized anti-Aβ IgG1 monoclonal antibody that, according to Hengrui Pharmaceuticals, binds to Aβ fibrils and monomers."
+shr-1707,GO:0050435,antibody,True,AlzForum.Therapeutics,"SHR-1707 is a humanized anti-Aβ IgG1 monoclonal antibody that, according to Hengrui Pharmaceuticals, binds to Aβ fibrils and monomers."
+simufilam,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"Simufilam binds to filamin, a ubiquitous scaffolding protein and regulator of the actin cytoskeleton."
+simufilam,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"Simufilam binds to filamin, a ubiquitous scaffolding protein and regulator of the actin cytoskeleton."
+solanezumab,GO:0034205,antibody,True,AlzForum.Therapeutics,Solanezumab is a humanized monoclonal IgG1 antibody directed against the mid-domain of the Aβ peptide.
+solanezumab,GO:0050435,antibody,True,AlzForum.Therapeutics,Solanezumab is a humanized monoclonal IgG1 antibody directed against the mid-domain of the Aβ peptide.
+thalidomide,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Thalidomide is an immunomodulatory agent with a spectrum of activity that is only partly characterized.
+thalidomide,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Thalidomide is an immunomodulatory agent with a spectrum of activity that is only partly characterized.
+troculeucel,GO:0034205,,True,AlzForum.Therapeutics,"Troculeucel is an immunotherapy consisting of a patient’s own natural killer cells that have been isolated, expanded in the lab, and re-infused."
+troculeucel,GO:0050435,,True,AlzForum.Therapeutics,"Troculeucel is an immunotherapy consisting of a patient’s own natural killer cells that have been isolated, expanded in the lab, and re-infused."
+trontinemab,GO:0034205,antibody,True,AlzForum.Therapeutics,"RO7126209 is a new version of the anti-amyloid monoclonal antibody gantenerumab , engineered to more easily cross the blood-brain barrier using Roche’s “brain shuttle” technology."
+trontinemab,GO:0050435,antibody,True,AlzForum.Therapeutics,"RO7126209 is a new version of the anti-amyloid monoclonal antibody gantenerumab , engineered to more easily cross the blood-brain barrier using Roche’s “brain shuttle” technology."
+ub-311,GO:0034205,antibody,True,AlzForum.Therapeutics,"UB-311 is a synthetic peptide vaccine developed by United Neuroscience, a spin-off of United Biomedical."
+ub-311,GO:0050435,antibody,True,AlzForum.Therapeutics,"UB-311 is a synthetic peptide vaccine developed by United Neuroscience, a spin-off of United Biomedical."
+umibecestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"CNP520 is an oral, small-molecule inhibitor of the aspartyl protease BACE designed to reduce Aβ production to prevent or treat Alzheimer's disease."
+umibecestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"CNP520 is an oral, small-molecule inhibitor of the aspartyl protease BACE designed to reduce Aβ production to prevent or treat Alzheimer's disease."
+vanutide-cridificar,GO:0034205,antibody,True,AlzForum.Therapeutics,This is an active immunotherapy strategy.
+vanutide-cridificar,GO:0050435,antibody,True,AlzForum.Therapeutics,This is an active immunotherapy strategy.
+varoglutamstat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"PQ912 is an inhibitor of glutaminyl cyclase (QC), aka glutaminyl-peptide cyclotransferase (QPCT)."
+varoglutamstat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"PQ912 is an inhibitor of glutaminyl cyclase (QC), aka glutaminyl-peptide cyclotransferase (QPCT)."
+verubecestat,GO:0034205,small_molecule,True,AlzForum.Therapeutics,MK-8931 is a small-molecule inhibitor of BACE1 and BACE2.
+verubecestat,GO:0050435,small_molecule,True,AlzForum.Therapeutics,MK-8931 is a small-molecule inhibitor of BACE1 and BACE2.
+vg-3927,GO:0034205,small_molecule,True,AlzForum.Therapeutics,"VG-3927 is a brain-penetrant, small-molecule agonist of the TREM2 receptor on microglia."
+vg-3927,GO:0050435,small_molecule,True,AlzForum.Therapeutics,"VG-3927 is a brain-penetrant, small-molecule agonist of the TREM2 receptor on microglia."
+vhb937,GO:0034205,antibody,True,AlzForum.Therapeutics,VHB937 is a humanized monoclonal antibody to the immune receptor TREM2.
+vhb937,GO:0050435,antibody,True,AlzForum.Therapeutics,VHB937 is a humanized monoclonal antibody to the immune receptor TREM2.
+zervimesine,GO:0034205,small_molecule,True,AlzForum.Therapeutics,Zervimesine/CT1812 is a small-molecule antagonist of the sigma2 receptor.
+zervimesine,GO:0050435,small_molecule,True,AlzForum.Therapeutics,Zervimesine/CT1812 is a small-molecule antagonist of the sigma2 receptor.

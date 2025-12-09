@@ -1,0 +1,4 @@
+id,label,iri,synonyms,source
+HP:0100543,Cognitive impairment,http://purl.obolibrary.org/obo/HP_0100543,Abnormality of cognition|Cognitive abnormality|Cognitive defects|Cognitive deficits|Cognitive impairment|Intellectual impairment,HPO
+HP:0002354,Memory impairment,http://purl.obolibrary.org/obo/HP_0002354,Amnesia|Forgetfulness|Memory impairment|Memory loss|Memory problems|Poor memory,HPO
+HP:0002381,Aphasia,http://purl.obolibrary.org/obo/HP_0002381,Difficulty finding words|Losing words|Loss of words,HPO

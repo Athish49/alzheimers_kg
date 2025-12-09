@@ -1,0 +1,7 @@
+id,label,iri,go_id,namespace,synonyms,source,raw_source_ids
+GO:0099536,synaptic signaling,http://purl.obolibrary.org/obo/GO_0099536,GO:0099536,,,GO,GO:0099536
+GO:0001774,microglial cell activation,http://purl.obolibrary.org/obo/GO_0001774,GO:0001774,,,GO,GO:0001774
+GO:0048167,regulation of synaptic plasticity,http://purl.obolibrary.org/obo/GO_0048167,GO:0048167,,,GO,GO:0048167
+GO:0034205,amyloid-beta formation,http://purl.obolibrary.org/obo/GO_0034205,GO:0034205,,,GO,GO:0034205
+GO:0050435,amyloid-beta metabolic process,http://purl.obolibrary.org/obo/GO_0050435,GO:0050435,,,GO,GO:0050435
+GO:0150076,neuroinflammatory response,http://purl.obolibrary.org/obo/GO_0150076,GO:0150076,,,GO,GO:0150076

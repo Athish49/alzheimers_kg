@@ -1,0 +1,10 @@
+id:ID(TherapyType),label,category,source,raw_source_ids
+TT_IMMUNOTHERAPY_PASSIVE,Immunotherapy (passive),,AlzForum.Therapeutics,Immunotherapy (passive)
+TT_IMMUNOTHERAPY_ACTIVE,Immunotherapy (active),,AlzForum.Therapeutics,Immunotherapy (active)
+TT_DNA_RNA_BASED,DNA/RNA-based,,AlzForum.Therapeutics,DNA/RNA-based
+TT_SMALL_MOLECULE,Small Molecule,,AlzForum.Therapeutics,Small Molecule
+TT_SUPPLEMENT,Supplement,,AlzForum.Therapeutics,Supplement
+TT_DIETARY,Dietary,,AlzForum.Therapeutics,Dietary
+TT_COMBINATION,Combination,,AlzForum.Therapeutics,Combination
+TT_OTHER,Other,,AlzForum.Therapeutics,Other
+TT_PROCEDURAL_INTERVENTION,Procedural Intervention,,AlzForum.Therapeutics,Procedural Intervention

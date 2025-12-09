@@ -1,0 +1,2 @@
+id,label,iri,mondo_id,umls_cui,mesh_id,icd10,synonyms,category,source,raw_source_ids
+MONDO:0004975,Alzheimer disease,http://purl.obolibrary.org/obo/MONDO_0004975,MONDO:0004975,,,,"AD|Alzheimer dementia|Alzheimer disease|Alzheimer disease, familial|Alzheimer's dementia|Alzheimer's disease|Alzheimers dementia|Alzheimers disease|presenile and senile dementia",,MONDO,MONDO:0004975

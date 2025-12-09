@@ -1,0 +1,52 @@
+id,label,iri,analyte,analyte_class,fluid,units,assay_type,source,raw_source_ids
+abeta38_csf,Aβ38 (CSF),,Aβ38,amyloid,CSF,,,AlzBiomarker,abeta38_csf
+abeta40_csf,Aβ40 (CSF),,Aβ40,amyloid,CSF,,,AlzBiomarker,abeta40_csf
+abeta40_plasma_serum,Aβ40 (Plasma/Serum),,Aβ40,amyloid,Plasma/Serum,,,AlzBiomarker,abeta40_plasma_serum
+abeta42_csf,Aβ42 (CSF),,Aβ42,amyloid,CSF,,,AlzBiomarker,abeta42_csf
+abeta42_plasma,Aβ42 (Plasma),,Aβ42,amyloid,Plasma,,,AlzBiomarker,abeta42_plasma
+abeta42_plasma_serum,Aβ42 (Plasma/Serum),,Aβ42,amyloid,Plasma/Serum,,,AlzBiomarker,abeta42_plasma_serum
+albumin_ratio,albumin ratio,,albumin ratio,other,,,,AlzBiomarker,albumin_ratio
+ffi_vs_ad_tau_total_csf,FFI vs AD: tau-total (CSF),,FFI vs AD: tau-total,tau,CSF,,,AlzBiomarker,ffi_vs_ad_tau_total_csf
+gcjd_vs_ad,gCJD vs AD,,gCJD vs AD,other,,,,AlzBiomarker,gcjd_vs_ad
+gfap_csf,GFAP (CSF),,GFAP,inflammation,CSF,,,AlzBiomarker,gfap_csf
+gfap_plasma_serum,GFAP (Plasma/Serum),,GFAP,inflammation,Plasma/Serum,,,AlzBiomarker,gfap_plasma_serum
+hfabp_csf,hFABP (CSF),,hFABP,other,CSF,,,AlzBiomarker,hfabp_csf
+hfabp_plasma_serum,hFABP (Plasma/Serum),,hFABP,other,Plasma/Serum,,,AlzBiomarker,hfabp_plasma_serum
+lvppa_vs_ad,lvPPA vs AD,,lvPPA vs AD,other,,,,AlzBiomarker,lvppa_vs_ad
+mcp_1_csf,MCP-1 (CSF),,MCP-1,inflammation,CSF,,,AlzBiomarker,mcp_1_csf
+mcp_1_plasma_serum,MCP-1 (Plasma/Serum),,MCP-1,inflammation,Plasma/Serum,,,AlzBiomarker,mcp_1_plasma_serum
+msa_vs_ad,MSA vs AD,,MSA vs AD,other,,,,AlzBiomarker,msa_vs_ad
+neurogranin,neurogranin,,neurogranin,other,,,,AlzBiomarker,neurogranin
+neurogranin_csf,neurogranin (CSF),,neurogranin,other,CSF,,,AlzBiomarker,neurogranin_csf
+neurogranin_plasma_serum,neurogranin (Plasma/Serum),,neurogranin,other,Plasma/Serum,,,AlzBiomarker,neurogranin_plasma_serum
+nfl_csf,NFL (CSF),,NFL,neurodegeneration,CSF,,,AlzBiomarker,nfl_csf
+nfl_plasma_serum,NFL (Plasma/Serum),,NFL,neurodegeneration,Plasma/Serum,,,AlzBiomarker,nfl_plasma_serum
+nph_vs_ad,NPH vs AD,,NPH vs AD,other,,,,AlzBiomarker,nph_vs_ad
+nse_csf,NSE (CSF),,NSE,other,CSF,,,AlzBiomarker,nse_csf
+nse_plasma_serum,NSE (Plasma/Serum),,NSE,other,Plasma/Serum,,,AlzBiomarker,nse_plasma_serum
+pca_vs_ad,PCA vs AD,,PCA vs AD,other,,,,AlzBiomarker,pca_vs_ad
+pd_vs_ad,PD vs AD,,PD vs AD,other,,,,AlzBiomarker,pd_vs_ad
+pdd_vs_ad,PDD vs AD,,PDD vs AD,other,,,,AlzBiomarker,pdd_vs_ad
+psp_vs_ad,PSP vs AD,,PSP vs AD,other,,,,AlzBiomarker,psp_vs_ad
+sapp_csf,sAPPα (CSF),,sAPPα,other,CSF,,,AlzBiomarker,sapp_csf
+sapp_plasma_serum,sAPPα (Plasma/Serum),,sAPPα,other,Plasma/Serum,,,AlzBiomarker,sapp_plasma_serum
+sappbeta_csf,sAPPβ (CSF),,sAPPβ,other,CSF,,,AlzBiomarker,sappbeta_csf
+sappbeta_plasma_serum,sAPPβ (Plasma/Serum),,sAPPβ,other,Plasma/Serum,,,AlzBiomarker,sappbeta_plasma_serum
+scjd_vs_ad,sCJD vs AD,,sCJD vs AD,other,,,,AlzBiomarker,scjd_vs_ad
+strem2_csf,sTREM2 (CSF),,sTREM2,inflammation,CSF,,,AlzBiomarker,strem2_csf
+synuclein_csf,α-synuclein (CSF),,α-synuclein,other,CSF,,,AlzBiomarker,synuclein_csf
+synuclein_plasma_serum,α-synuclein (Plasma/Serum),,α-synuclein,other,Plasma/Serum,,,AlzBiomarker,synuclein_plasma_serum
+tau_181_csf,tau-181 (CSF),,tau-181,tau,CSF,,,AlzBiomarker,tau_181_csf
+tau_p181_csf,tau-p181 (CSF),,tau-p181,tau,CSF,,,AlzBiomarker,tau_p181_csf
+tau_p181_plasma_serum,tau-p181 (Plasma/Serum),,tau-p181,tau,Plasma/Serum,,,AlzBiomarker,tau_p181_plasma_serum
+tau_p217_csf,tau-p217 (CSF),,tau-p217,tau,CSF,,,AlzBiomarker,tau_p217_csf
+tau_p217_plasma_serum,tau-p217 (Plasma/Serum),,tau-p217,tau,Plasma/Serum,,,AlzBiomarker,tau_p217_plasma_serum
+tau_p231_csf,tau-p231 (CSF),,tau-p231,tau,CSF,,,AlzBiomarker,tau_p231_csf
+tau_phospho_csf,tau-phospho (CSF),,tau-phospho,tau,CSF,,,AlzBiomarker,tau_phospho_csf
+tau_total_csf,tau-total (CSF),,tau-total,tau,CSF,,,AlzBiomarker,tau_total_csf
+tau_total_plasma_serum,tau-total (Plasma/Serum),,tau-total,tau,Plasma/Serum,,,AlzBiomarker,tau_total_plasma_serum
+vad_vs_ad,VaD vs AD,,VaD vs AD,other,,,,AlzBiomarker,vad_vs_ad
+vlp_1_csf,VLP-1 (CSF),,VLP-1,other,CSF,,,AlzBiomarker,vlp_1_csf
+ykl_40_csf,YKL-40 (CSF),,YKL-40,inflammation,CSF,,,AlzBiomarker,ykl_40_csf
+ykl_40_plasma,YKL-40 (Plasma),,YKL-40,inflammation,Plasma,,,AlzBiomarker,ykl_40_plasma
+ykl_40_plasma_serum,YKL-40 (Plasma/Serum),,YKL-40,inflammation,Plasma/Serum,,,AlzBiomarker,ykl_40_plasma_serum

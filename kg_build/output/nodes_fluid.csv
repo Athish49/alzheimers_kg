@@ -1,0 +1,4 @@
+id,label,category,source,raw_source_ids
+FLUID_CSF,CSF,,AlzBiomarker,CSF
+FLUID_PLASMA,Plasma,,AlzBiomarker,Plasma
+FLUID_PLASMA_SERUM,Plasma/Serum,,AlzBiomarker,Plasma/Serum

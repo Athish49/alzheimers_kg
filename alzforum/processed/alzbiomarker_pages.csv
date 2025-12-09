@@ -1,0 +1,4 @@
+biomarker_page_id,name,source_url,page_title,page_subtitle,intro_text
+versioning_history,AlzBiomarker Versioning History,https://www.alzforum.org/alzbiomarker/about-alzbiomarker/versioning-history,About AlzBiomarker,Versioning History,"AlzBiomarker version 1.0 was released December 2015 and meta-analysis results of the initial dataset have been published ( Olsson et al., 2016 ). Version 1.1 was released April 2016 adding neurogranin data and analyses. Version 1.2 was released June 2016 adding sTREM2. Version 2.0 was released April 2017 and version 2.1 in June 2018. The database will continue to evolve over time with additional data, analyses, biomarkers, and disease cohorts.
+
+The table below presents summary data from the previous versions of the database (1.x and 2.x) and the current version (3.0). Archived pdfs of forest plots are available by clicking on the links in the meta-analysis column."

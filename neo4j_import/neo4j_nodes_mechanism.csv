@@ -1,0 +1,13 @@
+id:ID(Mechanism),label,category,description,source,raw_source_ids
+MECH_AMYLOID,amyloid,amyloid,,AlzBiomarker,amyloid
+MECH_OTHER,other,other,,AlzBiomarker|AlzForum.Therapeutics,other
+MECH_TAU,tau,tau,,AlzBiomarker|AlzForum.Therapeutics,tau
+MECH_INFLAMMATION,inflammation,inflammation,,AlzBiomarker|AlzForum.Therapeutics,inflammation
+MECH_NEURODEGENERATION,neurodegeneration,neurodegeneration,,AlzBiomarker,neurodegeneration
+MECH_AMYLOID_RELATED,Amyloid-Related,amyloid-related,,AlzForum.Therapeutics,Amyloid-Related
+MECH_OTHER_NEUROTRANSMITTERS,Other Neurotransmitters,other neurotransmitters,,AlzForum.Therapeutics,Other Neurotransmitters
+MECH_CHOLINERGIC_SYSTEM,Cholinergic System,cholinergic system,,AlzForum.Therapeutics,Cholinergic System
+MECH_ALPHA_SYNUCLEIN,alpha-synuclein,alpha-synuclein,,AlzForum.Therapeutics,alpha-synuclein
+MECH_CHOLESTEROL,Cholesterol,cholesterol,,AlzForum.Therapeutics,Cholesterol
+MECH_UNKNOWN,Unknown,unknown,,AlzForum.Therapeutics,Unknown
+MECH_METALS,Metals,metals,,AlzForum.Therapeutics,Metals

@@ -1,0 +1,4 @@
+source_id:START_ID(Disease),target_id:END_ID(Phenotype),onset,frequency,source
+MONDO:0004975,HP:0100543,,,HPO (seeded for AD)
+MONDO:0004975,HP:0002354,,,HPO (seeded for AD)
+MONDO:0004975,HP:0002381,,,HPO (seeded for AD)

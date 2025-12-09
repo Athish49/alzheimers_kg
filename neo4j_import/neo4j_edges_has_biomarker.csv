@@ -1,0 +1,320 @@
+source_id:START_ID(Disease),target_id:END_ID(Biomarker),direction,comparison,disease_group,control_group,effect_size_type,effect_size,ci_lower,ci_upper,p_value,n_studies,n_cases,n_controls,study_id,source,source_text
+MONDO:0004975,albumin_ratio,increased,AD vs CTRL,,,,1.1,,,0.035,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,albumin_ratio,increased,AD vs CTRL,,,,1.103,,,0.026,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,albumin_ratio,increased,AD vs CTRL,,,,1.109,,,0.002,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta38_csf,decreased,AD vs CTRL,,,,0.992,,,0.891,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta38_csf,decreased,AD vs CTRL,,,,0.955,,,0.293,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta38_csf,decreased,AD vs CTRL,,,,0.921,,,0.034,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,decreased,AD vs CTRL,,,,0.945,,,0.019,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,decreased,AD vs CTRL,,,,0.928,,,0.001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,decreased,AD vs CTRL,,,,0.913,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,AD vs CTRL,,,,1.044,,,0.167,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,AD vs CTRL,,,,1.065,,,0.028,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,AD vs CTRL,,,,1.044,,,0.151,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,AD vs CTRL,,,,0.561,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,AD vs CTRL,,,,0.559,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,AD vs CTRL,,,,0.552,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma_serum,increased,AD vs CTRL,,,,1.04,,,0.321,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma_serum,increased,AD vs CTRL,,,,1.031,,,0.387,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma_serum,increased,AD vs CTRL,,,,1.049,,,0.03,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,gfap_csf,increased,AD vs CTRL,,,,1.119,,,0.734,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,gfap_csf,increased,AD vs CTRL,,,,1.119,,,0.736,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,gfap_csf,increased,AD vs CTRL,,,,1.502,,,0.055,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,gfap_plasma_serum,increased,AD vs CTRL,,,,1.928,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_csf,increased,AD vs CTRL,,,,1.394,,,0.0001,,,,,AlzBiomarker,"v1..0 , v.2.0, v.3.0"
+MONDO:0004975,hfabp_csf,increased,AD vs CTRL,,,,1.394,,,0.0001,,,,,AlzBiomarker,"v1..0 , v.2.0, v.3.0"
+MONDO:0004975,hfabp_csf,increased,AD vs CTRL,,,,1.437,,,0.0001,,,,,AlzBiomarker,"v1..0 , v.2.0, v.3.0"
+MONDO:0004975,hfabp_plasma_serum,increased,AD vs CTRL,,,,1.049,,,0.692,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,hfabp_plasma_serum,increased,AD vs CTRL,,,,1.049,,,0.692,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,hfabp_plasma_serum,increased,AD vs CTRL,,,,1.054,,,0.389,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_csf,increased,AD vs CTRL,,,,1.121,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_csf,increased,AD vs CTRL,,,,1.123,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_csf,increased,AD vs CTRL,,,,1.091,,,0.002,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_plasma_serum,decreased,AD vs CTRL,,,,0.999,,,0.986,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_plasma_serum,decreased,AD vs CTRL,,,,0.999,,,0.986,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,mcp_1_plasma_serum,increased,AD vs CTRL,,,,1.04,,,0.411,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,AD vs CTRL,,,,1.937,,,0.0001,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,AD vs CTRL,,,,1.937,,,0.0001,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,AD vs CTRL,,,,1.609,,,0.0001,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_plasma_serum,decreased,AD vs CTRL,,,,0.714,,,0.253,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_plasma_serum,decreased,AD vs CTRL,,,,0.714,,,0.253,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_plasma_serum,decreased,AD vs CTRL,,,,0.714,,,0.253,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,nfl_csf,increased,AD vs CTRL,,,,2.351,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nfl_csf,increased,AD vs CTRL,,,,2.313,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nfl_csf,increased,AD vs CTRL,,,,1.983,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nfl_plasma_serum,increased,AD vs CTRL,,,,1.854,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nse_csf,increased,AD vs CTRL,,,,1.47,,,0.014,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nse_csf,increased,AD vs CTRL,,,,1.47,,,0.014,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nse_csf,increased,AD vs CTRL,,,,1.464,,,0.004,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nse_plasma_serum,decreased,AD vs CTRL,,,,0.999,,,0.992,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nse_plasma_serum,decreased,AD vs CTRL,,,,0.999,,,0.992,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,nse_plasma_serum,decreased,AD vs CTRL,,,,0.999,,,0.992,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,AD vs CTRL,,,,1.032,,,0.554,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,AD vs CTRL,,,,1.026,,,0.558,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,AD vs CTRL,,,,1.035,,,0.438,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_plasma_serum,increased,AD vs CTRL,,,,1.501,,,0.114,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,increased,AD vs CTRL,,,,1.018,,,0.605,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_csf,increased,AD vs CTRL,,,,1.02,,,0.542,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_csf,increased,AD vs CTRL,,,,1.013,,,0.629,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_plasma_serum,decreased,AD vs CTRL,,,,0.7,,,0.3,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,strem2_csf,increased,AD vs CTRL,,,,1.272,,,0.0001,,,,,AlzBiomarker,"v.1.2 , v.2.0, v.3.0"
+MONDO:0004975,strem2_csf,increased,AD vs CTRL,,,,1.272,,,0.0001,,,,,AlzBiomarker,"v.1.2 , v.2.0, v.3.0"
+MONDO:0004975,strem2_csf,increased,AD vs CTRL,,,,1.314,,,0.0001,,,,,AlzBiomarker,"v.1.2 , v.2.0, v.3.0"
+MONDO:0004975,tau_phospho_csf,increased,AD vs CTRL,,,,1.882,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0"
+MONDO:0004975,tau_phospho_csf,increased,AD vs CTRL,,,,1.882,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0"
+MONDO:0004975,tau_p181_csf,increased,AD vs CTRL,,,,1.867,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,increased,AD vs CTRL,,,,1.799,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p217_csf,increased,AD vs CTRL,,,,10.988,,,0.0001,,,,,AlzBiomarker,v3..0
+MONDO:0004975,tau_p217_plasma_serum,increased,AD vs CTRL,,,,3.876,,,0.082,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p231_csf,increased,AD vs CTRL,,,,5.893,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,increased,AD vs CTRL,,,,2.535,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2,0, v3.0"
+MONDO:0004975,tau_total_csf,increased,AD vs CTRL,,,,2.48,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2,0, v3.0"
+MONDO:0004975,tau_total_csf,increased,AD vs CTRL,,,,2.477,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2,0, v3.0"
+MONDO:0004975,tau_total_plasma_serum,increased,AD vs CTRL,,,,1.948,,,0.018,,,,,AlzBiomarker,"v1.0 , v.2.0, v3.0"
+MONDO:0004975,tau_total_plasma_serum,increased,AD vs CTRL,,,,1.788,,,0.006,,,,,AlzBiomarker,"v1.0 , v.2.0, v3.0"
+MONDO:0004975,tau_total_plasma_serum,increased,AD vs CTRL,,,,1.398,,,0.0001,,,,,AlzBiomarker,"v1.0 , v.2.0, v3.0"
+MONDO:0004975,vlp_1_csf,increased,AD vs CTRL,,,,1.457,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,vlp_1_csf,increased,AD vs CTRL,,,,1.355,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,vlp_1_csf,increased,AD vs CTRL,,,,1.546,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_csf,increased,AD vs CTRL,,,,1.285,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_csf,increased,AD vs CTRL,,,,1.291,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_csf,increased,AD vs CTRL,,,,1.362,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_plasma,increased,AD vs CTRL,,,,1.95,,,0.053,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_plasma,increased,AD vs CTRL,,,,1.95,,,0.053,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,ykl_40_plasma,increased,AD vs CTRL,,,,2.205,,,0.017,,,,,AlzBiomarker,"v.1.0 , v.2.0, v3.0"
+MONDO:0004975,synuclein_csf,increased,AD vs CTRL,,,,1.169,,,0.009,,,,,AlzBiomarker,"v.2.1, v3.0"
+MONDO:0004975,synuclein_csf,increased,AD vs CTRL,,,,1.183,,,0.0004,,,,,AlzBiomarker,"v.2.1, v3.0"
+MONDO:0004975,synuclein_plasma_serum,decreased,AD vs CTRL,,,,0.909,,,0.326,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,increased,MCI-AD vs MCI-Stable,,,,1.056,,,0.343,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta38_csf,increased,MCI-AD vs MCI-Stable,,,,1.127,,,0.01,,,,,AlzBiomarker,"v.2.0, v.3.0"
+MONDO:0004975,abeta38_csf,increased,MCI-AD vs MCI-Stable,,,,1.127,,,0.01,,,,,AlzBiomarker,"v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,decreased,MCI-AD vs MCI-Stable,,,,0.984,,,0.715,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,increased,MCI-AD vs MCI-Stable,,,,1.01,,,0.819,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_csf,no_change,MCI-AD vs MCI-Stable,,,,1.0,,,0.986,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,MCI-AD vs MCI-Stable,,,,1.066,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,MCI-AD vs MCI-Stable,,,,1.066,,,0.0002,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta40_plasma_serum,increased,MCI-AD vs MCI-Stable,,,,1.018,,,0.617,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,MCI-AD vs MCI-Stable,,,,0.674,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,MCI-AD vs MCI-Stable,,,,0.663,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_csf,decreased,MCI-AD vs MCI-Stable,,,,0.672,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma,decreased,MCI-AD vs MCI-Stable,,,,0.807,,,0.324,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma,decreased,MCI-AD vs MCI-Stable,,,,0.807,,,0.324,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,abeta42_plasma,decreased,MCI-AD vs MCI-Stable,,,,0.952,,,0.785,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,MCI-AD vs MCI-Stable,,,,1.542,,,0.003,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,MCI-AD vs MCI-Stable,,,,1.542,,,0.003,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,neurogranin_csf,increased,MCI-AD vs MCI-Stable,,,,1.542,,,0.003,,,,,AlzBiomarker,"v.1.1 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,MCI-AD vs MCI-Stable,,,,1.091,,,0.195,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,MCI-AD vs MCI-Stable,,,,1.091,,,0.195,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sapp_csf,increased,MCI-AD vs MCI-Stable,,,,1.091,,,0.195,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_csf,increased,MCI-AD vs MCI-Stable,,,,1.055,,,0.586,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_csf,increased,MCI-AD vs MCI-Stable,,,,1.055,,,0.586,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,sappbeta_csf,increased,MCI-AD vs MCI-Stable,,,,1.055,,,0.586,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,tau_phospho_csf,increased,MCI-AD vs MCI-Stable,,,,1.719,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0"
+MONDO:0004975,tau_phospho_csf,increased,MCI-AD vs MCI-Stable,,,,1.677,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0"
+MONDO:0004975,tau_p181_csf,increased,MCI-AD vs MCI-Stable,,,,1.566,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,increased,MCI-AD vs MCI-Stable,,,,1.758,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,tau_total_csf,increased,MCI-AD vs MCI-Stable,,,,1.73,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,tau_total_csf,increased,MCI-AD vs MCI-Stable,,,,1.754,,,0.0001,,,,,AlzBiomarker,"v.1.0 , v.2.0, v.3.0"
+MONDO:0004975,tau_total_plasma_serum,increased,MCI-AD vs MCI-Stable,,,,1.364,,,0.016,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,vlp_1_csf,increased,MCI-AD vs MCI-Stable,,,,1.397,,,0.02,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,increased,MCI-AD vs MCI-Stable,,,,1.271,,,0.0001,,,,,AlzBiomarker,"v.2.0, v.3.0"
+MONDO:0004975,ykl_40_csf,increased,MCI-AD vs MCI-Stable,,,,1.125,,,0.08,,,,,AlzBiomarker,"v.2.0, v.3.0"
+MONDO:0004975,synuclein_csf,increased,MCI-AD vs MCI-Stable,,,,1.34,,,0.058,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,ALS vs AD,,,,1.665,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,ALS vs AD,,,,4.503,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_181_csf,decreased,ALS vs AD,,,,0.466,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,ALS vs AD,,,,0.439,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,ARD vs AD,,,,0.463,,,0.186,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,CAA vs AD,,,,0.753,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,decreased,CAA vs AD,,,,0.862,,,0.079,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_181_csf,decreased,CAA vs AD,,,,0.703,,,0.021,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,CAA vs AD,,,,0.686,,,0.052,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,CBS vs AD,,,,1.512,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,increased,CBS vs AD,,,,1.035,,,0.724,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,CBS vs AD,,,,1.653,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_plasma_serum,increased,CBS vs AD,,,,1.507,,,0.18,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,CBS vs AD,,,,0.938,,,0.597,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,CBS vs AD,,,,0.686,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,CBS vs AD,,,,0.675,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,CBS vs AD,,,,0.513,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,decreased,CBS vs AD,,,,0.365,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,CBS vs AD,,,,0.494,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,CBS vs AD,,,,0.736,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta38_csf,increased,CTRL vs AD,,,,1.086,,,0.034,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,increased,CTRL vs AD,,,,1.098,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_plasma_serum,decreased,CTRL vs AD,,,,0.952,,,0.105,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,CTRL vs AD,,,,1.818,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_plasma_serum,decreased,CTRL vs AD,,,,0.959,,,0.058,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gfap_csf,decreased,CTRL vs AD,,,,0.666,,,0.055,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gfap_plasma_serum,decreased,CTRL vs AD,,,,0.519,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,decreased,CTRL vs AD,,,,0.917,,,0.002,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_plasma_serum,decreased,CTRL vs AD,,,,0.962,,,0.411,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,decreased,CTRL vs AD,,,,0.505,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_plasma_serum,decreased,CTRL vs AD,,,,0.54,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nse_csf,decreased,CTRL vs AD,,,,0.683,,,0.004,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nse_plasma_serum,increased,CTRL vs AD,,,,1.001,,,0.992,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,vlp_1_csf,decreased,CTRL vs AD,,,,0.647,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,CTRL vs AD,,,,0.733,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_plasma_serum,decreased,CTRL vs AD,,,,0.411,,,0.015,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,decreased,CTRL vs AD,,,,0.901,,,0.003,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_csf,decreased,CTRL vs AD,,,,0.696,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_plasma_serum,decreased,CTRL vs AD,,,,0.949,,,0.389,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,CTRL vs AD,,,,0.622,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_plasma_serum,increased,CTRL vs AD,,,,1.4,,,0.253,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,CTRL vs AD,,,,0.966,,,0.438,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_plasma_serum,decreased,CTRL vs AD,,,,0.666,,,0.114,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,CTRL vs AD,,,,0.987,,,0.629,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_plasma_serum,increased,CTRL vs AD,,,,1.429,,,0.3,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,strem2_csf,decreased,CTRL vs AD,,,,0.761,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,CTRL vs AD,,,,0.531,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,decreased,CTRL vs AD,,,,0.556,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p217_csf,decreased,CTRL vs AD,,,,0.091,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p217_plasma_serum,decreased,CTRL vs AD,,,,0.258,,,0.082,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p231_csf,decreased,CTRL vs AD,,,,0.17,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,CTRL vs AD,,,,0.402,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,decreased,CTRL vs AD,,,,0.728,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,CTRL vs AD,,,,0.845,,,0.0004,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_plasma_serum,increased,CTRL vs AD,,,,1.1,,,0.325,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,DEP vs AD,,,,0.911,,,0.085,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,DEP vs AD,,,,1.918,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,DEP vs AD,,,,0.553,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,DEP vs AD,,,,0.338,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta38_csf,decreased,DLB vs AD,,,,0.714,,,0.051,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,DLB vs AD,,,,0.84,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,DLB vs AD,,,,1.159,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,increased,DLB vs AD,,,,1.26,,,0.0002,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,DLB vs AD,,,,1.191,,,0.247,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,DLB vs AD,,,,0.92,,,0.027,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_csf,decreased,DLB vs AD,,,,0.936,,,0.466,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_plasma_serum,increased,DLB vs AD,,,,2.276,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,DLB vs AD,,,,0.58,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,DLB vs AD,,,,0.843,,,0.116,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,DLB vs AD,,,,0.874,,,0.34,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,strem2_csf,increased,DLB vs AD,,,,1.104,,,0.389,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,DLB vs AD,,,,0.56,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,DLB vs AD,,,,0.492,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,DLB vs AD,,,,0.822,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ffi_vs_ad_tau_total_csf,increased,FFI vs AD,,,,1.009,,,0.934,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta38_csf,decreased,FTD vs AD,,,,0.784,,,0.002,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.971,,,0.438,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_plasma_serum,increased,FTD vs AD,,,,1.017,,,0.826,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.657,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_plasma_serum,increased,FTD vs AD,,,,1.163,,,0.005,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gfap_csf,increased,FTD vs AD,,,,1.127,,,0.504,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gfap_plasma_serum,decreased,FTD vs AD,,,,0.813,,,0.124,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,decreased,FTD vs AD,,,,0.929,,,0.121,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,1.848,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_plasma_serum,increased,FTD vs AD,,,,1.167,,,0.095,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,no_change,FTD vs AD,,,,1.0,,,0.992,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,increased,FTD vs AD,,,,1.044,,,0.603,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,FTD vs AD,,,,0.508,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,FTD vs AD,,,,0.862,,,0.05,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,FTD vs AD,,,,0.712,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,strem2_csf,decreased,FTD vs AD,,,,0.923,,,0.648,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.519,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,decreased,FTD vs AD,,,,0.326,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.524,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,decreased,FTD vs AD,,,,0.874,,,0.011,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,FTD vs AD,,,,0.864,,,0.466,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,msa_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.719,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.548,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,decreased,FTD vs AD,,,,0.96,,,0.771,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,1.801,,,0.0004,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,FTD vs AD,,,,0.396,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,FTD vs AD,,,,0.707,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,FTD vs AD,,,,0.735,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.423,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.388,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,FTD vs AD,,,,0.594,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nph_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta38_csf,decreased,FTD vs AD,,,,0.557,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.8,,,0.239,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.37,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,FTD vs AD,,,,0.439,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,FTD vs AD,,,,0.518,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.352,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.352,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,pca_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta42_csf,decreased,FTD vs AD,,,,0.926,,,0.642,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.729,,,0.157,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.615,,,0.213,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,pd_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta38_csf,decreased,FTD vs AD,,,,0.874,,,0.133,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.889,,,0.023,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_plasma_serum,decreased,FTD vs AD,,,,0.962,,,0.437,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.677,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_plasma_serum,increased,FTD vs AD,,,,1.027,,,0.776,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,decreased,FTD vs AD,,,,0.923,,,0.012,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,decreased,FTD vs AD,,,,0.612,,,0.003,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_plasma_serum,decreased,FTD vs AD,,,,0.558,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,FTD vs AD,,,,0.863,,,0.009,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,increased,FTD vs AD,,,,1.189,,,0.004,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_plasma_serum,increased,FTD vs AD,,,,1.088,,,0.614,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,FTD vs AD,,,,0.54,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,FTD vs AD,,,,0.919,,,0.46,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,FTD vs AD,,,,0.921,,,0.415,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,strem2_csf,decreased,FTD vs AD,,,,0.741,,,0.246,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.456,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,decreased,FTD vs AD,,,,0.574,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.351,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,decreased,FTD vs AD,,,,0.572,,,0.003,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,FTD vs AD,,,,0.758,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,pdd_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.206,,,0.267,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.372,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,decreased,FTD vs AD,,,,0.835,,,0.462,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,hfabp_csf,decreased,FTD vs AD,,,,0.814,,,0.093,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin,decreased,FTD vs AD,,,,0.574,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.527,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.43,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,FTD vs AD,,,,0.666,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,psp_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.768,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_plasma_serum,increased,FTD vs AD,,,,1.049,,,0.188,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.475,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_plasma_serum,increased,FTD vs AD,,,,1.16,,,0.019,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,mcp_1_csf,decreased,FTD vs AD,,,,0.981,,,0.724,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,1.487,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_plasma_serum,increased,FTD vs AD,,,,1.147,,,0.423,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,FTD vs AD,,,,0.948,,,0.529,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,FTD vs AD,,,,0.503,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sapp_csf,decreased,FTD vs AD,,,,0.772,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,sappbeta_csf,decreased,FTD vs AD,,,,0.704,,,0.009,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.427,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_plasma_serum,decreased,FTD vs AD,,,,0.348,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.367,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,decreased,FTD vs AD,,,,0.925,,,0.616,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,synuclein_csf,decreased,FTD vs AD,,,,0.693,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,vad_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta38_csf,decreased,FTD vs AD,,,,0.803,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.85,,,0.003,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta40_plasma_serum,increased,FTD vs AD,,,,1.065,,,0.267,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.308,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_plasma_serum,increased,FTD vs AD,,,,1.053,,,0.575,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,1.712,,,0.004,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nse_csf,decreased,FTD vs AD,,,,0.709,,,0.002,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nse_plasma_serum,decreased,FTD vs AD,,,,0.714,,,0.009,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,decreased,FTD vs AD,,,,0.873,,,0.009,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,albumin_ratio,increased,FTD vs AD,,,,1.203,,,0.067,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,neurogranin_csf,decreased,FTD vs AD,,,,0.465,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.545,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,decreased,FTD vs AD,,,,0.595,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,decreased,FTD vs AD,,,,0.602,,,0.042,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gcjd_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,2.002,,,0.039,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,increased,FTD vs AD,,,,1.304,,,0.001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,increased,FTD vs AD,,,,7.025,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,lvppa_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta42_csf,decreased,FTD vs AD,,,,0.999,,,0.976,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.959,,,0.602,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,increased,FTD vs AD,,,,1.039,,,0.733,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,scjd_vs_ad,no_change,FTD vs AD,,,,,,,,,,,,AlzBiomarker,
+MONDO:0004975,abeta40_csf,decreased,FTD vs AD,,,,0.849,,,0.329,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,abeta42_csf,increased,FTD vs AD,,,,1.119,,,0.115,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,gfap_csf,decreased,FTD vs AD,,,,0.774,,,0.589,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,nfl_csf,increased,FTD vs AD,,,,5.194,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,ykl_40_csf,increased,FTD vs AD,,,,1.376,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_p181_csf,decreased,FTD vs AD,,,,0.691,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_csf,increased,FTD vs AD,,,,11.684,,,0.0001,,,,,AlzBiomarker,v.3.0
+MONDO:0004975,tau_total_plasma_serum,increased,FTD vs AD,,,,5.599,,,0.042,,,,,AlzBiomarker,v.3.0

@@ -1,0 +1,4 @@
+id,label,iri,synonyms,source
+CHEBI:53289,donepezil,http://purl.obolibrary.org/obo/CHEBI_53289,,ChEBI
+CHEBI:64312,memantine,http://purl.obolibrary.org/obo/CHEBI_64312,"3,5-dimethyladamantan-1-amine",ChEBI
+CHEBI:8874,rivastigmine,http://purl.obolibrary.org/obo/CHEBI_8874,3-[(1S)-1-(dimethylamino)ethyl]phenyl ethyl(methyl)carbamate,ChEBI

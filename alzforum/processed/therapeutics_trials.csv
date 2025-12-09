@@ -1,0 +1,447 @@
+therapeutic_id,indication,trial_phase_max,has_phase3,status,trial_count,notes
+aab-003,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+aadvac1,"Alzheimer's Disease, Progressive Nonfluent Aphasia",2.0,False,ongoing,3.0,"Alzheimer's Disease (Phase 2), Progressive Nonfluent Aphasia (Phase 1)"
+aav-gad,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+aav2-bdnf,"MCI due to AD, Alzheimer's Disease",1.0,False,ongoing,,"MCI due to AD (Phase 1), Alzheimer's Disease (Phase 1)"
+abbv-1088,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+abbv-552,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+abbv-916,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abt-089,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abt-288,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abt-384,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abt-418,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abt-957,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+abvac40,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+acd856,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+acetyl-l-carnitine-hci,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+aci-24060,"Alzheimer's Disease, Down's Syndrome",12.0,False,ongoing,1.0,"Alzheimer's Disease (Phase 2), Down's Syndrome (Phase 2)"
+aci-3024,"Alzheimer's Disease, Other Tauopathy",0.0,False,ongoing,,"Alzheimer's Disease (Inactive), Other Tauopathy (Phase 0)"
+aci-7104056,"Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Parkinson's Disease (Phase 2), Multiple System Atrophy (Phase 1)"
+acitretin,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+acp-204,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+adel-y01,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+aduhelm,Alzheimer's Disease,3.0,False,approved,2.0,Alzheimer's Disease (Approved)
+af-102b,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+affitope-ad02,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+agb101,MCI-AD,2.0,False,ongoing,,MCI-AD (Phase 2/3)
+ait-101,Amyotrophic Lateral Sclerosis,2.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 2)
+akst4290,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+al002,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+al003,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+al044,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+al101,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+alia-1758,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+allopregnanolone,"Alzheimer's Disease, Parkinson's Disease",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+alpha-tocopherol,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+alx-001,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+alz-101,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+alz-801,Alzheimer's Disease,3.0,True,ongoing,3.0,Alzheimer's Disease (Phase 3)
+alzhemedtm,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+alzt-op1,Alzheimer's Disease,3.0,True,ongoing,1.0,Alzheimer's Disease (Phase 3)
+ambroxol,"Parkinson's Disease, Parkinson's Disease Dementia, Dementia with Lewy Bodies",2.0,False,ongoing,,"Parkinson's Disease (Phase 2), Parkinson's Disease Dementia (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+amilomotide,Alzheimer's Disease,2.0,False,unknown,5.0,Alzheimer's Disease (Inactive)
+an-1792,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+anpd001,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+anx005,Amyotrophic Lateral Sclerosis,2.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 2)
+apabetalone,MCI-VaD,3.0,True,ongoing,,MCI-VaD (Phase 3)
+apnmab005,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+aqneursa,"Niemann-Pick Diseases, Ataxia, Lysosomal Storage Diseases, Nervous System",3.0,True,approved,,"Niemann-Pick Diseases (Approved), Ataxia (Phase 3), Lysosomal Storage Diseases, Nervous System (Phase 2)"
+aqw051,"Alzheimer's Disease, Parkinson's Disease, Schizophrenia",2.0,False,ongoing,,"Alzheimer's Disease (Inactive), Parkinson's Disease (Phase 2), Schizophrenia (Phase 2)"
+ar1001,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+arimoclomol,"Niemann-Pick Diseases, Amyotrophic Lateral Sclerosis, Gaucher Disease",,False,approved,,"Niemann-Pick Diseases (Approved), Amyotrophic Lateral Sclerosis (Discontinued), Gaucher Disease (Discontinued)"
+aripiprazole,"Alzheimer's Disease, Schizophrenia",3.0,True,approved,,"Alzheimer's Disease (Phase 3), Schizophrenia (Approved)"
+arv-102,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+asn51,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+asn90,Progressive Supranuclear Palsy,1.0,False,ongoing,,Progressive Supranuclear Palsy (Phase 1)
+atabecestat,Alzheimer's Disease,23.0,False,discontinued,3.0,Alzheimer's Disease (Discontinued)
+atb2005a,"Alzheimer's Disease, Progressive Supranuclear Palsy",1.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Progressive Supranuclear Palsy (Phase 1)"
+atomoxetine,"Alzheimer's Disease, Parkinson's Disease",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+atorvastatin,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+atuzaginstat,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+autologous-adipose-derived-stem-cells,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1/2)
+av-1959d,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+av-1980ra,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+avagacestat,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+avb-101,Frontotemporal Dementia,1.0,False,ongoing,,Frontotemporal Dementia (Phase 1/2)
+avp-786,"Alzheimer's Disease, Schizophrenia",,False,discontinued,,"Alzheimer's Disease (Discontinued), Schizophrenia (Discontinued)"
+avp-923,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Parkinson's Disease",4.0,True,ongoing,,"Alzheimer's Disease (Phase 4), Amyotrophic Lateral Sclerosis (Phase 3), Parkinson's Disease (Phase 3)"
+axs-05,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+azd1446,Alzheimer's Disease,2.0,False,discontinued,2.0,Alzheimer's Disease (Discontinued)
+azd3293,Alzheimer's Disease,23.0,False,discontinued,2.0,Alzheimer's Disease (Discontinued)
+azd3480,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+azeliragon,Alzheimer's Disease,23.0,False,discontinued,2.0,Alzheimer's Disease (Discontinued)
+bapineuzumab,Alzheimer's Disease,3.0,False,discontinued,10.0,Alzheimer's Disease (Discontinued)
+baricitinib,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 1)"
+bemdaneprocel,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+benfotiamine,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+bepranemab,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,ongoing,1.0,"Progressive Supranuclear Palsy (Phase 1), Alzheimer's Disease (Phase 2)"
+besipirdine-hcl,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+bexarotene,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+bezisterim,"Alzheimer's Disease, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 1/2)"
+bi-1181181,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+bi-409306,"Alzheimer's Disease, Schizophrenia",2.0,False,discontinued,2.0,"Alzheimer's Disease (Discontinued), Schizophrenia (Phase 2)"
+bifidobacterium-breve-a1,Mild Cognitive Impairment,2.0,False,ongoing,,Mild Cognitive Impairment (Phase 2)
+biib076,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+biib078,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+biib080,Alzheimer's Disease,12.0,False,ongoing,1.0,Alzheimer's Disease (Phase 1)
+biib100,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+biib105,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+biib113,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+biib118,"Alzheimer's Disease, Parkinson's Disease",1.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Parkinson's Disease (Phase 1)"
+blarcamesine,"Alzheimer's Disease, Parkinson's Disease Dementia, Parkinson's Disease",2.0,False,ongoing,1.0,"Alzheimer's Disease (Phase 2/3), Parkinson's Disease Dementia (Phase 2), Parkinson's Disease (Phase 1)"
+bms-986446,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+bosutinib,"Alzheimer's Disease, Dementia with Lewy Bodies",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+bpn14770,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+brexpiprazole,"Alzheimer's Disease, Schizophrenia",3.0,False,approved,2.0,"Alzheimer's Disease (Approved), Schizophrenia (Approved)"
+bryostatin-1,Alzheimer's Disease,2.0,False,ongoing,3.0,Alzheimer's Disease (Phase 2)
+bt-267,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+buntanetap,"Alzheimer's Disease, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 2/3), Parkinson's Disease (Phase 3)"
+bxcl501,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+candesartan,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,ongoing,,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Phase 2)"
+cannabidiol,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+carvedilol,Alzheimer's Disease,4.0,True,ongoing,,Alzheimer's Disease (Phase 4)
+cdnf,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1/2)
+celecoxib,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+ceperognastat,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+cere-110,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+cerebrolysin,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+chf-5074,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,ongoing,2.0,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Inactive)"
+cinpanemab,Parkinson's Disease,,False,discontinued,,Parkinson's Disease (Discontinued)
+circadin,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+citalopram,"Alzheimer's Disease, Preclinical Alzheimer's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Preclinical Alzheimer's Disease (Inactive)"
+clioquinol,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+cnm-au8,"Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Parkinson's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 2/3)"
+cocoa-flavanols,Mild Cognitive Impairment,,False,unknown,,Mild Cognitive Impairment (Not Regulated)
+cognishunt%E2%84%A2,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+continuous-positive-airway-pressure,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+coya-302,"Amyotrophic Lateral Sclerosis, Frontotemporal Dementia",1.0,False,ongoing,,"Amyotrophic Lateral Sclerosis (Phase 1), Frontotemporal Dementia (Phase 1)"
+cpg-1018r,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+crenezumab,Alzheimer's Disease,3.0,False,discontinued,5.0,Alzheimer's Disease (Discontinued)
+cs6253,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+cst-103,"Mild Cognitive Impairment, Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 2)"
+cst-2032,"Mild Cognitive Impairment, Parkinson's Disease",2.0,False,ongoing,,"Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2)"
+curcumin,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+cx516,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+cy6463,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+dapagliflozin,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1/2)
+dapsone,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+dasatinib-quercetin,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1/2)
+davunetide,"Mild Cognitive Impairment, Progressive Supranuclear Palsy, Schizophrenia, Frontotemporal Dementia, Autism Spectrum Disorder",3.0,True,ongoing,,"Mild Cognitive Impairment (Inactive), Progressive Supranuclear Palsy (Inactive), Schizophrenia (Inactive), Frontotemporal Dementia (Inactive), Autism Spectrum Disorder (Phase 3)"
+dayvigo,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+deep-brain-stimulation-fornix,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+deep-brain-stimulation-nucleus-basalis-meynert,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+deferiprone,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2/3), Amyotrophic Lateral Sclerosis (Phase 2/3)"
+dexpramipexole,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,discontinued,1.0,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Discontinued)"
+dimebon,"Alzheimer's Disease, Huntington's Disease",,False,discontinued,,"Alzheimer's Disease (Discontinued), Huntington's Disease (Discontinued)"
+dipraglurant,Parkinson's Disease,,False,discontinued,,Parkinson's Disease (Discontinued)
+dnl151,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+dnl201,Parkinson's Disease,,False,unknown,,Parkinson's Disease (Inactive)
+dnl343,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+dnl593,Frontotemporal Dementia,1.0,False,ongoing,,Frontotemporal Dementia (Phase 1/2)
+dnl747,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",,False,unknown,,"Alzheimer's Disease (Inactive), Amyotrophic Lateral Sclerosis (Inactive)"
+dnl788,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+dnl919,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+docosahexaenoic-acid-dha,Alzheimer's Disease,4.0,True,ongoing,,Alzheimer's Disease (Phase 4)
+donepezil,"Alzheimer's Disease, Dementia with Lewy Bodies, Down's Syndrome, Parkinson's Disease Dementia",,False,approved,,"Alzheimer's Disease (Approved), Dementia with Lewy Bodies (Inactive), Down's Syndrome (Inactive), Parkinson's Disease Dementia (Inactive)"
+dronabinol,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+e2511,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+edaravone,Amyotrophic Lateral Sclerosis,4.0,True,ongoing,,Amyotrophic Lateral Sclerosis (Phase 4)
+edicotinib,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+edonerpic,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+efavirenz,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+eht-0202,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+elenbecestat,Alzheimer's Disease,3.0,False,discontinued,3.0,Alzheimer's Disease (Discontinued)
+elnd005,Alzheimer's Disease,2.0,False,unknown,2.0,Alzheimer's Disease (Inactive)
+empagliflozin,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+emrusolmin,"Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Parkinson's Disease (Phase 1/2), Multiple System Atrophy (Phase 2)"
+emtricitabine,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+encenicline,"Alzheimer's Disease, Schizophrenia",3.0,False,discontinued,3.0,"Alzheimer's Disease (Discontinued), Schizophrenia (Discontinued)"
+engensis-0,Amyotrophic Lateral Sclerosis,2.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 2)
+epigallocatechin-gallate-egcg,"Alzheimer's Disease, Down's Syndrome, Multiple System Atrophy",3.0,True,ongoing,,"Alzheimer's Disease (Phase 2/3), Down's Syndrome (Phase 2), Multiple System Atrophy (Phase 3)"
+epothilone-d,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+eptastigmine,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+estrogen,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+etalanetug,Alzheimer's Disease,23.0,False,ongoing,2.0,Alzheimer's Disease (Phase 2/3)
+etanercept,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+evp-0962,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,discontinued,1.0,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+exenatide,"Alzheimer's Disease, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Inactive), Parkinson's Disease (Phase 3)"
+exidavnemab,"Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Parkinson's Disease (Phase 2), Multiple System Atrophy (Phase 2)"
+ezeprogind,Progressive Supranuclear Palsy,2.0,False,ongoing,,Progressive Supranuclear Palsy (Phase 2)
+flurizan,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+focused-ultrasound-blood-brain-barrier,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Mild Cognitive Impairment, Parkinson's Disease",1.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Amyotrophic Lateral Sclerosis (Phase 1), Mild Cognitive Impairment (Phase 1), Parkinson's Disease (Phase 1)"
+foralumab,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 2)"
+fosgonimeton,"Alzheimer's Disease, Dementia with Lewy Bodies, Parkinson's Disease Dementia",2.0,False,discontinued,4.0,"Alzheimer's Disease (Discontinued), Dementia with Lewy Bodies (Discontinued), Parkinson's Disease Dementia (Discontinued)"
+fosigotifator,Amyotrophic Lateral Sclerosis,,False,discontinued,,Amyotrophic Lateral Sclerosis (Discontinued)
+frm-0334,Frontotemporal Dementia,2.0,False,discontinued,1.0,Frontotemporal Dementia (Discontinued)
+g-csf,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+galantamine,Alzheimer's Disease,,False,approved,,Alzheimer's Disease (Approved)
+gammagardr,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+gamunex,Alzheimer's Disease,23.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2/3)
+gantenerumab,Alzheimer's Disease,23.0,False,discontinued,9.0,Alzheimer's Disease (Discontinued)
+gc021109,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+gemfibrozil,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+gosuranemab,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,discontinued,2.0,"Progressive Supranuclear Palsy (Discontinued), Alzheimer's Disease (Discontinued)"
+grf6019,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+grf6021,Parkinson's Disease Dementia,2.0,False,ongoing,,Parkinson's Disease Dementia (Phase 2)
+gsk239512,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+gsk2647544,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+gsk933776,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+gt-02287,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+guanfacine,Alzheimer's Disease,3.0,True,ongoing,1.0,Alzheimer's Disease (Phase 3)
+gv-971,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+gv1001,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+hf0220,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+hmtm,"Alzheimer's Disease, Frontotemporal Dementia",23.0,True,ongoing,5.0,"Alzheimer's Disease (Phase 3), Frontotemporal Dementia (Phase 3)"
+htl0018318,"Alzheimer's Disease, Dementia with Lewy Bodies",,False,unknown,,"Alzheimer's Disease (Inactive), Dementia with Lewy Bodies (Inactive)"
+huperzine,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+ibc-ab002,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+ibuprofen,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+iclepertin,"Alzheimer's Disease, Schizophrenia",3.0,True,discontinued,1.0,"Alzheimer's Disease (Discontinued), Schizophrenia (Phase 3)"
+idalopirdine,"Alzheimer's Disease, Schizophrenia",3.0,False,discontinued,5.0,"Alzheimer's Disease (Discontinued), Schizophrenia (Inactive)"
+idebenone,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+intepirdine,"Alzheimer's Disease, Dementia with Lewy Bodies",3.0,False,discontinued,4.0,"Alzheimer's Disease (Discontinued), Dementia with Lewy Bodies (Discontinued)"
+intranasal-oxytocin,Frontotemporal Dementia,2.0,False,ongoing,,Frontotemporal Dementia (Phase 2)
+inzomelid,"Alzheimer's Disease, Parkinson's Disease",,False,discontinued,,"Alzheimer's Disease (Discontinued), Parkinson's Disease (Discontinued)"
+ion464,Multiple System Atrophy,,False,discontinued,,Multiple System Atrophy (Discontinued)
+ion859,Parkinson's Disease,,False,discontinued,,Parkinson's Disease (Discontinued)
+irsenontrine,Dementia with Lewy Bodies,2.0,False,ongoing,,Dementia with Lewy Bodies (Phase 2)
+iti-1284,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+jnj-64042056,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+karxt,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+ketasyn,Alzheimer's Disease,4.0,True,ongoing,,Alzheimer's Disease (Phase 4)
+kisunla,Alzheimer's Disease,3.0,False,approved,3.0,Alzheimer's Disease (Approved)
+kmct-ons,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Not Regulated)
+kp405,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+kynmobi,Parkinson's Disease,,False,approved,,Parkinson's Disease (Approved)
+ladostigil,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,discontinued,,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Discontinued)"
+lamivudine,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+latozinemab,"Frontotemporal Dementia, Amyotrophic Lateral Sclerosis",,False,discontinued,,"Frontotemporal Dementia (Discontinued), Amyotrophic Lateral Sclerosis (Inactive)"
+lenalidomide,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+leqembi,Alzheimer's Disease,3.0,False,approved,3.0,Alzheimer's Disease (Approved)
+leucettinib-21,"Alzheimer's Disease, Down's Syndrome",1.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Down's Syndrome (Phase 1)"
+leuprolide,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+levetiracetam,"Alzheimer's Disease, Parkinson's Disease",2.0,False,discontinued,1.0,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued)"
+levodopa,Parkinson's Disease,,False,approved,,Parkinson's Disease (Approved)
+linopirdine,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+liraglutide,"Alzheimer's Disease, Parkinson's Disease",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2)"
+lithium,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Frontotemporal Dementia, Mild Cognitive Impairment, Parkinson's Disease",4.0,True,ongoing,,"Alzheimer's Disease (Phase 4), Amyotrophic Lateral Sclerosis (Phase 3), Frontotemporal Dementia (Inactive), Mild Cognitive Impairment (Phase 4), Parkinson's Disease (Phase 2)"
+lixisenatide,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+lm11a-31-bhs,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+lomecel-b,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+lornoxicam,"Alzheimer's Disease, Mild Cognitive Impairment",,False,discontinued,,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+losartan,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+low-dose-interleukin-2,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,ongoing,,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 3)"
+low-intensity-focused-ultrasound,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2)"
+lti-291,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+lu-af20513,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+lu-af82422,"Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Parkinson's Disease (Phase 1), Multiple System Atrophy (Phase 2)"
+lu-af87908,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+lu-af88434,Mild Cognitive Impairment,,False,discontinued,,Mild Cognitive Impairment (Discontinued)
+lu25-109,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+lumateperone,"Alzheimer's Disease, Schizophrenia, Bipolar Disorder",,False,approved,,"Alzheimer's Disease (Discontinued), Schizophrenia (Approved), Bipolar Disorder (Approved)"
+lx1001,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1/2)
+ly2599666,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+ly2886721,"Alzheimer's Disease, Mild Cognitive Impairment",,False,discontinued,,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+ly3202626,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+ly3884961,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1/2)
+ly3884963,Frontotemporal Dementia,1.0,False,ongoing,,Frontotemporal Dementia (Phase 1/2)
+ly3954068,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+ly3962681,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+masitinib,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,ongoing,2.0,"Alzheimer's Disease (Phase 3), Amyotrophic Lateral Sclerosis (Phase 3)"
+masupirdine,Alzheimer's Disease,3.0,True,ongoing,1.0,Alzheimer's Disease (Phase 3)
+medi1814,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+melatonin,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+mem-1003,"Alzheimer's Disease, Mild Cognitive Impairment, Vascular Dementia, Bipolar Disorder",,False,discontinued,,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued), Vascular Dementia (Discontinued), Bipolar Disorder (Discontinued)"
+memantine,Alzheimer's Disease,,False,approved,,Alzheimer's Disease (Approved)
+memorem-transcranial-electromagnetic-treatment,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+metformin,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+methylphenidate,Alzheimer's Disease,4.0,True,ongoing,,Alzheimer's Disease (Phase 4)
+metrifonate,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+mevidalen,"Parkinson's Disease Dementia, Dementia with Lewy Bodies",2.0,False,ongoing,,"Parkinson's Disease Dementia (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+milameline,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+minocycline,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+minzasolmin,Parkinson's Disease,,False,discontinued,,Parkinson's Disease (Discontinued)
+mirtazapine,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+mivelsiran,"Alzheimer's Disease, Cerebral Amyloid Angiopathy",2.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Cerebral Amyloid Angiopathy (Phase 2)"
+mk-1167,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+mk-1942,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+mk-2214,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+mk-7622,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+mk-8189,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+mkc-231,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+montelukast,"Alzheimer's Disease, Parkinson's Disease",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2)"
+msdc-0160,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+multivitamin-mineral-supplement,Mild Cognitive Impairment,,False,unknown,,Mild Cognitive Impairment (Not Regulated)
+mw150-0,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+mw151,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+na-831,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+nabilone,"Alzheimer's Disease, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 2)"
+naproxen,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+nasal-insulin,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2/3), Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2), Multiple System Atrophy (Phase 2)"
+nb-4746,Amyotrophic Lateral Sclerosis,1.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 1)
+nefiracetam,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+neflamapimod,"Alzheimer's Disease, Dementia with Lewy Bodies, Huntington's Disease",2.0,False,discontinued,2.0,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2), Huntington's Disease (Discontinued)"
+nelonicline,"Alzheimer's Disease, Schizophrenia",2.0,False,discontinued,5.0,"Alzheimer's Disease (Discontinued), Schizophrenia (Inactive)"
+nelotanserin,Dementia with Lewy Bodies,,False,discontinued,,Dementia with Lewy Bodies (Discontinued)
+neotrofin,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+neramexane,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+neu-411,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+neuroad,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Rejected)
+nic5-15,Alzheimer's Disease,2.0,False,ongoing,2.0,Alzheimer's Disease (Phase 2)
+nicotinamide-riboside,"Alzheimer's Disease, Parkinson's Disease, Mild Cognitive Impairment",2.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Parkinson's Disease (Phase 2), Mild Cognitive Impairment (Phase 1/2)"
+nilotinib,"Parkinson's Disease, Dementia with Lewy Bodies, Alzheimer's Disease",2.0,False,ongoing,,"Parkinson's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2), Alzheimer's Disease (Inactive)"
+nilvadipine,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+nimodipine,Frontotemporal Dementia,,False,discontinued,,Frontotemporal Dementia (Discontinued)
+nio752,"Progressive Supranuclear Palsy, Alzheimer's Disease",1.0,False,ongoing,,"Progressive Supranuclear Palsy (Phase 1), Alzheimer's Disease (Phase 1)"
+nivegacetor,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+nmra-511,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+npt520-34,"Amyotrophic Lateral Sclerosis, Parkinson's Disease",1.0,False,ongoing,,"Amyotrophic Lateral Sclerosis (Phase 1), Parkinson's Disease (Phase 1)"
+ns2330,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+nsc001,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1/2)
+nt-0796,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1/2)
+ntrx-07,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+nuplazid,"Alzheimer's Disease, Schizophrenia, Dementia, Depression",,False,discontinued,,"Alzheimer's Disease (Rejected), Schizophrenia (Discontinued), Dementia (Rejected), Depression (Discontinued)"
+nurowntm,Amyotrophic Lateral Sclerosis,3.0,True,ongoing,,Amyotrophic Lateral Sclerosis (Phase 3)
+nuz-001,Amyotrophic Lateral Sclerosis,1.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 1)
+nx210c,"Amyotrophic Lateral Sclerosis, Parkinson's Disease",2.0,False,ongoing,,"Amyotrophic Lateral Sclerosis (Phase 2), Parkinson's Disease (Phase 1)"
+nyx-458,PD-MCI,,False,discontinued,,PD-MCI (Discontinued)
+obicetrapib,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+octagam%C2%AE,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,unknown,2.0,"Alzheimer's Disease (Inactive), Mild Cognitive Impairment (Inactive)"
+olx-07010,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+opm-201,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+orm-12741,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+pbft02,Frontotemporal Dementia,1.0,False,ongoing,,Frontotemporal Dementia (Phase 1/2)
+pbt2,"Alzheimer's Disease, Huntington's Disease",,False,unknown,,"Alzheimer's Disease (Inactive), Huntington's Disease (Inactive)"
+pepinemab,"Alzheimer's Disease, Huntington's Disease",2.0,False,ongoing,,"Alzheimer's Disease (Phase 1/2), Huntington's Disease (Phase 2)"
+pf-05212377,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+pf-06648671,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+pf-06751979,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+pf-06852231,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+phenserine,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+photobiomodulation,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",,False,unknown,,"Alzheimer's Disease (Not Regulated), Mild Cognitive Impairment (Not Regulated), Parkinson's Disease (Not Regulated)"
+physostigmine-salicylate,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+pioglitazone,Mild Cognitive Impairment,3.0,True,ongoing,2.0,Mild Cognitive Impairment (Phase 3)
+piromelatine,Alzheimer's Disease,2.0,False,ongoing,1.0,Alzheimer's Disease (Phase 2)
+pmn310,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+pnt001,"Alzheimer's Disease, Traumatic Brain Injury",,False,unknown,,"Alzheimer's Disease (Inactive), Traumatic Brain Injury (Inactive)"
+ponezumab,"Alzheimer's Disease, Cerebral Amyloid Angiopathy",2.0,False,discontinued,2.0,"Alzheimer's Disease (Discontinued), Cerebral Amyloid Angiopathy (Discontinued)"
+posdinemab,Mild AD,2.0,False,ongoing,1.0,Mild AD (Phase 2)
+prasinezumab,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+prazosin,Alzheimer's Disease,4.0,True,ongoing,,Alzheimer's Disease (Phase 4)
+prednisone,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+pri-002,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+pridopidine,"Amyotrophic Lateral Sclerosis, Huntington's Disease, Parkinson's Disease",3.0,True,ongoing,,"Amyotrophic Lateral Sclerosis (Phase 2/3), Huntington's Disease (Phase 3), Parkinson's Disease (Inactive)"
+primec,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+propentofylline,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+protollin,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+prx-03140,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+prx012,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+pu-ad,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+pxt864,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+qalsodytm,Amyotrophic Lateral Sclerosis,,False,approved,,Amyotrophic Lateral Sclerosis (Approved)
+qrl-101,Amyotrophic Lateral Sclerosis,1.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 1)
+qrl-201,Amyotrophic Lateral Sclerosis,1.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 1)
+rasagiline,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,approved,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Approved), Amyotrophic Lateral Sclerosis (Inactive)"
+relyvrio,"Amyotrophic Lateral Sclerosis, Alzheimer's Disease, Progressive Supranuclear Palsy",2.0,False,discontinued,1.0,"Amyotrophic Lateral Sclerosis (Withdrawn), Alzheimer's Disease (Inactive), Progressive Supranuclear Palsy (Discontinued)"
+rem0045392,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+rember-tm,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+remternetug,Alzheimer's Disease,23.0,True,ongoing,3.0,Alzheimer's Disease (Phase 3)
+resveratrol,"Alzheimer's Disease, Mild Cognitive Impairment",4.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 4)"
+rg3487,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+rg7129,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+rg7345,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+rilapladib,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+riluzole,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis, Huntington's Disease",2.0,False,approved,1.0,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued), Amyotrophic Lateral Sclerosis (Approved), Huntington's Disease (Discontinued)"
+risvodetinib,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+rivastigmine,"Alzheimer's Disease, Parkinson's Disease Dementia",,False,approved,,"Alzheimer's Disease (Approved), Parkinson's Disease Dementia (Approved)"
+rns60,Amyotrophic Lateral Sclerosis,2.0,False,ongoing,,Amyotrophic Lateral Sclerosis (Phase 2)
+rofecoxib,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+rosiglitazone,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+rotigotine,"Alzheimer's Disease, Frontotemporal Dementia",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Frontotemporal Dementia (Phase 2)"
+s-38093,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+s-equol,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+s47445,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+s603,"Alzheimer's Disease, Mild Cognitive Impairment",1.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Mild Cognitive Impairment (Phase 1)"
+sabeluzole,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+sabirnetug,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+safinamide,"Multiple System Atrophy, Parkinson's Disease",2.0,False,approved,,"Multiple System Atrophy (Phase 2), Parkinson's Disease (Approved)"
+sage-718,"Alzheimer's Disease, Parkinson's Disease, Huntington's Disease",2.0,False,discontinued,,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued), Huntington's Disease (Phase 2)"
+sar110894d,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+sar228810,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+sar446159,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+saracatinib,"Alzheimer's Disease, Parkinson's Disease",2.0,False,discontinued,1.0,"Alzheimer's Disease (Discontinued), Parkinson's Disease (Phase 1)"
+sargramostim,"Alzheimer's Disease, Parkinson's Disease",2.0,False,ongoing,2.0,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+sb-202026,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+selnoflast,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+seltorexant,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+semagacestat,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+semaglutide,"Alzheimer's Disease, Parkinson's Disease",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 2)"
+sembragiline,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+semorinemab,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+sensory-stimulation-systems,"Alzheimer's Disease, Parkinson's Disease, Down's Syndrome",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Not Regulated), Down's Syndrome (Not Regulated)"
+sgs-742,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+shr-1707,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+simufilam,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+simvastatin,"Alzheimer's Disease, Mild Cognitive Impairment",4.0,True,ongoing,,"Alzheimer's Disease (Inactive), Mild Cognitive Impairment (Phase 4)"
+snp318,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+solanezumab,Alzheimer's Disease,23.0,False,discontinued,11.0,Alzheimer's Disease (Discontinued)
+solengepras,Parkinson's Disease,3.0,True,ongoing,,Parkinson's Disease (Phase 3)
+souvenaid,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Not Regulated)
+spg302,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 1/2)"
+st101,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+suritozole,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+suvn-g3031,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+suvorexant,Alzheimer's Disease,,False,approved,,Alzheimer's Disease (Approved)
+t3d-959,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+tacrine,Alzheimer's Disease,,False,approved,,Alzheimer's Disease (Approved)
+tak-341,"Parkinson's Disease, Multiple System Atrophy",2.0,False,ongoing,,"Parkinson's Disease (Phase 1), Multiple System Atrophy (Phase 2)"
+tavapadon,Parkinson's Disease,3.0,True,ongoing,,Parkinson's Disease (Phase 3)
+tb006,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+telmisartan,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+thalidomide,Alzheimer's Disease,23.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+thn391,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+tideglusib,"Alzheimer's Disease, Progressive Supranuclear Palsy",,False,discontinued,,"Alzheimer's Disease (Discontinued), Progressive Supranuclear Palsy (Discontinued)"
+tilavonemab,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,discontinued,1.0,"Progressive Supranuclear Palsy (Discontinued), Alzheimer's Disease (Discontinued)"
+tpi-287,"Alzheimer's Disease, Corticobasal Degeneration, Progressive Supranuclear Palsy",1.0,False,ongoing,,"Alzheimer's Disease (Inactive), Corticobasal Degeneration (Inactive), Progressive Supranuclear Palsy (Phase 1)"
+tpn-101,"ALS-FTD, Progressive Supranuclear Palsy",2.0,False,ongoing,,"ALS-FTD (Phase 2), Progressive Supranuclear Palsy (Phase 2)"
+transcutaneous-auricular-vagal-afferent-nerve-stimulation,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",,False,unknown,,"Alzheimer's Disease (Not Regulated), Mild Cognitive Impairment (Not Regulated), Parkinson's Disease (Not Regulated)"
+trappsolr-cyclotm,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+trazodone,"Alzheimer's Disease, Mild Cognitive Impairment, Amyotrophic Lateral Sclerosis",3.0,True,ongoing,,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 3), Amyotrophic Lateral Sclerosis (Phase 2/3)"
+tricaprilin,Alzheimer's Disease,23.0,True,ongoing,1.0,Alzheimer's Disease (Phase 3)
+troculeucel,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+trontinemab,Alzheimer's Disease,3.0,True,ongoing,,Alzheimer's Disease (Phase 3)
+troriluzole,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+tw001,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,ongoing,,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 3)"
+ub-311,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+ub-312,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+ucb0022,Parkinson's Disease,2.0,False,ongoing,,Parkinson's Disease (Phase 2)
+ucb7853,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+ulefnersen,Amyotrophic Lateral Sclerosis,3.0,True,ongoing,,Amyotrophic Lateral Sclerosis (Phase 3)
+umibecestat,Alzheimer's Disease,23.0,False,discontinued,3.0,Alzheimer's Disease (Discontinued)
+vafidemstat,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+valacyclovir,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+valproate,Alzheimer's Disease,,False,unknown,,Alzheimer's Disease (Inactive)
+vanutide-cridificar,Alzheimer's Disease,2.0,False,discontinued,9.0,Alzheimer's Disease (Discontinued)
+varenicline,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+varoglutamstat,Alzheimer's Disease,2.0,False,discontinued,3.0,Alzheimer's Disease (Discontinued)
+vascepa,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2/3)
+venglustat,Parkinson's Disease,,False,unknown,,Parkinson's Disease (Inactive)
+verdiperstat,"Motor Neuron Disease, Multiple System Atrophy, Primary Progressive Aphasia",1.0,False,discontinued,,"Motor Neuron Disease (Discontinued), Multiple System Atrophy (Discontinued), Primary Progressive Aphasia (Phase 1)"
+verubecestat,Alzheimer's Disease,23.0,False,discontinued,4.0,Alzheimer's Disease (Discontinued)
+vg-3927,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+vgl101,Adult-onset Leukoencephalopathy with Axonal Spheroids and Pigmented Glia,,False,discontinued,,Adult-onset Leukoencephalopathy with Axonal Spheroids and Pigmented Glia (Discontinued)
+vhb937,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,ongoing,,"Alzheimer's Disease (Phase 1), Amyotrophic Lateral Sclerosis (Phase 2)"
+vodobatinib,"Parkinson's Disease, Dementia with Lewy Bodies",,False,discontinued,,"Parkinson's Disease (Discontinued), Dementia with Lewy Bodies (Discontinued)"
+vq-101,Parkinson's Disease,1.0,False,ongoing,,Parkinson's Disease (Phase 1)
+vy-aadc,Parkinson's Disease,1.0,False,discontinued,2.0,Parkinson's Disease (Discontinued)
+vy-tau01,Alzheimer's Disease,1.0,False,ongoing,,Alzheimer's Disease (Phase 1)
+vyalev,Parkinson's Disease,,False,approved,,Parkinson's Disease (Approved)
+wve-004,"Frontotemporal Dementia, Amyotrophic Lateral Sclerosis",,False,discontinued,,"Frontotemporal Dementia (Discontinued), Amyotrophic Lateral Sclerosis (Discontinued)"
+xaliproden,Alzheimer's Disease,,False,discontinued,,Alzheimer's Disease (Discontinued)
+xanamem,Alzheimer's Disease,2.0,False,ongoing,,Alzheimer's Disease (Phase 2)
+xpro1595,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,ongoing,,"Alzheimer's Disease (Phase 2), Mild Cognitive Impairment (Phase 2)"
+young-plasma,"Progressive Supranuclear Palsy, Alzheimer's Disease",,False,unknown,,"Progressive Supranuclear Palsy (Inactive), Alzheimer's Disease (Inactive)"
+ytx-7739,Parkinson's Disease,,False,discontinued,,Parkinson's Disease (Discontinued)
+zagotenemab,Alzheimer's Disease,2.0,False,discontinued,1.0,Alzheimer's Disease (Discontinued)
+zervimesine,"Alzheimer's Disease, Dementia with Lewy Bodies",12.0,False,ongoing,3.0,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+zunveyltm,Alzheimer's Disease,,False,approved,,Alzheimer's Disease (Approved)

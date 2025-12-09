@@ -1,0 +1,344 @@
+source_id:START_ID(Drug),target_id:END_ID(Disease),status,indication,trial_phase_max,has_phase3,trial_count,approved_regions,source,notes
+aab-003,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+aadvac1,MONDO:0004975,ongoing,"Alzheimer's Disease, Progressive Nonfluent Aphasia",2.0,False,3.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Progressive Nonfluent Aphasia (Phase 1)"
+aav2-bdnf,MONDO:0004975,ongoing,"MCI due to AD, Alzheimer's Disease",1.0,False,,,AlzForum.Therapeutics,"MCI due to AD (Phase 1), Alzheimer's Disease (Phase 1)"
+abbv-552,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+abbv-916,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abt-089,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abt-288,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abt-384,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abt-418,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abt-957,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+abvac40,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+acd856,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+acetyl-l-carnitine-hci,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+aci-24060,MONDO:0004975,ongoing,"Alzheimer's Disease, Down's Syndrome",12.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Down's Syndrome (Phase 2)"
+aci-3024,MONDO:0004975,ongoing,"Alzheimer's Disease, Other Tauopathy",0.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Other Tauopathy (Phase 0)"
+acitretin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+acp-204,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+adel-y01,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+aduhelm,MONDO:0004975,approved,Alzheimer's Disease,3.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+af-102b,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+affitope-ad02,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+al002,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+al003,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+al044,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+al101,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+alia-1758,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+allopregnanolone,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+alpha-tocopherol,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+alx-001,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+alz-101,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+alz-801,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+alzhemedtm,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+alzt-op1,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+amilomotide,MONDO:0004975,unknown,Alzheimer's Disease,2.0,False,5.0,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+an-1792,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+apnmab005,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+aqw051,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease, Schizophrenia",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Parkinson's Disease (Phase 2), Schizophrenia (Phase 2)"
+ar1001,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+aripiprazole,MONDO:0004975,approved,"Alzheimer's Disease, Schizophrenia",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Schizophrenia (Approved)"
+asn51,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+atabecestat,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+atb2005a,MONDO:0004975,ongoing,"Alzheimer's Disease, Progressive Supranuclear Palsy",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Progressive Supranuclear Palsy (Phase 1)"
+atomoxetine,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+atorvastatin,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+atuzaginstat,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+autologous-adipose-derived-stem-cells,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1/2)
+av-1959d,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+av-1980ra,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+avagacestat,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+avp-786,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Discontinued)"
+avp-923,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Parkinson's Disease",4.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 4), Amyotrophic Lateral Sclerosis (Phase 3), Parkinson's Disease (Phase 3)"
+axs-05,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+azd1446,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+azd3293,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+azd3480,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+azeliragon,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+bapineuzumab,MONDO:0004975,discontinued,Alzheimer's Disease,3.0,False,10.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+baricitinib,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 1)"
+benfotiamine,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+bepranemab,MONDO:0004975,ongoing,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Progressive Supranuclear Palsy (Phase 1), Alzheimer's Disease (Phase 2)"
+besipirdine-hcl,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+bexarotene,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+bezisterim,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 1/2)"
+bi-1181181,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+bi-409306,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",2.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Phase 2)"
+biib076,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+biib080,MONDO:0004975,ongoing,Alzheimer's Disease,12.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+biib113,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+biib118,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Parkinson's Disease (Phase 1)"
+blarcamesine,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease Dementia, Parkinson's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2/3), Parkinson's Disease Dementia (Phase 2), Parkinson's Disease (Phase 1)"
+bms-986446,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+bosutinib,MONDO:0004975,ongoing,"Alzheimer's Disease, Dementia with Lewy Bodies",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+bpn14770,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+brexpiprazole,MONDO:0004975,approved,"Alzheimer's Disease, Schizophrenia",3.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Approved), Schizophrenia (Approved)"
+bryostatin-1,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+buntanetap,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2/3), Parkinson's Disease (Phase 3)"
+bxcl501,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+candesartan,MONDO:0004975,ongoing,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,,,AlzForum.Therapeutics,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Phase 2)"
+cannabidiol,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+carvedilol,MONDO:0004975,ongoing,Alzheimer's Disease,4.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 4)
+celecoxib,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+ceperognastat,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+cere-110,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+cerebrolysin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+chf-5074,MONDO:0004975,ongoing,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,2.0,,AlzForum.Therapeutics,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Inactive)"
+circadin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+citalopram,MONDO:0004975,ongoing,"Alzheimer's Disease, Preclinical Alzheimer's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Preclinical Alzheimer's Disease (Inactive)"
+clioquinol,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+cognishunt%E2%84%A2,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+continuous-positive-airway-pressure,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+cpg-1018r,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+crenezumab,MONDO:0004975,discontinued,Alzheimer's Disease,3.0,False,5.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+cs6253,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+curcumin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+cx516,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+cy6463,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+dapagliflozin,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1/2)
+dapsone,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+dasatinib-quercetin,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1/2)
+dayvigo,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+deep-brain-stimulation-fornix,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+deep-brain-stimulation-nucleus-basalis-meynert,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+deferiprone,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2/3), Amyotrophic Lateral Sclerosis (Phase 2/3)"
+dexpramipexole,MONDO:0004975,discontinued,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Discontinued)"
+dimebon,MONDO:0004975,discontinued,"Alzheimer's Disease, Huntington's Disease",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Huntington's Disease (Discontinued)"
+dnl747,MONDO:0004975,unknown,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Amyotrophic Lateral Sclerosis (Inactive)"
+dnl919,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+docosahexaenoic-acid-dha,MONDO:0004975,ongoing,Alzheimer's Disease,4.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 4)
+donepezil,MONDO:0004975,approved,"Alzheimer's Disease, Dementia with Lewy Bodies, Down's Syndrome, Parkinson's Disease Dementia",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Approved), Dementia with Lewy Bodies (Inactive), Down's Syndrome (Inactive), Parkinson's Disease Dementia (Inactive)"
+dronabinol,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+e2511,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+edicotinib,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+edonerpic,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+efavirenz,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+eht-0202,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+elenbecestat,MONDO:0004975,discontinued,Alzheimer's Disease,3.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+elnd005,MONDO:0004975,unknown,Alzheimer's Disease,2.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+empagliflozin,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+emtricitabine,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+encenicline,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",3.0,False,3.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Discontinued)"
+epigallocatechin-gallate-egcg,MONDO:0004975,ongoing,"Alzheimer's Disease, Down's Syndrome, Multiple System Atrophy",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2/3), Down's Syndrome (Phase 2), Multiple System Atrophy (Phase 3)"
+epothilone-d,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+eptastigmine,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+estrogen,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+etalanetug,MONDO:0004975,ongoing,Alzheimer's Disease,23.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+etanercept,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+evp-0962,MONDO:0004975,discontinued,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+exenatide,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Parkinson's Disease (Phase 3)"
+flurizan,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+focused-ultrasound-blood-brain-barrier,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Mild Cognitive Impairment, Parkinson's Disease",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Amyotrophic Lateral Sclerosis (Phase 1), Mild Cognitive Impairment (Phase 1), Parkinson's Disease (Phase 1)"
+foralumab,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 2)"
+fosgonimeton,MONDO:0004975,discontinued,"Alzheimer's Disease, Dementia with Lewy Bodies, Parkinson's Disease Dementia",2.0,False,4.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Dementia with Lewy Bodies (Discontinued), Parkinson's Disease Dementia (Discontinued)"
+g-csf,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+galantamine,MONDO:0004975,approved,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+gammagardr,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+gamunex,MONDO:0004975,ongoing,Alzheimer's Disease,23.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+gantenerumab,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,9.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+gc021109,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+gemfibrozil,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+gosuranemab,MONDO:0004975,discontinued,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,2.0,,AlzForum.Therapeutics,"Progressive Supranuclear Palsy (Discontinued), Alzheimer's Disease (Discontinued)"
+grf6019,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+gsk239512,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+gsk2647544,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+gsk933776,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+guanfacine,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+gv-971,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+gv1001,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+hf0220,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+hmtm,MONDO:0004975,ongoing,"Alzheimer's Disease, Frontotemporal Dementia",23.0,True,5.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Frontotemporal Dementia (Phase 3)"
+htl0018318,MONDO:0004975,unknown,"Alzheimer's Disease, Dementia with Lewy Bodies",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Dementia with Lewy Bodies (Inactive)"
+huperzine,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+ibc-ab002,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+ibuprofen,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+iclepertin,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",3.0,True,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Phase 3)"
+idalopirdine,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",3.0,False,5.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Inactive)"
+idebenone,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+intepirdine,MONDO:0004975,discontinued,"Alzheimer's Disease, Dementia with Lewy Bodies",3.0,False,4.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Dementia with Lewy Bodies (Discontinued)"
+inzomelid,MONDO:0004975,discontinued,"Alzheimer's Disease, Parkinson's Disease",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Parkinson's Disease (Discontinued)"
+iti-1284,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+jnj-64042056,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+karxt,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+ketasyn,MONDO:0004975,ongoing,Alzheimer's Disease,4.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 4)
+kisunla,MONDO:0004975,approved,Alzheimer's Disease,3.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+kmct-ons,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Not Regulated)
+ladostigil,MONDO:0004975,discontinued,"Mild Cognitive Impairment, Alzheimer's Disease",2.0,False,,,AlzForum.Therapeutics,"Mild Cognitive Impairment (Phase 2), Alzheimer's Disease (Discontinued)"
+lamivudine,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+lenalidomide,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+leqembi,MONDO:0004975,approved,Alzheimer's Disease,3.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+leucettinib-21,MONDO:0004975,ongoing,"Alzheimer's Disease, Down's Syndrome",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Down's Syndrome (Phase 1)"
+leuprolide,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+levetiracetam,MONDO:0004975,discontinued,"Alzheimer's Disease, Parkinson's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued)"
+linopirdine,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+liraglutide,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2)"
+lithium,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis, Frontotemporal Dementia, Mild Cognitive Impairment, Parkinson's Disease",4.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 4), Amyotrophic Lateral Sclerosis (Phase 3), Frontotemporal Dementia (Inactive), Mild Cognitive Impairment (Phase 4), Parkinson's Disease (Phase 2)"
+lm11a-31-bhs,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+lomecel-b,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+lornoxicam,MONDO:0004975,discontinued,"Alzheimer's Disease, Mild Cognitive Impairment",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+losartan,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+low-dose-interleukin-2,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 3)"
+low-intensity-focused-ultrasound,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2)"
+lu-af20513,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+lu-af87908,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+lu25-109,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+lumateperone,MONDO:0004975,approved,"Alzheimer's Disease, Schizophrenia, Bipolar Disorder",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Approved), Bipolar Disorder (Approved)"
+lx1001,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1/2)
+ly2599666,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+ly2886721,MONDO:0004975,discontinued,"Alzheimer's Disease, Mild Cognitive Impairment",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued)"
+ly3202626,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+ly3954068,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+masitinib,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Amyotrophic Lateral Sclerosis (Phase 3)"
+masupirdine,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+medi1814,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+melatonin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+mem-1003,MONDO:0004975,discontinued,"Alzheimer's Disease, Mild Cognitive Impairment, Vascular Dementia, Bipolar Disorder",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Mild Cognitive Impairment (Discontinued), Vascular Dementia (Discontinued), Bipolar Disorder (Discontinued)"
+memantine,MONDO:0004975,approved,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+memorem-transcranial-electromagnetic-treatment,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+metformin,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+methylphenidate,MONDO:0004975,ongoing,Alzheimer's Disease,4.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 4)
+metrifonate,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+milameline,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+minocycline,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+mirtazapine,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+mivelsiran,MONDO:0004975,ongoing,"Alzheimer's Disease, Cerebral Amyloid Angiopathy",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Cerebral Amyloid Angiopathy (Phase 2)"
+mk-1167,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+mk-1942,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+mk-2214,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+mk-7622,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+mk-8189,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+mkc-231,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+montelukast,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 2)"
+msdc-0160,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+mw150-0,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+mw151,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+na-831,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+nabilone,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 2)"
+naproxen,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+nasal-insulin,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease, Multiple System Atrophy",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2/3), Mild Cognitive Impairment (Phase 2), Parkinson's Disease (Phase 2), Multiple System Atrophy (Phase 2)"
+nefiracetam,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+neflamapimod,MONDO:0004975,discontinued,"Alzheimer's Disease, Dementia with Lewy Bodies, Huntington's Disease",2.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2), Huntington's Disease (Discontinued)"
+nelonicline,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia",2.0,False,5.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Schizophrenia (Inactive)"
+neotrofin,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+neramexane,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+neuroad,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Rejected)
+nic5-15,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,2.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+nicotinamide-riboside,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease, Mild Cognitive Impairment",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Parkinson's Disease (Phase 2), Mild Cognitive Impairment (Phase 1/2)"
+nilotinib,MONDO:0004975,ongoing,"Parkinson's Disease, Dementia with Lewy Bodies, Alzheimer's Disease",2.0,False,,,AlzForum.Therapeutics,"Parkinson's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2), Alzheimer's Disease (Inactive)"
+nilvadipine,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+nio752,MONDO:0004975,ongoing,"Progressive Supranuclear Palsy, Alzheimer's Disease",1.0,False,,,AlzForum.Therapeutics,"Progressive Supranuclear Palsy (Phase 1), Alzheimer's Disease (Phase 1)"
+nivegacetor,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+nmra-511,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+ns2330,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+nsc001,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1/2)
+ntrx-07,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+nuplazid,MONDO:0004975,discontinued,"Alzheimer's Disease, Schizophrenia, Dementia, Depression",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Rejected), Schizophrenia (Discontinued), Dementia (Rejected), Depression (Discontinued)"
+obicetrapib,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+octagam%C2%AE,MONDO:0004975,unknown,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Mild Cognitive Impairment (Inactive)"
+olx-07010,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+orm-12741,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+pbt2,MONDO:0004975,unknown,"Alzheimer's Disease, Huntington's Disease",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Huntington's Disease (Inactive)"
+pepinemab,MONDO:0004975,ongoing,"Alzheimer's Disease, Huntington's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1/2), Huntington's Disease (Phase 2)"
+pf-05212377,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+pf-06648671,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+pf-06751979,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+pf-06852231,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+phenserine,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+photobiomodulation,MONDO:0004975,unknown,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Not Regulated), Mild Cognitive Impairment (Not Regulated), Parkinson's Disease (Not Regulated)"
+physostigmine-salicylate,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+piromelatine,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+pmn310,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+pnt001,MONDO:0004975,unknown,"Alzheimer's Disease, Traumatic Brain Injury",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Traumatic Brain Injury (Inactive)"
+ponezumab,MONDO:0004975,discontinued,"Alzheimer's Disease, Cerebral Amyloid Angiopathy",2.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Cerebral Amyloid Angiopathy (Discontinued)"
+prazosin,MONDO:0004975,ongoing,Alzheimer's Disease,4.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 4)
+prednisone,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+pri-002,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+primec,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+propentofylline,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+protollin,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+prx-03140,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+prx012,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+pu-ad,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+pxt864,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+rasagiline,MONDO:0004975,approved,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Approved), Amyotrophic Lateral Sclerosis (Inactive)"
+relyvrio,MONDO:0004975,discontinued,"Amyotrophic Lateral Sclerosis, Alzheimer's Disease, Progressive Supranuclear Palsy",2.0,False,1.0,,AlzForum.Therapeutics,"Amyotrophic Lateral Sclerosis (Withdrawn), Alzheimer's Disease (Inactive), Progressive Supranuclear Palsy (Discontinued)"
+rem0045392,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+rember-tm,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+remternetug,MONDO:0004975,ongoing,Alzheimer's Disease,23.0,True,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+resveratrol,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment",4.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 4)"
+rg3487,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+rg7129,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+rg7345,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+rilapladib,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+riluzole,MONDO:0004975,approved,"Alzheimer's Disease, Parkinson's Disease, Amyotrophic Lateral Sclerosis, Huntington's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued), Amyotrophic Lateral Sclerosis (Approved), Huntington's Disease (Discontinued)"
+rivastigmine,MONDO:0004975,approved,"Alzheimer's Disease, Parkinson's Disease Dementia",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Approved), Parkinson's Disease Dementia (Approved)"
+rofecoxib,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+rosiglitazone,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+rotigotine,MONDO:0004975,ongoing,"Alzheimer's Disease, Frontotemporal Dementia",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Frontotemporal Dementia (Phase 2)"
+s-38093,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+s-equol,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+s47445,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+s603,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Mild Cognitive Impairment (Phase 1)"
+sabeluzole,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+sabirnetug,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+sage-718,MONDO:0004975,discontinued,"Alzheimer's Disease, Parkinson's Disease, Huntington's Disease",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Discontinued), Huntington's Disease (Phase 2)"
+sar110894d,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+sar228810,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+saracatinib,MONDO:0004975,discontinued,"Alzheimer's Disease, Parkinson's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Parkinson's Disease (Phase 1)"
+sargramostim,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",2.0,False,2.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Parkinson's Disease (Phase 1)"
+sb-202026,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+seltorexant,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+semagacestat,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+semaglutide,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Phase 2)"
+sembragiline,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+semorinemab,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+sensory-stimulation-systems,MONDO:0004975,ongoing,"Alzheimer's Disease, Parkinson's Disease, Down's Syndrome",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Parkinson's Disease (Not Regulated), Down's Syndrome (Not Regulated)"
+sgs-742,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+shr-1707,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+simufilam,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+simvastatin,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment",4.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Mild Cognitive Impairment (Phase 4)"
+snp318,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+solanezumab,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,11.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+souvenaid,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Not Regulated)
+spg302,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 1/2)"
+st101,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+suritozole,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+suvn-g3031,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+suvorexant,MONDO:0004975,approved,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+t3d-959,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+tacrine,MONDO:0004975,approved,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)
+tb006,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+telmisartan,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+thalidomide,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+thn391,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+tideglusib,MONDO:0004975,discontinued,"Alzheimer's Disease, Progressive Supranuclear Palsy",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Discontinued), Progressive Supranuclear Palsy (Discontinued)"
+tilavonemab,MONDO:0004975,discontinued,"Progressive Supranuclear Palsy, Alzheimer's Disease",2.0,False,1.0,,AlzForum.Therapeutics,"Progressive Supranuclear Palsy (Discontinued), Alzheimer's Disease (Discontinued)"
+tpi-287,MONDO:0004975,ongoing,"Alzheimer's Disease, Corticobasal Degeneration, Progressive Supranuclear Palsy",1.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Inactive), Corticobasal Degeneration (Inactive), Progressive Supranuclear Palsy (Phase 1)"
+transcutaneous-auricular-vagal-afferent-nerve-stimulation,MONDO:0004975,unknown,"Alzheimer's Disease, Mild Cognitive Impairment, Parkinson's Disease",,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Not Regulated), Mild Cognitive Impairment (Not Regulated), Parkinson's Disease (Not Regulated)"
+trappsolr-cyclotm,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+trazodone,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment, Amyotrophic Lateral Sclerosis",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 3), Mild Cognitive Impairment (Phase 3), Amyotrophic Lateral Sclerosis (Phase 2/3)"
+tricaprilin,MONDO:0004975,ongoing,Alzheimer's Disease,23.0,True,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+troculeucel,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+trontinemab,MONDO:0004975,ongoing,Alzheimer's Disease,3.0,True,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 3)
+troriluzole,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+tw001,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",3.0,True,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Amyotrophic Lateral Sclerosis (Phase 3)"
+ub-311,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+umibecestat,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+vafidemstat,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+valacyclovir,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+valproate,MONDO:0004975,unknown,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Inactive)
+vanutide-cridificar,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,9.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+varenicline,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+varoglutamstat,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,3.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+vascepa,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2/3)
+verubecestat,MONDO:0004975,discontinued,Alzheimer's Disease,23.0,False,4.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+vg-3927,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+vhb937,MONDO:0004975,ongoing,"Alzheimer's Disease, Amyotrophic Lateral Sclerosis",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 1), Amyotrophic Lateral Sclerosis (Phase 2)"
+vy-tau01,MONDO:0004975,ongoing,Alzheimer's Disease,1.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 1)
+xaliproden,MONDO:0004975,discontinued,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+xanamem,MONDO:0004975,ongoing,Alzheimer's Disease,2.0,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Phase 2)
+xpro1595,MONDO:0004975,ongoing,"Alzheimer's Disease, Mild Cognitive Impairment",2.0,False,,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Mild Cognitive Impairment (Phase 2)"
+young-plasma,MONDO:0004975,unknown,"Progressive Supranuclear Palsy, Alzheimer's Disease",,False,,,AlzForum.Therapeutics,"Progressive Supranuclear Palsy (Inactive), Alzheimer's Disease (Inactive)"
+zagotenemab,MONDO:0004975,discontinued,Alzheimer's Disease,2.0,False,1.0,,AlzForum.Therapeutics,Alzheimer's Disease (Discontinued)
+zervimesine,MONDO:0004975,ongoing,"Alzheimer's Disease, Dementia with Lewy Bodies",12.0,False,3.0,,AlzForum.Therapeutics,"Alzheimer's Disease (Phase 2), Dementia with Lewy Bodies (Phase 2)"
+zunveyltm,MONDO:0004975,approved,Alzheimer's Disease,,False,,,AlzForum.Therapeutics,Alzheimer's Disease (Approved)

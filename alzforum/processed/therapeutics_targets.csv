@@ -1,0 +1,547 @@
+therapeutic_id,target_name,target_kind,action_type,is_primary_target,target_notes
+aab-003,Amyloid-Related,pathway_or_process,antibody,True,AAB-003 is a humanized version of the anti-Aβ mouse antibody 3D6 and a derivative of bapineuzumab (AAB-001).
+aadvac1,Tau,pathway_or_process,antibody,True,This is an active vaccine designed to elicit an immune response against pathologically modified forms of tau protein.
+aav-gad,Other Neurotransmitters,pathway_or_process,gene_therapy,True,AAV-GAD is a gene therapy for Parkinson’s disease.
+aav2-bdnf,Other,pathway_or_process,gene_therapy,True,This gene therapy uses an adeno-associated virus serotype 2 (AAV2) vector to carry a gene for human brain-derived neurotrophic factor into the brain.
+abbv-1088,Other,pathway_or_process,small_molecule,True,ABBV-1088 is an activator of the mitochondrial kinase PINK1.
+abbv-552,Other,pathway_or_process,small_molecule,True,"Formerly called SDI-118, ABBV-552 is an oral drug that modulates synaptic vesicle glycoprotein 2A (SV2A)."
+abbv-916,Amyloid-Related,pathway_or_process,antibody,True,ABBV-916 is a monoclonal antibody to Aβ.
+abt-089,Cholinergic System,pathway_or_process,small_molecule,True,
+abt-288,Cholinergic System,pathway_or_process,small_molecule,True,"Abbott, now AbbVie, was developing this histamine H3 receptor antagonist for the treatment of cognitive deficits in Alzheimer's and schizophrenia."
+abt-288,Other Neurotransmitters,pathway_or_process,small_molecule,False,"Abbott, now AbbVie, was developing this histamine H3 receptor antagonist for the treatment of cognitive deficits in Alzheimer's and schizophrenia."
+abt-384,Other,pathway_or_process,small_molecule,True,This is a selective 11-β-hydroxysteroid dehydrogenase type 1 (HSD-1) inhibitor that was evaluated to test the hypothesis that elevated cortisol levels in the brain contribute to cognitive impairment.
+abt-418,Cholinergic System,pathway_or_process,small_molecule,True,"Acute administration of nicotine to AD patients improved accuracy of delayed recall, as well as deficits in attention and information processing ( Sahakian et al."
+abt-957,Other,pathway_or_process,small_molecule,True,This compound is an inhibitor of the calcium-dependent cysteine protease calpain.
+abvac40,Amyloid-Related,pathway_or_process,antibody,True,ABvac40 is an investigational vaccine targeting the C terminus of Aβ40.
+acd856,Other,pathway_or_process,small_molecule,True,"This small molecule is a positive allosteric modulator of Trk receptors, which mediate the effects of BDNF, NGF, and other neurotrophic factors."
+acetyl-l-carnitine-hci,Other,pathway_or_process,supplement,True,ALCAR is a naturally occurring substance.
+aci-24060,Amyloid-Related,pathway_or_process,antibody,True,ACI-24 is a liposome vaccine designed to elicit an antibody response against aggregated Aβ peptides without concomitant pro-inflammatory T cell activation.
+aci-3024,Tau,pathway_or_process,small_molecule,True,ACI-3024 is a small-molecule inhibitor of tau aggregation.
+aci-7104056,alpha-synuclein,pathway_or_process,antibody,True,PD01A is an active vaccine to α-synuclein.
+acitretin,Amyloid-Related,pathway_or_process,small_molecule,True,Acitretin is a retinoid drug used primarily to treat severe psoriasis.
+acp-204,Other Neurotransmitters,pathway_or_process,small_molecule,True,ACP-204 acts as an inverse agonist at the 5-HT2A serotonin receptor.
+adel-y01,Tau,pathway_or_process,antibody,True,ADEL-Y01 is a humanized IgG1 monoclonal antibody that binds tau protein modified by acetylation at lysine residue 280.
+aduhelm,Amyloid-Related,pathway_or_process,antibody,True,"BIIB037 is a high-affinity, fully human IgG1 monoclonal antibody against a conformational epitope found on Aβ."
+af-102b,Cholinergic System,pathway_or_process,small_molecule,True,Hypo-activity of the cholinergic system is associated AD and cognitive decline.
+affitope-ad02,Amyloid-Related,pathway_or_process,antibody,True,Affitope AD02 is a synthetic peptide of six amino acids that mimics the N-terminus of Aβ.
+agb101,Amyloid-Related,pathway_or_process,small_molecule,True,"AGB101 is a proprietary, once-daily, extended-release, low-dose formulation of the FDA-approved atypical anti-convulsant medication levetiracetam."
+ait-101,Other,pathway_or_process,small_molecule,True,"AIT-101 is a proprietary oral formulation of apilimod, an inhibitor of the phosphatidylinositol phosphate kinase PIKfyve."
+akst4290,Inflammation,pathway_or_process,small_molecule,True,AKST4290 is an antagonist of the G protein-coupled C-C chemokine receptor type 3 (CCR3).
+al002,Inflammation,pathway_or_process,antibody,True,This humanized monoclonal IgG1 antibody was being developed in a partnership between Alector and AbbVie.
+al003,Inflammation,pathway_or_process,antibody,True,AL003 is a monoclonal antibody that was being co-developed by Alector and Abbvie.
+al044,Inflammation,pathway_or_process,antibody,True,AL044 is an antibody targeting the MSA4 family of transmembrane cell surface proteins expressed on microglia.
+al101,Other,pathway_or_process,antibody,True,"AL101 is a monoclonal antibody to sortilin (SORT1), a trans-Golgi sorting receptor abundantly expressed in the nervous system."
+alia-1758,Amyloid-Related,pathway_or_process,antibody,True,ALIA-1758 is a bispecific antibody construct.
+allopregnanolone,Other Neurotransmitters,pathway_or_process,small_molecule,True,Allopregnanolone is a neurosteroid metabolite of progesterone.
+allopregnanolone,Other,pathway_or_process,small_molecule,False,Allopregnanolone is a neurosteroid metabolite of progesterone.
+alpha-tocopherol,Other,pathway_or_process,supplement,True,Vitamin E is a lipophilic monophenolic compound that can donate a hydrogen atom to saturate and detoxify the unpaired electron of a free radical.
+alx-001,Amyloid-Related,pathway_or_process,small_molecule,True,ALX-001 is an allosteric modulator of the metabotropic glutamate receptor type 5 (mGluR5).
+alx-001,Other Neurotransmitters,pathway_or_process,small_molecule,False,ALX-001 is an allosteric modulator of the metabotropic glutamate receptor type 5 (mGluR5).
+alz-101,Amyloid-Related,pathway_or_process,antibody,True,"This candidate vaccine is designed to provoke an immune response specific to soluble oligomeric Aβ assemblies, but not to monomeric or fibrillar Aβ."
+alz-801,Amyloid-Related,pathway_or_process,small_molecule,True,"This is a prodrug of homotaurine, a modified amino acid previously developed under the names tramiprosate and Alzhemed™."
+alzhemedtm,Amyloid-Related,pathway_or_process,supplement,True,Alzhemed was designed as an anti-amyloid therapy.
+alzt-op1,Amyloid-Related,pathway_or_process,small_molecule,True,"ALZT-OP1 is a combination regimen of two FDA-approved drugs, cromolyn (designated ALZT OP1a) and ibuprofen (designated ALZT OP1b)."
+alzt-op1,Inflammation,pathway_or_process,small_molecule,False,"ALZT-OP1 is a combination regimen of two FDA-approved drugs, cromolyn (designated ALZT OP1a) and ibuprofen (designated ALZT OP1b)."
+ambroxol,alpha-synuclein,pathway_or_process,small_molecule,True,Ambroxol is a mucolytic compound and the main ingredient of over-the-counter cough medicines sold in many countries.
+ambroxol,Other,pathway_or_process,small_molecule,False,Ambroxol is a mucolytic compound and the main ingredient of over-the-counter cough medicines sold in many countries.
+amilomotide,Amyloid-Related,pathway_or_process,antibody,True,"This is an active vaccination strategy that aims to elicit a strong antibody response while avoiding inflammatory T cell activation (reviewed in Lemere and Masliah, 2010 )."
+an-1792,Amyloid-Related,pathway_or_process,antibody,True,AN-1792 was the first active immunotherapy strategy for Alzheimer's disease.
+anpd001,Other Neurotransmitters,pathway_or_process,,True,ANPD001 is a dopaminergic neuron replacement therapy derived from a patient’s own tissue.
+anx005,Inflammation,pathway_or_process,antibody,True,ANX005 is a humanized IgG4 monoclonal antibody that binds with high affinity to the complement C1q protein and inhibits initiation of the classical complement cascade.
+anx005,Other,pathway_or_process,antibody,False,ANX005 is a humanized IgG4 monoclonal antibody that binds with high affinity to the complement C1q protein and inhibits initiation of the classical complement cascade.
+apabetalone,Other,pathway_or_process,small_molecule,True,"Apabetalone binds and inhibits bromodomain and extra-terminal domain (BET) proteins, preventing them from binding acetylated lysines in histones to activate gene transcription."
+apnmab005,Tau,pathway_or_process,antibody,True,This is a humanized monoclonal anti-tau IgG antibody that recognizes a conformational epitope in tau oligomers.
+aqneursa,Inflammation,pathway_or_process,small_molecule,True,N-acetyl-L-leucine is a modified derivative and prodrug of the naturally occurring essential amino acid leucine.
+aqneursa,Other,pathway_or_process,small_molecule,False,N-acetyl-L-leucine is a modified derivative and prodrug of the naturally occurring essential amino acid leucine.
+aqw051,Cholinergic System,pathway_or_process,small_molecule,True,"AQW 051 is an α7 nicotinic acetylcholine receptor (nAChR) agonist for the oral treatment of cognitive deficits in schizophrenia, Alzheimer's, and Parkinson's diseases."
+ar1001,Other,pathway_or_process,small_molecule,True,Ar1001 is a selective inhibitor of phosphodiesterase 5.
+arimoclomol,Cholesterol,pathway_or_process,small_molecule,True,Arimoclomol is a small molecule that improves lysosome function.
+arimoclomol,Other,pathway_or_process,small_molecule,False,Arimoclomol is a small molecule that improves lysosome function.
+aripiprazole,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Aripiprazole is an antipsychotic medication that was FDA-approved in 2002 for the treatment of schizophrenia and is widely used for related affective disorders, as well."
+arv-102,Other,pathway_or_process,small_molecule,True,"ARV-102 is an oral, brain-penetrant small molecule that induces the degradation of leucine-rich repeat kinase 2 (LRRK2) protein."
+asn51,Tau,pathway_or_process,small_molecule,True,"ASN51 is a small-molecule inhibitor of O-GlycNAcase (OGA), the glycoside hydrolase enzyme that removes O-linked N-acetylglucosamine (N-GlcNAc) from proteins."
+asn90,Tau,pathway_or_process,small_molecule,True,"ASN90 is an inhibitor of O-GlcNAcase, the glycoside hydrolase enzyme that removes O-linked N-acetylglucosamine (N-GlcNAc) from proteins."
+atabecestat,Amyloid-Related,pathway_or_process,small_molecule,True,This is a tablet drug affecting amyloid precursor protein (APP) and its processing products.
+atb2005a,Tau,pathway_or_process,small_molecule,True,This small molecule combines a tau-binding domain with a peptide that stimulates autophagy to activate degradation of intracellular tau aggregates.
+atomoxetine,Other Neurotransmitters,pathway_or_process,small_molecule,True,Atomoxetine is a norepinephrine uptake inhibitor.
+atorvastatin,Cholesterol,pathway_or_process,small_molecule,True,"Atorvastatin is an oral statin drug that was developed by Pfizer’s predecessor, Parke-Davis."
+atuzaginstat,Other,pathway_or_process,small_molecule,True,This small molecule is an orally available protease inhibitor targeting the lysine proteases of the periodontal pathogen Porphyromonas gingivalis.
+autologous-adipose-derived-stem-cells,Other,pathway_or_process,,True,This approach uses mesenchymal stem cells isolated from a patient’s own fat tissue to treat neurodegenerative diseases.
+av-1959d,Amyloid-Related,pathway_or_process,antibody,True,AV-1959D is an NIH-funded DNA vaccine designed to elicit antibodies to Aβ peptides without activating potentially harmful autoreactive T cells.
+av-1980ra,Tau,pathway_or_process,antibody,True,AV-1980R/A is recombinant protein-based tau vaccine designed to elicit antibodies to pathologic tau.
+avagacestat,Amyloid-Related,pathway_or_process,small_molecule,True,"This arylsulfonamide γ-secretase inhibitor was reported to selectively block processing of the enzyme's APP substrate, relatively sparing Notch processing."
+avb-101,Other,pathway_or_process,gene_therapy,True,AVB-101 is a gene therapy designed to deliver a copy of the human progranulin gene to the brain.
+avp-786,Other Neurotransmitters,pathway_or_process,small_molecule,True,"This investigational therapeutic is a deuterated, second-generation version of AVP-923 /Nuedexta, a fixed-dose combination of two approved drugs."
+avp-923,Other Neurotransmitters,pathway_or_process,small_molecule,True,AVP-923 is a fixed-dose combination of two approved drugs.
+axs-05,Other Neurotransmitters,pathway_or_process,small_molecule,True,AXS-05 is a fixed-dose combination of two approved drugs being developed for the treatment of agitation in people with Alzheimer’s disease.
+azd1446,Cholinergic System,pathway_or_process,small_molecule,True,AZD1446 selectively activates the α4β2 subtype of nicotinic acetylcholine receptor.
+azd3293,Amyloid-Related,pathway_or_process,small_molecule,True,"AZD3293 is an inhibitor of BACE1, the β-secretase sheddase that cleaves the APP protein to release APP's C99 fragment."
+azd3480,Cholinergic System,pathway_or_process,small_molecule,True,
+azeliragon,Amyloid-Related,pathway_or_process,small_molecule,True,"Azeliragon is an oral, small-molecule inhibitor of RAGE, a cell-surface receptor of the immunoglobulin superfamily."
+azeliragon,Inflammation,pathway_or_process,small_molecule,False,"Azeliragon is an oral, small-molecule inhibitor of RAGE, a cell-surface receptor of the immunoglobulin superfamily."
+bapineuzumab,Amyloid-Related,pathway_or_process,antibody,True,"Bapineuzumab is a humanized form of murine monoclonal antibody 3D6, which targets the N-terminal region of Aβ."
+baricitinib,Inflammation,pathway_or_process,small_molecule,True,Baricitinib is an inhibitor of Janus kinase (JAK).
+bemdaneprocel,Other Neurotransmitters,pathway_or_process,,True,This cell-based therapy consists of a neuron graft for the treatment of Parkinson’s disease.
+bemdaneprocel,Other,pathway_or_process,,False,This cell-based therapy consists of a neuron graft for the treatment of Parkinson’s disease.
+benfotiamine,Inflammation,pathway_or_process,supplement,True,"Benfotiamine is a synthetic, fat-soluble precursor of Vitamin B1 with high bioavailability."
+benfotiamine,Other,pathway_or_process,supplement,False,"Benfotiamine is a synthetic, fat-soluble precursor of Vitamin B1 with high bioavailability."
+bepranemab,Tau,pathway_or_process,antibody,True,"This humanized, monoclonal IgG4 antibody binds to the central region of tau, recognizing amino acids 235–250 near tau's microtubule-binding domain."
+besipirdine-hcl,Other Neurotransmitters,pathway_or_process,small_molecule,True,Besipirdine was designed to address two biochemical deficits commonly observed in the AD brain: cholinergic and adrenergic activity.
+bexarotene,Amyloid-Related,pathway_or_process,small_molecule,True,This retinoid drug is approved by the FDA and EMA to treat T cell lymphoma of the skin.
+bexarotene,Unknown,pathway_or_process,small_molecule,False,This retinoid drug is approved by the FDA and EMA to treat T cell lymphoma of the skin.
+bezisterim,Inflammation,pathway_or_process,small_molecule,True,"NE3107 is a derivative of β-androstenetriol, a naturally occurring adrenal sterol metabolite."
+bezisterim,Other,pathway_or_process,small_molecule,False,"NE3107 is a derivative of β-androstenetriol, a naturally occurring adrenal sterol metabolite."
+bi-1181181,Amyloid-Related,pathway_or_process,small_molecule,True,This compound is an inhibitor targeted to the catalytic site of the enzymes BACE1 and BACE2.
+bi-409306,Other Neurotransmitters,pathway_or_process,small_molecule,True,BI 409306 is an inhibitor of phosphodiesterase 9A.
+bi-409306,Other,pathway_or_process,small_molecule,False,BI 409306 is an inhibitor of phosphodiesterase 9A.
+bifidobacterium-breve-a1,Other,pathway_or_process,supplement,True,Bifidobacterium breve A1 is a proprietary strain of probiotic bacteria isolated from the intestinal tract of an infant.
+biib076,Tau,pathway_or_process,antibody,True,"BIIB076 is a human recombinant, monoclonal anti-tau IgG1 antibody generated by Neurimmune's reverse translational medicine platform."
+biib078,Other,pathway_or_process,gene_therapy,True,BIIB078 is an antisense oligonucleotide targeting the chromosome 9 open reading frame 72 (C9ORF72) gene mRNA.
+biib080,Tau,pathway_or_process,gene_therapy,True,This investigational therapeutic is the first antisense oligonucleotide (ASO) targeting tau expression to enter clinical trials.
+biib100,Inflammation,pathway_or_process,small_molecule,True,"BIIB100 is an inhibitor of Exportin 1 (XPO1), a protein that mediates export of many proteins and RNA from the cell nucleus."
+biib100,Other,pathway_or_process,small_molecule,False,"BIIB100 is an inhibitor of Exportin 1 (XPO1), a protein that mediates export of many proteins and RNA from the cell nucleus."
+biib105,Other,pathway_or_process,gene_therapy,True,BIIB105 is an antisense oligonucleotide (ASO).
+biib113,Tau,pathway_or_process,small_molecule,True,"BIIB113 is a small molecule inhibitor of O-GlcNACase, or OGA, an enzyme that catalyzes the removal of O-GlcNAc sugar modifications from proteins."
+biib118,Other,pathway_or_process,small_molecule,True,PF-05251749 is an inhibitor of Casein kinase 1 delta and epsilon (CK1δ and ε).
+blarcamesine,Other,pathway_or_process,small_molecule,True,This compound is an agonist of the intracellular sigma-1 chaperone protein.
+bms-986446,Tau,pathway_or_process,antibody,True,PRX005 is Prothena’s anti-tau IgG1 humanized antibody.
+bosutinib,Other,pathway_or_process,small_molecule,True,Bosutinib is an oral inhibitor of Abl and Src tyrosine kinases that has been approved since 2012 for the treatment of chronic myeloid leukemia.
+bpn14770,Cholinergic System,pathway_or_process,small_molecule,True,"BPN14770 is an allosteric inhibitor of phosphodiesterase 4D (PDE4D), a regulator of the intracellular second messenger cAMP in neurons."
+bpn14770,Other,pathway_or_process,small_molecule,False,"BPN14770 is an allosteric inhibitor of phosphodiesterase 4D (PDE4D), a regulator of the intracellular second messenger cAMP in neurons."
+brexpiprazole,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Brexpiprazole is an orally available dopamine receptor D2 partial agonist, and an atypical antipsychotic."
+bryostatin-1,Other,pathway_or_process,,True,Bryostatin 1 is a natural product derived from the marine invertebrate Bugula neritina.
+bt-267,Other,pathway_or_process,small_molecule,True,"BT-267 is a selective, brain-penetrant small molecule inhibitor of leucine-rich repeat kinase LRRK2."
+buntanetap,Amyloid-Related,pathway_or_process,small_molecule,True,"Buntanetap, previously known as posiphen or ANVS-401, is the pure (+) enantiomer, i.e."
+buntanetap,alpha-synuclein,pathway_or_process,small_molecule,False,"Buntanetap, previously known as posiphen or ANVS-401, is the pure (+) enantiomer, i.e."
+bxcl501,Other,pathway_or_process,small_molecule,True,BXCL501 is an orally dissolvable film formulation of the α2A adrenergic receptor agonist dexmedetomidine.
+candesartan,Other,pathway_or_process,small_molecule,True,Candesartan is an angiotensin II receptor antagonist used around the world to treat elevated blood pressure and congestive heart failure.
+cannabidiol,Other Neurotransmitters,pathway_or_process,small_molecule,True,Cannabidiol is a major active compound of the cannabis plant.
+carvedilol,Unknown,pathway_or_process,small_molecule,True,Carvedilol phosphate is a non-selective α/β-adrenergic receptor antagonist and vasodilator.
+cdnf,Other,pathway_or_process,device_or_procedure,True,"The neurotrophic peptide CDNF promotes survival of midbrain dopaminergic neurons, which degenerate in Parkinson’s disease."
+celecoxib,Inflammation,pathway_or_process,small_molecule,True,"The NSAID celecoxib is a selective cyclooxygenase-2 (COX-2) inhibitor, whose anti-inflammatory and analgesic effects partly result from the inhibition of prostaglandin synthesis."
+ceperognastat,Tau,pathway_or_process,small_molecule,True,"This inhibitor of the O-GlcNAcase (OGA) enzyme was being developed as a potential treatment for tauopathies, including Alzheimer's disease."
+cere-110,Other,pathway_or_process,gene_therapy,True,CERE-110 was a gene-therapy approach for neuroprotective treatment of Alzheimer's disease.
+cerebrolysin,Other,pathway_or_process,,True,
+chf-5074,Amyloid-Related,pathway_or_process,small_molecule,True,"This compound was initially reported as a γ-secretase modulator but is now portrayed as acting on multiple targets, particularly microglia."
+chf-5074,Inflammation,pathway_or_process,small_molecule,False,"This compound was initially reported as a γ-secretase modulator but is now portrayed as acting on multiple targets, particularly microglia."
+chf-5074,Other,pathway_or_process,small_molecule,False,"This compound was initially reported as a γ-secretase modulator but is now portrayed as acting on multiple targets, particularly microglia."
+cinpanemab,alpha-synuclein,pathway_or_process,antibody,True,Cinpanemab is a human-derived monoclonal antibody directed against α-synuclein.
+circadin,Other,pathway_or_process,small_molecule,True,"Circadin is an extended-release formulation of melatonin, a hormone that is released by the pineal gland into the CSF at night to regulate circadian rhythms and induce sleepiness."
+citalopram,Other Neurotransmitters,pathway_or_process,small_molecule,True,Citalopram is a selective serotonin reuptake inhibitor used to treat depression and anxiety.
+clioquinol,Amyloid-Related,pathway_or_process,small_molecule,True,Clioquinol is an old drug that was used to treat fungal and protozoal infections but was found to be neurotoxic when used chronically at high doses.
+clioquinol,Metals,pathway_or_process,small_molecule,False,Clioquinol is an old drug that was used to treat fungal and protozoal infections but was found to be neurotoxic when used chronically at high doses.
+cnm-au8,Metals,pathway_or_process,,True,CNM-Au8 is a preparation of pure elemental gold nanoparticles in a drinkable bicarbonate solution.
+cnm-au8,Other,pathway_or_process,,False,CNM-Au8 is a preparation of pure elemental gold nanoparticles in a drinkable bicarbonate solution.
+cocoa-flavanols,Inflammation,pathway_or_process,supplement,True,"Flavanols are naturally occurring bioactive plant products in tea, wine, and chocolate."
+cocoa-flavanols,Other,pathway_or_process,supplement,False,"Flavanols are naturally occurring bioactive plant products in tea, wine, and chocolate."
+cognishunt%E2%84%A2,Other,pathway_or_process,device_or_procedure,True,"The accumulation of amyloid plaques, neurofibrillary tangles, and neurodegeneration is thought to be due at least in part to the failure to clear circulating soluble Aβ and tau."
+continuous-positive-airway-pressure,Unknown,pathway_or_process,device_or_procedure,True,Continuous Positive Airway Pressure (CPAP) is an approved treatment using a machine and nasal mask to deliver continuous air flow and help keep the airways open during sleep.
+coya-302,Inflammation,pathway_or_process,,True,This immunomodulatory therapy combines low-dose interleukin-2 with an antibody to the cytotoxic T lymphocyte antigen 4 (CTLA4-Ig).
+cpg-1018r,Amyloid-Related,pathway_or_process,antibody,True,"CpG 1018 is a proprietary immune adjuvant made up of short, unmethylated cytosine-phosphate-guanine oligodeoxynucleotides (CpG ODNs)."
+cpg-1018r,Inflammation,pathway_or_process,antibody,False,"CpG 1018 is a proprietary immune adjuvant made up of short, unmethylated cytosine-phosphate-guanine oligodeoxynucleotides (CpG ODNs)."
+crenezumab,Amyloid-Related,pathway_or_process,antibody,True,Crenezumab represents a passive immunotherapy approach in which patients are treated with monoclonal antibodies that specifically recognize Aβ peptides.
+cs6253,Amyloid-Related,pathway_or_process,small_molecule,True,"This agonist peptide increases the activity of the adenosine triphosphate-binding cassette transporter A1 (ABCA1), which regulates cholesterol efflux from cells."
+cs6253,Cholesterol,pathway_or_process,small_molecule,False,"This agonist peptide increases the activity of the adenosine triphosphate-binding cassette transporter A1 (ABCA1), which regulates cholesterol efflux from cells."
+cst-103,Other Neurotransmitters,pathway_or_process,small_molecule,True,"CST-103 is CuraSen’s name for clenbuterol, a β2-adrenergic receptor agonist."
+cst-2032,Other Neurotransmitters,pathway_or_process,small_molecule,True,"CST-2032 is a proprietary, brain-penetrant β2-adrenergic receptor agonist."
+curcumin,Other,pathway_or_process,supplement,True,"Curcumin, the natural polyphenol that provides the yellow hue to turmeric, has been used in Indian Ayurvedic as well as traditional Chinese and Southeast Asian medicines for centuries to treat a wide variety of ailments."
+curcumin,Unknown,pathway_or_process,supplement,False,"Curcumin, the natural polyphenol that provides the yellow hue to turmeric, has been used in Indian Ayurvedic as well as traditional Chinese and Southeast Asian medicines for centuries to treat a wide variety of ailments."
+cx516,Other Neurotransmitters,pathway_or_process,small_molecule,True,"CX516 is a so-called ampakine, a molecule that potentiates currents mediated by AMPA-type glutamate receptors."
+cy6463,Inflammation,pathway_or_process,small_molecule,True,"CY6463 is a brain-penetrant, positive allosteric modulator of the soluble guanylate cyclase (sGC)."
+dapagliflozin,Other,pathway_or_process,small_molecule,True,Dapagliflozin is a once-daily prescription pill that is FDA-approved to treat Type 2 diabetes and reduce risk of heart failure in people with diabetes.
+dapsone,Other,pathway_or_process,small_molecule,True,Dapsone is a small molecule with anti-inflammatory immunosuppressive properties as well as antibacterial and antibiotic properties.
+dasatinib-quercetin,Tau,pathway_or_process,small_molecule,True,"Dasatinib is a cancer drug, sold under the name Sprycel® to treat certain types of leukemia in adults and children."
+dasatinib-quercetin,Other,pathway_or_process,small_molecule,False,"Dasatinib is a cancer drug, sold under the name Sprycel® to treat certain types of leukemia in adults and children."
+davunetide,Tau,pathway_or_process,,True,Davunetide is an intranasal neuropeptide therapy derived from a growth factor called activity-dependent neurotrophic protein (ADNP).
+dayvigo,Other,pathway_or_process,small_molecule,True,"Dayvigo is the brand name of lemborexant, a brain-penetrant, small-molecule orexin/hypocretin receptor antagonist used to treat insomnia."
+deep-brain-stimulation-fornix,Unknown,pathway_or_process,device_or_procedure,True,"Deep Brain Stimulation (DBS) is an invasive treatment where pairs of electrodes are surgically implanted in the brain, and connected to a pulse generator placed under the skin on the chest."
+deep-brain-stimulation-nucleus-basalis-meynert,Cholinergic System,pathway_or_process,device_or_procedure,True,Deep Brain Stimulation (DBS) is an invasive treatment.
+deep-brain-stimulation-nucleus-basalis-meynert,Other,pathway_or_process,device_or_procedure,False,Deep Brain Stimulation (DBS) is an invasive treatment.
+deferiprone,Metals,pathway_or_process,small_molecule,True,"Deferiprone is an orally available, brain-penetrant iron chelator that removes iron from the brain and other tissues."
+dexpramipexole,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Dexpramipexole is an ( R )-(+) optical enantiomer of pramipexole, a marketed dopamine agonist by Boehringer Ingelheim that is used in many countries around the world for the treatment of Parkinson's disease and restless leg syndrome."
+dexpramipexole,Other,pathway_or_process,small_molecule,False,"Dexpramipexole is an ( R )-(+) optical enantiomer of pramipexole, a marketed dopamine agonist by Boehringer Ingelheim that is used in many countries around the world for the treatment of Parkinson's disease and restless leg syndrome."
+dimebon,Other Neurotransmitters,pathway_or_process,small_molecule,True,Dimebon is an antihistamine that has been used in Russia since the 1980s to treat allergic rhinitis.
+dimebon,Unknown,pathway_or_process,small_molecule,False,Dimebon is an antihistamine that has been used in Russia since the 1980s to treat allergic rhinitis.
+dipraglurant,Other Neurotransmitters,pathway_or_process,small_molecule,True,"This is a negative allosteric modulator of the mGluR5 metabotropic glutamate receptor, taken by mouth."
+dnl151,Inflammation,pathway_or_process,small_molecule,True,"DNL151 is an orally available, brain-penetrant inhibitor of the leucine-rich repeat kinase 2 (LRRK2)."
+dnl151,Other,pathway_or_process,small_molecule,False,"DNL151 is an orally available, brain-penetrant inhibitor of the leucine-rich repeat kinase 2 (LRRK2)."
+dnl201,Inflammation,pathway_or_process,small_molecule,True,"DNL201 is an orally available, brain-penetrant inhibitor of the leucine-rich repeat kinase 2 (LRRK2)."
+dnl201,Other,pathway_or_process,small_molecule,False,"DNL201 is an orally available, brain-penetrant inhibitor of the leucine-rich repeat kinase 2 (LRRK2)."
+dnl343,Other,pathway_or_process,small_molecule,True,DNL343 is a brain-penetrant activator of the eukaryotic initiation factor EIF2b.
+dnl593,Other,pathway_or_process,,True,DNL593 is a replacement therapy for frontotemporal dementia caused by granulin gene mutations.
+dnl747,Inflammation,pathway_or_process,small_molecule,True,"DNL747 is a brain-penetrant, small-molecule inhibitor of RIPK1, i.e., receptor-interacting serine/threonine-protein kinase 1."
+dnl788,Inflammation,pathway_or_process,small_molecule,True,"This small molecule is a brain-penetrant inhibitor of RIPK1, i.e., receptor-interacting serine/threonine-protein kinase 1."
+dnl919,Amyloid-Related,pathway_or_process,antibody,True,This TREM2 agonist antibody activates microglia to phagocytose amyloid.
+dnl919,Inflammation,pathway_or_process,antibody,False,This TREM2 agonist antibody activates microglia to phagocytose amyloid.
+docosahexaenoic-acid-dha,Other,pathway_or_process,supplement,True,Docosahexaenoic acid (DHA) is one of the most abundant polyunsaturated fatty acids in the human brain.
+donepezil,Cholinergic System,pathway_or_process,small_molecule,True,"Donepezil is approved in more than 90 countries around the world for the treatment of mild to moderate Alzheimer's disease, and is approved for the treatment of severe AD in the United States, Japan, Canada, and several other countries."
+dronabinol,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Dronabinol is synthetic delta-9-tetrahydrocannabinol, aka THC, the major psychoactive compound of cannabis."
+e2511,Cholinergic System,pathway_or_process,small_molecule,True,E2511 is Eisai’s positive allosteric modulator of the tropomyosin receptor kinase A.
+edaravone,Other,pathway_or_process,small_molecule,True,Edaravone is an antioxidant drug marketed to treat amyotrophic lateral sclerosis.
+edicotinib,Inflammation,pathway_or_process,small_molecule,True,"JNJ-40346527 is an oral, selective inhibitor of the colony-stimulating factor-1 receptor (CSF-1R) tyrosine kinase (for details, see on MedChemExpress)."
+edonerpic,Other,pathway_or_process,small_molecule,True,"T-817MA is an orally available neurotrophic agent being developed for the treatment of Alzheimer's disease by Toyama Chemical, a company of the Fujifilm Group."
+edonerpic,Unknown,pathway_or_process,small_molecule,False,"T-817MA is an orally available neurotrophic agent being developed for the treatment of Alzheimer's disease by Toyama Chemical, a company of the Fujifilm Group."
+efavirenz,Amyloid-Related,pathway_or_process,small_molecule,True,Efavirenz is an FDA-approved anti-retroviral medication used for human immunodeficiency virus infection.
+efavirenz,Tau,pathway_or_process,small_molecule,False,Efavirenz is an FDA-approved anti-retroviral medication used for human immunodeficiency virus infection.
+efavirenz,Cholesterol,pathway_or_process,small_molecule,False,Efavirenz is an FDA-approved anti-retroviral medication used for human immunodeficiency virus infection.
+eht-0202,Other,pathway_or_process,small_molecule,True,
+elenbecestat,Amyloid-Related,pathway_or_process,small_molecule,True,"Elenbecestat is a small-molecule inhibitor of BACE, aka the β-secretase enzyme."
+elnd005,Amyloid-Related,pathway_or_process,small_molecule,True,"Originally developed by Transition Therapeutics, ELND005 was temporarily taken over by Elan Corporation, Speranza's parent company."
+empagliflozin,Other,pathway_or_process,small_molecule,True,Empagliflozin is a once-daily prescription pill that is FDA-approved to treat Type 2 diabetes and reduce risk of cardiovascular death in adults with the illness ( 2016 FDA press release ).
+emrusolmin,Tau,pathway_or_process,small_molecule,True,"Anle138b is an oral, brain-penetrant, general inhibitor of protein aggregation."
+emrusolmin,alpha-synuclein,pathway_or_process,small_molecule,False,"Anle138b is an oral, brain-penetrant, general inhibitor of protein aggregation."
+emrusolmin,Other,pathway_or_process,small_molecule,False,"Anle138b is an oral, brain-penetrant, general inhibitor of protein aggregation."
+emtricitabine,Inflammation,pathway_or_process,gene_therapy,True,This nucleoside analog reverse transcriptase inhibitor is used for the prevention and treatment of HIV infection.
+encenicline,Cholinergic System,pathway_or_process,small_molecule,True,"Encenicline hydrochloride is a partial, selective agonist of the α-7 nicotinic acetylcholine receptor (α7-nAChR)."
+engensis-0,Other,pathway_or_process,gene_therapy,True,This gene therapy involves intramuscular injection of a proprietary DNA plasmid encoding the two natural isoforms of hepatocyte growth factor.
+epigallocatechin-gallate-egcg,Amyloid-Related,pathway_or_process,supplement,True,EGCG is a polyphenolic flavonoid extracted from green tea leaves and widely considered to be the key bioactive ingredient of green tea.
+epigallocatechin-gallate-egcg,Inflammation,pathway_or_process,supplement,False,EGCG is a polyphenolic flavonoid extracted from green tea leaves and widely considered to be the key bioactive ingredient of green tea.
+epigallocatechin-gallate-egcg,Other,pathway_or_process,supplement,False,EGCG is a polyphenolic flavonoid extracted from green tea leaves and widely considered to be the key bioactive ingredient of green tea.
+epothilone-d,Tau,pathway_or_process,small_molecule,True,BMS-241027 is a small-molecule microtubule stabilizer for the treatment of Alzheimer's disease.
+eptastigmine,Cholinergic System,pathway_or_process,small_molecule,True,Eptastigmine is a centrally acting cholinesterase inhibitor.
+estrogen,Other,pathway_or_process,,True,There are a number of biological mechanisms through which estrogens might exert neuroprotective effects.
+etalanetug,Tau,pathway_or_process,antibody,True,"This humanized, monoclonal IgG1 antibody recognizes an HVPGG epitope in the microtubule-binding domain near the mid-domain of tau."
+etanercept,Inflammation,pathway_or_process,antibody,True,Etanercept inhibits the function of a pro-inflammatory cytokine called tumor necrosis factor alpha (TNF-α).
+evp-0962,Amyloid-Related,pathway_or_process,small_molecule,True,EVP-0962 is a γ-secretase modulator.
+exenatide,Other,pathway_or_process,small_molecule,True,Exenatide is an analog of the hormone glucagon-like peptide-1.
+exidavnemab,alpha-synuclein,pathway_or_process,antibody,True,This is a humanized monoclonal antibody targeting α-synuclein originally developed by the Swedish company BioArctic.
+ezeprogind,Tau,pathway_or_process,small_molecule,True,"This small molecule is reported to increase levels of the neurotrophic factor progranulin ( Verwaerde and Defert, 2025 )."
+ezeprogind,Inflammation,pathway_or_process,small_molecule,False,"This small molecule is reported to increase levels of the neurotrophic factor progranulin ( Verwaerde and Defert, 2025 )."
+ezeprogind,Other,pathway_or_process,small_molecule,False,"This small molecule is reported to increase levels of the neurotrophic factor progranulin ( Verwaerde and Defert, 2025 )."
+flurizan,Amyloid-Related,pathway_or_process,small_molecule,True,"Flurizan™ is the R-enantiomer of the nonsteroidal anti-inflammatory flurbiprofen, an NSAID that is structurally and pharmacologically related to ibuprofen and is used to treat several inflammatory conditions."
+focused-ultrasound-blood-brain-barrier,Amyloid-Related,pathway_or_process,device_or_procedure,True,Focused ultrasound with microbubbles is a noninvasive procedure that transiently opens the blood-brain barrier (BBB) using low-intensity sound waves.
+focused-ultrasound-blood-brain-barrier,Other,pathway_or_process,device_or_procedure,False,Focused ultrasound with microbubbles is a noninvasive procedure that transiently opens the blood-brain barrier (BBB) using low-intensity sound waves.
+foralumab,Inflammation,pathway_or_process,antibody,True,Foralumab is a human monoclonal IgG antibody to the CD3 T cell antigen receptor.
+fosgonimeton,Other,pathway_or_process,small_molecule,True,"NDX-1017 is a brain-penetrant small molecule that activates signaling via the hepatocyte growth factor (HGF)/MET receptor system ( Moebius and Church, 2023 )."
+fosigotifator,Other,pathway_or_process,small_molecule,True,"ABBV-CLS-7262 is an activator of the eukaryotic initiation factor EIF2b, which participates in starting up protein synthesis from mRNA."
+frm-0334,Other,pathway_or_process,small_molecule,True,FRM-0334 is a histone deacetylase (HDAC) inhibitor.
+g-csf,Other,pathway_or_process,small_molecule,True,
+galantamine,Cholinergic System,pathway_or_process,small_molecule,True,"Discovered in the 1950s, g alantamine is an alkaloid isolated from Galanthus nivalis , the common snowdrop."
+gammagardr,Amyloid-Related,pathway_or_process,antibody,True,Gammagard® is a preparation of pooled human plasma antibodies from blood donations.
+gammagardr,Inflammation,pathway_or_process,antibody,False,Gammagard® is a preparation of pooled human plasma antibodies from blood donations.
+gamunex,Amyloid-Related,pathway_or_process,antibody,True,This immunoglobulin preparation is used in obstetric indications to prevent and treat blood conditions related to rhesus factor incompatibility.
+gamunex,Inflammation,pathway_or_process,antibody,False,This immunoglobulin preparation is used in obstetric indications to prevent and treat blood conditions related to rhesus factor incompatibility.
+gantenerumab,Amyloid-Related,pathway_or_process,antibody,True,Gantenerumab is a fully human IgG1 antibody designed to bind with subnanomolar affinity to a conformational epitope on Aβ fibrils.
+gc021109,Inflammation,pathway_or_process,small_molecule,True,GC021109 is one of the first compounds in Alzheimer's clinical research that specifically target microglial cells.
+gemfibrozil,Cholesterol,pathway_or_process,small_molecule,True,Gemfibrozil is an old member of the fibrate class of drugs.
+gosuranemab,Tau,pathway_or_process,antibody,True,This is a humanized IgG4 monoclonal anti-tau antibody.
+grf6019,Inflammation,pathway_or_process,,True,"GRF6019 is a proprietary plasma fraction of about 400 proteins, developed by Alkahest and manufactured by Grifols."
+grf6019,Other,pathway_or_process,,False,"GRF6019 is a proprietary plasma fraction of about 400 proteins, developed by Alkahest and manufactured by Grifols."
+grf6019,Unknown,pathway_or_process,,False,"GRF6019 is a proprietary plasma fraction of about 400 proteins, developed by Alkahest and manufactured by Grifols."
+grf6021,Inflammation,pathway_or_process,,True,"GRF6021 is a proprietary plasma fraction, developed by Alkahest and manufactured by Grifols."
+grf6021,Other,pathway_or_process,,False,"GRF6021 is a proprietary plasma fraction, developed by Alkahest and manufactured by Grifols."
+grf6021,Unknown,pathway_or_process,,False,"GRF6021 is a proprietary plasma fraction, developed by Alkahest and manufactured by Grifols."
+gsk239512,Cholinergic System,pathway_or_process,small_molecule,True,"GSK was developing this histamine H3 receptor antagonist for the treatment of Alzheimer's, schizophrenia, and multiple sclerosis."
+gsk239512,Other Neurotransmitters,pathway_or_process,small_molecule,False,"GSK was developing this histamine H3 receptor antagonist for the treatment of Alzheimer's, schizophrenia, and multiple sclerosis."
+gsk2647544,Cholesterol,pathway_or_process,small_molecule,True,GSK2647544 is an inhibitor of lipoprotein-associated phospholipase A2.
+gsk933776,Amyloid-Related,pathway_or_process,antibody,True,GSK933776 is a humanized mouse IgG1 monoclonal antibody directed against the N-terminus of the Aβ peptide.
+gt-02287,alpha-synuclein,pathway_or_process,small_molecule,True,"GT-02287 is a brain-penetrant, small molecule allosteric regulator of the lysosomal enzyme glucocerebrosidase (GCase)."
+gt-02287,Other,pathway_or_process,small_molecule,False,"GT-02287 is a brain-penetrant, small molecule allosteric regulator of the lysosomal enzyme glucocerebrosidase (GCase)."
+guanfacine,Other Neurotransmitters,pathway_or_process,small_molecule,True,This drug is an α2A adrenergic receptor agonist.
+gv-971,Amyloid-Related,pathway_or_process,small_molecule,True,This mixture of acidic linear oligosaccharides is derived from brown algae.
+gv-971,Inflammation,pathway_or_process,small_molecule,False,This mixture of acidic linear oligosaccharides is derived from brown algae.
+gv1001,Other,pathway_or_process,antibody,True,"Originally developed as a cancer vaccine, GV1001 is a 16-amino-acid peptide comprising a sequence from the human enzyme telomerase reverse transcriptase (TERT)."
+hf0220,Inflammation,pathway_or_process,small_molecule,True,
+hmtm,Tau,pathway_or_process,small_molecule,True,TRx0237 (LMTX™) is a second-generation tau protein aggregation inhibitor for the treatment of Alzheimer's disease (AD) and frontotemporal dementia.
+htl0018318,Cholinergic System,pathway_or_process,small_molecule,True,"This small-molecule drug selectively activates the muscarinic acetylcholine receptor M1, which is expressed in the central nervous system and peripheral secretory glands."
+huperzine,Cholinergic System,pathway_or_process,small_molecule,True,Huperzine A is an alkaloid extract derived from the Chinese club moss Huperzia serrata.
+ibc-ab002,Amyloid-Related,pathway_or_process,antibody,True,"This humanized IgG1 antibody inhibits an immune checkpoint protein called programmed death ligand, aka PD-L1, stimulating the immune system."
+ibc-ab002,Inflammation,pathway_or_process,antibody,False,"This humanized IgG1 antibody inhibits an immune checkpoint protein called programmed death ligand, aka PD-L1, stimulating the immune system."
+ibc-ab002,Other,pathway_or_process,antibody,False,"This humanized IgG1 antibody inhibits an immune checkpoint protein called programmed death ligand, aka PD-L1, stimulating the immune system."
+ibuprofen,Amyloid-Related,pathway_or_process,small_molecule,True,Ibuprofen is an over-the-counter non-steroidal anti-inflammatory drug (NSAID).
+ibuprofen,Inflammation,pathway_or_process,small_molecule,False,Ibuprofen is an over-the-counter non-steroidal anti-inflammatory drug (NSAID).
+iclepertin,Other Neurotransmitters,pathway_or_process,small_molecule,True,"This compound is a glycine transporter inhibitor that was being develped for the treatment of Alzheimer's disease, then discontinued; it remains in development for schizophrenia."
+idalopirdine,Other Neurotransmitters,pathway_or_process,small_molecule,True,This orally available drug is an antagonist of the serotonin 6 (5-HT6) receptor.
+idebenone,Other,pathway_or_process,small_molecule,True,"Idebenone, a synthetic analogue of coenzyme Q10, has potent antioxidant activity and facilitates the flux of electrons along the mitochondrial electron transport chain, increasing the production of ATP."
+intepirdine,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Originally developed by GSK under the name SB-742457, RVT-101/intepirdine is an antagonist of the serotonin receptor 6 (5-HT)6, a largely CNS-specific member of the serotonin receptor subfamily."
+intranasal-oxytocin,Other,pathway_or_process,,True,"Oxytocin is a peptide hormone involved in social bonding, reproduction, and childbirth."
+inzomelid,Inflammation,pathway_or_process,small_molecule,True,"Inzomelid is an oral, brain-penetrant inhibitor of inflammasomes containing NLRP3, or nod-like receptor family, pyrin domain-containing protein 3."
+ion464,alpha-synuclein,pathway_or_process,gene_therapy,True,ION464 is an antisense oligonucleotide targeting α-synuclein mRNA to block production of the protein.
+ion859,Inflammation,pathway_or_process,gene_therapy,True,This drug is an antisense oligonucleotide (ASO).
+ion859,Other,pathway_or_process,gene_therapy,False,This drug is an antisense oligonucleotide (ASO).
+irsenontrine,Other,pathway_or_process,small_molecule,True,Irsenontrine is a selective inhibitor of phosphodiesterase 9.
+iti-1284,Other Neurotransmitters,pathway_or_process,small_molecule,True,ITI-1284 is a deuterated derivative of the antipsychotic drug lumateperone.
+jnj-64042056,Tau,pathway_or_process,antibody,True,ACI-35 is a liposome-based vaccine.
+karxt,Cholinergic System,pathway_or_process,small_molecule,True,KarXT is xanomeline with trospium.
+ketasyn,Other,pathway_or_process,supplement,True,This is a nutritional beverage.
+kisunla,Amyloid-Related,pathway_or_process,antibody,True,"Donanemab, aka N3pG, is a humanized IgG1 monoclonal antibody developed from mouse mE8-IgG2a."
+kmct-ons,Other,pathway_or_process,supplement,True,kMCT-ONS is a nutritional drink that raises blood ketone concentrations.
+kp405,Other,pathway_or_process,small_molecule,True,KP405 is a dual incretin receptor agonist that is being developed to treat Parkinson’s disease.
+kynmobi,Other Neurotransmitters,pathway_or_process,small_molecule,True,"APL-130277 is a sublingual thin film formulation of apomorphine, a dopamine receptor agonist with anti-parkinsonian actions similar to levodopa."
+ladostigil,Cholinergic System,pathway_or_process,small_molecule,True,"Ladostigil is a multimodal, or multifunctional, (MFC) compound that combines two pharmacophores taken from rivastigmine and rasagiline."
+lamivudine,Inflammation,pathway_or_process,gene_therapy,True,Lamivudine is an antiretroviral therapy used to treat human immunodeficiency virus and Hepatitis B infections.
+latozinemab,Other,pathway_or_process,antibody,True,AL001 is a recombinant human anti-human sortilin (SORT1) monoclonal IgG1 developed by Alector in partnership with Abbvie.
+lenalidomide,Amyloid-Related,pathway_or_process,small_molecule,True,"Lenalidomide is an anti-cancer drug with pleiotropic anti-inflammatory, anti-angiogenic, and immune stimulatory activities."
+lenalidomide,Inflammation,pathway_or_process,small_molecule,False,"Lenalidomide is an anti-cancer drug with pleiotropic anti-inflammatory, anti-angiogenic, and immune stimulatory activities."
+leqembi,Amyloid-Related,pathway_or_process,antibody,True,"BAN2401 is the humanized IgG1 version of the mouse monoclonal antibody mAb158, which selectively binds to large, soluble Aβ protofibrils."
+leucettinib-21,Other,pathway_or_process,small_molecule,True,"Leucettinib-21 is a small-molecule inhibitor of the dual-specific, tyrosine phosphorylation-regulated kinase DYRK1A ( Lindberg and Meijer 2021 )."
+leuprolide,Other,pathway_or_process,,True,Leuprolide acetate is a synthetic nonapeptide analog of naturally occurring gonadotropin-releasing hormone (GnRH).
+levetiracetam,Amyloid-Related,pathway_or_process,small_molecule,True,Levetiracetam is an atypical anti-convulsant medication and a modulator of the synaptic vesicle protein modulator SV2A.
+levetiracetam,Other,pathway_or_process,small_molecule,False,Levetiracetam is an atypical anti-convulsant medication and a modulator of the synaptic vesicle protein modulator SV2A.
+levodopa,Other Neurotransmitters,pathway_or_process,small_molecule,True,This dopamine replacement therapy is the mainstay of treatment for motor symptoms of Parkinson’s disease.
+linopirdine,Other,pathway_or_process,small_molecule,True,
+liraglutide,Other,pathway_or_process,,True,Liraglutide is an analog of glucagon-like peptide 1.
+lithium,Amyloid-Related,pathway_or_process,,True,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lithium,Tau,pathway_or_process,,False,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lithium,Metals,pathway_or_process,,False,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lithium,Other,pathway_or_process,,False,"Lithium has been used for decades to treat mood disorders, and is now mainly prescribed for bipolar disorder."
+lixisenatide,Other,pathway_or_process,,True,Lixisenatide is an analog of the hormone glucagon-like peptide-1.
+lm11a-31-bhs,Other,pathway_or_process,small_molecule,True,"LM11A-31 is an orally available, brain-penetrant, small-molecule ligand of the p75 neurotrophic receptor."
+lomecel-b,Inflammation,pathway_or_process,,True,"Lomecel-B is a preparation of multipotent stem and progenitor cells isolated from donated bone marrow of young healthy adults, and expanded in culture."
+lomecel-b,Other,pathway_or_process,,False,"Lomecel-B is a preparation of multipotent stem and progenitor cells isolated from donated bone marrow of young healthy adults, and expanded in culture."
+lornoxicam,Inflammation,pathway_or_process,small_molecule,True,
+losartan,Other,pathway_or_process,small_molecule,True,Losartan is an angiotensin II receptor blocker used to treat high blood pressure.
+low-dose-interleukin-2,Inflammation,pathway_or_process,,True,Low dose interleukin 2 is being tested as an immunomodulatory approach in neurodegenerative diseases.
+low-intensity-focused-ultrasound,Other,pathway_or_process,device_or_procedure,True,"Low-intensity transcranial focused ultrasound is a noninvasive, targeted neuromodulation technology."
+low-intensity-focused-ultrasound,Unknown,pathway_or_process,device_or_procedure,False,"Low-intensity transcranial focused ultrasound is a noninvasive, targeted neuromodulation technology."
+lti-291,Other,pathway_or_process,small_molecule,True,"LTI-291 is a small-molecule activator of glucocerebrosidase (GCase), a lysosomal enzyme involved in the breakdown of glycosphingolipids."
+lu-af20513,Amyloid-Related,pathway_or_process,antibody,True,This active vaccine was designed to overcome the weak immune system of aged populations while avoiding auto-immune T cell responses.
+lu-af82422,alpha-synuclein,pathway_or_process,antibody,True,LU AF82422 is a humanized monoclonal IgG1 antibody targeting the C-terminal of α-synuclein.
+lu-af87908,Tau,pathway_or_process,antibody,True,Lu AF87908 is a humanized mouse IgG1 monoclonal antibody to phosphorylated tau protein.
+lu-af88434,Other,pathway_or_process,small_molecule,True,This small molecule is a potent and selective PDE-1 phosphodiesterase inhibitor that increases neuronal levels of cyclic nucleotide second messengers.
+lu25-109,Cholinergic System,pathway_or_process,small_molecule,True,LU25-109 is a selective partial M1 agonist and an M2/M3 antagonist.
+lumateperone,Other Neurotransmitters,pathway_or_process,small_molecule,True,"This serotonin 5-HT2A receptor antagonist was originally developed by Bristol Myers Squibb, and was licensed to Intra-Cellular Therapies in 2005."
+lx1001,Amyloid-Related,pathway_or_process,gene_therapy,True,This gene-therapy approach uses a viral vector to drive expression of human apolipoprotein E2 protein (APOE2) in the central nervous system.
+ly2599666,Amyloid-Related,pathway_or_process,antibody,True,"LY2599666 is an Fc-less, antigen-binding fragment of a monoclonal anti-Aβ antibody linked to polyethylene glycol."
+ly2886721,Amyloid-Related,pathway_or_process,small_molecule,True,LY2886721 was the first BACE inhibitor to reach Phase 2 clinical research.
+ly3202626,Amyloid-Related,pathway_or_process,small_molecule,True,"LY3202626 is a potent small-molecule inhibitor of BACE1, the β-secretase enzyme that cleaves the APP protein to release its C99 fragment."
+ly3884961,Other,pathway_or_process,gene_therapy,True,PR001 is a gene-replacement therapy that uses adeno-associated virus 9 (AAV9) to deliver a functional copy of the GBA1 gene to the brain.
+ly3884963,Other,pathway_or_process,gene_therapy,True,PR006 is a gene-replacement therapy that uses adeno-associated virus 9 (AAV9) to deliver a functional copy of the progranulin gene GRN to the brain.
+ly3954068,Tau,pathway_or_process,gene_therapy,True,LY3954068 is a small interfering RNA (siRNA) that targets expression of the microtubule-associated binding protein tau.
+ly3962681,alpha-synuclein,pathway_or_process,gene_therapy,True,LY3962681 is a small interfering RNA (siRNA) that binds α-synuclein messenger RNA and causes its degradation.
+masitinib,Other,pathway_or_process,small_molecule,True,"Masitinib is an orally available inhibitor of the protein tyrosine kinase c-kit, which is expressed on cancer cells."
+masupirdine,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Developed by Suven Inc., the Delaware-based subsidiary of Indian company Suven Life Sciences, SUVN-502 is an orally available, brain-penetrant, selective antagonist of the 5-HT6 serotonin receptor ( Nirogi et al., 2017 )."
+medi1814,Amyloid-Related,pathway_or_process,antibody,True,"Developed originally at MedImmune, now part of AstraZeneca, this antibody is being developed jointly by AstraZeneca and Eli Lilly."
+melatonin,Other,pathway_or_process,supplement,True,
+mem-1003,Other,pathway_or_process,small_molecule,True,MEM 1003 is a dihydropyridine compound related to nimodipine.
+memantine,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Memantine is marketed for the treatment of moderate to severe Alzheimer's disease in the United States, Canada, Europe, China, and other countries, and for the treatment of dementia in Germany, where it has been on the market since 1989 under the name Akatinol."
+memorem-transcranial-electromagnetic-treatment,Amyloid-Related,pathway_or_process,device_or_procedure,True,"MemorEM™ is a patented, noninvasive technology that delivers ultrahigh radio frequency electromagnetic waves to the brain."
+memorem-transcranial-electromagnetic-treatment,Other,pathway_or_process,device_or_procedure,False,"MemorEM™ is a patented, noninvasive technology that delivers ultrahigh radio frequency electromagnetic waves to the brain."
+metformin,Other,pathway_or_process,small_molecule,True,Metformin is a prescription drug widely used to treat Type 2 diabetes.
+methylphenidate,Other Neurotransmitters,pathway_or_process,small_molecule,True,This drug is a mild CNS stimulant that is being tested as a treatment for apathy in people with Alzheimer’s disease.
+metrifonate,Cholinergic System,pathway_or_process,small_molecule,True,Metrifonate is a long-acting irreversible cholinesterase inhibitor.
+mevidalen,Other Neurotransmitters,pathway_or_process,small_molecule,True,"LY3154207 is a small-molecule, positive allosteric modulator of the dopamine receptor D1 (D1 PAM)."
+milameline,Cholinergic System,pathway_or_process,small_molecule,True,"Milameline is a muscarinic receptor agonist with approximately equal affinities determined at the five subtypes of human muscarinic receptors (hM1–hM5) ( Schwarz et al., 1999 )."
+minocycline,Other,pathway_or_process,small_molecule,True,This second-generation tetracycline antibiotic has been in use for more than 30 years.
+minzasolmin,alpha-synuclein,pathway_or_process,small_molecule,True,Minzasolmin is a small-molecule α-synuclein aggregation inhibitor.
+mirtazapine,Other Neurotransmitters,pathway_or_process,small_molecule,True,Mirtazapine is a tricyclic antidepressant.
+mivelsiran,Amyloid-Related,pathway_or_process,gene_therapy,True,This gene-silencing approach uses intrathecal injection of a small interfering RNA targeting the amyloid precursor protein mRNA as a potential treatment for Alzheimer’s disease and cerebral amyloid angiopathy.
+mk-1167,Cholinergic System,pathway_or_process,small_molecule,True,MK-1167 is an α-7 nicotinic acetylcholine receptor positive allosteric modulator.
+mk-1942,Unknown,pathway_or_process,small_molecule,True,"Little is known about MK-1942, a small-molecule drug Merck began to develop for treatment-resistant depression in 2021."
+mk-2214,Tau,pathway_or_process,antibody,True,MK-2214 is an anti-tau monoclonal antibody.
+mk-7622,Unknown,pathway_or_process,small_molecule,True,Merck is developing MK-7622 as an add-on therapy to the cholinesterase inhibitor donepezil for the treatment of Alzheimer's disease.
+mk-8189,Other Neurotransmitters,pathway_or_process,small_molecule,True,MK-8189 is a selective inhibitor of phosphodiesterase 10A (PDE10A).
+mkc-231,Unknown,pathway_or_process,small_molecule,True,"MKC-231 is reported to enhance high-affinity choline uptake (HACU), a rate-limiting step in acetylcholine synthesis ( Takashina et al., 2008 )."
+montelukast,Inflammation,pathway_or_process,small_molecule,True,Montelukast is a leukotriene receptor antagonist used to treat asthma and allergy symptoms.
+msdc-0160,Other,pathway_or_process,small_molecule,True,
+multivitamin-mineral-supplement,Other,pathway_or_process,supplement,True,"Multivitamin deficiencies in older adults may increase risk for cognitive decline and dementia ( Littlejohns et al., 2014 ; Mohajeri et al., 2015 )."
+mw150-0,Inflammation,pathway_or_process,small_molecule,True,"MW150 is a CNS-penetrant, selective inhibitor of the alpha isoform of the mitogen-activated serine/threonine protein kinase p38 MAPK."
+mw150-0,Other,pathway_or_process,small_molecule,False,"MW150 is a CNS-penetrant, selective inhibitor of the alpha isoform of the mitogen-activated serine/threonine protein kinase p38 MAPK."
+mw151,Inflammation,pathway_or_process,small_molecule,True,"MW151 is an orally available, brain-penetrant, anti-inflammatory compound."
+na-831,Cholinergic System,pathway_or_process,small_molecule,True,This small molecule is claimed to activate AMPA receptors and increase the production of brain-derived neurotrophic factor in neurons.
+nabilone,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Nabilone is a synthetic compound sold by Bausch Health, formerly Valeant Pharmaceuticals."
+naproxen,Inflammation,pathway_or_process,small_molecule,True,Naproxen is an over-the-counter nonsteroidal anti-inflammatory drug (NSAID).
+nasal-insulin,Amyloid-Related,pathway_or_process,small_molecule,True,Insulin is the peptide hormone that is standard treatment for the management of Type 1 diabetes.
+nasal-insulin,Other,pathway_or_process,small_molecule,False,Insulin is the peptide hormone that is standard treatment for the management of Type 1 diabetes.
+nb-4746,Other,pathway_or_process,small_molecule,True,"NB-4746 is an oral, brain-penetrant, small molecule inhibitor of the nicotinamide adenine dinucleotide (NAD) hydrolase SARM1."
+nefiracetam,Cholinergic System,pathway_or_process,small_molecule,True,"Nefiracetam is a pyrrolidone-type agent that affects multiple neurotransmitter systems including: aminergic, glutaminergic, and cholinergic."
+neflamapimod,Inflammation,pathway_or_process,small_molecule,True,"Neflamapimod selectively inhibits the alpha isoform of the mitogen-activated serine/threonine protein kinase p38 MAPK, a ""stress kinase"" considered a drug target in CNS diseases ( Duffy et al., 2011 )."
+nelonicline,Cholinergic System,pathway_or_process,small_molecule,True,ABT-126 is an α-7 nicotinic acetylcholine receptor (α7-nAChR) allosteric modulator that was being developed to treat cognitive deficits in schizophrenia and Alzheimer's disease.
+nelotanserin,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Nelotanserin is a serotonin, aka 5HT, 2A receptor inverse agonist."
+neotrofin,Unknown,pathway_or_process,small_molecule,True,NeoTrofin is a derivative of the purine hypoxanthin.
+neramexane,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Similar to memantine, neramexane is an NMDA receptor channel blocker with moderate affinity."
+neu-411,Inflammation,pathway_or_process,small_molecule,True,NEU-411 is a small molecule that enters the brain and inhibits the leucine-rich repeat kinase LRRK2.
+neu-411,Other,pathway_or_process,small_molecule,False,NEU-411 is a small molecule that enters the brain and inhibits the leucine-rich repeat kinase LRRK2.
+neuroad,Other,pathway_or_process,device_or_procedure,True,NeuroADTM rTMS is a non-invasive neuromodulation system.
+nic5-15,Amyloid-Related,pathway_or_process,small_molecule,True,"NIC5-15 is pinitol, a naturally occurring cyclic sugar alcohol."
+nic5-15,Other,pathway_or_process,small_molecule,False,"NIC5-15 is pinitol, a naturally occurring cyclic sugar alcohol."
+nicotinamide-riboside,Other,pathway_or_process,supplement,True,"Nicotinamide riboside (NR) is a patented analog of nicotinamide or Vitamin B3, and is sold as a dietary supplement under the brand name Tru Niagen."
+nilotinib,Other,pathway_or_process,small_molecule,True,Nilotinib is an oral Abl tyrosine kinase inhibitor used to treat chronic myeloid leukemia.
+nilvadipine,Other,pathway_or_process,small_molecule,True,Nilvadipine is a dihydropyridine calcium channel blocker.
+nimodipine,Metals,pathway_or_process,small_molecule,True,Nimodipine is a calcium channel blocker.
+nio752,Tau,pathway_or_process,gene_therapy,True,"NIO752 is an antisense oligonucleotide to tau, designed to reduce the levels of this protein by interfering with translation of tau mRNA."
+nivegacetor,Amyloid-Related,pathway_or_process,small_molecule,True,This second-generation γ-secretase modulator is in development for the treatment of Alzheimer's disease.
+nmra-511,Other,pathway_or_process,small_molecule,True,"NMRA-511 is an oral, selective, brain-penetrant antagonist of the vasopressin 1a receptor (V1aR)."
+npt520-34,alpha-synuclein,pathway_or_process,small_molecule,True,"This orally available, small-molecule antagonist of toll-like receptor 2 (TLR2) is in development for the treatment of Parkinson’s disease and ALS."
+npt520-34,Inflammation,pathway_or_process,small_molecule,False,"This orally available, small-molecule antagonist of toll-like receptor 2 (TLR2) is in development for the treatment of Parkinson’s disease and ALS."
+npt520-34,Other,pathway_or_process,small_molecule,False,"This orally available, small-molecule antagonist of toll-like receptor 2 (TLR2) is in development for the treatment of Parkinson’s disease and ALS."
+ns2330,Other Neurotransmitters,pathway_or_process,small_molecule,True,"NS2330 is a monoamine uptake inhibitor that inhibits norepinephrine, serotonin, and dopamine reuptake."
+nsc001,Cholinergic System,pathway_or_process,small_molecule,True,Insufficient activity of the cholinergic system is associated with AD and cognitive decline.
+nt-0796,Inflammation,pathway_or_process,small_molecule,True,"NT-0796 is an oral, brain-penetrant inhibitor of inflammasomes that contain NLRP3, aka nod-like receptor family pyrin domain-containing protein 3."
+ntrx-07,Inflammation,pathway_or_process,small_molecule,True,NTRX-07 is a cannabinoid receptor agonist.
+ntrx-07,Other,pathway_or_process,small_molecule,False,NTRX-07 is a cannabinoid receptor agonist.
+nuplazid,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Pimavanserin is a serotonergic agent, specifically a selective serotonin (5-HT) 2A receptor inverse agonist."
+nurowntm,Other,pathway_or_process,,True,"NurOwn™ comprises mesenchymal stem cells enriched from patients’ own bone marrow, propagated in the lab, and induced to secrete neurotrophic factors."
+nuz-001,Other,pathway_or_process,small_molecule,True,"NUZ-001, also known as monepantel, is used worldwide in veterinary medicine to control intestinal nematodes, especially in sheep."
+nx210c,Other,pathway_or_process,small_molecule,True,NX210c is a cyclized 12-amino-acid peptide derived from a protein involved in embryonic neuronal development.
+nyx-458,Other Neurotransmitters,pathway_or_process,small_molecule,True,NYX-458 is an oral NMDA receptor modulator with pro-cognitive and antidepressant actions.
+obicetrapib,Cholesterol,pathway_or_process,small_molecule,True,This cholesteryl ester transfer protein (CETP) inhibitor is being developed primarily as a cholesterol-targeted therapy to reduce cardiovascular disease.
+octagam%C2%AE,Amyloid-Related,pathway_or_process,antibody,True,NewGam/Octagam® is an intravenous immunoglobulin preparation by the Switzerland-based company Octapharma.
+octagam%C2%AE,Inflammation,pathway_or_process,antibody,False,NewGam/Octagam® is an intravenous immunoglobulin preparation by the Switzerland-based company Octapharma.
+olx-07010,Tau,pathway_or_process,small_molecule,True,OLX-07010 is a small-molecule inhibitor of tau self-association that is being tested for Alzheimer’s disease.
+opm-201,Other,pathway_or_process,small_molecule,True,"This small molecule, brain-penetrant inhibitor of the leucine-rich repeat kinase LRRK2 is being developed as a treatment for Parkinson’s disease."
+orm-12741,Other Neurotransmitters,pathway_or_process,small_molecule,True,ORM-12741 is an orally available α 2c adrenergic receptor antagonist being developed for Alzheimer's disease by the Finnish company Orion.
+pbft02,Other,pathway_or_process,gene_therapy,True,PBFT02 is a gene-replacement therapy that uses adeno-associated virus serotype 1 (AAV1) to deliver a functional copy of the progranulin gene GRN to the brain.
+pbt2,Amyloid-Related,pathway_or_process,small_molecule,True,PBT2 is a metal protein-attenuating compound (MPAC) being developed for treatment of both Alzheimer's and Huntington's diseases.
+pbt2,Metals,pathway_or_process,small_molecule,False,PBT2 is a metal protein-attenuating compound (MPAC) being developed for treatment of both Alzheimer's and Huntington's diseases.
+pepinemab,Inflammation,pathway_or_process,antibody,True,"Pepinemab is a humanized IgG4 monoclonal antibody to semaphorin 4D, a multifunctional membrane glycoprotein expressed by oligodendrocytes and astrocytes in the central nervous system."
+pf-05212377,Other Neurotransmitters,pathway_or_process,small_molecule,True,SAM-760 is an orally available antagonist of the serotonin 6 receptor (5-HT 6 ).
+pf-06648671,Amyloid-Related,pathway_or_process,small_molecule,True,PF-06648671 is a γ-secretase modulator Pfizer was developing for the treatment of Alzheimer's disease.
+pf-06751979,Amyloid-Related,pathway_or_process,small_molecule,True,Pfizer developed the BACE 1 inhibitor PF-06751979 for the treatment of Alzheimer's disease to Phase 1.
+pf-06852231,Cholinergic System,pathway_or_process,small_molecule,True,PF-06852231 is a small-molecule cholinergic modulator.
+phenserine,Cholinergic System,pathway_or_process,small_molecule,True,Phenserine is a physostigmine analog that inhibits acetylcholinesterase.
+photobiomodulation,Inflammation,pathway_or_process,device_or_procedure,True,Photobiomodulation is a form of light therapy that exposes tissue to red or near-infrared (NIR) light.
+photobiomodulation,Unknown,pathway_or_process,device_or_procedure,False,Photobiomodulation is a form of light therapy that exposes tissue to red or near-infrared (NIR) light.
+physostigmine-salicylate,Cholinergic System,pathway_or_process,small_molecule,True,Physostigmine salicylate is a reversible acetylcholinesterase inhibitor that effectively increases the concentration of acetylcholine and thus the stimulation of both nicotinic and muscarinic receptors due to the increase in available acetylcholine at the synapse.
+pioglitazone,Inflammation,pathway_or_process,small_molecule,True,Pioglitazone is an insulin sensitizer of the thiazolidinedione class of peroxisome-proliferator activated receptor γ (PPARγ) agonists.
+pioglitazone,Other,pathway_or_process,small_molecule,False,Pioglitazone is an insulin sensitizer of the thiazolidinedione class of peroxisome-proliferator activated receptor γ (PPARγ) agonists.
+piromelatine,Other Neurotransmitters,pathway_or_process,small_molecule,True,Piromelatine is a multimodal sleep drug.
+piromelatine,Other,pathway_or_process,small_molecule,False,Piromelatine is a multimodal sleep drug.
+pmn310,Amyloid-Related,pathway_or_process,antibody,True,PMN310 is a humanized IgG1 monoclonal antibody to soluble Aβ oligomers.
+pnt001,Tau,pathway_or_process,antibody,True,"PNT001 is a monoclonal antibody to the cis isomer of tau phosphorylated at threonine 231, a form of pathological tau suspected to play a role in traumatic brain injury, chronic traumatic encephalopathy, vascular dementia, and Alzheimer’s disease."
+ponezumab,Amyloid-Related,pathway_or_process,antibody,True,Ponezumab (PF-04360365) is a therapeutic antibody originally developed by the small biotech company Rinat Neuroscience.
+posdinemab,Tau,pathway_or_process,antibody,True,"This humanized IgG1 monoclonal antibody binds the proline-rich domain of tau, on the rationale that such antibodies will more potently interfere with cell-to-cell propagation of pathogenic, aggregated tau than do antibodies targeting tau's N-terminus."
+prasinezumab,alpha-synuclein,pathway_or_process,antibody,True,Prasinezumab is a humanized IgG1 monoclonal antibody directed against aggregated α-synuclein.
+prazosin,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Prazosin is an α-blocker, that is, an antagonist selective for α-1 adrenergic receptors."
+prednisone,Inflammation,pathway_or_process,small_molecule,True,"Prednisone is a corticosteroid drug that is being prescribed in many countries for conditions ranging from severe allergic reactions to arthritis, asthma, and certain autoimmune disorders such as multiple sclerosis and lupus."
+pri-002,Amyloid-Related,pathway_or_process,small_molecule,True,"This 12-residue, enantiomeric peptide is designed to interfere with oligomerization of Aβ42 by binding to, and stabilizing, Aβ42 monomers."
+pridopidine,Other,pathway_or_process,small_molecule,True,"Pridopidine, formerly called huntexil, is a selective agonist of the sigma1 receptor, a molecular chaperone located in the endoplasmic reticulum in association with mitochondria."
+primec,Inflammation,pathway_or_process,,True,"PrimeC is a patented combination of two FDA-approved drugs, the antibiotic ciprofloxacin and the non-steroid anti-inflammatory celecoxib."
+primec,Metals,pathway_or_process,,False,"PrimeC is a patented combination of two FDA-approved drugs, the antibiotic ciprofloxacin and the non-steroid anti-inflammatory celecoxib."
+primec,Other,pathway_or_process,,False,"PrimeC is a patented combination of two FDA-approved drugs, the antibiotic ciprofloxacin and the non-steroid anti-inflammatory celecoxib."
+propentofylline,Unknown,pathway_or_process,small_molecule,True,Propentofylline is a xanthine derivative that inhibits adenosine uptake and also inhibits phosphodiesterase.
+protollin,Inflammation,pathway_or_process,antibody,True,Protollin is a nasal vaccine composed of the outer membrane proteins of bacteria complexed with lipopolysaccharides.
+prx-03140,Other,pathway_or_process,small_molecule,True,"5-HT4 receptor agonists augment neuronal acetylcholine release ( Ansanay et al., 1995 ; Torres et al., 1995 ) as well as modulate levels of Aβ and soluble amyloid precursor protein alpha (sAPPα) ( Lezoualc’h & Robert., 2003 ; Robert et al., 2001 )."
+prx012,Amyloid-Related,pathway_or_process,antibody,True,PRX012 is a humanized monoclonal IgG1 antibody to an N-terminal epitope on Aβ.
+pu-ad,Other,pathway_or_process,small_molecule,True,"A member of a new class of drugs called epichaperome inhibitors, PU-AD is an oral, brain-permeable inhibitor of the molecular chaperone heat shock protein 90."
+pxt864,Other Neurotransmitters,pathway_or_process,small_molecule,True,PXT864 is an example of a repurposed drug combination.
+qalsodytm,Other,pathway_or_process,gene_therapy,True,This drug is a second-generation antisense oligonucleotide (ASO) targeting the mRNA for superoxide dismutase 1.
+qrl-101,Other,pathway_or_process,small_molecule,True,"This small molecule is an opener of Kv7.2/7.3 voltage-gated potassium channels, which function to stabilize membrane potential and control neuronal excitability."
+qrl-201,Other,pathway_or_process,gene_therapy,True,QRL-201 is an antisense oligonucleotide targeting the mRNA of the STMN2 gene.
+rasagiline,Other Neurotransmitters,pathway_or_process,small_molecule,True,Rasagiline is a selective monoamine oxidase B (MAOB) inhibitor widely used to treat symptoms of Parkinson’s disease.
+relyvrio,Other,pathway_or_process,small_molecule,True,"AMX0035 is a proprietary, oral combination of two drugs already in use, sodium phenylbutyrate (PB) and tauroursodeoxycholic acid (TUDCA)."
+rem0045392,Tau,pathway_or_process,small_molecule,True,REM0045392 is a modulator of the cytoskeletal protein septin.
+rember-tm,Tau,pathway_or_process,small_molecule,True,"Rember® is a purified, proprietary formulation of methylthioninium chloride (MTC), also known as methylene blue."
+remternetug,Amyloid-Related,pathway_or_process,antibody,True,"Remternetug, previously LY3372993, is an investigational monoclonal antibody."
+resveratrol,Other,pathway_or_process,small_molecule,True,"Resveratrol is one of many bioactive polyphenols in certain foods, such as red grapes, blueberries, peanuts, and dark chocolate."
+rg3487,Cholinergic System,pathway_or_process,small_molecule,True,RG3487 is a selective nicotinic alpha-7 receptor (α7nAChR) partial agonist.
+rg7129,Amyloid-Related,pathway_or_process,small_molecule,True,"This is an orally administered inhibitor of the β-secretase BACE1, the sheddase enzyme that cleaves APP and sets up subsequent γ-secretase cleavage leading to generation of Aβ species."
+rg7345,Tau,pathway_or_process,antibody,True,RG7345 is a humanized monoclonal antibody targeting the tau phosphoepitope pS422.
+rilapladib,Other,pathway_or_process,small_molecule,True,Rilapladib is an inhibitor of lipoprotein-associated phospholipase A2 (Lp-PLA2).
+riluzole,Other Neurotransmitters,pathway_or_process,small_molecule,True,Riluzole is the first FDA-approved medication for amyotrophic lateral sclerosis.
+riluzole,Other,pathway_or_process,small_molecule,False,Riluzole is the first FDA-approved medication for amyotrophic lateral sclerosis.
+risvodetinib,alpha-synuclein,pathway_or_process,small_molecule,True,IkT-148009 is a novel brain-penetrant inhibitor of c-Abl tyrosine kinase.
+risvodetinib,Other,pathway_or_process,small_molecule,False,IkT-148009 is a novel brain-penetrant inhibitor of c-Abl tyrosine kinase.
+rivastigmine,Cholinergic System,pathway_or_process,small_molecule,True,Rivastigmine is a reversible inhibitor of both the acetylcholinesterase and butyrylcholinesterase enzymes.
+rns60,Inflammation,pathway_or_process,,True,RNS60 is saline containing charged oxygen nanobubbles.
+rns60,Other,pathway_or_process,,False,RNS60 is saline containing charged oxygen nanobubbles.
+rofecoxib,Inflammation,pathway_or_process,small_molecule,True,The NSAID rofecoxib is a selective cyclooxygenase-2 (COX-2) inhibitor.
+rosiglitazone,Other,pathway_or_process,small_molecule,True,Rosiglitazone is an antidiabetic medication that lowers blood glucose by sensitizing pancreatic target cells to insulin.
+rotigotine,Other Neurotransmitters,pathway_or_process,small_molecule,True,This dopamine receptor agonist is approved to treat Parkinson’s disease and restless legs syndrome in Europe and the U.S.
+s-38093,Cholinergic System,pathway_or_process,small_molecule,True,"This histamine H3 receptor antagonist was being developed for the treatment of Alzheimer's disease in many European, South American, and other countries, though not the United States."
+s-38093,Other Neurotransmitters,pathway_or_process,small_molecule,False,"This histamine H3 receptor antagonist was being developed for the treatment of Alzheimer's disease in many European, South American, and other countries, though not the United States."
+s-equol,Other,pathway_or_process,small_molecule,True,"S-Equol is a selective agonist of the estrogen receptor-β, which is expressed on mitochondria."
+s47445,Other Neurotransmitters,pathway_or_process,small_molecule,True,"S47445 is an agonist of AMPA receptors for glutamate, the major excitatory neurotransmitter in the brain."
+s603,Amyloid-Related,pathway_or_process,small_molecule,True,AS-S603 is a small molecule said to dissociate amyloid and tau protein aggregates.
+s603,Tau,pathway_or_process,small_molecule,False,AS-S603 is a small molecule said to dissociate amyloid and tau protein aggregates.
+sabeluzole,Unknown,pathway_or_process,small_molecule,True,"Sabeluzole has been reported to reduce glutatmate toxicity in part by reducing NMDA-induced inward current ( Van der Valk et al., 1993 )."
+sabirnetug,Amyloid-Related,pathway_or_process,antibody,True,"This humanized IgG2 monoclonal antibody selectively binds soluble Aβ oligomers, aka Aβ-derived diffusible ligands (ADDLs)."
+safinamide,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Safinamide is a reversible monoamine oxidase B inhibitor, taken as a pill by mouth."
+sage-718,Other Neurotransmitters,pathway_or_process,small_molecule,True,SAGE-718 is a derivative of the endogenous steroid 24(S)-hydroxycholesterol.
+sar110894d,Other,pathway_or_process,small_molecule,True,
+sar228810,Amyloid-Related,pathway_or_process,antibody,True,This is a monoclonal antibody directed primarily against soluble protofibrillar and fibrillar species of Aβ.
+sar446159,alpha-synuclein,pathway_or_process,antibody,True,"SAR446159 is an IgG monoclonal antibody to α-synuclein, with an insulin-like growth factor receptor (IGF1R) binding domain acting as a shuttle to transport it across the blood-brain barrier."
+saracatinib,Other,pathway_or_process,small_molecule,True,Saracatinib is an inhibitor of the Src/abl family of kinases.
+sargramostim,Inflammation,pathway_or_process,,True,"GM-CSF leukine, aka sargramostim, is a synthetic form of the hematopoietic growth factor granulocyte-macrophage colony-stimulating factor."
+sargramostim,Other,pathway_or_process,,False,"GM-CSF leukine, aka sargramostim, is a synthetic form of the hematopoietic growth factor granulocyte-macrophage colony-stimulating factor."
+sargramostim,Unknown,pathway_or_process,,False,"GM-CSF leukine, aka sargramostim, is a synthetic form of the hematopoietic growth factor granulocyte-macrophage colony-stimulating factor."
+sb-202026,Other Neurotransmitters,pathway_or_process,small_molecule,True,SB 202026 is a selective muscarinic M1 receptor partial agonist.
+selnoflast,Inflammation,pathway_or_process,small_molecule,True,"Selnoflast is an inhibitor of inflammasomes containing NLRP3, or nod-like receptor family, pyrin domain-containing protein 3."
+seltorexant,Other,pathway_or_process,small_molecule,True,Seltorexant is a selective antagonist of the human orexin-2 receptor.
+semagacestat,Amyloid-Related,pathway_or_process,small_molecule,True,Semagacestat is a γ-secretase inhibitor that reduces Aβ40 and 42 production and secretion by the γ-secretase enzyme complex.
+semaglutide,Other,pathway_or_process,,True,"Semaglutide is a synthetic, long-acting analog of glucagon-like peptide-1, used to treat diabetes."
+sembragiline,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Sembragiline is an inhibitor of monoamine oxidase B (MAOB), a mitochondrial enzyme that inactivates the neurotransmitter dopamine, and in the process generates reactive free oxygen radicals."
+sembragiline,Other,pathway_or_process,small_molecule,False,"Sembragiline is an inhibitor of monoamine oxidase B (MAOB), a mitochondrial enzyme that inactivates the neurotransmitter dopamine, and in the process generates reactive free oxygen radicals."
+semorinemab,Tau,pathway_or_process,antibody,True,"This is an anti-tau IgG4 antibody that grew out of a research collaboration between AC Immune and Genentech, part of the Roche Group."
+sensory-stimulation-systems,Amyloid-Related,pathway_or_process,device_or_procedure,True,"Sensory Stimulation Systems, and GENUS, refer to a noninvasive procedure, i.e., a ""digital therapeutic,"" being developed by Cognito Therapeutics."
+sensory-stimulation-systems,Inflammation,pathway_or_process,device_or_procedure,False,"Sensory Stimulation Systems, and GENUS, refer to a noninvasive procedure, i.e., a ""digital therapeutic,"" being developed by Cognito Therapeutics."
+sensory-stimulation-systems,Other,pathway_or_process,device_or_procedure,False,"Sensory Stimulation Systems, and GENUS, refer to a noninvasive procedure, i.e., a ""digital therapeutic,"" being developed by Cognito Therapeutics."
+sgs-742,Other Neurotransmitters,pathway_or_process,small_molecule,True,SGS742 is a GABA(B) receptor antagonist.
+shr-1707,Amyloid-Related,pathway_or_process,antibody,True,"SHR-1707 is a humanized anti-Aβ IgG1 monoclonal antibody that, according to Hengrui Pharmaceuticals, binds to Aβ fibrils and monomers."
+simufilam,Amyloid-Related,pathway_or_process,small_molecule,True,"Simufilam binds to filamin, a ubiquitous scaffolding protein and regulator of the actin cytoskeleton."
+simvastatin,Cholesterol,pathway_or_process,small_molecule,True,Simvastatin is an oral HMG-CoA reductase inhibitor prescribed extensively throughout the world for the treatment of hypercholesterolemia and diabetic cardiomyopathy.
+snp318,Inflammation,pathway_or_process,small_molecule,True,SNP318 inhibits the enzyme lipoprotein-associated phospholipase A2 (Lp-PLA2).
+solanezumab,Amyloid-Related,pathway_or_process,antibody,True,Solanezumab is a humanized monoclonal IgG1 antibody directed against the mid-domain of the Aβ peptide.
+solengepras,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Cerevance performs single-nuclei RNA sequencing of defined cell types isolated from postmortem brain tissue to identify therapeutic targets for neurologic diseases ( Xu et al., 2018 )."
+souvenaid,Other,pathway_or_process,supplement,True,Souvenaid is a marketed product.
+spg302,Other Neurotransmitters,pathway_or_process,small_molecule,True,SPG302 is a new pegylated benzothiazole derivative that targets an undisclosed regulator of the F-actin-based cytoskeleton to increase synapse numbers.
+st101,Unknown,pathway_or_process,small_molecule,True,ST101 is an orally active azaindolizinone derivative that has been reported to be a cognitive enhancer.
+suritozole,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Suritozole is an inverse agonist at the GABA(A) receptor ( Miller et al., 1992 )."
+suvn-g3031,Cholinergic System,pathway_or_process,small_molecule,True,SUVN-G3031 is an orally active histamine H3 receptor antagonist being developed to treat cognitive deficits in Alzheimer's disease and schizophrenia.
+suvn-g3031,Other Neurotransmitters,pathway_or_process,small_molecule,False,SUVN-G3031 is an orally active histamine H3 receptor antagonist being developed to treat cognitive deficits in Alzheimer's disease and schizophrenia.
+suvorexant,Other,pathway_or_process,small_molecule,True,This orexin receptor antagonist was approved by the U.S.
+t3d-959,Other,pathway_or_process,small_molecule,True,"T3D-959 is a dual agonist of the peroxisome proliferator activated nuclear receptor delta/gamma, aka PPARδ/γ."
+tacrine,Cholinergic System,pathway_or_process,small_molecule,True,Tacrine is a reversible acetylcholinesterase inhibitor.
+tak-341,alpha-synuclein,pathway_or_process,antibody,True,"This is a high-affinity monoclonal antibody to a C-terminal epitope on monomeric and aggregated α-synuclein, originally developed by AstraZeneca."
+tavapadon,Other Neurotransmitters,pathway_or_process,small_molecule,True,Tavapadon functions as a partial agonist at dopamine D1 and D5 receptors and is in Phase 3 development for Parkinson’s disease.
+tb006,Inflammation,pathway_or_process,antibody,True,"This humanized monoclonal antibody targets galactose-specific lectin (galectin) 3, a β-galactosidase-binding protein involved in macrophage activation and antimicrobial immune responses."
+telmisartan,Other,pathway_or_process,small_molecule,True,Telmisartan is an angiotensin II receptor antagonist marketed around the world to treat elevated blood pressure and reduce the possibility of cardiovascular risk associated with chronic hypertension.
+thalidomide,Amyloid-Related,pathway_or_process,small_molecule,True,Thalidomide is an immunomodulatory agent with a spectrum of activity that is only partly characterized.
+thalidomide,Inflammation,pathway_or_process,small_molecule,False,Thalidomide is an immunomodulatory agent with a spectrum of activity that is only partly characterized.
+thn391,Inflammation,pathway_or_process,antibody,True,THN391 is a humanized monoclonal antibody to the blood clotting protein fibrin.
+tideglusib,Tau,pathway_or_process,small_molecule,True,"Tideglusib is an orally available, small-molecule drug of the thiadiazolidinone class."
+tilavonemab,Tau,pathway_or_process,antibody,True,C2N 8E12 is a humanized IgG4 antibody that was being developed by C2N Diagnostics and AbbVie to treat tauopathies.
+tpi-287,Tau,pathway_or_process,small_molecule,True,"TPI 287 is a tubulin-binding and microtubule-stabilizing drug that is being clinically developed by Cortice Biosciences, formerly Archer Biosciences."
+tpn-101,Inflammation,pathway_or_process,gene_therapy,True,This nucleoside analog reverse transcriptase inhibitor was originally developed for the treatment of human immunodeficiency virus infection.
+transcutaneous-auricular-vagal-afferent-nerve-stimulation,Other Neurotransmitters,pathway_or_process,,True,This noninvasive approach attempts to modulate the noradrenergic system of the locus coeruleus by stimulating the vagal nerve.
+trappsolr-cyclotm,Cholesterol,pathway_or_process,,True,"Trappsol® Cyclo™ is a proprietary, intravenous formulation of 2-hydroxypropyl-β-cyclodextrin in development to treat diseases associated with impaired cholesterol metabolism, including Alzheimer's disease."
+trazodone,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Trazodone is a phenyl piperazine derivative with agonist and antagonist activity at serotonin receptors, in addition to adrenergic and histaminergic activity and serotonin uptake inhibition."
+tricaprilin,Other,pathway_or_process,supplement,True,Tricaprilin is the follow-up to Accera's AC-1202 /Axona medical food product.
+troculeucel,Amyloid-Related,pathway_or_process,,True,"Troculeucel is an immunotherapy consisting of a patient’s own natural killer cells that have been isolated, expanded in the lab, and re-infused."
+troculeucel,Inflammation,pathway_or_process,,False,"Troculeucel is an immunotherapy consisting of a patient’s own natural killer cells that have been isolated, expanded in the lab, and re-infused."
+trontinemab,Amyloid-Related,pathway_or_process,antibody,True,"RO7126209 is a new version of the anti-amyloid monoclonal antibody gantenerumab , engineered to more easily cross the blood-brain barrier using Roche’s “brain shuttle” technology."
+troriluzole,Other Neurotransmitters,pathway_or_process,,True,"Troriluzole is a prodrug formulation of riluzole , a medication used to treat amyotrophic lateral sclerosis."
+tw001,Other,pathway_or_process,small_molecule,True,"TW001 is a new oral formulation of edaravone , an antioxidant drug marketed in the U.S."
+ub-311,Amyloid-Related,pathway_or_process,antibody,True,"UB-311 is a synthetic peptide vaccine developed by United Neuroscience, a spin-off of United Biomedical."
+ub-312,alpha-synuclein,pathway_or_process,antibody,True,UB-312 is an active vaccine to stimulate an immune response against α-synuclein.
+ucb0022,Other Neurotransmitters,pathway_or_process,small_molecule,True,"This oral small molecule is a positive allosteric modulator of dopamine receptor type 1, which enhances the receptor's signaling in the presence of endogenous dopamine."
+ucb7853,alpha-synuclein,pathway_or_process,antibody,True,UCB7853 is an α-synuclein antibody.
+ulefnersen,Other,pathway_or_process,gene_therapy,True,"ION363 is an antisense oligonucleotide designed to reduce the production of a mutated, neurotoxic form of the Fused in Sarcoma (FUS) protein."
+umibecestat,Amyloid-Related,pathway_or_process,small_molecule,True,"CNP520 is an oral, small-molecule inhibitor of the aspartyl protease BACE designed to reduce Aβ production to prevent or treat Alzheimer's disease."
+vafidemstat,Other Neurotransmitters,pathway_or_process,small_molecule,True,"ORY-2001 is a dual inhibitor of the transcriptional co-regulator lysine-specific demethylase 1 (LSD1 or KDM1A) and the mitochondrial membrane protein monoamine oxidase B (MAO-B, see MedChemExpress )."
+valacyclovir,Other,pathway_or_process,small_molecule,True,"A thymidine kinase inhibitor, valacyclovir is a prescription drug, and widely available as a generic."
+valproate,Other Neurotransmitters,pathway_or_process,small_molecule,True,"Valproate is an anti-convulsant and mood-stabilizing drug that is FDA- and EMA-approved to treat seizures, manic episodes associated with bipolar disorder, and to prevent migraine headaches."
+vanutide-cridificar,Amyloid-Related,pathway_or_process,antibody,True,This is an active immunotherapy strategy.
+varenicline,Cholinergic System,pathway_or_process,small_molecule,True,Varenicline is a medication approved in the United States and many other countries to aid smoking cessation.
+varoglutamstat,Amyloid-Related,pathway_or_process,small_molecule,True,"PQ912 is an inhibitor of glutaminyl cyclase (QC), aka glutaminyl-peptide cyclotransferase (QPCT)."
+varoglutamstat,Inflammation,pathway_or_process,small_molecule,False,"PQ912 is an inhibitor of glutaminyl cyclase (QC), aka glutaminyl-peptide cyclotransferase (QPCT)."
+vascepa,Other,pathway_or_process,small_molecule,True,Vascepa is a prescription formulation of omega-3 fat ethyl eicosapentaenoic acid (ethyl-EPA) purified from fish oil.
+venglustat,alpha-synuclein,pathway_or_process,small_molecule,True,Venglustat is a brain-penetrant allosteric inhibitor of the enzyme glucosylceramide synthase.
+venglustat,Other,pathway_or_process,small_molecule,False,Venglustat is a brain-penetrant allosteric inhibitor of the enzyme glucosylceramide synthase.
+verdiperstat,Inflammation,pathway_or_process,small_molecule,True,Verdiperstat is an irreversible inhibitor of myeloperoxidase.
+verdiperstat,Other,pathway_or_process,small_molecule,False,Verdiperstat is an irreversible inhibitor of myeloperoxidase.
+verubecestat,Amyloid-Related,pathway_or_process,small_molecule,True,MK-8931 is a small-molecule inhibitor of BACE1 and BACE2.
+vg-3927,Amyloid-Related,pathway_or_process,small_molecule,True,"VG-3927 is a brain-penetrant, small-molecule agonist of the TREM2 receptor on microglia."
+vg-3927,Inflammation,pathway_or_process,small_molecule,False,"VG-3927 is a brain-penetrant, small-molecule agonist of the TREM2 receptor on microglia."
+vgl101,Inflammation,pathway_or_process,antibody,True,VGL101 is a humanized monoclonal antibody that acts as an agonist for TREM2.
+vgl101,Other,pathway_or_process,antibody,False,VGL101 is a humanized monoclonal antibody that acts as an agonist for TREM2.
+vhb937,Amyloid-Related,pathway_or_process,antibody,True,VHB937 is a humanized monoclonal antibody to the immune receptor TREM2.
+vodobatinib,Other,pathway_or_process,small_molecule,True,Vodobatinib is a third-generation c-Ableson tyrosine kinase inhibitor.
+vq-101,alpha-synuclein,pathway_or_process,small_molecule,True,VQ-101 is a small-molecule allosteric activator of the lysosomal enzyme glucocerebrosidase (GCase).
+vq-101,Other,pathway_or_process,small_molecule,False,VQ-101 is a small-molecule allosteric activator of the lysosomal enzyme glucocerebrosidase (GCase).
+vy-aadc,Other Neurotransmitters,pathway_or_process,gene_therapy,True,VY-AADC is an AAV-based gene therapy that was developed by Voyager Therapeutics and evaluated clinically in partnership with Neurocrine Biosciences.
+vy-tau01,Tau,pathway_or_process,antibody,True,"VY-TAU01 is a recombinant, humanized IgG4 monoclonal antibody to an epitope in the C-terminus of tau."
+vyalev,Other Neurotransmitters,pathway_or_process,small_molecule,True,Vyalev is a new levodopa/carbidopa formulation for dopamine replacement therapy.
+wve-004,Other,pathway_or_process,gene_therapy,True,WVE-004 is an antisense oligonucleotide (ASO) targeting the C9ORF72 mutation that causes amyotrophic lateral sclerosis and frontotemporal dementia.
+xaliproden,Other Neurotransmitters,pathway_or_process,small_molecule,True,Xaliproden is an orally active 5HT1-A receptor antagonist that was being developed by Sanofi.
+xaliproden,Other,pathway_or_process,small_molecule,False,Xaliproden is an orally active 5HT1-A receptor antagonist that was being developed by Sanofi.
+xanamem,Other,pathway_or_process,small_molecule,True,"Xanamem is an inhibitor of 11β-hydroxysteroid dehydrogenase type 1, an enzyme in the hypothalamic-pituitary-adrenal (HPA) axis of the body's stress response."
+xpro1595,Inflammation,pathway_or_process,,True,This pegylated protein biologic targets and neutralizes the inflammatory cytokine TNFα.
+young-plasma,Inflammation,pathway_or_process,,True,"The rationale behind this treatment approach is that systemic factors present in young blood cross into the brain, where they counteract aging processes and neurodegeneration by modulating neuroinflammation, neurogenesis, and cognitive function."
+young-plasma,Other,pathway_or_process,,False,"The rationale behind this treatment approach is that systemic factors present in young blood cross into the brain, where they counteract aging processes and neurodegeneration by modulating neuroinflammation, neurogenesis, and cognitive function."
+young-plasma,Unknown,pathway_or_process,,False,"The rationale behind this treatment approach is that systemic factors present in young blood cross into the brain, where they counteract aging processes and neurodegeneration by modulating neuroinflammation, neurogenesis, and cognitive function."
+ytx-7739,Other,pathway_or_process,small_molecule,True,This is a stearoyl-CoA desaturase inhibitor.
+zagotenemab,Tau,pathway_or_process,antibody,True,"Zagotenemab is a humanized anti-tau antibody derived from MCI-1 , Peter Davies' mouse monoclonal antibody against an early pathological conformation of tau."
+zagotenemab,Unknown,pathway_or_process,antibody,False,"Zagotenemab is a humanized anti-tau antibody derived from MCI-1 , Peter Davies' mouse monoclonal antibody against an early pathological conformation of tau."
+zervimesine,Amyloid-Related,pathway_or_process,small_molecule,True,Zervimesine/CT1812 is a small-molecule antagonist of the sigma2 receptor.
+zunveyltm,Cholinergic System,pathway_or_process,small_molecule,True,Benzgalantamine is an inactive prodrug of galantamine.

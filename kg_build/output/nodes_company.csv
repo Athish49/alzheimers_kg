@@ -1,0 +1,287 @@
+id,label,country,source,raw_source_ids
+COMP_JANSSEN,Janssen,,AlzForum.Therapeutics,aab-003|an-1792|atabecestat|bapineuzumab|edicotinib|galantamine|jnj-64042056|posdinemab|seltorexant|vanutide-cridificar|ytx-7739
+COMP_PFIZER,Pfizer,,AlzForum.Therapeutics,aab-003|an-1792|atorvastatin|azeliragon|bapineuzumab|bosutinib|celecoxib|donepezil|etanercept|multivitamin-mineral-supplement|pf-05212377|pf-06648671|pf-06751979|pf-06852231|ponezumab|tacrine|tavapadon|varenicline
+COMP_AXON_NEUROSCIENCE_SE,Axon Neuroscience SE,,AlzForum.Therapeutics,aadvac1
+COMP_HOLOGEN_LIMITED,Hologen Limited,,AlzForum.Therapeutics,aav-gad
+COMP_MEIRAGTX_LIMITED,MeiraGTx Limited,,AlzForum.Therapeutics,aav-gad
+COMP_ABBVIE,AbbVie,,AlzForum.Therapeutics,abbv-1088|abbv-552|abbv-916|abt-288|abt-384|abt-957|al002|al003|alia-1758|dronabinol|exidavnemab|fosigotifator|levodopa|nelonicline|tavapadon|tilavonemab|vyalev
+COMP_ABBOTT_LABORATORIES,Abbott Laboratories,,AlzForum.Therapeutics,abt-089|valproate
+COMP_ARACLON_BIOTECH,Araclon Biotech,,AlzForum.Therapeutics,abvac40
+COMP_ALZECURE_PHARMA_AB,AlzeCure Pharma AB,,AlzForum.Therapeutics,acd856
+COMP_SIGMA_TAU_PHARMACEUTICALS,Sigma-Tau Pharmaceuticals,,AlzForum.Therapeutics,acetyl-l-carnitine-hci
+COMP_AC_IMMUNE_SA,AC Immune SA,,AlzForum.Therapeutics,aci-24060|aci-3024|aci-7104056|crenezumab|jnj-64042056|semorinemab
+COMP_TAKEDA_PHARMACEUTICAL_COMPANY,Takeda Pharmaceutical Company,,AlzForum.Therapeutics,aci-24060|candesartan|dnl593|dnl919|galantamine|idebenone|pioglitazone|tak-341
+COMP_AFFIRIS_AG,AFFiRiS AG,,AlzForum.Therapeutics,aci-7104056|affitope-ad02
+COMP_ACTAVIS,Actavis,,AlzForum.Therapeutics,acitretin
+COMP_ALLERGAN_PLC,Allergan plc,,AlzForum.Therapeutics,acitretin|htl0018318
+COMP_ACADIA_PHARMACEUTICALS,Acadia Pharmaceuticals,,AlzForum.Therapeutics,acp-204|nuplazid
+COMP_ADEL,ADEL,,AlzForum.Therapeutics,adel-y01
+COMP_INC,Inc.,,AlzForum.Therapeutics,adel-y01|af-102b|agb101|akst4290|alx-001|alzhemedtm|alzt-op1|anx005|arv-102|atuzaginstat|autologous-adipose-derived-stem-cells|avp-786|axs-05|azeliragon|bexarotene|bryostatin-1|bxcl501|cere-110|cnm-au8|cs6253|cst-2032|cx516|dimebon|docosahexaenoic-acid-dha|donepezil|elnd005|emtricitabine|etanercept|grf6019|grf6021|gt-02287|huperzine|iti-1284|leuprolide|levodopa|lumateperone|memantine|memorem-transcranial-electromagnetic-treatment|minzasolmin|mivelsiran|neflamapimod|neotrofin|neramexane|nilvadipine|npt520-34|nsc001|ntrx-07|nurowntm|olx-07010|pepinemab|phenserine|physostigmine-salicylate|pmn310|risvodetinib|s47445|sabirnetug|sage-718|sar446159|sargramostim|sensory-stimulation-systems|sgs-742|spg302|st101|t3d-959|tb006|thn391|trappsolr-cyclotm|troculeucel|umibecestat|vg-3927|vgl101|wve-004|young-plasma
+COMP_OSCOTEC_INC,Oscotec Inc.,,AlzForum.Therapeutics,adel-y01
+COMP_BIOGEN,Biogen,,AlzForum.Therapeutics,aduhelm|biib076|biib078|biib080|biib100|biib105|biib113|biib118|cinpanemab|dexpramipexole|dnl151|dnl201|elenbecestat|gosuranemab|ion464|ion859|leqembi|qalsodytm
+COMP_NEURIMMUNE,Neurimmune,,AlzForum.Therapeutics,aduhelm|biib076|cinpanemab|nsc001
+COMP_SNOWBRAND_PHARMACEUTICALS,SnowBrand Pharmaceuticals,,AlzForum.Therapeutics,af-102b
+COMP_AGENEBIO,AgeneBio,,AlzForum.Therapeutics,agb101
+COMP_ORPHAI_THERAPEUTICS,OrphAI Therapeutics,,AlzForum.Therapeutics,ait-101
+COMP_ALKAHEST,Alkahest,,AlzForum.Therapeutics,akst4290|grf6019|grf6021|young-plasma
+COMP_ALECTOR,Alector,,AlzForum.Therapeutics,al002|al003|al044|al101|latozinemab
+COMP_GLAXOSMITHKLINE_GSK,GlaxoSmithKline (GSK),,AlzForum.Therapeutics,al101|gsk239512|gsk2647544|gsk933776|latozinemab|rilapladib|rosiglitazone|valacyclovir
+COMP_ALIADA_THERAPEUTICS,Aliada Therapeutics,,AlzForum.Therapeutics,alia-1758
+COMP_ALLYX_THERAPEUTICS,Allyx Therapeutics,,AlzForum.Therapeutics,alx-001
+COMP_ALZINOVA_AB,Alzinova AB,,AlzForum.Therapeutics,alz-101
+COMP_ALZHEON_INC,Alzheon Inc.,,AlzForum.Therapeutics,alz-801
+COMP_NEUROCHEM,Neurochem,,AlzForum.Therapeutics,alzhemedtm
+COMP_AZTHERAPIES,AZTherapies,,AlzForum.Therapeutics,alzt-op1
+COMP_NOVARTIS_PHARMACEUTICALS_CORPORATION,Novartis Pharmaceuticals Corporation,,AlzForum.Therapeutics,amilomotide|aqw051|minzasolmin|nio752|rivastigmine|sgs-742|umibecestat|vhb937
+COMP_ASPEN_NEUROSCIENCE,Aspen Neuroscience,,AlzForum.Therapeutics,anpd001
+COMP_ANNEXON,Annexon,,AlzForum.Therapeutics,anx005
+COMP_RESVERLOGIX_CORPORATION,Resverlogix Corporation,,AlzForum.Therapeutics,apabetalone
+COMP_APRINOIA_THERAPEUTICS,Aprinoia Therapeutics,,AlzForum.Therapeutics,apnmab005
+COMP_INTRABIO,IntraBio,,AlzForum.Therapeutics,aqneursa
+COMP_ARIBIO_CO,Aribio Co.,,AlzForum.Therapeutics,ar1001
+COMP_LTD,Ltd.,,AlzForum.Therapeutics,ar1001|aripiprazole|avp-786|avp-923|bifidobacterium-breve-a1|biib076|brexpiprazole|dayvigo|donepezil|e2511|edonerpic|elenbecestat|etalanetug|gantenerumab|idalopirdine|irsenontrine|leqembi|lu-af20513|protollin
+COMP_ZEVRA_THERAPEUTICS,Zevra Therapeutics,,AlzForum.Therapeutics,arimoclomol
+COMP_BRISTOL_MYERS_SQUIBB,Bristol-Myers Squibb,,AlzForum.Therapeutics,aripiprazole|avagacestat|bms-986446|dapagliflozin|epothilone-d|gosuranemab|karxt|lumateperone
+COMP_OTSUKA_PHARMACEUTICAL_CO,Otsuka Pharmaceutical Co.,,AlzForum.Therapeutics,aripiprazole|avp-786|avp-923|brexpiprazole|idalopirdine|lu-af20513
+COMP_ARVINAS,Arvinas,,AlzForum.Therapeutics,arv-102
+COMP_ASCENEURON_SA,Asceneuron SA,,AlzForum.Therapeutics,asn51|asn90
+COMP_SHIONOGI_PHARMA,Shionogi Pharma,,AlzForum.Therapeutics,atabecestat|bpn14770|tacrine
+COMP_AUTOTAC_BIO_INC,Autotac Bio Inc.,,AlzForum.Therapeutics,atb2005a
+COMP_ELI_LILLY_CO,Eli Lilly & Co.,,AlzForum.Therapeutics,atomoxetine|azd3293|baricitinib|ceperognastat|empagliflozin|exenatide|kisunla|ly2599666|ly2886721|ly3202626|ly3884961|ly3884963|ly3954068|ly3962681|medi1814|mevidalen|remternetug|semagacestat|solanezumab|zagotenemab
+COMP_CORTEXYME,Cortexyme,,AlzForum.Therapeutics,atuzaginstat
+COMP_QUINCE_THERAPEUTICS,Quince Therapeutics,,AlzForum.Therapeutics,atuzaginstat
+COMP_REGENERATION_BIOMEDICAL,Regeneration Biomedical,,AlzForum.Therapeutics,autologous-adipose-derived-stem-cells
+COMP_AVIADOBIO,AviadoBio,,AlzForum.Therapeutics,avb-101
+COMP_AVANIR_PHARMACEUTICALS,Avanir Pharmaceuticals,,AlzForum.Therapeutics,avp-786|avp-923
+COMP_CONCERT_PHARMACEUTICALS,Concert Pharmaceuticals,,AlzForum.Therapeutics,avp-786
+COMP_AXSOME_THERAPEUTICS,Axsome Therapeutics,,AlzForum.Therapeutics,axs-05
+COMP_ASTRAZENECA,AstraZeneca,,AlzForum.Therapeutics,azd1446|azd3293|azd3480|candesartan|dapagliflozin|exenatide|medi1814|saracatinib|tak-341|verdiperstat
+COMP_TARGACEPT,Targacept,,AlzForum.Therapeutics,azd1446|azd3480
+COMP_TRANSTECH_PHARMA,TransTech Pharma,,AlzForum.Therapeutics,azeliragon
+COMP_VTV_THERAPEUTICS_LLC,vTv Therapeutics LLC,,AlzForum.Therapeutics,azeliragon
+COMP_BAYER,Bayer,,AlzForum.Therapeutics,bemdaneprocel|nimodipine
+COMP_BLUEROCK_THERAPEUTICS,BlueRock Therapeutics,,AlzForum.Therapeutics,bemdaneprocel
+COMP_HOFFMANN_LA_ROCHE,Hoffmann-La Roche,,AlzForum.Therapeutics,bepranemab|crenezumab|gantenerumab|inzomelid|nivegacetor|prasinezumab|selnoflast|semorinemab|trontinemab
+COMP_UCB_S_A,UCB S.A.,,AlzForum.Therapeutics,bepranemab|levetiracetam|minzasolmin|rotigotine|ucb0022|ucb7853
+COMP_AVENTIS_PHARMACEUTICALS,Aventis Pharmaceuticals,,AlzForum.Therapeutics,besipirdine-hcl|milameline|suritozole
+COMP_INC_WAS_HOECHST,Inc. (was Hoechst),,AlzForum.Therapeutics,besipirdine-hcl|milameline|suritozole
+COMP_LIGAND_PHARMACEUTICALS,Ligand Pharmaceuticals,,AlzForum.Therapeutics,bexarotene
+COMP_REXCEPTOR_INC,ReXceptor Inc.,,AlzForum.Therapeutics,bexarotene
+COMP_BIOVIE_PHARMA,BioVie Pharma,,AlzForum.Therapeutics,bezisterim
+COMP_BOEHRINGER_INGELHEIM,Boehringer Ingelheim,,AlzForum.Therapeutics,bi-1181181|bi-409306|empagliflozin|iclepertin|telmisartan
+COMP_VITAE_PHARMACEUTICALS,Vitae Pharmaceuticals,,AlzForum.Therapeutics,bi-1181181
+COMP_MORINAGA_MILK_INDUSTRY_CO,Morinaga Milk Industry Co.,,AlzForum.Therapeutics,bifidobacterium-breve-a1
+COMP_EISAI_CO,Eisai Co.,,AlzForum.Therapeutics,biib076|dayvigo|donepezil|e2511|elenbecestat|etalanetug|irsenontrine|leqembi
+COMP_IONIS_PHARMACEUTICALS,IONIS Pharmaceuticals,,AlzForum.Therapeutics,biib078|biib080|biib105|ion464|ion859|qalsodytm|ulefnersen
+COMP_ANAVEX_LIFE_SCIENCE_CORP,Anavex Life Science Corp.,,AlzForum.Therapeutics,blarcamesine
+COMP_PROTHENA,Prothena,,AlzForum.Therapeutics,bms-986446|prasinezumab|prx012
+COMP_TETRA_THERAPEUTICS,Tetra Therapeutics,,AlzForum.Therapeutics,bpn14770
+COMP_LUNDBECK,Lundbeck,,AlzForum.Therapeutics,brexpiprazole|idalopirdine|lu-af20513|lu-af82422|lu-af87908|lu-af88434|memantine
+COMP_SYNAPTOGENIX,Synaptogenix,,AlzForum.Therapeutics,bryostatin-1
+COMP_BRENIG_THERAPEUTICS,Brenig Therapeutics,,AlzForum.Therapeutics,bt-267
+COMP_ANNOVIS_BIO,Annovis Bio,,AlzForum.Therapeutics,buntanetap|phenserine
+COMP_BIOXCEL_THERAPEUTICS,BioXcel Therapeutics,,AlzForum.Therapeutics,bxcl501
+COMP_PROCTER_GAMBLE,Procter & Gamble,,AlzForum.Therapeutics,carvedilol|naproxen
+COMP_HERANTIS_PHARMA_PLC,Herantis Pharma Plc,,AlzForum.Therapeutics,cdnf
+COMP_RENISHAW_PLC,Renishaw plc.,,AlzForum.Therapeutics,cdnf
+COMP_SANGAMO_BIOSCIENCES,Sangamo BioSciences,,AlzForum.Therapeutics,cere-110
+COMP_EBEWE_PHARMACEUTICAL,Ebewe Pharmaceutical,,AlzForum.Therapeutics,cerebrolysin
+COMP_CERESPIR_INCORPORATED,CereSpir™ Incorporated,,AlzForum.Therapeutics,chf-5074
+COMP_CHIESI_PHARMACEUTICALS_INC,Chiesi Pharmaceuticals Inc.,,AlzForum.Therapeutics,chf-5074|deferiprone
+COMP_NEURIM_PHARMACEUTICALS_LTD,Neurim Pharmaceuticals Ltd.,,AlzForum.Therapeutics,circadin|piromelatine
+COMP_PRANA_BIOTECHNOLOGY_LIMITED,Prana Biotechnology Limited,,AlzForum.Therapeutics,clioquinol
+COMP_CLENE_NANOMEDICINE,Clene Nanomedicine,,AlzForum.Therapeutics,cnm-au8
+COMP_COYA_THERAPEUTICS,Coya Therapeutics,,AlzForum.Therapeutics,coya-302|low-dose-interleukin-2
+COMP_DYNAVAX_TECHNOLOGIES,Dynavax Technologies,,AlzForum.Therapeutics,cpg-1018r
+COMP_GENENTECH,Genentech,,AlzForum.Therapeutics,crenezumab|semorinemab
+COMP_ARTERY_THERAPEUTICS,Artery Therapeutics,,AlzForum.Therapeutics,cs6253
+COMP_CURASEN_THERAPEUTICS,CuraSen Therapeutics,,AlzForum.Therapeutics,cst-2032
+COMP_VERDURE_SCIENCES,Verdure Sciences,,AlzForum.Therapeutics,curcumin
+COMP_CORTEX_PHARMACEUTICALS,Cortex Pharmaceuticals,,AlzForum.Therapeutics,cx516|s47445
+COMP_CYCLERION,Cyclerion,,AlzForum.Therapeutics,cy6463
+COMP_IMMUNE_NETWORK_LTD,Immune Network Ltd.,,AlzForum.Therapeutics,dapsone
+COMP_ALLON_THERAPEUTICS_INC,Allon Therapeutics Inc.,,AlzForum.Therapeutics,davunetide
+COMP_EXONAVIS_THERAPEUTICS_LTD,Exonavis Therapeutics Ltd.,,AlzForum.Therapeutics,davunetide
+COMP_PALADIN_LABS_INC,Paladin Labs Inc.,,AlzForum.Therapeutics,davunetide
+COMP_FUNCTIONAL_NEUROMODULATION_LTD,Functional Neuromodulation Ltd,,AlzForum.Therapeutics,deep-brain-stimulation-fornix
+COMP_APOTEX_INC,Apotex Inc.,,AlzForum.Therapeutics,deferiprone
+COMP_KNOPP_BIOSCIENCES_LLC,Knopp Biosciences LLC,,AlzForum.Therapeutics,dexpramipexole
+COMP_VIRGINIA_COMMONWEALTH_UNIVERSITY,Virginia Commonwealth University,,AlzForum.Therapeutics,dexpramipexole
+COMP_MEDIVATION,Medivation,,AlzForum.Therapeutics,dimebon
+COMP_ADDEX_THERAPEUTICS,Addex Therapeutics,,AlzForum.Therapeutics,dipraglurant
+COMP_DENALI_THERAPEUTICS_INC,Denali Therapeutics Inc.,,AlzForum.Therapeutics,dnl151|dnl201|dnl343|dnl593|dnl747|dnl788|dnl919
+COMP_SANOFI,Sanofi,,AlzForum.Therapeutics,dnl747|dnl788|lixisenatide|riluzole|sar110894d|sar228810|sar446159|sargramostim|venglustat|xaliproden
+COMP_MARTEK_BIOSCIENCES_CORPORATION,Martek Biosciences Corporation,,AlzForum.Therapeutics,docosahexaenoic-acid-dha
+COMP_NEUROBIOPHARM,NeuroBioPharm,,AlzForum.Therapeutics,docosahexaenoic-acid-dha
+COMP_CORIUM,Corium,,AlzForum.Therapeutics,donepezil
+COMP_OTHERS,Others,,AlzForum.Therapeutics,dronabinol|nicotinamide-riboside
+COMP_MITSUBISHI_TANABE_PHARMA,Mitsubishi Tanabe Pharma,,AlzForum.Therapeutics,edaravone|encenicline|mkc-231
+COMP_TOYAMA_CHEMICAL_CO,Toyama Chemical Co.,,AlzForum.Therapeutics,edonerpic
+COMP_EXONHIT_THERAPEUTICS,ExonHit Therapeutics,,AlzForum.Therapeutics,eht-0202
+COMP_ELAN_CORPORATION,Elan Corporation,,AlzForum.Therapeutics,elnd005
+COMP_OPKO_HEALTH,Opko Health,,AlzForum.Therapeutics,elnd005
+COMP_SPERANZA_THERAPEUTICS,Speranza Therapeutics,,AlzForum.Therapeutics,elnd005
+COMP_TRANSITION_THERAPEUTICS,Transition Therapeutics,,AlzForum.Therapeutics,elnd005
+COMP_MODAG_GMBH,MODAG GmbH,,AlzForum.Therapeutics,emrusolmin
+COMP_TEVA,Teva,,AlzForum.Therapeutics,emrusolmin|rasagiline
+COMP_GILEAD_SCIENCES,Gilead Sciences,,AlzForum.Therapeutics,emtricitabine
+COMP_FORUM_PHARMACEUTICALS_INC,FORUM Pharmaceuticals Inc.,,AlzForum.Therapeutics,encenicline|evp-0962|frm-0334
+COMP_HELIXMITH,Helixmith,,AlzForum.Therapeutics,engensis-0
+COMP_TAIYO_INTERNATIONAL,Taiyo International,,AlzForum.Therapeutics,epigallocatechin-gallate-egcg
+COMP_MEDIOLANUM,Mediolanum,,AlzForum.Therapeutics,eptastigmine
+COMP_AMGEN,Amgen,,AlzForum.Therapeutics,etanercept|umibecestat
+COMP_BIOARCTIC_AB,BioArctic AB,,AlzForum.Therapeutics,exidavnemab|leqembi
+COMP_ALZPROTECT,AlzProtect,,AlzForum.Therapeutics,ezeprogind
+COMP_MYRIAD_GENETICS_LABORATORIES,Myriad Genetics & Laboratories,,AlzForum.Therapeutics,flurizan
+COMP_TIZIANA_LIFE_SCIENCES,Tiziana Life Sciences,,AlzForum.Therapeutics,foralumab
+COMP_ATHIRA_PHARMA,Athira Pharma,,AlzForum.Therapeutics,fosgonimeton
+COMP_CALICO_LIFE_SCIENCES_LLC,Calico Life Sciences LLC.,,AlzForum.Therapeutics,fosigotifator
+COMP_ORTHO_MCNEIL_PHARMACEUTICAL,Ortho-McNeil Pharmaceutical,,AlzForum.Therapeutics,galantamine
+COMP_SANOCHEMIA_PHARMAZEUTIKA,Sanochemia Pharmazeutika,,AlzForum.Therapeutics,galantamine
+COMP_SHIRE,Shire,,AlzForum.Therapeutics,galantamine
+COMP_BAXTER_HEALTHCARE,Baxter Healthcare,,AlzForum.Therapeutics,gammagardr
+COMP_GRIFOLS_BIOLOGICALS_INC,Grifols Biologicals Inc.,,AlzForum.Therapeutics,gamunex|grf6019|grf6021|young-plasma
+COMP_CHUGAI_PHARMACEUTICAL_CO,Chugai Pharmaceutical Co.,,AlzForum.Therapeutics,gantenerumab
+COMP_GLIACURE,GliaCure,,AlzForum.Therapeutics,gc021109
+COMP_GAIN_THERAPEUTICS,Gain Therapeutics,,AlzForum.Therapeutics,gt-02287
+COMP_SHANGHAI_GREEN_VALLEY_PHARMACEUTICALS,Shanghai Green Valley Pharmaceuticals,,AlzForum.Therapeutics,gv-971
+COMP_GEMVAX_KAEL_BIO,GemVax & KAEL Bio,,AlzForum.Therapeutics,gv1001
+COMP_NEWRON,Newron,,AlzForum.Therapeutics,hf0220|safinamide
+COMP_TAURX_THERAPEUTICS_LTD,TauRx Therapeutics Ltd,,AlzForum.Therapeutics,hmtm|rember-tm
+COMP_SOSEI_HEPTARES,Sosei Heptares,,AlzForum.Therapeutics,htl0018318
+COMP_DEBIOPHARM_GROUP,Debiopharm Group™,,AlzForum.Therapeutics,huperzine
+COMP_NEURO_HITECH,Neuro-Hitech,,AlzForum.Therapeutics,huperzine
+COMP_IMMUNOBRAIN_CHECKPOINT,ImmunoBrain Checkpoint,,AlzForum.Therapeutics,ibc-ab002
+COMP_AXOVANT_SCIENCES_LTD,Axovant Sciences Ltd.,,AlzForum.Therapeutics,intepirdine|nelotanserin
+COMP_INFLAZOME_LTD,Inflazome Ltd.,,AlzForum.Therapeutics,inzomelid|selnoflast
+COMP_INTRA_CELLULAR_THERAPIES,Intra-Cellular Therapies,,AlzForum.Therapeutics,iti-1284|lumateperone
+COMP_JOHNSON_JOHNSON,Johnson & Johnson,,AlzForum.Therapeutics,iti-1284
+COMP_KARUNA_THERAPEUTICS,Karuna Therapeutics,,AlzForum.Therapeutics,karxt
+COMP_CERECIN_PTE_LTD,Cerecin Pte. Ltd.,,AlzForum.Therapeutics,ketasyn|tricaprilin
+COMP_NESTLÉ_HEALTH_SCIENCE,Nestlé Health Science,,AlzForum.Therapeutics,kmct-ons
+COMP_KARIYA_PHARMACEUTICALS_APS,Kariya Pharmaceuticals ApS,,AlzForum.Therapeutics,kp405
+COMP_SUNOVION_PHARMACEUTICALS_INC,Sunovion Pharmaceuticals Inc.,,AlzForum.Therapeutics,kynmobi
+COMP_AVRAHAM_PHARMACEUTICALS_LTD,Avraham Pharmaceuticals Ltd,,AlzForum.Therapeutics,ladostigil
+COMP_VIIV_HEALTHCARE,ViiV Healthcare,,AlzForum.Therapeutics,lamivudine
+COMP_CELGENE_CORPORATION,Celgene Corporation,,AlzForum.Therapeutics,lenalidomide|thalidomide
+COMP_PERHA_PHARMACEUTICALS,Perha Pharmaceuticals,,AlzForum.Therapeutics,leucettinib-21
+COMP_TOLMAR_PHARMACEUTICALS,Tolmar Pharmaceuticals,,AlzForum.Therapeutics,leuprolide
+COMP_ACORDA_THERAPEUTICS,Acorda Therapeutics,,AlzForum.Therapeutics,levodopa
+COMP_AMNEAL_PHARMACEUTICALS,Amneal Pharmaceuticals,,AlzForum.Therapeutics,levodopa
+COMP_NOVO_NORDISK_A_S,Novo Nordisk A/S,,AlzForum.Therapeutics,liraglutide|semaglutide
+COMP_PHARMATROPHIX,PharmatrophiX,,AlzForum.Therapeutics,lm11a-31-bhs
+COMP_LONGEVERON,Longeveron,,AlzForum.Therapeutics,lomecel-b
+COMP_JSW_LIFESCIENCES,JSW Lifesciences,,AlzForum.Therapeutics,lornoxicam
+COMP_MERCK,Merck,,AlzForum.Therapeutics,losartan|mk-1167|mk-1942|mk-2214|mk-7622|mk-8189|neramexane|rofecoxib|simvastatin|suvorexant|verubecestat
+COMP_LYSOSOMAL_THERAPEUTICS_INC,Lysosomal Therapeutics Inc.,,AlzForum.Therapeutics,lti-291
+COMP_GENMAB_A_S,Genmab A/S,,AlzForum.Therapeutics,lu-af82422
+COMP_LEXEO_THERAPEUTICS,Lexeo Therapeutics,,AlzForum.Therapeutics,lx1001
+COMP_PREVAIL_THERAPEUTICS,Prevail Therapeutics,,AlzForum.Therapeutics,ly3884961|ly3884963|ly3962681
+COMP_AB_SCIENCE,AB Science,,AlzForum.Therapeutics,masitinib
+COMP_SUVEN_LIFE_SCIENCES_LTD,Suven Life Sciences Ltd,,AlzForum.Therapeutics,masupirdine|suvn-g3031
+COMP_MEMORY_PHARMACEUTICALS_CORPORATION,Memory Pharmaceuticals Corporation,,AlzForum.Therapeutics,mem-1003
+COMP_FOREST_LABORATORIES,Forest Laboratories,,AlzForum.Therapeutics,memantine|neramexane|physostigmine-salicylate
+COMP_MERZ_PHARMA,Merz Pharma,,AlzForum.Therapeutics,memantine
+COMP_NEUROEM_THERAPEUTICS,NeuroEM Therapeutics,,AlzForum.Therapeutics,memorem-transcranial-electromagnetic-treatment
+COMP_NEUROPORE_THERAPIES,Neuropore Therapies,,AlzForum.Therapeutics,minzasolmin|npt520-34
+COMP_ALNYLAM_PHARMACEUTICALS,Alnylam Pharmaceuticals,,AlzForum.Therapeutics,mivelsiran
+COMP_NEUPHORIA_THERAPEUTICS,Neuphoria Therapeutics,,AlzForum.Therapeutics,mk-1167
+COMP_INTELGENX,Intelgenx,,AlzForum.Therapeutics,montelukast
+COMP_METABOLIC_SOLUTIONS_DEVELOPMENT_COMPANY,Metabolic Solutions Development Company,,AlzForum.Therapeutics,msdc-0160
+COMP_NEUROKINE_THERAPEUTICS,Neurokine Therapeutics,,AlzForum.Therapeutics,mw150-0
+COMP_IMMUNOCHEM_THERAPEUTICS,ImmunoChem Therapeutics,,AlzForum.Therapeutics,mw151
+COMP_LLC,LLC,,AlzForum.Therapeutics,mw151|s-equol|tavapadon|tilavonemab
+COMP_BIOMED_INDUSTRIES,Biomed Industries,,AlzForum.Therapeutics,na-831
+COMP_NEUROACTIVA_INC,NeuroActiva™ Inc.,,AlzForum.Therapeutics,na-831
+COMP_BAUSCH_HEALTH_COMPANIES_INC,Bausch Health Companies Inc.,,AlzForum.Therapeutics,nabilone
+COMP_NURA_BIO_INC,Nura Bio™ Inc.,,AlzForum.Therapeutics,nb-4746
+COMP_DAIICHI_SANKYO_PHARMACEUTICALS,Daiichi Sankyo Pharmaceuticals,,AlzForum.Therapeutics,nefiracetam
+COMP_CERVOMED,CervoMed,,AlzForum.Therapeutics,neflamapimod
+COMP_NEOTHERAPEUTICS,NeoTherapeutics,,AlzForum.Therapeutics,neotrofin
+COMP_NEURON23,Neuron23,,AlzForum.Therapeutics,neu-411
+COMP_NEURONIX_LTD,Neuronix Ltd,,AlzForum.Therapeutics,neuroad
+COMP_HUMANETICS_PHARMACEUTICALS_CORPORATION,Humanetics Pharmaceuticals Corporation,,AlzForum.Therapeutics,nic5-15
+COMP_CHROMADEX,ChromaDex,,AlzForum.Therapeutics,nicotinamide-riboside
+COMP_KEIFERX,KeifeRx,,AlzForum.Therapeutics,nilotinib
+COMP_ARCHER_PHARMACEUTICALS,Archer Pharmaceuticals,,AlzForum.Therapeutics,nilvadipine
+COMP_NEUMORA,Neumora,,AlzForum.Therapeutics,nmra-511
+COMP_NEUROSEARCH_A_S,NeuroSearch A/S,,AlzForum.Therapeutics,ns2330
+COMP_TORREYPINES_THERAPEUTICS,TorreyPines Therapeutics,,AlzForum.Therapeutics,nsc001|phenserine
+COMP_NODTHERA,NodThera,,AlzForum.Therapeutics,nt-0796
+COMP_NEUROTHERAPIA,NeuroTherapia,,AlzForum.Therapeutics,ntrx-07
+COMP_BRAINSTORM_CELL_THERAPEUTICS,BrainStorm Cell Therapeutics,,AlzForum.Therapeutics,nurowntm
+COMP_NEURIZON_THERAPEUTICS,Neurizon Therapeutics,,AlzForum.Therapeutics,nuz-001
+COMP_AXOLTIS_PHARMA,Axoltis Pharma,,AlzForum.Therapeutics,nx210c
+COMP_APTINYX_INC,Aptinyx Inc.,,AlzForum.Therapeutics,nyx-458
+COMP_NEWAMSTERDAM_PHARMA,NewAmsterdam Pharma,,AlzForum.Therapeutics,obicetrapib
+COMP_OCTAPHARMA,Octapharma,,AlzForum.Therapeutics,octagam%C2%AE
+COMP_OLIGOMERIX,Oligomerix,,AlzForum.Therapeutics,olx-07010
+COMP_ONCODESIGN_PRECISION_MEDICINE,Oncodesign Precision Medicine,,AlzForum.Therapeutics,opm-201
+COMP_ORION_PHARMA,Orion Pharma,,AlzForum.Therapeutics,orm-12741
+COMP_PASSAGE_BIO,Passage Bio,,AlzForum.Therapeutics,pbft02
+COMP_ALTERITY_THERAPEUTICS,Alterity Therapeutics,,AlzForum.Therapeutics,pbt2
+COMP_VACCINEX,Vaccinex,,AlzForum.Therapeutics,pepinemab
+COMP_ZINFANDEL_PHARMACEUTICALS_INC,Zinfandel Pharmaceuticals Inc.,,AlzForum.Therapeutics,pioglitazone
+COMP_PROMIS_NEUROSCIENCES,ProMIS Neurosciences,,AlzForum.Therapeutics,pmn310
+COMP_PINTEON_THERAPEUTICS,Pinteon Therapeutics,,AlzForum.Therapeutics,pnt001
+COMP_PRIAVOID_GMBH,Priavoid GmbH,,AlzForum.Therapeutics,pri-002
+COMP_PRILENIA_THERAPEUTICS,Prilenia Therapeutics,,AlzForum.Therapeutics,pridopidine
+COMP_NEUROSENSE_THERAPEUTICS,NeuroSense Therapeutics,,AlzForum.Therapeutics,primec
+COMP_I_MAB_BIOPHARMA_CO,I-MAB Biopharma Co.,,AlzForum.Therapeutics,protollin
+COMP_JIANGSU_NHWA_PHARMACEUTICAL_CO,Jiangsu Nhwa Pharmaceutical Co.,,AlzForum.Therapeutics,protollin
+COMP_EPIX_PHARMACEUTICALS,Epix Pharmaceuticals,,AlzForum.Therapeutics,prx-03140
+COMP_SAMUS_THERAPEUTICS,Samus Therapeutics,,AlzForum.Therapeutics,pu-ad
+COMP_PHARNEXT,Pharnext,,AlzForum.Therapeutics,pxt864
+COMP_QURALIS_CORPORATION,QurAlis Corporation,,AlzForum.Therapeutics,qrl-101|qrl-201
+COMP_AMYLYX_PHARMACEUTICALS_INC,Amylyx Pharmaceuticals Inc,,AlzForum.Therapeutics,relyvrio
+COMP_REMYND,remynd,,AlzForum.Therapeutics,rem0045392
+COMP_ROCHE,Roche,,AlzForum.Therapeutics,rg7129
+COMP_INHIBIKASE_THERAPEUTICS,Inhibikase Therapeutics,,AlzForum.Therapeutics,risvodetinib
+COMP_REVALESIO_CORPORATION,Revalesio Corporation,,AlzForum.Therapeutics,rns60
+COMP_SERVIER,Servier,,AlzForum.Therapeutics,s-38093|s47445
+COMP_AUSIO_PHARMACEUTICALS,Ausio Pharmaceuticals,,AlzForum.Therapeutics,s-equol
+COMP_AMYLOID_SOLUTION_INC,Amyloid Solution Inc.,,AlzForum.Therapeutics,s603
+COMP_ACUMEN_PHARMACEUTICALS,Acumen Pharmaceuticals,,AlzForum.Therapeutics,sabirnetug
+COMP_ZAMBON_COMPANY_S_P_A,Zambon Company S.p.A.,,AlzForum.Therapeutics,safinamide
+COMP_SAGE_THERAPEUTICS,Sage Therapeutics,,AlzForum.Therapeutics,sage-718
+COMP_ABL_BIO,ABL Bio,,AlzForum.Therapeutics,sar446159
+COMP_GENZYME,Genzyme,,AlzForum.Therapeutics,sargramostim|venglustat
+COMP_PARTNER_THERAPEUTICS,Partner Therapeutics,,AlzForum.Therapeutics,sargramostim
+COMP_EVOTECH_AG,Evotech AG,,AlzForum.Therapeutics,sembragiline
+COMP_COGNITO_THERAPEUTICS,Cognito Therapeutics,,AlzForum.Therapeutics,sensory-stimulation-systems
+COMP_SAEGIS_PHARMACEUTICALS,Saegis Pharmaceuticals,,AlzForum.Therapeutics,sgs-742
+COMP_CASSAVA_SCIENCES,Cassava Sciences,,AlzForum.Therapeutics,simufilam
+COMP_SCINEURO_PHARMACEUTICALS,SciNeuro Pharmaceuticals,,AlzForum.Therapeutics,snp318
+COMP_CEREVANCE,Cerevance,,AlzForum.Therapeutics,solengepras
+COMP_NUTRICIA,Nutricia,,AlzForum.Therapeutics,souvenaid
+COMP_SPINOGENIX,Spinogenix,,AlzForum.Therapeutics,spg302
+COMP_SONEXA_THERAPEUTICS,Sonexa Therapeutics,,AlzForum.Therapeutics,st101
+COMP_T3D_THERAPEUTICS,T3D Therapeutics,,AlzForum.Therapeutics,t3d-959
+COMP_CEREVEL_THERAPEUTICS,Cerevel Therapeutics,,AlzForum.Therapeutics,tavapadon
+COMP_TRUEBINDING,TrueBinding,,AlzForum.Therapeutics,tb006
+COMP_THERINI_BIO,Therini Bio®,,AlzForum.Therapeutics,thn391
+COMP_ZELTIA_GROUP,Zeltia Group,,AlzForum.Therapeutics,tideglusib
+COMP_C2N_DIAGNOSTICS,C2N Diagnostics,,AlzForum.Therapeutics,tilavonemab
+COMP_CORTICE_BIOSCIENCES,Cortice Biosciences,,AlzForum.Therapeutics,tpi-287
+COMP_TRANSPOSON_THERAPEUTICS,Transposon Therapeutics,,AlzForum.Therapeutics,tpn-101
+COMP_CYCLO_THERAPEUTICS,Cyclo Therapeutics,,AlzForum.Therapeutics,trappsolr-cyclotm
+COMP_NKGEN_BIOTECH,NKGen Biotech,,AlzForum.Therapeutics,troculeucel
+COMP_BIOHAVEN_PHARMACEUTICALS,Biohaven Pharmaceuticals,,AlzForum.Therapeutics,troriluzole|verdiperstat
+COMP_TREEWAY_B_V,Treeway B.V.,,AlzForum.Therapeutics,tw001
+COMP_UNITED_NEUROSCIENCE,United Neuroscience,,AlzForum.Therapeutics,ub-311|ub-312
+COMP_VAXXINITY,Vaxxinity,,AlzForum.Therapeutics,ub-311|ub-312
+COMP_ORYZON_CORPORATE,Oryzon Corporate,,AlzForum.Therapeutics,vafidemstat
+COMP_PROBIODRUG_AG,Probiodrug AG,,AlzForum.Therapeutics,varoglutamstat
+COMP_VIVORYON_THERAPEUTICS_N_V,Vivoryon Therapeutics N.V.,,AlzForum.Therapeutics,varoglutamstat
+COMP_VIGIL_NEUROSCIENCE,Vigil Neuroscience,,AlzForum.Therapeutics,vg-3927|vgl101
+COMP_SUN_PHARMA_ADVANCED_RESEARCH_COMPANY_LTD,Sun Pharma Advanced Research Company Ltd.,,AlzForum.Therapeutics,vodobatinib
+COMP_VANQUA_BIO,Vanqua Bio,,AlzForum.Therapeutics,vq-101
+COMP_NEUROCRINE_BIOSCIENCES,Neurocrine Biosciences,,AlzForum.Therapeutics,vy-aadc
+COMP_VOYAGER_THERAPEUTICS,Voyager Therapeutics,,AlzForum.Therapeutics,vy-aadc|vy-tau01
+COMP_WAVE_LIFE_SCIENCES_USA,Wave Life Sciences USA,,AlzForum.Therapeutics,wve-004
+COMP_ACTINOGEN_MEDICAL,Actinogen Medical,,AlzForum.Therapeutics,xanamem
+COMP_INMUNE_BIO_INC,INmune Bio Inc.,,AlzForum.Therapeutics,xpro1595
+COMP_YUMANITY_THERAPEUTICS,Yumanity Therapeutics,,AlzForum.Therapeutics,ytx-7739
+COMP_COGNITION_THERAPEUTICS_INC,Cognition Therapeutics Inc.,,AlzForum.Therapeutics,zervimesine
+COMP_ALPHA_COGNITION,Alpha Cognition,,AlzForum.Therapeutics,zunveyltm
+COMP_GALANTOS_PHARMA,Galantos Pharma,,AlzForum.Therapeutics,zunveyltm
