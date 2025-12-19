@@ -17,3 +17,6 @@ ui/dist/
 # Large ontology OWL files
 *.owl
 
+
+# Mac system files
+.DS_Store
