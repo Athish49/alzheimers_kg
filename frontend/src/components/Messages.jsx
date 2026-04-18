@@ -13,14 +13,25 @@ export function AssistantMessage({ msg, isActive, onViewEvidence, onFollowup }) 
   return (
     <div className={"msg msg-assistant " + (isActive ? "active" : "")}>
       <div className="cls-bar">
-        <Badge variant="intent">
-          <CategoryGlyph id={msg.intent_type} />
-          <span style={{ marginLeft: 2 }}>{msg.intent_type}</span>
-        </Badge>
-        <Badge variant="strategy" title="Retrieval strategy">{msg.strategy}</Badge>
-        {msg.intent_notes && (
-          <span className="intent-notes">{msg.intent_notes}</span>
-        )}
+        <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
+          <span style={{
+            fontSize: 9, fontWeight: 600, letterSpacing: "0.06em",
+            textTransform: "uppercase", opacity: 0.65, lineHeight: 1,
+            fontFamily: "var(--font-sans)", color: "var(--fg-secondary)"
+          }}>Intent:</span>
+          <Badge variant="intent">
+            <CategoryGlyph id={msg.intent_type} />
+            <span style={{ marginLeft: 2 }}>{msg.intent_type}</span>
+          </Badge>
+        </div>
+        <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
+          <span style={{
+            fontSize: 9, fontWeight: 600, letterSpacing: "0.06em",
+            textTransform: "uppercase", opacity: 0.65, lineHeight: 1,
+            fontFamily: "var(--font-sans)", color: "var(--fg-secondary)"
+          }}>Retrieval Strategy:</span>
+          <Badge variant="strategy">{msg.strategy}</Badge>
+        </div>
       </div>
 
       <Prose text={msg.answer} />

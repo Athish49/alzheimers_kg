@@ -56,8 +56,22 @@ export function ContextPanel({ message, pinnedQuestion, onClose }) {
           <div className="ctx-kicker">Evidence for</div>
           <div className="ctx-title" title={pinnedQuestion}>{pinnedQuestion}</div>
           <div className="ctx-sub">
-            <Badge variant="intent">{intent_type}</Badge>
-            <Badge variant="strategy">{strategy}</Badge>
+            <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
+              <span style={{
+                fontSize: 9, fontWeight: 600, letterSpacing: "0.06em",
+                textTransform: "uppercase", opacity: 0.65, lineHeight: 1,
+                fontFamily: "var(--font-sans)", color: "var(--fg-secondary)"
+              }}>Intent:</span>
+              <Badge variant="intent">{intent_type}</Badge>
+            </div>
+            <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
+              <span style={{
+                fontSize: 9, fontWeight: 600, letterSpacing: "0.06em",
+                textTransform: "uppercase", opacity: 0.65, lineHeight: 1,
+                fontFamily: "var(--font-sans)", color: "var(--fg-secondary)"
+              }}>Retrieval Strategy:</span>
+              <Badge variant="strategy">{strategy}</Badge>
+            </div>
           </div>
         </div>
         <button className="icon-btn" onClick={onClose} title="Close evidence panel">

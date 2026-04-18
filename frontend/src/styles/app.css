@@ -422,6 +422,9 @@ body { overflow: hidden; height: 100vh; }
   font-size: 12px; color: var(--fg-secondary);
 }
 .status-chip.dim { opacity: 0.45; }
+.status-chip.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.status-chip.active .status-dot { background: var(--bg) !important; }
+.status-chip.active .status-n { color: var(--bg); opacity: 0.7; }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; }
 .status-Approved { background: var(--fg); }
 .status-Phase-3 { background: var(--fg-secondary); }

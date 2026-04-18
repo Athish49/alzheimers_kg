@@ -13,7 +13,6 @@ ui/dist/
 
 # Ignore all HTML files (data / scraped pages elsewhere); allow the Vite app
 *.html
-!/frontend/*.html
 !/frontend/**/*.html
 
 # Large ontology OWL files

@@ -77,17 +77,28 @@ export function BiomarkerView({ data }) {
 const statusOrder = ["Approved", "Phase 3", "Phase 1-2", "Discontinued"];
 
 export function DrugView({ data }) {
-  const [expanded, setExpanded] = useState(null);
-  const drugs = [...(data.drugs || [])].sort((a, b) =>
+  const allDrugs = [...(data.drugs || [])].sort((a, b) =>
     statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status)
   );
-  const counts = statusOrder.map(s => ({ s, n: drugs.filter(d => d.status === s).length }));
+  const counts = statusOrder.map(s => ({ s, n: allDrugs.filter(d => d.status === s).length }));
+
+  // Default to the first status that has drugs
+  const firstWithDrugs = counts.find(c => c.n > 0)?.s || statusOrder[0];
+  const [activeStatus, setActiveStatus] = useState(firstWithDrugs);
+  const [expanded, setExpanded] = useState(null);
+
+  const filtered = allDrugs.filter(d => d.status === activeStatus);
 
   return (
     <div className="ctx-section">
       <div className="status-bar">
         {counts.map(c => (
-          <div key={c.s} className={"status-chip " + (c.n === 0 ? "dim" : "")}>
+          <div
+            key={c.s}
+            className={"status-chip " + (c.n === 0 ? "dim" : "") + (activeStatus === c.s ? " active" : "")}
+            onClick={() => { if (c.n > 0) { setActiveStatus(c.s); setExpanded(null); } }}
+            style={{ cursor: c.n > 0 ? "pointer" : "default" }}
+          >
             <span className={"status-dot status-" + c.s.replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")} />
             <span>{c.s}</span>
             <span className="status-n">{c.n}</span>
@@ -96,7 +107,10 @@ export function DrugView({ data }) {
       </div>
 
       <div className="ev-list" style={{ marginTop: 16 }}>
-        {drugs.map((d, i) => {
+        {filtered.length === 0 && (
+          <div className="ev-empty">No drugs with status "{activeStatus}".</div>
+        )}
+        {filtered.map((d, i) => {
           const open = expanded === i;
           const dim = d.status === "Discontinued";
           return (
