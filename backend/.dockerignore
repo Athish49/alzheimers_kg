@@ -1,0 +1,28 @@
+# Virtual environment — always excluded
+venv/
+.venv/
+
+# Secrets — injected at runtime via --env-file or -e flags
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# KG build artefacts — not needed by the API server
+kg_build/output/
+neo4j_import/
+ontology/
+alzforum/
+
+# Large model files
+*.owl
+*.bin
+*.pt
+*.safetensors
+
+# Mac
+.DS_Store

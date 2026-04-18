@@ -24,7 +24,7 @@ python-dotenv>=1.0,<2.0
 
 # Optional LLM providers (imported lazily in graph_rag/llm_client.py).
 # Keep installed so all providers work out-of-the-box.
-openai>=1.30,<2.0
+openai>=1.30
 anthropic>=0.25,<1.0
 
 # --- Data processing -------------------------------------------------------
@@ -38,4 +38,3 @@ tqdm>=4.66,<5.0
 
 # --- Ontology processing ---------------------------------------------------
 owlready2>=0.46,<1.0
-rdflib>=7.0,<8.0
