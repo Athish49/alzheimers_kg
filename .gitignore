@@ -11,8 +11,10 @@ __pycache__/
 ui/node_modules/
 ui/dist/
 
-# Ignore all HTML files
+# Ignore all HTML files (data / scraped pages elsewhere); allow the Vite app
 *.html
+!/frontend/*.html
+!/frontend/**/*.html
 
 # Large ontology OWL files
 *.owl
