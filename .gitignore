@@ -8,8 +8,8 @@ __pycache__/
 *.pyc
 
 # UI packages and build output
-ui/node_modules/
-ui/dist/
+frontend/node_modules/
+frontend/dist/
 
 # Ignore all HTML files (data / scraped pages elsewhere); allow the Vite app
 *.html
