@@ -1,0 +1,40 @@
+const variants = {
+  intent: { background: "var(--fg)", color: "var(--bg)" },
+  strategy: { background: "var(--bg-sunken)", color: "var(--fg-secondary)" },
+  outline: { background: "transparent", color: "var(--fg-secondary)", border: "1px solid var(--border-strong)" },
+  accent: { background: "var(--accent-subtle)", color: "var(--accent)", border: "1px solid var(--accent-border)" },
+  solid: { background: "var(--fg-secondary)", color: "var(--bg)" },
+  muted: { background: "var(--bg-muted)", color: "var(--fg-muted)" },
+};
+
+export function Badge({ variant = "strategy", children, mono = true, style = {} }) {
+  return (
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 5,
+      padding: "3px 8px", borderRadius: 5,
+      fontFamily: mono ? "var(--font-mono)" : "var(--font-sans)",
+      fontSize: 11, fontWeight: 500, letterSpacing: "0.02em",
+      lineHeight: 1.3,
+      ...variants[variant],
+      ...style,
+    }}>{children}</span>
+  );
+}
+
+const glyphs = {
+  BIOMARKER: "\u25D0",
+  DRUG_TRIAL: "\u25C7",
+  GENE_PROTEIN: "\u2715",
+  PHENOTYPE: "\u25CC",
+  PATHWAY: "\u21AC",
+  GENERAL_AD: "\u25EF",
+};
+
+export function CategoryGlyph({ id }) {
+  return (
+    <span style={{
+      fontFamily: "var(--font-mono)", fontSize: 16,
+      color: "var(--fg-secondary)", lineHeight: 1,
+    }}>{glyphs[id] || "\u00B7"}</span>
+  );
+}

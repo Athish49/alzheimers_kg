@@ -143,6 +143,8 @@ class GraphRAGPipeline:
 
         if return_context:
             result["context"] = route.context
+            if route.raw_data:
+                result["evidence"] = route.raw_data
 
         return result
 
@@ -205,6 +207,7 @@ class AnswerResponse(BaseModel):
     intent_notes: Optional[str]
     strategy: str
     context: Optional[str] = None
+    evidence: Optional[Dict[str, Any]] = None
 
 
 @app.post("/answer", response_model=AnswerResponse)
@@ -224,6 +227,7 @@ def answer_question(payload: QuestionRequest) -> AnswerResponse:
         intent_notes=res["intent_notes"],
         strategy=res["strategy"],
         context=res.get("context"),
+        evidence=res.get("evidence"),
     )
 
 

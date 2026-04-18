@@ -754,6 +754,270 @@ def build_general_ad_context(retriever: GraphRetriever) -> str:
     )
 
 
+# ---------------------------------------------------------------------------
+# Evidence builders — structured dicts for the frontend UI
+# ---------------------------------------------------------------------------
+
+
+def build_biomarker_evidence(biomarkers: List[Dict[str, object]]) -> Dict:
+    """Return structured biomarker evidence grouped by fluid then direction."""
+    result: Dict[str, Dict[str, list]] = {}
+    for row in biomarkers:
+        fluid = _fluid_bucket(_safe_str(row.get("fluid")))
+        direction = _normalize_direction(_safe_str(row.get("direction")))
+        name = (
+            _safe_str(row.get("biomarker_label"))
+            or _safe_str(row.get("analyte"))
+            or _safe_str(row.get("biomarker_id"))
+        )
+        if not name:
+            continue
+
+        bucket = "increased" if direction == "increased" else "decreased"
+        if fluid not in result:
+            result[fluid] = {"increased": [], "decreased": []}
+        if bucket not in result[fluid]:
+            result[fluid][bucket] = []
+
+        effect_raw = row.get("effect_size")
+        try:
+            effect = float(effect_raw) if effect_raw not in (None, "") else 0.0
+        except (ValueError, TypeError):
+            effect = 0.0
+
+        p_raw = row.get("p_value")
+        p_str = str(p_raw) if p_raw not in (None, "") else ""
+
+        entry = {
+            "name": name,
+            "class": _safe_str(row.get("analyte_class")),
+            "effect": effect,
+            "p": p_str,
+        }
+
+        # Dedupe by name within each bucket
+        existing_names = {e["name"] for e in result[fluid][bucket]}
+        if name not in existing_names:
+            result[fluid][bucket].append(entry)
+
+    return {"biomarkers": result}
+
+
+def build_drug_evidence(
+    drugs: List[Dict[str, object]],
+    drug_pathways: List[Dict[str, object]],
+) -> Dict:
+    """Return structured drug evidence with embedded pathway targets."""
+    # Index pathways by drug label
+    pw_by_drug: Dict[str, list] = defaultdict(list)
+    pw_seen: Dict[str, set] = defaultdict(set)
+    for row in drug_pathways:
+        drug_name = _safe_str(row.get("drug_label")) or _safe_str(row.get("drug_id"))
+        pw_name = _safe_str(row.get("pathway_label")) or _safe_str(row.get("pathway_id"))
+        if not drug_name or not pw_name:
+            continue
+        key = (drug_name, pw_name)
+        if key in pw_seen.get(drug_name, set()):
+            continue
+        pw_seen.setdefault(drug_name, set()).add(key)
+
+        pw_id = _safe_str(row.get("pathway_id"))
+        go = pw_id if pw_id.startswith("GO:") else ""
+        action = _safe_str(row.get("action_type"))
+        primary_raw = row.get("is_primary_target")
+        primary = primary_raw in (True, "True", "true", "yes", "1")
+
+        pw_by_drug[drug_name].append({
+            "name": pw_name,
+            "go": go,
+            "action": action,
+            "primary": primary,
+        })
+
+    drug_list = []
+    seen_drugs = set()
+    for row in drugs:
+        name = _safe_str(row.get("drug_label")) or _safe_str(row.get("drug_id"))
+        if not name or name in seen_drugs:
+            continue
+        seen_drugs.add(name)
+
+        drug_id = _safe_str(row.get("drug_id"))
+        chebi = drug_id if drug_id.startswith("CHEBI:") else ""
+
+        status_overall = _safe_str(row.get("status_overall")).lower()
+        trial_status = _safe_str(row.get("trial_status")).lower()
+        phase_raw = row.get("trial_phase_max")
+        has_phase3 = row.get("has_phase3")
+
+        # Determine status bucket matching frontend statusOrder
+        if "approved" in status_overall:
+            status = "Approved"
+            phase = "Approved"
+        elif has_phase3 in (True, "True", "true") or _try_float(phase_raw, 0) >= 3:
+            status = "Phase 3"
+            phase = f"Phase {_safe_str(phase_raw)}" if phase_raw else "Phase 3"
+        elif any(k in trial_status for k in ("discontinue", "terminated", "halted")):
+            status = "Discontinued"
+            phase = f"Phase {_safe_str(phase_raw)}" if phase_raw else "Unknown"
+        else:
+            status = "Phase 1-2"
+            phase = f"Phase {_safe_str(phase_raw)}" if phase_raw else "Phase unknown"
+
+        trial_count = row.get("trial_count")
+        try:
+            trials = int(trial_count) if trial_count not in (None, "") else None
+        except (ValueError, TypeError):
+            trials = None
+
+        drug_list.append({
+            "name": name,
+            "chebi": chebi,
+            "type": _safe_str(row.get("drug_type")),
+            "status": status,
+            "phase": phase,
+            "trials": trials,
+            "pathways": pw_by_drug.get(name, []),
+        })
+
+    return {"drugs": drug_list}
+
+
+def build_pathway_evidence(drug_pathways: List[Dict[str, object]]) -> Dict:
+    """Return structured pathway evidence grouped by drug."""
+    by_drug: Dict[str, list] = {}
+    seen: Dict[str, set] = defaultdict(set)
+    drug_order: list = []
+
+    for row in drug_pathways:
+        drug_name = _safe_str(row.get("drug_label")) or _safe_str(row.get("drug_id"))
+        pw_name = _safe_str(row.get("pathway_label")) or _safe_str(row.get("pathway_id"))
+        if not drug_name or not pw_name:
+            continue
+        if pw_name in seen[drug_name]:
+            continue
+        seen[drug_name].add(pw_name)
+
+        if drug_name not in by_drug:
+            by_drug[drug_name] = []
+            drug_order.append(drug_name)
+
+        pw_id = _safe_str(row.get("pathway_id"))
+        go = pw_id if pw_id.startswith("GO:") else ""
+        action = _safe_str(row.get("action_type"))
+        primary_raw = row.get("is_primary_target")
+        primary = primary_raw in (True, "True", "true", "yes", "1")
+
+        by_drug[drug_name].append({
+            "name": pw_name,
+            "go": go,
+            "action": action,
+            "primary": primary,
+        })
+
+    return {
+        "drugPathways": [
+            {"drug": d, "pathways": by_drug[d]}
+            for d in drug_order
+        ]
+    }
+
+
+def build_phenotype_evidence(phenotypes: List[Dict[str, object]]) -> Dict:
+    """Return structured phenotype evidence."""
+    pheno_list = []
+    seen = set()
+    for row in phenotypes:
+        name = _safe_str(row.get("phenotype_label")) or _safe_str(row.get("phenotype_id"))
+        if not name or name in seen:
+            continue
+        seen.add(name)
+
+        pheno_id = _safe_str(row.get("phenotype_id"))
+        hpo = pheno_id if pheno_id.startswith("HP:") else ""
+
+        pheno_list.append({
+            "name": name,
+            "hpo": hpo,
+            "onset": _safe_str(row.get("onset")),
+            "frequency": _safe_str(row.get("frequency")),
+        })
+
+    return {"phenotypes": pheno_list}
+
+
+def build_gene_evidence(genes_proteins: List[Dict[str, object]]) -> Dict:
+    """Return structured gene/protein evidence."""
+    gene_list = []
+    seen = set()
+
+    preferred_genes = {"APOE", "APP", "MAPT", "PSEN1", "PSEN2", "TREM2", "BIN1", "CLU", "ABCA7", "CR1"}
+
+    for row in genes_proteins:
+        symbol = _safe_str(row.get("gene_symbol")) or _safe_str(row.get("gene_id"))
+        protein_label = _safe_str(row.get("protein_label")) or _safe_str(row.get("protein_id"))
+        if not symbol or symbol in seen:
+            continue
+        seen.add(symbol)
+
+        gene_id = _safe_str(row.get("gene_id"))
+        hgnc = gene_id if gene_id.startswith("HGNC:") else ""
+
+        protein_id = _safe_str(row.get("protein_id"))
+        uniprot = protein_id if protein_id.startswith("P") or protein_id.startswith("Q") or protein_id.startswith("O") else ""
+
+        high_risk = symbol.upper() in preferred_genes
+
+        gene_list.append({
+            "gene": symbol,
+            "hgnc": hgnc,
+            "protein": protein_label,
+            "uniprot": uniprot,
+            "evidence": "GWAS" if high_risk else "",
+            "highRisk": high_risk,
+            "pathways": [],
+        })
+
+    # Sort high-risk genes first
+    gene_list.sort(key=lambda g: (not g["highRisk"], g["gene"]))
+
+    return {"genes": gene_list}
+
+
+def build_composite_evidence(
+    biomarkers: List[Dict[str, object]],
+    drugs: List[Dict[str, object]],
+    phenotypes: List[Dict[str, object]],
+    drug_pathways: List[Dict[str, object]],
+    genes_proteins: List[Dict[str, object]],
+) -> Dict:
+    """Build a composite evidence dict containing all evidence types."""
+    result: Dict = {"composite": True}
+    bio = build_biomarker_evidence(biomarkers)
+    if bio.get("biomarkers"):
+        result["biomarkers"] = bio["biomarkers"]
+    drug = build_drug_evidence(drugs, drug_pathways)
+    if drug.get("drugs"):
+        result["drugs"] = drug["drugs"]
+    pheno = build_phenotype_evidence(phenotypes)
+    if pheno.get("phenotypes"):
+        result["phenotypes"] = pheno["phenotypes"]
+    gene = build_gene_evidence(genes_proteins)
+    if gene.get("genes"):
+        result["genes"] = gene["genes"]
+    return result
+
+
+def _try_float(val, default: float = 0.0) -> float:
+    """Try to convert val to float, returning default on failure."""
+    if val in (None, ""):
+        return default
+    try:
+        return float(val)
+    except (ValueError, TypeError):
+        return default
+
+
 __all__ = [
     "summarize_biomarkers",
     "summarize_drugs",
@@ -765,4 +1029,10 @@ __all__ = [
     "build_phenotype_context",
     "build_drug_trial_pathway_context",
     "build_general_ad_context",
+    "build_biomarker_evidence",
+    "build_drug_evidence",
+    "build_pathway_evidence",
+    "build_phenotype_evidence",
+    "build_gene_evidence",
+    "build_composite_evidence",
 ]

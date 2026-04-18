@@ -1,0 +1,107 @@
+/* Design tokens — NotebookLM/Notion-inspired B&W system */
+:root {
+  /* Neutrals — warm-tinted */
+  --bg: #ffffff;
+  --bg-subtle: #fafaf9;
+  --bg-muted: #f5f5f3;
+  --bg-sunken: #ededea;
+  --border: #ededea;
+  --border-strong: #e2e2df;
+  --divider: #f0f0ed;
+
+  --fg: #1a1a19;
+  --fg-secondary: #3d3d3b;
+  --fg-muted: #6b6a67;
+  --fg-subtle: #9b9a97;
+  --fg-placeholder: #b5b3ae;
+
+  /* Primary (near-black) */
+  --primary: #1a1a19;
+  --primary-hover: #2a2a28;
+  --primary-fg: #ffffff;
+
+  /* Single data accent — muted slate */
+  --accent: oklch(0.52 0.04 250);
+  --accent-subtle: oklch(0.96 0.01 250);
+  --accent-border: oklch(0.88 0.02 250);
+
+  /* Semantic data colors (direction) — muted, not saturated */
+  --up: oklch(0.48 0.07 30);       /* increased — warm */
+  --up-bg: oklch(0.97 0.015 30);
+  --down: oklch(0.48 0.05 230);    /* decreased — cool */
+  --down-bg: oklch(0.97 0.012 230);
+
+  /* Semantic status */
+  --status-approved: #1a1a19;
+  --status-phase3: #3d3d3b;
+  --status-phase12: #6b6a67;
+  --status-discontinued: #b5b3ae;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 4px 16px -2px rgb(0 0 0 / 0.06), 0 2px 6px -2px rgb(0 0 0 / 0.04);
+
+  /* Radii */
+  --r-sm: 6px;
+  --r: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+
+  /* Type */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+
+  /* Spacing scale (8px base) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+/* Utility: hairline border */
+.hairline { border: 1px solid var(--border); }
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button { font-family: inherit; cursor: pointer; }
+input, textarea { font-family: inherit; }
+
+/* Scrollbar — minimal */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-sunken); border-radius: 10px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* Markdown-ish answer text */
+.prose { color: var(--fg); font-size: 15px; line-height: 1.65; }
+.prose p { margin: 0 0 12px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { font-weight: 600; }
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--bg-muted);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+.prose ul { margin: 8px 0 12px; padding-left: 20px; }
+.prose li { margin: 4px 0; }

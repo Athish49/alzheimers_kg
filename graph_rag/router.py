@@ -17,7 +17,7 @@ the context ultra-compact and relevant.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 from .intents import QueryIntent, IntentType, classify_question
 from .retriever import GraphRetriever, get_retriever
@@ -55,6 +55,7 @@ class RouteResult:
     intent: QueryIntent
     context: str
     strategy_name: str
+    raw_data: Dict[str, Any] = field(default_factory=dict)
     debug: Dict[str, str] = field(default_factory=dict)
 
 
@@ -94,36 +95,62 @@ def build_context_for_question(
     # 1) Classify the question into an intent
     intent = classify_question(question)
 
-    # 2) Pick an intent-specific context builder
-    #
-    #    BIOMARKER     -> biomarker-only, grouped by fluid + direction
-    #    PHENOTYPE     -> phenotype/symptom-only
-    #    DRUG_TRIAL    -> drugs + trials + pathways
-    #    PATHWAY       -> same as DRUG_TRIAL for now (drugs + pathways)
-    #    GENE_PROTEIN  -> fall back to general AD context (includes genes)
-    #    GENERAL       -> general AD context (all sections)
-    #
+    # 2) Pick an intent-specific context builder and build structured evidence
+    raw_data: Dict[str, Any] = {}
+
     if intent.type is IntentType.BIOMARKER:
         strategy_name = "AD_BIOMARKERS_V1"
         context = gtxt.build_biomarker_direction_context(retriever)
+        # Fetch raw rows for structured evidence
+        disease_id = gtxt._resolve_ad_disease_id(retriever)
+        if disease_id:
+            biomarkers = retriever.get_ad_biomarkers(disease_id)
+            raw_data = gtxt.build_biomarker_evidence(biomarkers)
 
     elif intent.type is IntentType.PHENOTYPE:
         strategy_name = "AD_PHENOTYPES_V1"
         context = gtxt.build_phenotype_context(retriever)
+        disease_id = gtxt._resolve_ad_disease_id(retriever)
+        if disease_id:
+            phenotypes = retriever.get_ad_phenotypes(disease_id)
+            raw_data = gtxt.build_phenotype_evidence(phenotypes)
 
-    elif intent.type in (IntentType.DRUG_TRIAL, IntentType.PATHWAY):
+    elif intent.type is IntentType.DRUG_TRIAL:
         strategy_name = "AD_DRUGS_PATHWAYS_V1"
         context = gtxt.build_drug_trial_pathway_context(retriever)
+        disease_id = gtxt._resolve_ad_disease_id(retriever)
+        if disease_id:
+            drugs = retriever.get_ad_drugs(disease_id)
+            drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            raw_data = gtxt.build_drug_evidence(drugs, drug_pws)
+
+    elif intent.type is IntentType.PATHWAY:
+        strategy_name = "AD_DRUGS_PATHWAYS_V1"
+        context = gtxt.build_drug_trial_pathway_context(retriever)
+        disease_id = gtxt._resolve_ad_disease_id(retriever)
+        if disease_id:
+            drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            raw_data = gtxt.build_pathway_evidence(drug_pws)
 
     elif intent.type is IntentType.GENE_PROTEIN:
-        # For now, reuse the general context (includes gene/protein section).
         strategy_name = "AD_GENES_GENERAL_V1"
         context = gtxt.build_general_ad_context(retriever)
+        genes_proteins = retriever.get_genes_and_proteins()
+        raw_data = gtxt.build_gene_evidence(genes_proteins)
 
     else:
-        # Fallback: general compact Alzheimer’s graph summary.
+        # Fallback: general compact Alzheimer’s graph summary (composite).
         strategy_name = "AD_GENERAL_V1"
         context = gtxt.build_general_ad_context(retriever)
+        disease_id = gtxt._resolve_ad_disease_id(retriever)
+        if disease_id:
+            raw_data = gtxt.build_composite_evidence(
+                biomarkers=retriever.get_ad_biomarkers(disease_id),
+                drugs=retriever.get_ad_drugs(disease_id),
+                phenotypes=retriever.get_ad_phenotypes(disease_id),
+                drug_pathways=retriever.get_ad_drug_pathways(disease_id),
+                genes_proteins=retriever.get_genes_and_proteins(),
+            )
 
     debug: Dict[str, str] = {
         "intent_type": intent.type.name,
@@ -138,6 +165,7 @@ def build_context_for_question(
         intent=intent,
         context=context,
         strategy_name=strategy_name,
+        raw_data=raw_data,
         debug=debug,
     )
 
