@@ -2,68 +2,93 @@
 graph_rag.llm_client
 --------------------
 
-Thin wrapper around a local Ollama LLM (llama3.2:3b by default).
+Multi-provider LLM client for the Graph-RAG layer.
 
-- Uses the HTTP API exposed by the Ollama daemon.
-- Default model / params are read from `graph_rag.config.CONFIG`.
-- Provides:
-    * low-level `.chat()` for arbitrary message lists
-    * convenience `.simple_qa()` for RAG-style question answering
+Supported providers (set LLM_PROVIDER in backend/.env):
+    ollama    — local Ollama daemon (default for local environment)
+    openai    — OpenAI API
+    groq      — Groq API (OpenAI-compatible; free tier available)
+    gemini    — Google Gemini (OpenAI-compatible endpoint)
+    anthropic — Anthropic Claude (requires `pip install anthropic`)
 
-This module assumes Ollama is running locally, e.g.:
+The provider is selected automatically by config.py based on the environment
+and available API keys. You can override it explicitly via LLM_PROVIDER.
 
-    ollama pull llama3.2:3b
-    ollama serve
-
-Docs: https://github.com/ollama/ollama
+All providers expose the same interface:
+    client.simple_qa(question, context, ...) -> str
+    client.chat(messages, ...) -> str
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import logging
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 import requests
 
 from .config import CONFIG
 
+logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------
-# Dataclasses
-# ---------------------------------------------------------------------
+# OpenAI-SDK-compatible base URLs per provider
+_OPENAI_COMPAT_BASE_URLS: dict[str, str] = {
+    "openai": "https://api.openai.com/v1",
+    "groq":   "https://api.groq.com/openai/v1",
+    "gemini": "https://generativelanguage.googleapis.com/v1beta/openai/",
+}
 
+# Default system prompt shared across providers
+_DEFAULT_SYSTEM_PROMPT = (
+    "You are a **grounded extraction assistant**.\n"
+    "\n"
+    "CRITICAL RULES:\n"
+    "- You MUST use ONLY facts that appear explicitly in the provided context.\n"
+    "- Do NOT introduce any biomarker, drug, gene, or concept that is not "
+    "literally present in the context text.\n"
+    "- Do NOT rely on your own medical knowledge or outside information.\n"
+    "- If the question asks for information that is not clearly present in "
+    "the context, say: \"The context is insufficient to answer this precisely.\"\n"
+    "- When listing entities, copy their names EXACTLY as written in the context.\n"
+    "\n"
+    "Your job is to extract and summarize, not to guess or generalize."
+)
+
+
+# ---------------------------------------------------------------------------
+# LLMClient — single class, three underlying protocol paths
+# ---------------------------------------------------------------------------
 
 @dataclass
 class LLMClient:
     """
-    Client for a local Ollama LLM.
+    Unified LLM client supporting multiple providers.
 
     Parameters
     ----------
-    base_url:
-        Base URL for the Ollama HTTP API (including /api prefix).
-        Usually "http://localhost:11434/api".
+    provider:
+        One of: ollama | openai | groq | gemini | anthropic
     model:
-        Model name as known to Ollama, e.g. "llama3.2:3b".
-    default_temperature:
-        Default sampling temperature.
-    default_top_p:
-        Default top-p value.
-    default_num_ctx:
-        Default context window (tokens), passed via `options.num_ctx`.
-    timeout:
-        HTTP timeout in seconds for each request.
+        Model identifier as expected by the provider.
+    api_key:
+        API key for cloud providers. Unused for ollama.
+    ollama_base_url:
+        Base URL for the Ollama HTTP API (e.g. "http://localhost:11434/api").
+    default_temperature / default_top_p / default_num_ctx / timeout:
+        Sampling defaults; can be overridden per call.
     """
 
-    base_url: str = "http://localhost:11434/api"
-    model: str = "llama3.2:3b"
+    provider:            str   = "ollama"
+    model:               str   = "llama3.2:3b"
+    api_key:             str   = ""
+    ollama_base_url:     str   = "http://localhost:11434/api"
     default_temperature: float = 0.2
-    default_top_p: float = 0.9
-    default_num_ctx: int = 4096
-    timeout: int = 120
+    default_top_p:       float = 0.9
+    default_num_ctx:     int   = 4096
+    timeout:             int   = 120
 
     # ------------------------------------------------------------------
-    # Core chat interface
+    # Public interface
     # ------------------------------------------------------------------
 
     def chat(
@@ -77,67 +102,27 @@ class LLMClient:
         max_tokens: Optional[int] = None,
     ) -> str:
         """
-        Send a chat-style request to the Ollama model.
+        Send a chat-style request and return the assistant reply as a string.
 
         Parameters
         ----------
         messages:
             List of {"role": "user" | "assistant" | "system", "content": "..."}.
-            If `system_prompt` is provided, it will be injected as the first
-            system message (before your list).
         system_prompt:
-            Optional system message to prepend.
+            Prepended as a system message if provided.
         temperature, top_p, num_ctx, max_tokens:
-            Optional overrides for sampling / context parameters.
-
-        Returns
-        -------
-        The assistant's response content as a plain string.
+            Per-call overrides.
         """
-        # Prepend system message if provided
-        final_messages: List[Dict[str, str]] = []
-        if system_prompt:
-            final_messages.append({"role": "system", "content": system_prompt})
-        final_messages.extend(messages)
+        temp = temperature if temperature is not None else self.default_temperature
+        top  = top_p if top_p is not None else self.default_top_p
+        ctx  = num_ctx if num_ctx is not None else self.default_num_ctx
 
-        payload: Dict[str, Any] = {
-            "model": self.model,
-            "messages": final_messages,
-            "stream": False,
-            "options": {
-                "temperature": temperature if temperature is not None else self.default_temperature,
-                "top_p": top_p if top_p is not None else self.default_top_p,
-                "num_ctx": num_ctx if num_ctx is not None else self.default_num_ctx,
-            },
-        }
-
-        # Only set num_predict if explicitly requested
-        if max_tokens is not None:
-            payload["options"]["num_predict"] = max_tokens
-
-        url = f"{self.base_url}/chat"
-        try:
-            resp = requests.post(url, json=payload, timeout=self.timeout)
-        except requests.RequestException as e:
-            raise RuntimeError(
-                f"Failed to connect to Ollama at {url}. "
-                f"Is the daemon running? Original error: {e}"
-            ) from e
-
-        if resp.status_code != 200:
-            raise RuntimeError(
-                f"Ollama returned status {resp.status_code}: {resp.text[:500]}"
-            )
-
-        data = resp.json()
-        # Non-streaming /chat returns a single message object
-        message = data.get("message") or {}
-        content = message.get("content", "")
-        return content
-
-    # ------------------------------------------------------------------
-    # Convenience helper for RAG-style QA
-    # ------------------------------------------------------------------
+        if self.provider == "ollama":
+            return self._chat_ollama(messages, system_prompt, temp, top, ctx, max_tokens)
+        if self.provider == "anthropic":
+            return self._chat_anthropic(messages, system_prompt, temp, max_tokens)
+        # openai / groq / gemini — all OpenAI-SDK-compatible
+        return self._chat_openai_compat(messages, system_prompt, temp, top, max_tokens)
 
     def simple_qa(
         self,
@@ -149,42 +134,10 @@ class LLMClient:
         max_tokens: Optional[int] = 512,
     ) -> str:
         """
-        RAG-style helper: feed `context` + `question` to the LLM and
-        return an answer.
-
-        Parameters
-        ----------
-        question:
-            User question.
-        context:
-            Retrieved context (graph neighborhood, documents, etc.).
-        system_prompt:
-            Optional additional system instructions; if None, a default
-            Graph-RAG system prompt is used.
-        temperature:
-            Optional override for sampling temperature.
-        max_tokens:
-            Optional upper bound on generated tokens.
-
-        Returns
-        -------
-        Answer string.
+        RAG-style helper: feed context + question to the LLM and return the answer.
         """
         if system_prompt is None:
-            system_prompt = (
-                "You are a **grounded extraction assistant**.\n"
-                "\n"
-                "CRITICAL RULES:\n"
-                "- You MUST use ONLY facts that appear explicitly in the provided context.\n"
-                "- Do NOT introduce any biomarker, drug, gene, or concept that is not "
-                "literally present in the context text.\n"
-                "- Do NOT rely on your own medical knowledge or outside information.\n"
-                "- If the question asks for information that is not clearly present in "
-                "the context, say: \"The context is insufficient to answer this precisely.\"\n"
-                "- When listing entities, copy their names EXACTLY as written in the context.\n"
-                "\n"
-                "Your job is to extract and summarize, not to guess or generalize."
-            )
+            system_prompt = _DEFAULT_SYSTEM_PROMPT
 
         user_content = (
             "Context:\n"
@@ -194,9 +147,7 @@ class LLMClient:
             f"Question: {question}\n\n"
             "Answer using the context above."
         )
-
         messages = [{"role": "user", "content": user_content}]
-
         return self.chat(
             messages,
             system_prompt=system_prompt,
@@ -204,10 +155,168 @@ class LLMClient:
             max_tokens=max_tokens,
         )
 
+    # ------------------------------------------------------------------
+    # Path 1 — Ollama (requests-based, unchanged from original)
+    # ------------------------------------------------------------------
 
-# ---------------------------------------------------------------------
+    def _chat_ollama(
+        self,
+        messages: List[Dict[str, str]],
+        system_prompt: Optional[str],
+        temperature: float,
+        top_p: float,
+        num_ctx: int,
+        max_tokens: Optional[int],
+    ) -> str:
+        final_messages: List[Dict[str, str]] = []
+        if system_prompt:
+            final_messages.append({"role": "system", "content": system_prompt})
+        final_messages.extend(messages)
+
+        payload: Dict[str, Any] = {
+            "model": self.model,
+            "messages": final_messages,
+            "stream": False,
+            "options": {
+                "temperature": temperature,
+                "top_p": top_p,
+                "num_ctx": num_ctx,
+            },
+        }
+        if max_tokens is not None:
+            payload["options"]["num_predict"] = max_tokens
+
+        url = f"{self.ollama_base_url}/chat"
+        try:
+            resp = requests.post(url, json=payload, timeout=self.timeout)
+        except requests.RequestException as exc:
+            raise RuntimeError(
+                f"Cannot reach Ollama at {url}. Is the daemon running?\n"
+                f"Run: ollama serve   (then: ollama pull {self.model})\n"
+                f"Original error: {exc}"
+            ) from exc
+
+        if resp.status_code != 200:
+            raise RuntimeError(
+                f"Ollama returned HTTP {resp.status_code}: {resp.text[:500]}"
+            )
+
+        data = resp.json()
+        return (data.get("message") or {}).get("content", "")
+
+    # ------------------------------------------------------------------
+    # Path 2 — OpenAI-compatible (openai, groq, gemini)
+    # ------------------------------------------------------------------
+
+    def _chat_openai_compat(
+        self,
+        messages: List[Dict[str, str]],
+        system_prompt: Optional[str],
+        temperature: float,
+        top_p: float,
+        max_tokens: Optional[int],
+    ) -> str:
+        try:
+            from openai import OpenAI  # type: ignore
+        except ImportError as exc:
+            raise RuntimeError(
+                "The 'openai' package is required for provider "
+                f"'{self.provider}'. Run: pip install openai"
+            ) from exc
+
+        if not self.api_key:
+            key_env = {
+                "openai": "OPENAI_API_KEY",
+                "groq":   "GROQ_API_KEY",
+                "gemini": "GEMINI_API_KEY",
+            }.get(self.provider, "LLM_API_KEY")
+            raise RuntimeError(
+                f"No API key found for provider '{self.provider}'. "
+                f"Set {key_env} in backend/.env"
+            )
+
+        base_url = _OPENAI_COMPAT_BASE_URLS.get(self.provider)
+        client = OpenAI(api_key=self.api_key, base_url=base_url)
+
+        final_messages: List[Dict[str, str]] = []
+        if system_prompt:
+            final_messages.append({"role": "system", "content": system_prompt})
+        final_messages.extend(messages)
+
+        kwargs: Dict[str, Any] = {
+            "model":       self.model,
+            "messages":    final_messages,
+            "temperature": temperature,
+            "top_p":       top_p,
+        }
+        if max_tokens is not None:
+            kwargs["max_tokens"] = max_tokens
+
+        try:
+            response = client.chat.completions.create(**kwargs)
+        except Exception as exc:
+            raise RuntimeError(
+                f"[{self.provider}] API call failed: {exc}"
+            ) from exc
+
+        return response.choices[0].message.content or ""
+
+    # ------------------------------------------------------------------
+    # Path 3 — Anthropic
+    # ------------------------------------------------------------------
+
+    def _chat_anthropic(
+        self,
+        messages: List[Dict[str, str]],
+        system_prompt: Optional[str],
+        temperature: float,
+        max_tokens: Optional[int],
+    ) -> str:
+        try:
+            import anthropic as _anthropic  # type: ignore
+        except ImportError as exc:
+            raise RuntimeError(
+                "The 'anthropic' package is required for provider 'anthropic'. "
+                "Run: pip install anthropic"
+            ) from exc
+
+        if not self.api_key:
+            raise RuntimeError(
+                "No API key found for provider 'anthropic'. "
+                "Set ANTHROPIC_API_KEY in backend/.env"
+            )
+
+        client = _anthropic.Anthropic(api_key=self.api_key)
+
+        # Anthropic separates system from messages
+        anth_messages = [
+            {"role": m["role"], "content": m["content"]}
+            for m in messages
+            if m["role"] != "system"
+        ]
+
+        kwargs: Dict[str, Any] = {
+            "model":       self.model,
+            "messages":    anth_messages,
+            "temperature": temperature,
+            "max_tokens":  max_tokens or 1024,
+        }
+        if system_prompt:
+            kwargs["system"] = system_prompt
+
+        try:
+            response = client.messages.create(**kwargs)
+        except Exception as exc:
+            raise RuntimeError(
+                f"[anthropic] API call failed: {exc}"
+            ) from exc
+
+        return response.content[0].text if response.content else ""
+
+
+# ---------------------------------------------------------------------------
 # Singleton-style accessor
-# ---------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 _client: Optional[LLMClient] = None
 
@@ -216,17 +325,23 @@ def get_llm_client() -> LLMClient:
     """
     Get (and lazily create) the project-wide LLMClient.
 
-    Uses defaults from graph_rag.config.CONFIG, but you can still override
-    at the instance level if needed.
+    Provider, model, and credentials are read from graph_rag.config.CONFIG.
     """
     global _client
     if _client is None:
         _client = LLMClient(
-            base_url=CONFIG.ollama_base_url,
+            provider=CONFIG.llm_provider,
             model=CONFIG.llm_model,
+            api_key=CONFIG.llm_api_key,
+            ollama_base_url=CONFIG.ollama_base_url,
             default_temperature=CONFIG.llm_temperature,
             default_top_p=CONFIG.llm_top_p,
             default_num_ctx=CONFIG.llm_num_ctx,
             timeout=CONFIG.llm_timeout,
+        )
+        logger.info(
+            "LLMClient initialised | provider=%s | model=%s",
+            _client.provider,
+            _client.model,
         )
     return _client

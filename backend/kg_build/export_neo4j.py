@@ -38,8 +38,11 @@ on producing clean CSVs with proper :ID and :START_ID/:END_ID typing.
 from __future__ import annotations
 
 import csv
+import os
 from pathlib import Path
 from typing import Dict, List, Tuple
+
+PROJECT_NAME: str = os.environ.get("PROJECT_NAME", "alzheimerskg")
 
 from kg_build.paths import (
     KG_OUTPUT_DIR,
@@ -125,14 +128,15 @@ def export_nodes_to_neo4j() -> Dict[str, Path]:
             )
 
         neo_id_col = f"{original_id_col}:ID({label})"
-        new_fieldnames = [neo_id_col] + fieldnames[1:]
+        new_fieldnames = [neo_id_col] + fieldnames[1:] + ["project"]
 
-        # Transform rows: move 'id' -> 'id:ID(Label)'
+        # Transform rows: move 'id' -> 'id:ID(Label)', inject project
         neo_rows: List[Dict[str, str]] = []
         for row in rows:
             new_row = dict(row)  # shallow copy
             # pop the old key and assign to the new Neo4j-typed column
             new_row[neo_id_col] = new_row.pop("id")
+            new_row["project"] = PROJECT_NAME
             neo_rows.append(new_row)
 
         neo_path = NEO4J_IMPORT / f"neo4j_nodes_{slug}.csv"
@@ -185,14 +189,15 @@ def export_edges_to_neo4j() -> Dict[str, Path]:
 
         start_col = f"{src_col}:START_ID({schema.source_label})"
         end_col = f"{tgt_col}:END_ID({schema.target_label})"
-        new_fieldnames = [start_col, end_col] + fieldnames[2:]
+        new_fieldnames = [start_col, end_col] + fieldnames[2:] + ["project"]
 
-        # Transform rows: move 'source_id'/'target_id' to Neo4j-typed columns
+        # Transform rows: move 'source_id'/'target_id' to Neo4j-typed columns, inject project
         neo_rows: List[Dict[str, str]] = []
         for row in rows:
             new_row = dict(row)
             new_row[start_col] = new_row.pop("source_id")
             new_row[end_col] = new_row.pop("target_id")
+            new_row["project"] = PROJECT_NAME
             neo_rows.append(new_row)
 
         neo_path = NEO4J_IMPORT / f"neo4j_edges_{slug}.csv"

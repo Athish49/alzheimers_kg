@@ -60,6 +60,7 @@ class Neo4jClient:
     user: str
     password: str
     database: str = "neo4j"
+    project: str = "alzheimerskg"
 
     def __post_init__(self) -> None:
         self._driver: Driver = GraphDatabase.driver(self.uri, auth=(self.user, self.password))
@@ -124,10 +125,10 @@ class Neo4jClient:
         """
         rows = self.read(
             """
-            MATCH (d:Disease {id: $id})
+            MATCH (d:Disease {id: $id, project: $project})
             RETURN d
             """,
-            {"id": disease_id},
+            {"id": disease_id, "project": self.project},
         )
         if not rows:
             return None
@@ -138,10 +139,10 @@ class Neo4jClient:
         Generic helper to fetch a node with a given label and `id` property.
         """
         query = f"""
-        MATCH (n:{label} {{id: $id}})
+        MATCH (n:{label} {{id: $id, project: $project}})
         RETURN n
         """
-        rows = self.read(query, {"id": node_id})
+        rows = self.read(query, {"id": node_id, "project": self.project})
         if not rows:
             return None
         return rows[0]["n"]
@@ -188,11 +189,11 @@ class Neo4jClient:
             rel_pattern = ""
 
         if direction == "out":
-            pattern = f"(n:{label} {{id: $id}})-[r{rel_pattern}]->(m)"
+            pattern = f"(n:{label} {{id: $id, project: $project}})-[r{rel_pattern}]->(m)"
         elif direction == "in":
-            pattern = f"(n:{label} {{id: $id}})<-[r{rel_pattern}]-(m)"
+            pattern = f"(n:{label} {{id: $id, project: $project}})<-[r{rel_pattern}]-(m)"
         else:
-            pattern = f"(n:{label} {{id: $id}})-[r{rel_pattern}]-(m)"
+            pattern = f"(n:{label} {{id: $id, project: $project}})-[r{rel_pattern}]-(m)"
 
         query = f"""
         MATCH {pattern}
@@ -200,7 +201,7 @@ class Neo4jClient:
         LIMIT $limit
         """
 
-        return self.read(query, {"id": node_id, "limit": limit})
+        return self.read(query, {"id": node_id, "project": self.project, "limit": limit})
 
 
 # ----------------------------------------------------------------------
@@ -223,5 +224,6 @@ def get_neo4j_client() -> Neo4jClient:
             user=CONFIG.neo4j_user,
             password=CONFIG.neo4j_password,
             database=CONFIG.neo4j_db,
+            project=CONFIG.project_name,
         )
     return _client

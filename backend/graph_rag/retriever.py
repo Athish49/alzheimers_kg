@@ -55,6 +55,7 @@ class GraphRetriever:
     user: str
     password: str
     database: str = "neo4j"
+    project: str = "alzheimerskg"
 
     def __post_init__(self) -> None:
         self._driver: Driver = GraphDatabase.driver(
@@ -87,13 +88,14 @@ class GraphRetriever:
         """
         q = """
         MATCH (d:Disease)
-        WHERE toLower(d.label) CONTAINS toLower($name)
-           OR toLower(coalesce(d.synonyms, "")) CONTAINS toLower($name)
+        WHERE d.project = $project
+          AND (toLower(d.label) CONTAINS toLower($name)
+           OR toLower(coalesce(d.synonyms, "")) CONTAINS toLower($name))
         RETURN d.id AS id
         LIMIT 1
         """
         with self._session() as session:
-            rec = session.run(q, name=name).single()
+            rec = session.run(q, name=name, project=self.project).single()
             return rec["id"] if rec else None
 
     def get_alzheimers_disease_id(self) -> Optional[str]:
@@ -109,12 +111,12 @@ class GraphRetriever:
 
         # 2) Fallback to specific MONDO ID we expect from normalize_entities
         q = """
-        MATCH (d:Disease {id: 'MONDO:0004975'})
+        MATCH (d:Disease {id: 'MONDO:0004975', project: $project})
         RETURN d.id AS id
         LIMIT 1
         """
         with self._session() as session:
-            rec = session.run(q).single()
+            rec = session.run(q, project=self.project).single()
             return rec["id"] if rec else None
 
     # ------------------------------------------------------------------
@@ -128,7 +130,7 @@ class GraphRetriever:
         Get biomarker edges for a given disease.
         """
         q = """
-        MATCH (d:Disease {id: $did})-[r:HAS_BIOMARKER]->(b:Biomarker)
+        MATCH (d:Disease {id: $did, project: $project})-[r:HAS_BIOMARKER]->(b:Biomarker)
         RETURN
             b.id            AS biomarker_id,
             b.label         AS biomarker_label,
@@ -143,7 +145,7 @@ class GraphRetriever:
         LIMIT $limit
         """
         with self._session() as session:
-            return [dict(rec) for rec in session.run(q, did=disease_id, limit=limit)]
+            return [dict(rec) for rec in session.run(q, did=disease_id, project=self.project, limit=limit)]
 
     def get_ad_drugs(
         self, disease_id: str, limit: int = 200
@@ -152,7 +154,7 @@ class GraphRetriever:
         Get therapeutics (Drug -> Disease via TREATS) for a given disease.
         """
         q = """
-        MATCH (dr:Drug)-[r:TREATS]->(d:Disease {id: $did})
+        MATCH (dr:Drug)-[r:TREATS]->(d:Disease {id: $did, project: $project})
         RETURN
             dr.id           AS drug_id,
             dr.label        AS drug_label,
@@ -168,7 +170,7 @@ class GraphRetriever:
         LIMIT $limit
         """
         with self._session() as session:
-            return [dict(rec) for rec in session.run(q, did=disease_id, limit=limit)]
+            return [dict(rec) for rec in session.run(q, did=disease_id, project=self.project, limit=limit)]
 
     def get_ad_phenotypes(
         self, disease_id: str, limit: int = 100
@@ -177,7 +179,7 @@ class GraphRetriever:
         Get phenotypes / symptoms for a given disease.
         """
         q = """
-        MATCH (d:Disease {id: $did})-[r:HAS_PHENOTYPE]->(p:Phenotype)
+        MATCH (d:Disease {id: $did, project: $project})-[r:HAS_PHENOTYPE]->(p:Phenotype)
         RETURN
             p.id        AS phenotype_id,
             p.label     AS phenotype_label
@@ -185,7 +187,7 @@ class GraphRetriever:
         LIMIT $limit
         """
         with self._session() as session:
-            return [dict(rec) for rec in session.run(q, did=disease_id, limit=limit)]
+            return [dict(rec) for rec in session.run(q, did=disease_id, project=self.project, limit=limit)]
 
     def get_ad_drug_pathways(
         self, disease_id: str, limit: int = 300
@@ -198,7 +200,7 @@ class GraphRetriever:
             (dr)-[r:AFFECTS_PATHWAY]->(pw:Pathway)
         """
         q = """
-        MATCH (dr:Drug)-[:TREATS]->(d:Disease {id: $did})
+        MATCH (dr:Drug)-[:TREATS]->(d:Disease {id: $did, project: $project})
         MATCH (dr)-[r:AFFECTS_PATHWAY]->(pw:Pathway)
         RETURN
             dr.id        AS drug_id,
@@ -213,7 +215,7 @@ class GraphRetriever:
         LIMIT $limit
         """
         with self._session() as session:
-            return [dict(rec) for rec in session.run(q, did=disease_id, limit=limit)]
+            return [dict(rec) for rec in session.run(q, did=disease_id, project=self.project, limit=limit)]
 
     def get_genes_and_proteins(
         self, limit: int = 200
@@ -225,7 +227,7 @@ class GraphRetriever:
         but still useful context when the user asks about molecular biology.
         """
         q = """
-        MATCH (g:Gene)-[r:ENCODES]->(p:Protein)
+        MATCH (g:Gene {project: $project})-[r:ENCODES]->(p:Protein)
         RETURN
             g.id       AS gene_id,
             g.label    AS gene_symbol,
@@ -235,7 +237,7 @@ class GraphRetriever:
         LIMIT $limit
         """
         with self._session() as session:
-            return [dict(rec) for rec in session.run(q, limit=limit)]
+            return [dict(rec) for rec in session.run(q, project=self.project, limit=limit)]
 
     # ------------------------------------------------------------------
     # Context builders
@@ -325,5 +327,6 @@ def get_retriever() -> GraphRetriever:
             user=CONFIG.neo4j_user,
             password=CONFIG.neo4j_password,
             database=CONFIG.neo4j_db,
+            project=CONFIG.project_name,
         )
     return _retriever
