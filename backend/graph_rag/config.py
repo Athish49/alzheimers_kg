@@ -85,7 +85,7 @@ _DEFAULT_MODELS: dict[str, str] = {
     "openai":    "gpt-4o-mini",
     "anthropic": "claude-3-haiku-20240307",
     "groq":      "llama-3.1-8b-instant",
-    "gemini":    "gemini-1.5-flash",
+    "gemini":    "gemini-2.0-flash",
 }
 
 
