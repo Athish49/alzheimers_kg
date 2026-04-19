@@ -95,62 +95,106 @@ def build_context_for_question(
     # 1) Classify the question into an intent
     intent = classify_question(question)
 
-    # 2) Pick an intent-specific context builder and build structured evidence
+    # 2) Resolve disease_id once — reused across context + evidence builders
+    disease_id = gtxt._resolve_ad_disease_id(retriever)
+
+    # 3) Fetch data once, pass to both context builder and evidence builder
     raw_data: Dict[str, Any] = {}
 
     if intent.type is IntentType.BIOMARKER:
         strategy_name = "AD_BIOMARKERS_V1"
-        context = gtxt.build_biomarker_direction_context(retriever)
-        # Fetch raw rows for structured evidence
-        disease_id = gtxt._resolve_ad_disease_id(retriever)
         if disease_id:
             biomarkers = retriever.get_ad_biomarkers(disease_id)
+            context = gtxt.build_biomarker_direction_context(
+                retriever, disease_id, biomarkers=biomarkers
+            )
             raw_data = gtxt.build_biomarker_evidence(biomarkers)
+        else:
+            context = gtxt.build_biomarker_direction_context(retriever)
 
     elif intent.type is IntentType.PHENOTYPE:
         strategy_name = "AD_PHENOTYPES_V1"
-        context = gtxt.build_phenotype_context(retriever)
-        disease_id = gtxt._resolve_ad_disease_id(retriever)
         if disease_id:
             phenotypes = retriever.get_ad_phenotypes(disease_id)
+            context = gtxt.build_phenotype_context(
+                retriever, disease_id, phenotypes=phenotypes
+            )
             raw_data = gtxt.build_phenotype_evidence(phenotypes)
+        else:
+            context = gtxt.build_phenotype_context(retriever)
 
     elif intent.type is IntentType.DRUG_TRIAL:
         strategy_name = "AD_DRUGS_PATHWAYS_V1"
-        context = gtxt.build_drug_trial_pathway_context(retriever)
-        disease_id = gtxt._resolve_ad_disease_id(retriever)
         if disease_id:
             drugs = retriever.get_ad_drugs(disease_id)
             drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            context = gtxt.build_drug_trial_pathway_context(
+                retriever, disease_id, drugs=drugs, drug_pathways=drug_pws
+            )
             raw_data = gtxt.build_drug_evidence(drugs, drug_pws)
+        else:
+            context = gtxt.build_drug_trial_pathway_context(retriever)
 
     elif intent.type is IntentType.PATHWAY:
         strategy_name = "AD_DRUGS_PATHWAYS_V1"
-        context = gtxt.build_drug_trial_pathway_context(retriever)
-        disease_id = gtxt._resolve_ad_disease_id(retriever)
         if disease_id:
+            drugs = retriever.get_ad_drugs(disease_id)
             drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            context = gtxt.build_drug_trial_pathway_context(
+                retriever, disease_id, drugs=drugs, drug_pathways=drug_pws
+            )
             raw_data = gtxt.build_pathway_evidence(drug_pws)
+        else:
+            context = gtxt.build_drug_trial_pathway_context(retriever)
 
     elif intent.type is IntentType.GENE_PROTEIN:
         strategy_name = "AD_GENES_GENERAL_V1"
-        context = gtxt.build_general_ad_context(retriever)
         genes_proteins = retriever.get_genes_and_proteins()
+        if disease_id:
+            biomarkers = retriever.get_ad_biomarkers(disease_id)
+            drugs = retriever.get_ad_drugs(disease_id)
+            phenotypes = retriever.get_ad_phenotypes(disease_id)
+            drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            context = gtxt.build_general_ad_context(
+                retriever,
+                disease_id=disease_id,
+                biomarkers=biomarkers,
+                drugs=drugs,
+                phenotypes=phenotypes,
+                drug_pathways=drug_pws,
+                genes_proteins=genes_proteins,
+            )
+        else:
+            context = gtxt.build_general_ad_context(retriever, genes_proteins=genes_proteins)
         raw_data = gtxt.build_gene_evidence(genes_proteins)
 
     else:
         # Fallback: general compact Alzheimer’s graph summary (composite).
         strategy_name = "AD_GENERAL_V1"
-        context = gtxt.build_general_ad_context(retriever)
-        disease_id = gtxt._resolve_ad_disease_id(retriever)
         if disease_id:
-            raw_data = gtxt.build_composite_evidence(
-                biomarkers=retriever.get_ad_biomarkers(disease_id),
-                drugs=retriever.get_ad_drugs(disease_id),
-                phenotypes=retriever.get_ad_phenotypes(disease_id),
-                drug_pathways=retriever.get_ad_drug_pathways(disease_id),
-                genes_proteins=retriever.get_genes_and_proteins(),
+            biomarkers = retriever.get_ad_biomarkers(disease_id)
+            drugs = retriever.get_ad_drugs(disease_id)
+            phenotypes = retriever.get_ad_phenotypes(disease_id)
+            drug_pws = retriever.get_ad_drug_pathways(disease_id)
+            genes_proteins = retriever.get_genes_and_proteins()
+            context = gtxt.build_general_ad_context(
+                retriever,
+                disease_id=disease_id,
+                biomarkers=biomarkers,
+                drugs=drugs,
+                phenotypes=phenotypes,
+                drug_pathways=drug_pws,
+                genes_proteins=genes_proteins,
             )
+            raw_data = gtxt.build_composite_evidence(
+                biomarkers=biomarkers,
+                drugs=drugs,
+                phenotypes=phenotypes,
+                drug_pathways=drug_pws,
+                genes_proteins=genes_proteins,
+            )
+        else:
+            context = gtxt.build_general_ad_context(retriever)
 
     debug: Dict[str, str] = {
         "intent_type": intent.type.name,

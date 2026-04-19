@@ -596,6 +596,8 @@ def build_biomarker_direction_context(
     retriever: GraphRetriever,
     disease_id: Optional[str] = None,
     max_rows: int = 200,
+    *,
+    biomarkers: Optional[List[Dict[str, object]]] = None,
 ) -> str:
     """
     Context for biomarker questions: only Alzheimer's biomarkers,
@@ -610,7 +612,8 @@ def build_biomarker_direction_context(
             "No biomarker information is available."
         )
 
-    biomarkers = retriever.get_ad_biomarkers(disease_id, limit=max_rows)
+    if biomarkers is None:
+        biomarkers = retriever.get_ad_biomarkers(disease_id, limit=max_rows)
 
     header = [
         "=== Alzheimer’s Disease (biomarkers) ===",
@@ -636,6 +639,8 @@ def build_phenotype_context(
     retriever: GraphRetriever,
     disease_id: Optional[str] = None,
     max_rows: int = 100,
+    *,
+    phenotypes: Optional[List[Dict[str, object]]] = None,
 ) -> str:
     """
     Context for phenotype / symptom questions: only Phenotype nodes
@@ -650,7 +655,7 @@ def build_phenotype_context(
             "No phenotype information is available."
         )
 
-    phenos = retriever.get_ad_phenotypes(disease_id, limit=max_rows)
+    phenos = phenotypes if phenotypes is not None else retriever.get_ad_phenotypes(disease_id, limit=max_rows)
 
     header = [
         "=== Alzheimer’s Disease (clinical phenotypes) ===",
@@ -676,6 +681,9 @@ def build_drug_trial_pathway_context(
     disease_id: Optional[str] = None,
     max_drugs: int = 300,
     max_paths: int = 400,
+    *,
+    drugs: Optional[List[Dict[str, object]]] = None,
+    drug_pathways: Optional[List[Dict[str, object]]] = None,
 ) -> str:
     """
     Context for drug / trial / pathway questions.
@@ -693,8 +701,8 @@ def build_drug_trial_pathway_context(
             "No drug / trial / pathway information is available."
         )
 
-    drugs = retriever.get_ad_drugs(disease_id, limit=max_drugs)
-    drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=max_paths)
+    drugs = drugs if drugs is not None else retriever.get_ad_drugs(disease_id, limit=max_drugs)
+    drug_pws = drug_pathways if drug_pathways is not None else retriever.get_ad_drug_pathways(disease_id, limit=max_paths)
 
     header = [
         "=== Alzheimer’s Disease: drugs, trials, and pathways ===",
@@ -724,32 +732,48 @@ def build_drug_trial_pathway_context(
     return "\n".join(parts)
 
 
-def build_general_ad_context(retriever: GraphRetriever) -> str:
+def build_general_ad_context(
+    retriever: GraphRetriever,
+    *,
+    disease_id: Optional[str] = None,
+    biomarkers: Optional[List[Dict[str, object]]] = None,
+    drugs: Optional[List[Dict[str, object]]] = None,
+    phenotypes: Optional[List[Dict[str, object]]] = None,
+    drug_pathways: Optional[List[Dict[str, object]]] = None,
+    genes_proteins: Optional[List[Dict[str, object]]] = None,
+) -> str:
     """
     General fallback context: compact Alzheimer’s disease graph summary
     across biomarkers, drugs, phenotypes, pathways, and genes/proteins.
 
     This is used for GENERAL intent (and as a safe default).
+    All data arguments are optional; missing ones are fetched from the retriever.
     """
-    disease_id = _resolve_ad_disease_id(retriever)
+    if disease_id is None:
+        disease_id = _resolve_ad_disease_id(retriever)
     if not disease_id:
         return (
-            "The knowledge graph does not contain an Alzheimer's Disease node. "
+            "The knowledge graph does not contain an Alzheimer’s Disease node. "
             "No general context is available."
         )
 
-    biomarkers = retriever.get_ad_biomarkers(disease_id)
-    drugs = retriever.get_ad_drugs(disease_id)
-    phenos = retriever.get_ad_phenotypes(disease_id)
-    drug_pws = retriever.get_ad_drug_pathways(disease_id)
-    genes_proteins = retriever.get_genes_and_proteins()
+    if biomarkers is None:
+        biomarkers = retriever.get_ad_biomarkers(disease_id)
+    if drugs is None:
+        drugs = retriever.get_ad_drugs(disease_id)
+    if phenotypes is None:
+        phenotypes = retriever.get_ad_phenotypes(disease_id)
+    if drug_pathways is None:
+        drug_pathways = retriever.get_ad_drug_pathways(disease_id)
+    if genes_proteins is None:
+        genes_proteins = retriever.get_genes_and_proteins()
 
     return build_ad_ultra_compact_context_from_lists(
         disease_id=disease_id,
         biomarkers=biomarkers,
         drugs=drugs,
-        phenotypes=phenos,
-        drug_pathways=drug_pws,
+        phenotypes=phenotypes,
+        drug_pathways=drug_pathways,
         genes_proteins=genes_proteins,
     )
 

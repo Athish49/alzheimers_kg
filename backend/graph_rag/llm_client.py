@@ -22,12 +22,40 @@ All providers expose the same interface:
 from __future__ import annotations
 
 import logging
+import re
+import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 import requests
 
 from .config import CONFIG
+
+# ---------------------------------------------------------------------------
+# Retry configuration
+# ---------------------------------------------------------------------------
+
+_RETRY_MAX_ATTEMPTS = 3          # total attempts (1 original + 2 retries)
+_RETRY_BASE_DELAY_S = 15.0       # initial wait on first retry (seconds)
+_RETRY_MAX_DELAY_S  = 60.0       # cap on any single wait
+
+
+def _parse_retry_after(error_text: str) -> Optional[float]:
+    """
+    Extract a suggested retry delay (in seconds) from a rate-limit error message.
+
+    Handles two common patterns:
+      - "Please retry in 14.693809006s"   (Gemini)
+      - "retry after 30"                  (generic)
+    Returns None if no hint is found.
+    """
+    match = re.search(r"retry[^\d]*(\d+(?:\.\d+)?)\s*s", error_text, re.IGNORECASE)
+    if match:
+        return float(match.group(1))
+    match = re.search(r"retry after\s+(\d+(?:\.\d+)?)", error_text, re.IGNORECASE)
+    if match:
+        return float(match.group(1))
+    return None
 
 logger = logging.getLogger(__name__)
 
@@ -217,7 +245,7 @@ class LLMClient:
         max_tokens: Optional[int],
     ) -> str:
         try:
-            from openai import OpenAI  # type: ignore
+            from openai import OpenAI, RateLimitError  # type: ignore
         except ImportError as exc:
             raise RuntimeError(
                 "The 'openai' package is required for provider "
@@ -252,14 +280,30 @@ class LLMClient:
         if max_tokens is not None:
             kwargs["max_tokens"] = max_tokens
 
-        try:
-            response = client.chat.completions.create(**kwargs)
-        except Exception as exc:
-            raise RuntimeError(
-                f"[{self.provider}] API call failed: {exc}"
-            ) from exc
-
-        return response.choices[0].message.content or ""
+        delay = _RETRY_BASE_DELAY_S
+        for attempt in range(1, _RETRY_MAX_ATTEMPTS + 1):
+            try:
+                response = client.chat.completions.create(**kwargs)
+                return response.choices[0].message.content or ""
+            except RateLimitError as exc:
+                if attempt == _RETRY_MAX_ATTEMPTS:
+                    raise RuntimeError(
+                        f"[{self.provider}] Rate limit hit and all {_RETRY_MAX_ATTEMPTS} "
+                        f"attempts exhausted. Try again later or switch providers.\n{exc}"
+                    ) from exc
+                # Respect Retry-After from the error message if present
+                wait = _parse_retry_after(str(exc)) or delay
+                wait = min(wait, _RETRY_MAX_DELAY_S)
+                logger.warning(
+                    "[%s] Rate limit (429) on attempt %d/%d — waiting %.1fs before retry.",
+                    self.provider, attempt, _RETRY_MAX_ATTEMPTS, wait,
+                )
+                time.sleep(wait)
+                delay = min(delay * 2, _RETRY_MAX_DELAY_S)  # exponential backoff
+            except Exception as exc:
+                raise RuntimeError(
+                    f"[{self.provider}] API call failed: {exc}"
+                ) from exc
 
     # ------------------------------------------------------------------
     # Path 3 — Anthropic
@@ -304,14 +348,28 @@ class LLMClient:
         if system_prompt:
             kwargs["system"] = system_prompt
 
-        try:
-            response = client.messages.create(**kwargs)
-        except Exception as exc:
-            raise RuntimeError(
-                f"[anthropic] API call failed: {exc}"
-            ) from exc
-
-        return response.content[0].text if response.content else ""
+        delay = _RETRY_BASE_DELAY_S
+        for attempt in range(1, _RETRY_MAX_ATTEMPTS + 1):
+            try:
+                response = client.messages.create(**kwargs)
+                return response.content[0].text if response.content else ""
+            except _anthropic.RateLimitError as exc:
+                if attempt == _RETRY_MAX_ATTEMPTS:
+                    raise RuntimeError(
+                        f"[anthropic] Rate limit hit and all {_RETRY_MAX_ATTEMPTS} "
+                        f"attempts exhausted. Try again later.\n{exc}"
+                    ) from exc
+                wait = min(_parse_retry_after(str(exc)) or delay, _RETRY_MAX_DELAY_S)
+                logger.warning(
+                    "[anthropic] Rate limit (429) on attempt %d/%d — waiting %.1fs before retry.",
+                    attempt, _RETRY_MAX_ATTEMPTS, wait,
+                )
+                time.sleep(wait)
+                delay = min(delay * 2, _RETRY_MAX_DELAY_S)
+            except Exception as exc:
+                raise RuntimeError(
+                    f"[anthropic] API call failed: {exc}"
+                ) from exc
 
 
 # ---------------------------------------------------------------------------
