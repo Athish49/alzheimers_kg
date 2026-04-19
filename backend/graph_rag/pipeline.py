@@ -33,8 +33,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from .router import build_context_for_question, RouteResult
@@ -175,23 +173,8 @@ def get_pipeline() -> GraphRAGPipeline:
 
 
 # ---------------------------------------------------------------------
-# FastAPI app
+# Pydantic request / response models (imported by main.py)
 # ---------------------------------------------------------------------
-
-
-app = FastAPI(
-    title="Alzheimer Graph RAG API",
-    description="Answer Alzheimer-related questions using the graph + LLM.",
-)
-
-# Allow frontend dev server
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 class QuestionRequest(BaseModel):
@@ -208,35 +191,3 @@ class AnswerResponse(BaseModel):
     strategy: str
     context: Optional[str] = None
     evidence: Optional[Dict[str, Any]] = None
-
-
-@app.post("/answer", response_model=AnswerResponse)
-def answer_question(payload: QuestionRequest) -> AnswerResponse:
-    pipe = get_pipeline()
-    res = pipe.answer(
-        question=payload.question,
-        temperature=payload.temperature,
-        max_tokens=payload.max_tokens,
-        return_context=payload.return_context,
-    )
-
-    print("res['answer']: ", res["answer"])
-    return AnswerResponse(
-        answer=res["answer"],
-        intent_type=res["intent_type"],
-        intent_notes=res["intent_notes"],
-        strategy=res["strategy"],
-        context=res.get("context"),
-        evidence=res.get("evidence"),
-    )
-
-
-# ---------------------------------------------------------------------
-# Tiny CLI-style smoke test (optional)
-# ---------------------------------------------------------------------
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run("graph_rag.pipeline:app", host="0.0.0.0", port=8000, reload=False)
