@@ -85,7 +85,7 @@ _DEFAULT_MODELS: dict[str, str] = {
     "openai":    "gpt-4o-mini",
     "anthropic": "claude-3-haiku-20240307",
     "groq":      "llama-3.1-8b-instant",
-    "gemini":    "gemini-2.0-flash",
+    "gemini":    "gemini-2.5-flash",
 }
 
 
@@ -145,6 +145,28 @@ def _resolve_api_key(provider: str) -> str:
     return _env(key_map.get(provider, "")) or _env("LLM_API_KEY")
 
 
+def _detect_fallback_provider(primary: str) -> tuple[str, str, str]:
+    """
+    Return (provider, model, api_key) for a fallback LLM.
+
+    Picks the first cloud provider (other than `primary`) that has a key set.
+    Returns ('', '', '') if no fallback is available.
+    """
+    _key_map = {
+        "anthropic": "ANTHROPIC_API_KEY",
+        "openai":    "OPENAI_API_KEY",
+        "groq":      "GROQ_API_KEY",
+        "gemini":    "GEMINI_API_KEY",
+    }
+    for provider in ("anthropic", "openai", "groq", "gemini"):
+        if provider == primary:
+            continue
+        key = _env(_key_map[provider])
+        if key:
+            return provider, _DEFAULT_MODELS[provider], key
+    return "", "", ""
+
+
 # ---------------------------------------------------------------------------
 # Resolve all values
 # ---------------------------------------------------------------------------
@@ -155,6 +177,12 @@ LLM_PROVIDER: str = _detect_llm_provider(ENVIRONMENT)
 # LLM
 LLM_MODEL:       str   = _env("LLM_MODEL") or _DEFAULT_MODELS.get(LLM_PROVIDER, "llama3.2:3b")
 LLM_API_KEY:     str   = _resolve_api_key(LLM_PROVIDER)
+
+# Fallback LLM (used when primary provider is rate-limited)
+_fb = _detect_fallback_provider(LLM_PROVIDER)
+LLM_FALLBACK_PROVIDER: str = _fb[0]
+LLM_FALLBACK_MODEL:    str = _fb[1]
+LLM_FALLBACK_API_KEY:  str = _fb[2]
 OLLAMA_BASE_URL: str   = _env("OLLAMA_BASE_URL", "http://localhost:11434/api")
 LLM_TEMPERATURE: float = float(_env("LLM_TEMPERATURE", "0.2"))
 LLM_TOP_P:       float = float(_env("LLM_TOP_P",       "0.9"))
@@ -211,6 +239,11 @@ class AppConfig:
     llm_top_p:       float = LLM_TOP_P
     llm_num_ctx:     int   = LLM_NUM_CTX
     llm_timeout:     int   = LLM_TIMEOUT_S
+
+    # Fallback LLM
+    llm_fallback_provider: str = LLM_FALLBACK_PROVIDER
+    llm_fallback_model:    str = LLM_FALLBACK_MODEL
+    llm_fallback_api_key:  str = LLM_FALLBACK_API_KEY
 
     # Neo4j
     neo4j_uri:      str = NEO4J_URI

@@ -17,12 +17,17 @@ and available API keys. You can override it explicitly via LLM_PROVIDER.
 All providers expose the same interface:
     client.simple_qa(question, context, ...) -> str
     client.chat(messages, ...) -> str
+
+Rate-limit retry strategy (cloud providers)
+-------------------------------------------
+1. First 429 → wait 3 seconds, retry once.
+2. Second 429 → try the fallback provider (if configured) once.
+3. Fallback also fails → raise LLMUnavailableError (caught by main.py → HTTP 503).
 """
 
 from __future__ import annotations
 
 import logging
-import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
@@ -31,33 +36,17 @@ import requests
 
 from .config import CONFIG
 
-# ---------------------------------------------------------------------------
-# Retry configuration
-# ---------------------------------------------------------------------------
-
-_RETRY_MAX_ATTEMPTS = 3          # total attempts (1 original + 2 retries)
-_RETRY_BASE_DELAY_S = 15.0       # initial wait on first retry (seconds)
-_RETRY_MAX_DELAY_S  = 60.0       # cap on any single wait
-
-
-def _parse_retry_after(error_text: str) -> Optional[float]:
-    """
-    Extract a suggested retry delay (in seconds) from a rate-limit error message.
-
-    Handles two common patterns:
-      - "Please retry in 14.693809006s"   (Gemini)
-      - "retry after 30"                  (generic)
-    Returns None if no hint is found.
-    """
-    match = re.search(r"retry[^\d]*(\d+(?:\.\d+)?)\s*s", error_text, re.IGNORECASE)
-    if match:
-        return float(match.group(1))
-    match = re.search(r"retry after\s+(\d+(?:\.\d+)?)", error_text, re.IGNORECASE)
-    if match:
-        return float(match.group(1))
-    return None
-
 logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+
+_RETRY_DELAY_S = 3  # seconds to wait before the single retry on 429
+
+# Maximum context characters passed to the LLM (~30K tokens for gemini-2.5-flash's 1M limit).
+# This is a cost/latency guardrail; real graph contexts are usually much smaller.
+_MAX_CONTEXT_CHARS = 120_000
 
 # OpenAI-SDK-compatible base URLs per provider
 _OPENAI_COMPAT_BASE_URLS: dict[str, str] = {
@@ -84,6 +73,14 @@ _DEFAULT_SYSTEM_PROMPT = (
 
 
 # ---------------------------------------------------------------------------
+# Custom exception
+# ---------------------------------------------------------------------------
+
+class LLMUnavailableError(RuntimeError):
+    """Raised when the LLM and its fallback are both unavailable (e.g. rate-limited)."""
+
+
+# ---------------------------------------------------------------------------
 # LLMClient — single class, three underlying protocol paths
 # ---------------------------------------------------------------------------
 
@@ -100,6 +97,8 @@ class LLMClient:
         Model identifier as expected by the provider.
     api_key:
         API key for cloud providers. Unused for ollama.
+    fallback_provider / fallback_model / fallback_api_key:
+        Secondary provider used when the primary is rate-limited.
     ollama_base_url:
         Base URL for the Ollama HTTP API (e.g. "http://localhost:11434/api").
     default_temperature / default_top_p / default_num_ctx / timeout:
@@ -109,6 +108,9 @@ class LLMClient:
     provider:            str   = "ollama"
     model:               str   = "llama3.2:3b"
     api_key:             str   = ""
+    fallback_provider:   str   = ""
+    fallback_model:      str   = ""
+    fallback_api_key:    str   = ""
     ollama_base_url:     str   = "http://localhost:11434/api"
     default_temperature: float = 0.2
     default_top_p:       float = 0.9
@@ -163,9 +165,19 @@ class LLMClient:
     ) -> str:
         """
         RAG-style helper: feed context + question to the LLM and return the answer.
+
+        The context is truncated to _MAX_CONTEXT_CHARS before sending to keep
+        token usage and cost within a reasonable bound.
         """
         if system_prompt is None:
             system_prompt = _DEFAULT_SYSTEM_PROMPT
+
+        if len(context) > _MAX_CONTEXT_CHARS:
+            logger.warning(
+                "Context truncated from %d to %d chars before LLM call.",
+                len(context), _MAX_CONTEXT_CHARS,
+            )
+            context = context[:_MAX_CONTEXT_CHARS]
 
         user_content = (
             "Context:\n"
@@ -184,7 +196,7 @@ class LLMClient:
         )
 
     # ------------------------------------------------------------------
-    # Path 1 — Ollama (requests-based, unchanged from original)
+    # Path 1 — Ollama (requests-based)
     # ------------------------------------------------------------------
 
     def _chat_ollama(
@@ -280,30 +292,33 @@ class LLMClient:
         if max_tokens is not None:
             kwargs["max_tokens"] = max_tokens
 
-        delay = _RETRY_BASE_DELAY_S
-        for attempt in range(1, _RETRY_MAX_ATTEMPTS + 1):
-            try:
-                response = client.chat.completions.create(**kwargs)
-                return response.choices[0].message.content or ""
-            except RateLimitError as exc:
-                if attempt == _RETRY_MAX_ATTEMPTS:
-                    raise RuntimeError(
-                        f"[{self.provider}] Rate limit hit and all {_RETRY_MAX_ATTEMPTS} "
-                        f"attempts exhausted. Try again later or switch providers.\n{exc}"
-                    ) from exc
-                # Respect Retry-After from the error message if present
-                wait = _parse_retry_after(str(exc)) or delay
-                wait = min(wait, _RETRY_MAX_DELAY_S)
-                logger.warning(
-                    "[%s] Rate limit (429) on attempt %d/%d — waiting %.1fs before retry.",
-                    self.provider, attempt, _RETRY_MAX_ATTEMPTS, wait,
-                )
-                time.sleep(wait)
-                delay = min(delay * 2, _RETRY_MAX_DELAY_S)  # exponential backoff
-            except Exception as exc:
-                raise RuntimeError(
-                    f"[{self.provider}] API call failed: {exc}"
-                ) from exc
+        # Attempt 1
+        try:
+            response = client.chat.completions.create(**kwargs)
+            return response.choices[0].message.content or ""
+        except RateLimitError:
+            logger.warning(
+                "[%s] Rate limit (429) on first attempt — waiting %ds before retry.",
+                self.provider, _RETRY_DELAY_S,
+            )
+            time.sleep(_RETRY_DELAY_S)
+        except Exception as exc:
+            raise RuntimeError(f"[{self.provider}] API call failed: {exc}") from exc
+
+        # Attempt 2 (after 3s wait)
+        try:
+            response = client.chat.completions.create(**kwargs)
+            return response.choices[0].message.content or ""
+        except RateLimitError:
+            logger.warning(
+                "[%s] Rate limit (429) on retry — trying fallback provider.",
+                self.provider,
+            )
+        except Exception as exc:
+            raise RuntimeError(f"[{self.provider}] API call failed: {exc}") from exc
+
+        # Fallback provider attempt
+        return self._try_fallback(messages, system_prompt, temperature, top_p, max_tokens)
 
     # ------------------------------------------------------------------
     # Path 3 — Anthropic
@@ -332,7 +347,6 @@ class LLMClient:
 
         client = _anthropic.Anthropic(api_key=self.api_key)
 
-        # Anthropic separates system from messages
         anth_messages = [
             {"role": m["role"], "content": m["content"]}
             for m in messages
@@ -348,28 +362,77 @@ class LLMClient:
         if system_prompt:
             kwargs["system"] = system_prompt
 
-        delay = _RETRY_BASE_DELAY_S
-        for attempt in range(1, _RETRY_MAX_ATTEMPTS + 1):
-            try:
-                response = client.messages.create(**kwargs)
-                return response.content[0].text if response.content else ""
-            except _anthropic.RateLimitError as exc:
-                if attempt == _RETRY_MAX_ATTEMPTS:
-                    raise RuntimeError(
-                        f"[anthropic] Rate limit hit and all {_RETRY_MAX_ATTEMPTS} "
-                        f"attempts exhausted. Try again later.\n{exc}"
-                    ) from exc
-                wait = min(_parse_retry_after(str(exc)) or delay, _RETRY_MAX_DELAY_S)
-                logger.warning(
-                    "[anthropic] Rate limit (429) on attempt %d/%d — waiting %.1fs before retry.",
-                    attempt, _RETRY_MAX_ATTEMPTS, wait,
-                )
-                time.sleep(wait)
-                delay = min(delay * 2, _RETRY_MAX_DELAY_S)
-            except Exception as exc:
-                raise RuntimeError(
-                    f"[anthropic] API call failed: {exc}"
-                ) from exc
+        # Attempt 1
+        try:
+            response = client.messages.create(**kwargs)
+            return response.content[0].text if response.content else ""
+        except _anthropic.RateLimitError:
+            logger.warning(
+                "[anthropic] Rate limit (429) on first attempt — waiting %ds before retry.",
+                _RETRY_DELAY_S,
+            )
+            time.sleep(_RETRY_DELAY_S)
+        except Exception as exc:
+            raise RuntimeError(f"[anthropic] API call failed: {exc}") from exc
+
+        # Attempt 2
+        try:
+            response = client.messages.create(**kwargs)
+            return response.content[0].text if response.content else ""
+        except _anthropic.RateLimitError:
+            logger.warning(
+                "[anthropic] Rate limit (429) on retry — trying fallback provider."
+            )
+        except Exception as exc:
+            raise RuntimeError(f"[anthropic] API call failed: {exc}") from exc
+
+        # Fallback provider attempt
+        return self._try_fallback(messages, system_prompt, temperature, None, max_tokens)
+
+    # ------------------------------------------------------------------
+    # Fallback helper
+    # ------------------------------------------------------------------
+
+    def _try_fallback(
+        self,
+        messages: List[Dict[str, str]],
+        system_prompt: Optional[str],
+        temperature: float,
+        top_p: Optional[float],
+        max_tokens: Optional[int],
+    ) -> str:
+        """Try the fallback provider once. Raises LLMUnavailableError if unavailable."""
+        if not self.fallback_provider or not self.fallback_api_key:
+            raise LLMUnavailableError(
+                f"[{self.provider}] Rate limit exhausted and no fallback provider configured. "
+                "LLM service is currently unavailable."
+            )
+
+        logger.warning(
+            "[%s] Attempting fallback provider '%s'.",
+            self.provider, self.fallback_provider,
+        )
+        fallback = LLMClient(
+            provider=self.fallback_provider,
+            model=self.fallback_model,
+            api_key=self.fallback_api_key,
+            default_temperature=temperature,
+            default_top_p=top_p if top_p is not None else self.default_top_p,
+            default_num_ctx=self.default_num_ctx,
+            timeout=self.timeout,
+        )
+        try:
+            return fallback.chat(
+                messages,
+                system_prompt=system_prompt,
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+        except (LLMUnavailableError, RuntimeError) as exc:
+            raise LLMUnavailableError(
+                f"[{self.provider}] Primary rate-limited; fallback '{self.fallback_provider}' "
+                f"also failed. LLM service is currently unavailable. Detail: {exc}"
+            ) from exc
 
 
 # ---------------------------------------------------------------------------
@@ -391,6 +454,9 @@ def get_llm_client() -> LLMClient:
             provider=CONFIG.llm_provider,
             model=CONFIG.llm_model,
             api_key=CONFIG.llm_api_key,
+            fallback_provider=CONFIG.llm_fallback_provider,
+            fallback_model=CONFIG.llm_fallback_model,
+            fallback_api_key=CONFIG.llm_fallback_api_key,
             ollama_base_url=CONFIG.ollama_base_url,
             default_temperature=CONFIG.llm_temperature,
             default_top_p=CONFIG.llm_top_p,
@@ -398,8 +464,9 @@ def get_llm_client() -> LLMClient:
             timeout=CONFIG.llm_timeout,
         )
         logger.info(
-            "LLMClient initialised | provider=%s | model=%s",
+            "LLMClient initialised | provider=%s | model=%s | fallback=%s",
             _client.provider,
             _client.model,
+            _client.fallback_provider or "none",
         )
     return _client

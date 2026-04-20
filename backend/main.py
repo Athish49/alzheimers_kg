@@ -17,10 +17,12 @@ from datetime import datetime, timezone
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
 
 from graph_rag.pipeline import get_pipeline, QuestionRequest, AnswerResponse
+from graph_rag.llm_client import LLMUnavailableError
 
 # ---------------------------------------------------------------------------
 # App setup
@@ -74,15 +76,26 @@ def health_check() -> HealthResponse:
 # ---------------------------------------------------------------------------
 
 
-@app.post("/answer", response_model=AnswerResponse, tags=["rag"])
-def answer_question(payload: QuestionRequest) -> AnswerResponse:
+@app.post("/answer", tags=["rag"])
+def answer_question(payload: QuestionRequest):
     pipe = get_pipeline()
-    res = pipe.answer(
-        question=payload.question,
-        temperature=payload.temperature,
-        max_tokens=payload.max_tokens,
-        return_context=payload.return_context,
-    )
+    try:
+        res = pipe.answer(
+            question=payload.question,
+            temperature=payload.temperature,
+            max_tokens=payload.max_tokens,
+            return_context=payload.return_context,
+        )
+    except LLMUnavailableError as exc:
+        return JSONResponse(
+            status_code=503,
+            content={
+                "detail": (
+                    "The AI service is temporarily unavailable due to high demand. "
+                    "Please try again in a moment."
+                )
+            },
+        )
     return AnswerResponse(
         answer=res["answer"],
         intent_type=res["intent_type"],
