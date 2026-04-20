@@ -98,13 +98,14 @@ def build_context_for_question(
     # 2) Resolve disease_id once — reused across context + evidence builders
     disease_id = gtxt._resolve_ad_disease_id(retriever)
 
-    # 3) Fetch data once, pass to both context builder and evidence builder
+    # 3) Fetch only what each intent actually needs.
     raw_data: Dict[str, Any] = {}
 
     if intent.type is IntentType.BIOMARKER:
-        strategy_name = "AD_BIOMARKERS_V1"
+        # Fetch: biomarkers only (up to 200 rows — all are relevant)
+        strategy_name = "AD_BIOMARKERS_V2"
         if disease_id:
-            biomarkers = retriever.get_ad_biomarkers(disease_id)
+            biomarkers = retriever.get_ad_biomarkers(disease_id, limit=200)
             context = gtxt.build_biomarker_direction_context(
                 retriever, disease_id, biomarkers=biomarkers
             )
@@ -113,9 +114,10 @@ def build_context_for_question(
             context = gtxt.build_biomarker_direction_context(retriever)
 
     elif intent.type is IntentType.PHENOTYPE:
-        strategy_name = "AD_PHENOTYPES_V1"
+        # Fetch: phenotypes only (up to 100 rows)
+        strategy_name = "AD_PHENOTYPES_V2"
         if disease_id:
-            phenotypes = retriever.get_ad_phenotypes(disease_id)
+            phenotypes = retriever.get_ad_phenotypes(disease_id, limit=100)
             context = gtxt.build_phenotype_context(
                 retriever, disease_id, phenotypes=phenotypes
             )
@@ -124,59 +126,54 @@ def build_context_for_question(
             context = gtxt.build_phenotype_context(retriever)
 
     elif intent.type is IntentType.DRUG_TRIAL:
-        strategy_name = "AD_DRUGS_PATHWAYS_V1"
+        # Fetch: drugs only — trial questions don’t need pathway details.
+        # Drug pathways are still included in raw_data for the frontend evidence panel.
+        strategy_name = "AD_DRUGS_V2"
         if disease_id:
-            drugs = retriever.get_ad_drugs(disease_id)
-            drug_pws = retriever.get_ad_drug_pathways(disease_id)
-            context = gtxt.build_drug_trial_pathway_context(
-                retriever, disease_id, drugs=drugs, drug_pathways=drug_pws
+            drugs = retriever.get_ad_drugs(disease_id, limit=150)
+            drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=200)
+            context = gtxt.build_drug_only_context(
+                retriever, disease_id, drugs=drugs
             )
             raw_data = gtxt.build_drug_evidence(drugs, drug_pws)
         else:
-            context = gtxt.build_drug_trial_pathway_context(retriever)
+            context = gtxt.build_drug_only_context(retriever)
 
     elif intent.type is IntentType.PATHWAY:
-        strategy_name = "AD_DRUGS_PATHWAYS_V1"
+        # Fetch: drug-pathway edges only — pathway questions don’t need trial phases.
+        strategy_name = "AD_PATHWAYS_V2"
         if disease_id:
-            drugs = retriever.get_ad_drugs(disease_id)
-            drug_pws = retriever.get_ad_drug_pathways(disease_id)
-            context = gtxt.build_drug_trial_pathway_context(
-                retriever, disease_id, drugs=drugs, drug_pathways=drug_pws
+            drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=250)
+            context = gtxt.build_pathway_focused_context(
+                retriever, disease_id, drug_pathways=drug_pws
             )
             raw_data = gtxt.build_pathway_evidence(drug_pws)
         else:
-            context = gtxt.build_drug_trial_pathway_context(retriever)
+            context = gtxt.build_pathway_focused_context(retriever)
 
     elif intent.type is IntentType.GENE_PROTEIN:
-        strategy_name = "AD_GENES_GENERAL_V1"
-        genes_proteins = retriever.get_genes_and_proteins()
-        if disease_id:
-            biomarkers = retriever.get_ad_biomarkers(disease_id)
-            drugs = retriever.get_ad_drugs(disease_id)
-            phenotypes = retriever.get_ad_phenotypes(disease_id)
-            drug_pws = retriever.get_ad_drug_pathways(disease_id)
-            context = gtxt.build_general_ad_context(
-                retriever,
-                disease_id=disease_id,
-                biomarkers=biomarkers,
-                drugs=drugs,
-                phenotypes=phenotypes,
-                drug_pathways=drug_pws,
-                genes_proteins=genes_proteins,
-            )
-        else:
-            context = gtxt.build_general_ad_context(retriever, genes_proteins=genes_proteins)
+        # Fetch: genes/proteins only — gene questions don’t need biomarker fluids
+        # or drug trial phases.
+        strategy_name = "AD_GENES_V2"
+        genes_proteins = retriever.get_genes_and_proteins(limit=50)
+        context = gtxt.build_gene_protein_context(retriever, genes_proteins=genes_proteins)
         raw_data = gtxt.build_gene_evidence(genes_proteins)
 
+    elif intent.type is IntentType.OTHER:
+        # Non-AD question: no Neo4j queries, no LLM call (pipeline handles early exit).
+        strategy_name = "NOT_AD"
+        context = "__OUT_OF_SCOPE__"
+
     else:
-        # Fallback: general compact Alzheimer’s graph summary (composite).
-        strategy_name = "AD_GENERAL_V1"
+        # GENERAL_AD fallback: all sections, but with tighter limits so the
+        # composite context stays within ~6,000 tokens.
+        strategy_name = "AD_GENERAL_V2"
         if disease_id:
-            biomarkers = retriever.get_ad_biomarkers(disease_id)
-            drugs = retriever.get_ad_drugs(disease_id)
-            phenotypes = retriever.get_ad_phenotypes(disease_id)
-            drug_pws = retriever.get_ad_drug_pathways(disease_id)
-            genes_proteins = retriever.get_genes_and_proteins()
+            biomarkers    = retriever.get_ad_biomarkers(disease_id,    limit=50)
+            drugs         = retriever.get_ad_drugs(disease_id,         limit=50)
+            phenotypes    = retriever.get_ad_phenotypes(disease_id,    limit=50)
+            drug_pws      = retriever.get_ad_drug_pathways(disease_id, limit=75)
+            genes_proteins = retriever.get_genes_and_proteins(          limit=15)
             context = gtxt.build_general_ad_context(
                 retriever,
                 disease_id=disease_id,

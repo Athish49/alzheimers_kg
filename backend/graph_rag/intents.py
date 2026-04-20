@@ -129,27 +129,39 @@ def classify_question(question: str) -> QueryIntent:
 
     drug_keywords = [
         "drug",
+        "drugs",
         "treat",
+        "treats",
         "treatment",
+        "treatments",
         "therapy",
+        "therapies",
         "therapeutic",
+        "therapeutics",
         "compound",
+        "compounds",
         "trial",
+        "trials",
         "phase",
         "phase 2",
         "phase 3",
         "approved",
         "approval",
-        "status",
+        "medication",
+        "medications",
         "dosage",
         "dose",
-        "company",
+        "clinical trial",
+        "clinical trials",
     ]
 
     phenotype_keywords = [
         "symptom",
+        "symptoms",
         "sign",
+        "signs",
         "clinical feature",
+        "clinical features",
         "cognitive",
         "memory",
         "language",
@@ -157,7 +169,10 @@ def classify_question(question: str) -> QueryIntent:
         "behavior",
         "behaviour",
         "phenotype",
+        "phenotypes",
         "presentation",
+        "manifestation",
+        "manifestations",
     ]
 
     pathway_keywords = [
@@ -187,9 +202,14 @@ def classify_question(question: str) -> QueryIntent:
 
     # -----------------------------------------------------------------
     # 2) Score each intent bucket based on keyword hits
+    #    Use word-boundary matching to avoid substring false-positives:
+    #    e.g. "gene" must not fire on "generally" or "degenerate".
     # -----------------------------------------------------------------
     def count_hits(words: List[str]) -> int:
-        return sum(1 for w in words if w in q)
+        return sum(
+            1 for w in words
+            if re.search(r"\b" + re.escape(w) + r"\b", q)
+        )
 
     biomarker_hits = count_hits(biomarker_keywords)
     drug_hits = count_hits(drug_keywords)

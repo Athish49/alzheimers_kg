@@ -99,8 +99,15 @@ class GraphRAGPipeline:
             retriever=self.retriever,
         )
 
-        # 2) If the KG is missing the AD node, don't call the LLM
-        if "does not appear to contain an Alzheimer's" in route.context:
+        # 2) Short-circuit: no LLM call for out-of-scope or missing-KG cases
+        if route.context == "__OUT_OF_SCOPE__":
+            answer_text = (
+                "This assistant only answers questions about Alzheimer's disease — "
+                "biomarkers, therapeutics, clinical phenotypes, affected biological "
+                "pathways, and related genes/proteins. Please rephrase your question "
+                "with that focus."
+            )
+        elif "does not appear to contain an Alzheimer's" in route.context:
             answer_text = route.context
         else:
             # Build an enriched question that encodes intent + safety constraints

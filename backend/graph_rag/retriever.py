@@ -138,7 +138,6 @@ class GraphRetriever:
             b.analyte_class AS analyte_class,
             b.fluid         AS fluid,
             r.direction     AS direction,
-            r.comparison    AS comparison,
             r.effect_size   AS effect_size,
             r.p_value       AS p_value
         ORDER BY biomarker_label
@@ -156,16 +155,15 @@ class GraphRetriever:
         q = """
         MATCH (dr:Drug)-[r:TREATS]->(d:Disease {id: $did, project: $project})
         RETURN
-            dr.id           AS drug_id,
-            dr.label        AS drug_label,
-            dr.drug_type    AS drug_type,
-            dr.drug_class   AS drug_class,
+            dr.id             AS drug_id,
+            dr.label          AS drug_label,
+            dr.drug_type      AS drug_type,
+            dr.drug_class     AS drug_class,
             dr.status_overall AS status_overall,
-            r.status        AS trial_status,
+            r.status          AS trial_status,
             r.trial_phase_max AS trial_phase_max,
-            r.has_phase3    AS has_phase3,
-            r.trial_count   AS trial_count,
-            r.indication    AS indication
+            r.has_phase3      AS has_phase3,
+            r.trial_count     AS trial_count
         ORDER BY drug_label
         LIMIT $limit
         """
@@ -181,8 +179,10 @@ class GraphRetriever:
         q = """
         MATCH (d:Disease {id: $did, project: $project})-[r:HAS_PHENOTYPE]->(p:Phenotype)
         RETURN
-            p.id        AS phenotype_id,
-            p.label     AS phenotype_label
+            p.id          AS phenotype_id,
+            p.label       AS phenotype_label,
+            p.onset       AS onset,
+            p.frequency   AS frequency
         ORDER BY phenotype_label
         LIMIT $limit
         """
@@ -203,13 +203,11 @@ class GraphRetriever:
         MATCH (dr:Drug)-[:TREATS]->(d:Disease {id: $did, project: $project})
         MATCH (dr)-[r:AFFECTS_PATHWAY]->(pw:Pathway)
         RETURN
-            dr.id        AS drug_id,
-            dr.label     AS drug_label,
-            pw.id        AS pathway_id,
-            pw.label     AS pathway_label,
-            r.source      AS source,
-            r.target_notes AS target_notes,
-            r.action_type AS action_type,
+            dr.id               AS drug_id,
+            dr.label            AS drug_label,
+            pw.id               AS pathway_id,
+            pw.label            AS pathway_label,
+            r.action_type       AS action_type,
             r.is_primary_target AS is_primary_target
         ORDER BY drug_label, pathway_label
         LIMIT $limit
@@ -221,20 +219,27 @@ class GraphRetriever:
         self, limit: int = 200
     ) -> List[Dict[str, Any]]:
         """
-        Get a sample of Gene -> Protein relationships.
+        Get Gene -> Protein relationships, AD-relevant genes first.
 
-        This is not currently anchored to AD specifically (Phase 4 design),
-        but still useful context when the user asks about molecular biology.
+        Known high-risk AD genes (APOE, APP, MAPT, PSEN1, PSEN2, TREM2, etc.)
+        are surfaced before alphabetical fill-ins so they are never crowded out
+        by the LIMIT when the graph contains many generic genes.
         """
         q = """
-        MATCH (g:Gene {project: $project})-[r:ENCODES]->(p:Protein)
+        MATCH (g:Gene {project: $project})-[:ENCODES]->(p:Protein)
+        WITH g, p,
+             CASE WHEN g.label IN [
+                 'APOE','APP','MAPT','PSEN1','PSEN2',
+                 'TREM2','BIN1','CLU','ABCA7','CR1',
+                 'SORL1','ADAM10','BACE1','FERMT2','PTK2B'
+             ] THEN 0 ELSE 1 END AS priority
+        ORDER BY priority, g.label, p.label
+        LIMIT $limit
         RETURN
             g.id       AS gene_id,
             g.label    AS gene_symbol,
             p.id       AS protein_id,
             p.label    AS protein_label
-        ORDER BY gene_symbol, protein_label
-        LIMIT $limit
         """
         with self._session() as session:
             return [dict(rec) for rec in session.run(q, project=self.project, limit=limit)]

@@ -357,8 +357,8 @@ def summarize_phenotypes(phenos: List[Dict[str, object]]) -> str:
         {
             "phenotype_id": ...,
             "phenotype_label": ...,
-            "onset": ...,
-            "frequency": ...,
+            "onset": ...,       # from p.onset  (may be None if not stored)
+            "frequency": ...,   # from p.frequency (may be None if not stored)
         }
     """
     if not phenos:
@@ -410,8 +410,6 @@ def summarize_drug_pathways(drug_pathways: List[Dict[str, object]]) -> str:
             "drug_label": ...,
             "pathway_id": ...,
             "pathway_label": ...,
-            "source": ...,
-            "target_notes": ...,
             "action_type": ...,
             "is_primary_target": ...,
         }
@@ -436,8 +434,9 @@ def summarize_drug_pathways(drug_pathways: List[Dict[str, object]]) -> str:
         extras = {}
         if row.get("action_type"):
             extras["action_type"] = _safe_str(row.get("action_type"))
-        if row.get("is_primary_target") not in (None, ""):
-            extras["primary"] = _safe_str(row.get("is_primary_target"))
+        primary_raw = row.get("is_primary_target")
+        if primary_raw in (True, "True", "true", "yes", "1"):
+            extras["primary_target"] = True
 
         drug_to_paths[drug_name].append((pathway, extras))
 
@@ -460,8 +459,8 @@ def summarize_drug_pathways(drug_pathways: List[Dict[str, object]]) -> str:
             bits = []
             if "action_type" in extras:
                 bits.append(extras["action_type"])
-            if "primary" in extras:
-                bits.append(f"primary={extras['primary']}")
+            if extras.get("primary_target"):
+                bits.append("primary target")
             if bits:
                 lines.append(f"- {pathway} ({', '.join(bits)})")
             else:
@@ -730,6 +729,142 @@ def build_drug_trial_pathway_context(
         "\n".join(tail),
     ]
     return "\n".join(parts)
+
+
+def build_drug_only_context(
+    retriever: GraphRetriever,
+    disease_id: Optional[str] = None,
+    max_drugs: int = 100,
+    *,
+    drugs: Optional[List[Dict[str, object]]] = None,
+) -> str:
+    """
+    Focused context for DRUG_TRIAL intent: only therapeutics, no pathway noise.
+
+    Drug questions care about name, type, approval/trial status, and phase —
+    not about which biological pathway is downstream.
+    """
+    if disease_id is None:
+        disease_id = _resolve_ad_disease_id(retriever)
+
+    if not disease_id:
+        return (
+            "The knowledge graph does not contain an Alzheimer's Disease node. "
+            "No drug / trial information is available."
+        )
+
+    drugs = drugs if drugs is not None else retriever.get_ad_drugs(disease_id, limit=max_drugs)
+
+    header = [
+        "=== Alzheimer's Disease: therapeutics and clinical trials ===",
+        f"- Disease ID: {disease_id}",
+        "",
+        "This context lists drugs targeting Alzheimer's disease from the knowledge "
+        "graph, grouped by development / approval status.",
+        "",
+    ]
+
+    tail = [
+        "",
+        "When answering questions about Alzheimer's therapeutics, clinical trials, "
+        "or drug approval status, restrict yourself to the drugs listed in this "
+        "context. Do NOT invent new drugs or fabricate trial phases.",
+    ]
+
+    return "\n".join(header) + "\n" + summarize_drugs(drugs).rstrip() + "\n" + "\n".join(tail)
+
+
+def build_pathway_focused_context(
+    retriever: GraphRetriever,
+    disease_id: Optional[str] = None,
+    max_paths: int = 200,
+    *,
+    drug_pathways: Optional[List[Dict[str, object]]] = None,
+) -> str:
+    """
+    Focused context for PATHWAY intent: only drug→pathway links, no trial metadata.
+
+    Pathway questions care about which biological processes are targeted —
+    not about trial phases or approval status.
+    """
+    if disease_id is None:
+        disease_id = _resolve_ad_disease_id(retriever)
+
+    if not disease_id:
+        return (
+            "The knowledge graph does not contain an Alzheimer's Disease node. "
+            "No pathway information is available."
+        )
+
+    drug_pathways = (
+        drug_pathways if drug_pathways is not None
+        else retriever.get_ad_drug_pathways(disease_id, limit=max_paths)
+    )
+
+    header = [
+        "=== Alzheimer's Disease: affected biological pathways ===",
+        f"- Disease ID: {disease_id}",
+        "",
+        "This context lists biological pathways targeted by Alzheimer's disease "
+        "therapeutics. Each drug section names the pathways it affects, the type "
+        "of action, and whether it is a primary target.",
+        "",
+    ]
+
+    tail = [
+        "",
+        "When answering pathway questions, restrict yourself to pathways and "
+        "drug–pathway links that appear in this context. Do NOT invent new "
+        "pathways or mechanisms.",
+    ]
+
+    return (
+        "\n".join(header)
+        + "\n"
+        + summarize_drug_pathways(drug_pathways).rstrip()
+        + "\n"
+        + "\n".join(tail)
+    )
+
+
+def build_gene_protein_context(
+    retriever: GraphRetriever,
+    *,
+    genes_proteins: Optional[List[Dict[str, object]]] = None,
+    limit: int = 50,
+) -> str:
+    """
+    Focused context for GENE_PROTEIN intent: only gene–protein pairs.
+
+    AD-priority genes (APOE, APP, PSEN1/2, MAPT, TREM2, …) are already
+    sorted to the top by the retriever query. The LLM does not need
+    biomarker fluid levels or drug trial phases to answer a gene question.
+    """
+    if genes_proteins is None:
+        genes_proteins = retriever.get_genes_and_proteins(limit=limit)
+
+    header = [
+        "=== Alzheimer's Disease: genes and proteins ===",
+        "",
+        "The following gene–protein encoding relationships are drawn from the "
+        "Alzheimer's disease knowledge graph. High-risk AD genes are listed first.",
+        "",
+    ]
+
+    tail = [
+        "",
+        "When answering questions about genes or proteins, restrict yourself to "
+        "the entries listed in this context. Do NOT invent additional genes or "
+        "proteins.",
+    ]
+
+    return (
+        "\n".join(header)
+        + "\n"
+        + summarize_genes_proteins(genes_proteins, max_items=len(genes_proteins)).rstrip()
+        + "\n"
+        + "\n".join(tail)
+    )
 
 
 def build_general_ad_context(
@@ -1051,6 +1186,9 @@ __all__ = [
     "build_ad_ultra_compact_context_from_lists",
     "build_biomarker_direction_context",
     "build_phenotype_context",
+    "build_drug_only_context",
+    "build_pathway_focused_context",
+    "build_gene_protein_context",
     "build_drug_trial_pathway_context",
     "build_general_ad_context",
     "build_biomarker_evidence",
