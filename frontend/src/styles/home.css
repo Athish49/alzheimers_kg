@@ -54,7 +54,7 @@ h1.hero-title em {
   max-width: 48ch; margin: 0 0 12px;
 }
 .hero-sub-detail {
-  font-size: 15px; color: var(--fg-muted); line-height: 1.6;
+  font-size: 17px; color: var(--fg-muted); line-height: 1.55;
   max-width: 58ch; margin: 0 0 36px;
 }
 .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -267,6 +267,21 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 }
 .compare-atlas-cell { background: oklch(0.99 0.004 250); }
 
+.compare-legend {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-subtle);
+  letter-spacing: 0.04em;
+}
+.compare-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--fg-muted);
+  max-width: 68ch;
+  line-height: 1.5;
+}
+
 /* Check symbols */
 .chk-yes  { font-size: 15px; font-weight: 600; color: var(--fg); }
 .chk-no   { font-size: 20px; line-height: 1; color: var(--fg-placeholder); font-weight: 300; }
@@ -336,7 +351,7 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 }
 .demo-intro-head em { font-family: var(--font-serif); font-weight: 400; font-style: italic; }
 .demo-intro-sub {
-  font-size: 15px; color: var(--fg-muted); line-height: 1.55;
+  font-size: 17px; color: var(--fg-muted); line-height: 1.55;
   max-width: 58ch; margin: 0;
 }
 
@@ -483,6 +498,92 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 .ctx-gene-encodes { font-size: 12px; color: var(--fg-muted); line-height: 1.5; }
 .ctx-gene-encodes strong { color: var(--fg); font-weight: 600; }
 .ctx-gene-prid  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-subtle); margin-left: 4px; }
+
+/* ——— The Difference section ——— */
+
+/* ——— Architecture diagram ——— */
+.arch-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+}
+.arch-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--fg-subtle);
+}
+.arch-desktop { display: block; max-width: 520px; }
+.arch-mobile  { display: none;  max-width: 340px; }
+.arch-box {
+  fill: var(--bg);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.arch-hub {
+  fill: var(--primary);
+  stroke: none;
+}
+.arch-line {
+  fill: none;
+  stroke: var(--fg-subtle);
+  stroke-width: 1;
+}
+.arch-dash {
+  fill: none;
+  stroke: var(--fg-subtle);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+.arch-t-phase {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--fg-subtle);
+}
+.arch-t-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--fg);
+}
+.arch-t-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  fill: var(--fg-muted);
+}
+.arch-t-hub-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--primary-fg);
+}
+.arch-t-hub-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  fill: var(--primary-fg);
+  opacity: 0.75;
+}
+.arch-t-reads {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  fill: var(--fg-subtle);
+}
+.arch-caption {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--fg-muted);
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 640px) {
+  .arch-desktop { display: none; }
+  .arch-mobile  { display: block; }
+}
 
 @media (max-width: 900px) {
   .how-grid { grid-template-columns: 1fr; }
