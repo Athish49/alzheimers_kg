@@ -54,10 +54,10 @@ body { overflow: hidden; height: 100vh; }
 /* ——— Landing ——— */
 .landing {
   overflow: auto; height: 100%;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; flex-direction: column;
   padding: 40px 24px 60px;
 }
-.landing-inner { width: 100%; max-width: 920px; }
+.landing-inner { width: 100%; max-width: 920px; margin: auto; }
 .landing-hero { text-align: center; margin-bottom: 36px; }
 .landing-mark { display: flex; justify-content: center; margin-bottom: 18px; }
 .landing-mark .brand-mark { width: 40px; height: 40px; border-radius: 10px; font-size: 22px; }
@@ -518,6 +518,9 @@ body { overflow: hidden; height: 100vh; }
   .thread { padding: 24px 20px 120px; }
   .composer-wrap { padding: 14px 20px 18px; }
   .cat-grid { grid-template-columns: 1fr; }
+  .landing { padding: 24px 16px 40px; }
+  .landing h1 { font-size: 28px; }
+  .landing-hero p { font-size: 15px; }
 }
 @media (max-width: 1100px) and (min-width: 761px) {
   .cat-grid { grid-template-columns: repeat(2, 1fr); }

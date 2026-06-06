@@ -332,9 +332,23 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
   max-width: 1200px; margin: 0 auto;
   font-size: 13px; color: var(--fg-muted);
 }
-.home-footer .f-links { display: flex; gap: 20px; }
+.home-footer .f-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .home-footer a { color: var(--fg-muted); text-decoration: none; }
-.home-footer a:hover { color: var(--fg); }
+.home-footer .f-links a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong); }
+.home-footer .f-links a:hover { color: var(--fg); text-decoration-color: var(--fg); }
+.f-email-wrap { display: flex; align-items: center; gap: 6px; }
+.f-copy-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: none; border: none; cursor: pointer; padding: 2px 4px;
+  color: var(--fg-subtle); border-radius: 4px;
+  transition: color 120ms ease, background 120ms ease;
+}
+.f-copy-btn:hover { color: var(--fg); background: var(--bg-muted); }
+.f-divider {
+  width: 1px; height: 12px; background: var(--border-strong);
+  display: inline-block; flex-shrink: 0;
+}
+.f-built-by { color: var(--fg-muted); font-size: 13px; }
 
 /* ——— Demo section intro ——— */
 .demo-intro {

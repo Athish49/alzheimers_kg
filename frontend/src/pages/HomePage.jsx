@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Icon } from '../components/Icons';
 import '../styles/home.css';
 
 /* ─── Pre-canned demo data ─── */
@@ -375,6 +376,38 @@ function ArchDiagram() {
   );
 }
 
+/* ─── Footer ─── */
+
+function FooterWithCopy() {
+  const [copied, setCopied] = useState(false);
+  const copyEmail = () => {
+    navigator.clipboard.writeText('agr@iu.edu');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <footer className="home-footer">
+      <div>Atlas &middot; An ontology-grounded Graph RAG interface for Alzheimer&apos;s research</div>
+      <div className="f-links">
+        <span className="f-built-by">Built by Athish Gopal Rajesh</span>
+        <span className="f-divider" />
+        <a href="https://athish-gopal-rajesh.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio &amp; about</a>
+        <span>&middot;</span>
+        <a href="https://www.linkedin.com/in/athishgr/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span>&middot;</span>
+        <span className="f-email-wrap">
+          <a href="mailto:agr@iu.edu" onClick={(e) => { e.preventDefault(); copyEmail(); }}>agr@iu.edu</a>
+          <button className="f-copy-btn" onClick={copyEmail} aria-label="Copy email address">
+            {copied
+              ? <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:'var(--fg)'}}><polyline points="2,7 5.5,11 12,3"/></svg>
+              : <Icon.Copy />}
+          </button>
+        </span>
+      </div>
+    </footer>
+  );
+}
+
 /* ─── Page component ─── */
 
 export function HomePage() {
@@ -407,7 +440,7 @@ export function HomePage() {
       {/* Hero */}
       <section className="hero">
         <span className="eyebrow"><span className="dot"></span> Ontology-grounded knowledge graph &middot; Alzheimer&apos;s disease</span>
-        <h1 className="hero-title">A research interface <em>for the shape</em> of Alzheimer&apos;s data.</h1>
+        <h1 className="hero-title">A research interface for the shape of Alzheimer&apos;s data.</h1>
         <p className="hero-sub">
           Ask in plain English. Every answer is traced to a node and to the ontology behind it.
         </p>
@@ -422,7 +455,7 @@ export function HomePage() {
         {/* Demo section intro */}
         <div className="demo-intro">
           <div className="demo-intro-label">Interactive demo</div>
-          <p className="demo-intro-head">Every query type. <em>Each one shows its work.</em></p>
+          <p className="demo-intro-head">Every query type. Each one shows its work.</p>
           <p className="demo-intro-sub">Select a category on the right to see how Atlas classifies intent, routes to a retrieval strategy, and renders structured evidence alongside every answer. Nothing is invented; everything is traceable.</p>
         </div>
 
@@ -478,7 +511,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">The problem</div>
-            <h2>Alzheimer&apos;s research lives in <em>ten thousand</em> disconnected rows.</h2>
+            <h2>Alzheimer&apos;s research lives in ten thousand disconnected rows.</h2>
             <p className="section-lede">Disease ontologies, phenotype ontologies, gene and protein nomenclatures, pathway annotations, drug registries, biomarker meta-analyses. All are authoritative, all are siloed, each with its own IDs and semantics. Answering one question usually means opening six tabs and reconciling them in your head.</p>
           </div>
           <div className="problem-grid">
@@ -506,7 +539,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">How Atlas works</div>
-            <h2>Questions are <em>classified</em>, routed, and grounded in the graph.</h2>
+            <h2>Questions are classified, routed, and grounded in the graph.</h2>
             <p className="section-lede">Every query's intent is classified, then routed to a retrieval strategy that pulls the relevant subgraph. The model only writes the final answer. Nothing is invented; every claim traces to a node.</p>
           </div>
           <div className="how-grid">
@@ -581,7 +614,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">Capabilities</div>
-            <h2>Six query classes, each with a <em>tailored</em> view.</h2>
+            <h2>Six query classes, each with a tailored view.</h2>
             <p className="section-lede">The intent you ask determines how the evidence is rendered. A biomarker question doesn&apos;t look like a drug question. The structure of the data is different, and the UI follows.</p>
           </div>
 
@@ -631,7 +664,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">The difference</div>
-            <h2>Most &ldquo;graph RAG&rdquo; is a vector store with extra steps. <em>Atlas is built on meaning.</em></h2>
+            <h2>Most &ldquo;graph RAG&rdquo; is a vector store with extra steps. Atlas is built on meaning.</h2>
             <p className="section-lede">Typical retrieval chops text into chunks and hopes similarity lands near the truth. Atlas goes one level deeper: every entity reconciled to a canonical ontology ID, every edge carrying the evidence, not just a link.</p>
           </div>
           <div className="problem-grid">
@@ -660,7 +693,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">Why Atlas</div>
-            <h2>Why not just <em>ChatGPT?</em></h2>
+            <h2>Why not just ChatGPT?</h2>
             <p className="section-lede">General assistants are impressively capable; BI dashboards are rigorous but rigid. Atlas sits where they don&apos;t overlap: open-ended questions, answered from curated data, with every claim traceable. <em>The difference matters when a p-value is on the line.</em></p>
           </div>
 
@@ -698,7 +731,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">Under the hood</div>
-            <h2>Two phases. <em>One</em> source of truth.</h2>
+            <h2>Two phases. One source of truth.</h2>
             <p className="section-lede">One graph, built once and queried many times. Everything above the line is reconciled at build time; everything below it is answered at query time, and every answer reads from the same graph.</p>
           </div>
           <ArchDiagram />
@@ -710,7 +743,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-label">Who it&apos;s for</div>
-            <h2>Built for people comfortable with <em>p-values</em>.</h2>
+            <h2>Built for people comfortable with p-values.</h2>
             <p className="section-lede">Atlas is not a consumer assistant. It&apos;s an expert tool for the three constituencies that spend the most time reconciling AD evidence.</p>
           </div>
           <div className="audience-grid">
@@ -758,12 +791,7 @@ export function HomePage() {
         <Link className="btn btn-primary" to="/app" style={{ padding: '13px 22px', fontSize: 15 }}>Open Atlas &rarr;</Link>
       </section>
 
-      <footer className="home-footer">
-        <div>Atlas &middot; An ontology-grounded Graph RAG interface for Alzheimer&apos;s research</div>
-        <div className="f-links">
-          <a href="#">Contact</a>
-        </div>
-      </footer>
+      <FooterWithCopy />
     </div>
   );
 }

@@ -18,8 +18,8 @@ export function Landing({ onSubmit, onPickCategory }) {
           <div className="landing-mark">
             <span className="brand-mark">A</span>
           </div>
-          <h1>Atlas <em>workbench</em></h1>
-          <p>A GraphRAG interface for Alzheimer's disease research. Ask about biomarkers, drugs, genes, phenotypes, or pathways — get grounded answers with traceable evidence.</p>
+          <h1>Atlas Workbench</h1>
+          <p>An ontology-grounded GraphRAG workbench for Alzheimer's research. Ask about biomarkers, drugs, genes, phenotypes, or pathways...</p>
         </div>
 
         <form className="landing-input" onSubmit={submit}>
@@ -64,7 +64,7 @@ export function Landing({ onSubmit, onPickCategory }) {
         </div>
 
         <div className="landing-foot">
-          <span className="landing-back">Alzheimer's Knowledge Graph RAG</span>
+          <span className="landing-back">Ontology-grounded Alzheimer's knowledge graph</span>
         </div>
       </div>
     </div>
