@@ -61,7 +61,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); max-width: 100%; overflow-x: hidden; }
 body {
   font-family: var(--font-sans);
   font-size: 15px;

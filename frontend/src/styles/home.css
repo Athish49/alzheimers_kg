@@ -610,3 +610,46 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
   .compare-col-head, .compare-feat-head { padding: 12px 10px; font-size: 12px; }
   .compare-feat, .compare-cell { padding: 12px 10px; }
 }
+
+@media (max-width: 640px) {
+  /* ——— Nav: hide links, show only brand + CTA ——— */
+  .nav-links { display: none; }
+  .nav-inner { padding: 10px 16px; }
+
+  /* ——— Hero ——— */
+  .hero { padding: 32px 16px 36px; }
+  h1.hero-title { max-width: 100%; }
+  .hero-sub { font-size: 17px; }
+  .hero-sub-detail { font-size: 15px; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+
+  /* ——— Demo ——— */
+  .demo-wrapper { flex-direction: column; }
+  .demo-intro { margin-top: 40px; padding-top: 32px; }
+  .demo-intro-sub { font-size: 15px; }
+
+  /* ——— Section bands ——— */
+  section.band { padding: 48px 16px; }
+  .section-head { margin-bottom: 32px; }
+
+  /* ——— Comparison table: scrollable within container ——— */
+  .compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-grid { grid-template-columns: minmax(120px, 1fr) repeat(3, 64px); min-width: 340px; }
+  .compare-feat { font-size: 12px; padding: 10px 8px; }
+  .compare-cell { padding: 10px 4px; }
+  .compare-col-head, .compare-feat-head { padding: 10px 6px; font-size: 11px; }
+
+  /* ——— CTA band ——— */
+  .cta-band { padding: 64px 16px; }
+  .cta-band h2 { font-size: clamp(28px, 8vw, 40px); }
+
+  /* ——— Footer ——— */
+  .home-footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px 16px;
+  }
+  .home-footer .f-links { gap: 10px; }
+}

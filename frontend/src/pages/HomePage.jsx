@@ -416,7 +416,7 @@ export function HomePage() {
   const Panel = PANELS[demo.id];
 
   return (
-    <div className="home-page" style={{ overflow: 'auto', height: '100vh' }}>
+    <div className="home-page" style={{ overflowX: 'hidden', overflowY: 'auto', height: '100vh' }}>
       {/* Nav */}
       <header className="nav">
         <div className="nav-inner">
