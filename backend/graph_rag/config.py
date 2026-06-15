@@ -83,7 +83,7 @@ _CLOUD_SENTINELS = [
 _DEFAULT_MODELS: dict[str, str] = {
     "ollama":    "llama3.2:3b",
     "openai":    "gpt-4o-mini",
-    "anthropic": "claude-3-haiku-20240307",
+    "anthropic": "claude-haiku-4-5-20251001",
     "groq":      "llama-3.1-8b-instant",
     "gemini":    "gemini-2.5-flash",
 }
