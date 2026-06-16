@@ -219,10 +219,10 @@ function ArchDiagram() {
     <div
       className="arch-wrap"
       role="img"
-      aria-label="Atlas two-phase pipeline: ontologies and curated evidence are reconciled into an Alzheimer's knowledge graph at build time, then queries are routed, retrieved from the graph, and answered with traceable evidence."
+      aria-label="Atlas two-phase pipeline: ontologies and curated evidence are reconciled into an Alzheimer's knowledge graph at build time; at query time a question with conversation history passes through a query rewriter, entity linker, intent classifier, graph router, subgraph retrieval, and grounded LLM synthesis to produce a traceable answer."
     >
       {/* ── Desktop SVG: side-by-side sources, gutter dashed connector ── */}
-      <svg className="arch-svg arch-desktop" viewBox="0 0 520 828">
+      <svg className="arch-svg arch-desktop" viewBox="0 0 520 1048">
         <defs>{arrowD}</defs>
 
         {/* Phase 1 */}
@@ -256,50 +256,65 @@ function ArchDiagram() {
         <text x="260" y="259" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-title">Alzheimer&apos;s knowledge graph</text>
         <text x="260" y="281" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-sub">typed property graph · Neo4j</text>
 
-        {/* Dashed cross-phase connector through left gutter */}
-        <path d="M 60,269 L 38,269 L 38,583 L 110,583" className="arch-dash" markerEnd="url(#arr-d)"/>
-        <text x="24" y="426" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads" transform="rotate(-90 24 426)">reads the graph</text>
+        {/* Dashed cross-phase connector through left gutter — lands at Subgraph retrieval (y=783) */}
+        <path d="M 60,269 L 38,269 L 38,783 L 110,783" className="arch-dash" markerEnd="url(#arr-d)"/>
+        <text x="24" y="526" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads" transform="rotate(-90 24 526)">reads the graph</text>
 
         {/* Phase 2 */}
         <text x="10" y="324" className="arch-t-phase">PHASE 2 · QUERY TIME</text>
 
         <path d="M 260,308 L 260,348" className="arch-line" markerEnd="url(#arr-d)"/>
 
-        {/* Question */}
+        {/* Query Rewriter */}
         <rect x="110" y="348" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="260" y="383" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Question in plain English</text>
+        <text x="260" y="374" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Query rewriter</text>
+        <text x="260" y="395" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 1 · coreference resolution</text>
 
         <path d="M 260,418 L 260,448" className="arch-line" markerEnd="url(#arr-d)"/>
 
-        {/* Intent routing */}
+        {/* Entity Linker */}
         <rect x="110" y="448" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="260" y="474" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent routing</text>
-        <text x="260" y="495" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">deterministic · six classes</text>
+        <text x="260" y="474" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Entity linker</text>
+        <text x="260" y="495" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">in-memory vocab · synonym lookup</text>
 
         <path d="M 260,518 L 260,548" className="arch-line" markerEnd="url(#arr-d)"/>
 
-        {/* Subgraph retrieval — dashed connector lands here */}
+        {/* Intent Classifier */}
         <rect x="110" y="548" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="260" y="574" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
-        <text x="260" y="595" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal + context</text>
+        <text x="260" y="574" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent classifier</text>
+        <text x="260" y="595" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">entity-aware · seven classes</text>
 
         <path d="M 260,618 L 260,648" className="arch-line" markerEnd="url(#arr-d)"/>
 
-        {/* Grounded synthesis */}
+        {/* Graph Router */}
         <rect x="110" y="648" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="260" y="674" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
-        <text x="260" y="695" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">temperature 0 · context-only</text>
+        <text x="260" y="674" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Graph router</text>
+        <text x="260" y="695" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">targeted → bulk fallback</text>
 
         <path d="M 260,718 L 260,748" className="arch-line" markerEnd="url(#arr-d)"/>
 
-        {/* Answer */}
+        {/* Subgraph retrieval — dashed connector lands here */}
         <rect x="110" y="748" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="260" y="774" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
-        <text x="260" y="795" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
+        <text x="260" y="774" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
+        <text x="260" y="795" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal · Neo4j</text>
+
+        <path d="M 260,818 L 260,848" className="arch-line" markerEnd="url(#arr-d)"/>
+
+        {/* Grounded synthesis */}
+        <rect x="110" y="848" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="260" y="874" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
+        <text x="260" y="895" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 2 · context-only</text>
+
+        <path d="M 260,918 L 260,948" className="arch-line" markerEnd="url(#arr-d)"/>
+
+        {/* Answer */}
+        <rect x="110" y="948" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="260" y="974" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
+        <text x="260" y="995" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
       </svg>
 
       {/* ── Mobile SVG: fully stacked, no gutter connector ── */}
-      <svg className="arch-svg arch-mobile" viewBox="0 0 340 934">
+      <svg className="arch-svg arch-mobile" viewBox="0 0 340 1136">
         <defs>{arrowM}</defs>
 
         {/* Phase 1 */}
@@ -336,40 +351,55 @@ function ArchDiagram() {
 
         <path d="M 170,396 L 170,428" className="arch-line" markerEnd="url(#arr-m)"/>
 
-        {/* Question */}
+        {/* Query Rewriter */}
         <rect x="20" y="428" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="170" y="463" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Question in plain English</text>
+        <text x="170" y="454" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Query rewriter</text>
+        <text x="170" y="475" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 1 · coreference resolution</text>
 
         <path d="M 170,498 L 170,528" className="arch-line" markerEnd="url(#arr-m)"/>
 
-        {/* Intent routing */}
+        {/* Entity Linker */}
         <rect x="20" y="528" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="170" y="554" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent routing</text>
-        <text x="170" y="575" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">deterministic · six classes</text>
+        <text x="170" y="554" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Entity linker</text>
+        <text x="170" y="575" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">in-memory vocab · synonym lookup</text>
 
         <path d="M 170,598 L 170,628" className="arch-line" markerEnd="url(#arr-m)"/>
 
-        {/* Subgraph retrieval */}
+        {/* Intent Classifier */}
         <rect x="20" y="628" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="170" y="654" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
-        <text x="170" y="675" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal + context</text>
+        <text x="170" y="654" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent classifier</text>
+        <text x="170" y="675" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">entity-aware · seven classes</text>
+
+        <path d="M 170,698 L 170,728" className="arch-line" markerEnd="url(#arr-m)"/>
+
+        {/* Graph Router */}
+        <rect x="20" y="728" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="170" y="754" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Graph router</text>
+        <text x="170" y="775" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">targeted → bulk fallback</text>
+
+        <path d="M 170,798 L 170,828" className="arch-line" markerEnd="url(#arr-m)"/>
+
+        {/* Subgraph retrieval */}
+        <rect x="20" y="828" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="170" y="854" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
+        <text x="170" y="875" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal · Neo4j</text>
 
         {/* reads-the-graph caption in place of gutter connector */}
-        <text x="170" y="712" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads">reads the knowledge graph</text>
+        <text x="170" y="912" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads">reads the knowledge graph</text>
 
-        <path d="M 170,720 L 170,736" className="arch-line" markerEnd="url(#arr-m)"/>
+        <path d="M 170,920 L 170,936" className="arch-line" markerEnd="url(#arr-m)"/>
 
         {/* Grounded synthesis */}
-        <rect x="20" y="736" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="170" y="762" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
-        <text x="170" y="783" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">temperature 0 · context-only</text>
+        <rect x="20" y="936" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="170" y="962" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
+        <text x="170" y="983" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 2 · context-only</text>
 
-        <path d="M 170,806 L 170,836" className="arch-line" markerEnd="url(#arr-m)"/>
+        <path d="M 170,1006 L 170,1036" className="arch-line" markerEnd="url(#arr-m)"/>
 
         {/* Answer */}
-        <rect x="20" y="836" width="300" height="70" rx="11" className="arch-box"/>
-        <text x="170" y="862" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
-        <text x="170" y="883" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
+        <rect x="20" y="1036" width="300" height="70" rx="11" className="arch-box"/>
+        <text x="170" y="1062" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
+        <text x="170" y="1083" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
       </svg>
 
     </div>
@@ -548,7 +578,7 @@ export function HomePage() {
                 <div className="step-num">01</div>
                 <div>
                   <h4 className="step-title">Classify intent</h4>
-                  <p className="step-body">A rule-based classifier labels your question as one of six query classes in under a millisecond (no API call) and declines anything outside Alzheimer&apos;s. It surfaces its notes, so you can see how it read you.</p>
+                  <p className="step-body">A rule-based classifier labels your question as one of seven query classes in under a millisecond (no API call) and declines anything outside Alzheimer&apos;s. It surfaces its notes, so you can see how it read you.</p>
                 </div>
               </div>
               <div className="step">
