@@ -82,6 +82,7 @@ def answer_question(payload: QuestionRequest):
     try:
         res = pipe.answer(
             question=payload.question,
+            history=payload.history,
             temperature=payload.temperature,
             max_tokens=payload.max_tokens,
             return_context=payload.return_context,
@@ -101,6 +102,7 @@ def answer_question(payload: QuestionRequest):
         intent_type=res["intent_type"],
         intent_notes=res["intent_notes"],
         strategy=res["strategy"],
+        retrieval_query=res.get("retrieval_query"),
         context=res.get("context"),
         evidence=res.get("evidence"),
     )

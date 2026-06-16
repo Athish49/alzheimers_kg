@@ -147,7 +147,7 @@ class GraphRetriever:
             return [dict(rec) for rec in session.run(q, did=disease_id, project=self.project, limit=limit)]
 
     def get_ad_drugs(
-        self, disease_id: str, limit: int = 200
+        self, disease_id: str, limit: int = 400
     ) -> List[Dict[str, Any]]:
         """
         Get therapeutics (Drug -> Disease via TREATS) for a given disease.
@@ -245,8 +245,107 @@ class GraphRetriever:
             return [dict(rec) for rec in session.run(q, project=self.project, limit=limit)]
 
     # ------------------------------------------------------------------
-    # Context builders
+    # Targeted retrieval (entity-aware, Step 5)
     # ------------------------------------------------------------------
+
+    def get_biomarkers_by_ids(
+        self, biomarker_ids: List[str], disease_id: str
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch biomarker rows for specific node IDs.
+
+        Falls through to bulk get_ad_biomarkers when the caller passes an
+        empty list (e.g. no Biomarker nodes were linked by the entity linker).
+        """
+        if not biomarker_ids:
+            return self.get_ad_biomarkers(disease_id)
+        q = """
+        MATCH (d:Disease {id: $did, project: $project})-[r:HAS_BIOMARKER]->(b:Biomarker)
+        WHERE b.id IN $ids
+        RETURN b.id AS biomarker_id, b.label AS biomarker_label,
+               b.analyte AS analyte, b.analyte_class AS analyte_class,
+               b.fluid AS fluid, r.direction AS direction,
+               r.effect_size AS effect_size, r.p_value AS p_value
+        ORDER BY biomarker_label
+        """
+        with self._session() as session:
+            return [dict(rec) for rec in session.run(
+                q, did=disease_id, project=self.project, ids=biomarker_ids
+            )]
+
+    def get_drugs_by_ids(
+        self, drug_ids: List[str], disease_id: str
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch drug rows for specific node IDs.
+
+        Falls through to bulk get_ad_drugs when drug_ids is empty.
+        """
+        if not drug_ids:
+            return self.get_ad_drugs(disease_id)
+        q = """
+        MATCH (dr:Drug)-[r:TREATS]->(d:Disease {id: $did, project: $project})
+        WHERE dr.id IN $ids
+        RETURN dr.id AS drug_id, dr.label AS drug_label,
+               dr.drug_type AS drug_type, dr.drug_class AS drug_class,
+               dr.status_overall AS status_overall,
+               dr.mechanism_summary AS mechanism_summary,
+               r.status AS trial_status, r.trial_phase_max AS trial_phase_max,
+               r.has_phase3 AS has_phase3, r.trial_count AS trial_count
+        ORDER BY drug_label
+        """
+        with self._session() as session:
+            return [dict(rec) for rec in session.run(
+                q, did=disease_id, project=self.project, ids=drug_ids
+            )]
+
+    def get_drug_pathways_by_drug_ids(
+        self, drug_ids: List[str], disease_id: str
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch pathway edges for specific drug node IDs.
+
+        Falls through to bulk get_ad_drug_pathways when drug_ids is empty.
+        """
+        if not drug_ids:
+            return self.get_ad_drug_pathways(disease_id)
+        q = """
+        MATCH (dr:Drug)-[:TREATS]->(d:Disease {id: $did, project: $project})
+        MATCH (dr)-[r:AFFECTS_PATHWAY]->(pw:Pathway)
+        WHERE dr.id IN $ids
+        RETURN dr.id AS drug_id, dr.label AS drug_label,
+               pw.id AS pathway_id, pw.label AS pathway_label,
+               r.action_type AS action_type, r.is_primary_target AS is_primary_target
+        ORDER BY drug_label, pathway_label
+        """
+        with self._session() as session:
+            return [dict(rec) for rec in session.run(
+                q, did=disease_id, project=self.project, ids=drug_ids
+            )]
+
+    def get_proteins_by_ids(
+        self, protein_or_gene_ids: List[str], limit: int = 100
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch Gene→Protein rows where either the gene or protein ID is in the list.
+
+        Only matches Gene and Protein nodes (not AlzPedia). Falls through to
+        get_genes_and_proteins when the list is empty.
+        """
+        if not protein_or_gene_ids:
+            return self.get_genes_and_proteins()
+        q = """
+        MATCH (g:Gene {project: $project})-[:ENCODES]->(p:Protein)
+        WHERE g.id IN $ids OR p.id IN $ids
+        RETURN g.id AS gene_id, g.label AS gene_symbol,
+               p.id AS protein_id, p.label AS protein_label
+        ORDER BY g.label, p.label
+        LIMIT $limit
+        """
+        with self._session() as session:
+            return [dict(rec) for rec in session.run(
+                q, project=self.project, ids=protein_or_gene_ids, limit=limit
+            )]
 
     # ------------------------------------------------------------------
     # Context builders

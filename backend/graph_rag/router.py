@@ -25,6 +25,34 @@ from . import graph_to_text as gtxt  # <-- NEW: use our context builders
 
 
 # ---------------------------------------------------------------------
+# Question-level hint detectors
+# (called on the original user question, before query rewriting)
+# ---------------------------------------------------------------------
+
+
+def _detect_direction_hint(question: str) -> Optional[str]:
+    """Return 'increased', 'decreased', or None based on question wording."""
+    q = question.lower()
+    if any(w in q for w in ("decreas", "lower", "reduc", "drop", "fall", "diminish", "less")):
+        return "decreased"
+    if any(w in q for w in ("increas", "elevat", "higher", "rise", "raise", "upregulat")):
+        return "increased"
+    return None
+
+
+def _detect_drug_status_hint(question: str) -> Optional[str]:
+    """Return a DrugView status bucket name, or None, based on question wording."""
+    q = question.lower()
+    if "approved" in q or " fda" in q or " ema" in q:
+        return "Approved"
+    if "phase 3" in q or "phase3" in q or "phase iii" in q:
+        return "Phase 3"
+    if "discontinue" in q or "terminat" in q or "halt" in q or "fail" in q:
+        return "Discontinued"
+    return None
+
+
+# ---------------------------------------------------------------------
 # Routing result dataclass
 # ---------------------------------------------------------------------
 
@@ -67,6 +95,9 @@ class RouteResult:
 def build_context_for_question(
     question: str,
     retriever: Optional[GraphRetriever] = None,
+    *,
+    direction_hint: Optional[str] = None,
+    status_hint: Optional[str] = None,
 ) -> RouteResult:
     """
     High-level entry point: given a user question, classify its intent
@@ -75,7 +106,7 @@ def build_context_for_question(
     Parameters
     ----------
     question:
-        User's natural-language question.
+        User’s natural-language question.
     retriever:
         Optional GraphRetriever instance; if None, uses the singleton
         from graph_rag.retriever.get_retriever().
@@ -92,29 +123,53 @@ def build_context_for_question(
     if retriever is None:
         retriever = get_retriever()
 
-    # 1) Classify the question into an intent
+    # 1) Classify the question into an intent.
+    #    entity_matches is already populated by the entity linker inside
+    #    classify_question — we reuse it here rather than running the linker again.
     intent = classify_question(question)
+    entity_matches = intent.entity_matches  # List[EntityMatch] or []
 
-    # 2) Resolve disease_id once — reused across context + evidence builders
+    # 2) Extract typed entity IDs from the linker results.
+    #    AlzPedia nodes are intentionally excluded from gene_ids because the
+    #    Gene→Protein Cypher pattern can’t match AlzPedia IDs.
+    biomarker_ids: list = [m.node_id for m in entity_matches if m.node_type == "Biomarker"]
+    drug_ids:      list = [m.node_id for m in entity_matches if m.node_type == "Drug"]
+    gene_ids:      list = [m.node_id for m in entity_matches if m.node_type in ("Gene", "Protein")]
+
+    # 3) Resolve disease_id once — reused across context + evidence builders
     disease_id = gtxt._resolve_ad_disease_id(retriever)
 
-    # 3) Fetch only what each intent actually needs.
+    # 4) Fetch only what each intent actually needs.
+    #    For intents where entity IDs are available, try a targeted query first;
+    #    fall back to bulk if it returns no rows (e.g., synonyms not yet in graph).
+    #    strategy_name is set AFTER we know whether targeted or bulk was used.
     raw_data: Dict[str, Any] = {}
+    context: str = ""
+    strategy_name: str = ""
 
     if intent.type is IntentType.BIOMARKER:
-        # Fetch: biomarkers only (up to 200 rows — all are relevant)
-        strategy_name = "AD_BIOMARKERS_V2"
         if disease_id:
-            biomarkers = retriever.get_ad_biomarkers(disease_id, limit=200)
+            if biomarker_ids:
+                biomarkers = retriever.get_biomarkers_by_ids(biomarker_ids, disease_id)
+                strategy_name = "AD_BIOMARKERS_TARGETED" if biomarkers else "AD_BIOMARKERS_V2"
+                if not biomarkers:
+                    biomarkers = retriever.get_ad_biomarkers(disease_id, limit=200)
+            else:
+                biomarkers = retriever.get_ad_biomarkers(disease_id, limit=200)
+                strategy_name = "AD_BIOMARKERS_V2"
             context = gtxt.build_biomarker_direction_context(
                 retriever, disease_id, biomarkers=biomarkers
             )
-            raw_data = gtxt.build_biomarker_evidence(biomarkers)
+            raw_data = gtxt.build_biomarker_evidence(
+                biomarkers, direction_filter=direction_hint
+            )
         else:
+            strategy_name = "AD_BIOMARKERS_V2"
             context = gtxt.build_biomarker_direction_context(retriever)
 
     elif intent.type is IntentType.PHENOTYPE:
-        # Fetch: phenotypes only (up to 100 rows)
+        # Phenotype nodes are not linked by the entity linker in the current graph,
+        # so we always use bulk retrieval here.
         strategy_name = "AD_PHENOTYPES_V2"
         if disease_id:
             phenotypes = retriever.get_ad_phenotypes(disease_id, limit=100)
@@ -126,36 +181,56 @@ def build_context_for_question(
             context = gtxt.build_phenotype_context(retriever)
 
     elif intent.type is IntentType.DRUG_TRIAL:
-        # Fetch: drugs only — trial questions don’t need pathway details.
-        # Drug pathways are still included in raw_data for the frontend evidence panel.
-        strategy_name = "AD_DRUGS_V2"
         if disease_id:
-            drugs = retriever.get_ad_drugs(disease_id, limit=150)
-            drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=200)
+            if drug_ids:
+                drugs = retriever.get_drugs_by_ids(drug_ids, disease_id)
+                drug_pws = retriever.get_drug_pathways_by_drug_ids(drug_ids, disease_id)
+                strategy_name = "AD_DRUGS_TARGETED" if drugs else "AD_DRUGS_V2"
+                if not drugs:
+                    drugs = retriever.get_ad_drugs(disease_id, limit=400)
+                    drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=400)
+            else:
+                drugs = retriever.get_ad_drugs(disease_id, limit=400)
+                drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=400)
+                strategy_name = "AD_DRUGS_V2"
             context = gtxt.build_drug_only_context(
                 retriever, disease_id, drugs=drugs
             )
-            raw_data = gtxt.build_drug_evidence(drugs, drug_pws)
+            raw_data = gtxt.build_drug_evidence(
+                drugs, drug_pws, status_hint=status_hint
+            )
         else:
+            strategy_name = "AD_DRUGS_V2"
             context = gtxt.build_drug_only_context(retriever)
 
     elif intent.type is IntentType.PATHWAY:
-        # Fetch: drug-pathway edges only — pathway questions don’t need trial phases.
-        strategy_name = "AD_PATHWAYS_V2"
+        # Pathway questions are drug-anchored; use drug_ids if available.
         if disease_id:
-            drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=250)
+            if drug_ids:
+                drug_pws = retriever.get_drug_pathways_by_drug_ids(drug_ids, disease_id)
+                strategy_name = "AD_PATHWAYS_TARGETED" if drug_pws else "AD_PATHWAYS_V2"
+                if not drug_pws:
+                    drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=250)
+            else:
+                drug_pws = retriever.get_ad_drug_pathways(disease_id, limit=250)
+                strategy_name = "AD_PATHWAYS_V2"
             context = gtxt.build_pathway_focused_context(
                 retriever, disease_id, drug_pathways=drug_pws
             )
             raw_data = gtxt.build_pathway_evidence(drug_pws)
         else:
+            strategy_name = "AD_PATHWAYS_V2"
             context = gtxt.build_pathway_focused_context(retriever)
 
     elif intent.type is IntentType.GENE_PROTEIN:
-        # Fetch: genes/proteins only — gene questions don’t need biomarker fluids
-        # or drug trial phases.
-        strategy_name = "AD_GENES_V2"
-        genes_proteins = retriever.get_genes_and_proteins(limit=50)
+        if gene_ids:
+            genes_proteins = retriever.get_proteins_by_ids(gene_ids, limit=100)
+            strategy_name = "AD_GENES_TARGETED" if genes_proteins else "AD_GENES_V2"
+            if not genes_proteins:
+                genes_proteins = retriever.get_genes_and_proteins(limit=50)
+        else:
+            genes_proteins = retriever.get_genes_and_proteins(limit=50)
+            strategy_name = "AD_GENES_V2"
         context = gtxt.build_gene_protein_context(retriever, genes_proteins=genes_proteins)
         raw_data = gtxt.build_gene_evidence(genes_proteins)
 
@@ -169,10 +244,10 @@ def build_context_for_question(
         # composite context stays within ~6,000 tokens.
         strategy_name = "AD_GENERAL_V2"
         if disease_id:
-            biomarkers    = retriever.get_ad_biomarkers(disease_id,    limit=50)
-            drugs         = retriever.get_ad_drugs(disease_id,         limit=50)
-            phenotypes    = retriever.get_ad_phenotypes(disease_id,    limit=50)
-            drug_pws      = retriever.get_ad_drug_pathways(disease_id, limit=75)
+            biomarkers     = retriever.get_ad_biomarkers(disease_id,    limit=50)
+            drugs          = retriever.get_ad_drugs(disease_id,         limit=100)
+            phenotypes     = retriever.get_ad_phenotypes(disease_id,    limit=50)
+            drug_pws       = retriever.get_ad_drug_pathways(disease_id, limit=100)
             genes_proteins = retriever.get_genes_and_proteins(          limit=15)
             context = gtxt.build_general_ad_context(
                 retriever,
@@ -197,8 +272,13 @@ def build_context_for_question(
         "intent_type": intent.type.name,
         "intent_notes": intent.notes,
         "strategy": strategy_name,
+        "entity_matches": str(len(entity_matches)),
     }
 
+    if direction_hint:
+        debug["direction_hint"] = direction_hint
+    if status_hint:
+        debug["status_hint"] = status_hint
     if intent.focus_entities:
         debug["focus_entities"] = ", ".join(intent.focus_entities)
 

@@ -7,6 +7,7 @@ export function BiomarkerView({ data }) {
   const fluids = Object.keys(data.biomarkers || {});
   const [fluid, setFluid] = useState(fluids[0] || "CSF");
   const current = data.biomarkers?.[fluid] || { increased: [], decreased: [] };
+  const directionHint = data.direction_hint; // 'increased' | 'decreased' | null
   const maxEffect = Math.max(
     ...[...current.increased, ...current.decreased].map(b => Math.abs(b.effect)),
     1
@@ -50,6 +51,12 @@ export function BiomarkerView({ data }) {
         ))}
       </div>
 
+      {directionHint && (
+        <div className="ev-meta" style={{ marginBottom: 10, fontStyle: "italic" }}>
+          Showing biomarkers {directionHint} in AD
+        </div>
+      )}
+
       {current.increased.length > 0 && (
         <>
           <div className="ev-label">Increased in AD <span>({current.increased.length})</span></div>
@@ -82,8 +89,9 @@ export function DrugView({ data }) {
   );
   const counts = statusOrder.map(s => ({ s, n: allDrugs.filter(d => d.status === s).length }));
 
-  // Default to the first status that has drugs
-  const firstWithDrugs = counts.find(c => c.n > 0)?.s || statusOrder[0];
+  // Use backend status_hint if present; otherwise default to first status with drugs.
+  const hinted = data.status_hint && counts.find(c => c.s === data.status_hint && c.n > 0)?.s;
+  const firstWithDrugs = hinted || counts.find(c => c.n > 0)?.s || statusOrder[0];
   const [activeStatus, setActiveStatus] = useState(firstWithDrugs);
   const [expanded, setExpanded] = useState(null);
 

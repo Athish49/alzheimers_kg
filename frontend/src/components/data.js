@@ -36,7 +36,7 @@ export const categories = [
     blurb: "GO IDs, action types",
     prompts: [
       "Which biological pathways does lecanemab affect?",
-      "What is the role of amyloid precursor processing in AD?",
+      "Which pathways are disrupted by amyloid accumulation in AD?",
     ],
   },
   {

@@ -159,6 +159,7 @@ class LLMClient:
         question: str,
         context: str,
         *,
+        history: Optional[List[Dict[str, str]]] = None,
         system_prompt: Optional[str] = None,
         temperature: Optional[float] = None,
         max_tokens: Optional[int] = 512,
@@ -168,6 +169,9 @@ class LLMClient:
 
         The context is truncated to _MAX_CONTEXT_CHARS before sending to keep
         token usage and cost within a reasonable bound.
+
+        history: prior turns as [{"role": "user"|"assistant", "content": "..."}].
+            Prepended before the current message so the model has conversation context.
         """
         if system_prompt is None:
             system_prompt = _DEFAULT_SYSTEM_PROMPT
@@ -187,7 +191,8 @@ class LLMClient:
             f"Question: {question}\n\n"
             "Answer using the context above."
         )
-        messages = [{"role": "user", "content": user_content}]
+        messages = list(history or [])
+        messages.append({"role": "user", "content": user_content})
         return self.chat(
             messages,
             system_prompt=system_prompt,

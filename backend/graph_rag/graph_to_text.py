@@ -918,12 +918,25 @@ def build_general_ad_context(
 # ---------------------------------------------------------------------------
 
 
-def build_biomarker_evidence(biomarkers: List[Dict[str, object]]) -> Dict:
-    """Return structured biomarker evidence grouped by fluid then direction."""
+def build_biomarker_evidence(
+    biomarkers: List[Dict[str, object]],
+    *,
+    direction_filter: Optional[str] = None,
+) -> Dict:
+    """Return structured biomarker evidence grouped by fluid then direction.
+
+    direction_filter: if 'increased' or 'decreased', only rows matching that
+    direction are included; the opposite bucket stays empty so the frontend's
+    existing ``length > 0`` guards hide it automatically.
+    """
     result: Dict[str, Dict[str, list]] = {}
     for row in biomarkers:
         fluid = _fluid_bucket(_safe_str(row.get("fluid")))
         direction = _normalize_direction(_safe_str(row.get("direction")))
+
+        if direction_filter and direction != direction_filter:
+            continue
+
         name = (
             _safe_str(row.get("biomarker_label"))
             or _safe_str(row.get("analyte"))
@@ -959,14 +972,20 @@ def build_biomarker_evidence(biomarkers: List[Dict[str, object]]) -> Dict:
         if name not in existing_names:
             result[fluid][bucket].append(entry)
 
-    return {"biomarkers": result}
+    return {"biomarkers": result, "direction_hint": direction_filter}
 
 
 def build_drug_evidence(
     drugs: List[Dict[str, object]],
     drug_pathways: List[Dict[str, object]],
+    *,
+    status_hint: Optional[str] = None,
 ) -> Dict:
-    """Return structured drug evidence with embedded pathway targets."""
+    """Return structured drug evidence with embedded pathway targets.
+
+    status_hint: if set (e.g. 'Approved', 'Phase 3'), included in the result
+    dict so the frontend can pre-select the matching tab.
+    """
     # Index pathways by drug label
     pw_by_drug: Dict[str, list] = defaultdict(list)
     pw_seen: Dict[str, set] = defaultdict(set)
@@ -1039,7 +1058,7 @@ def build_drug_evidence(
             "pathways": pw_by_drug.get(name, []),
         })
 
-    return {"drugs": drug_list}
+    return {"drugs": drug_list, "status_hint": status_hint}
 
 
 def build_pathway_evidence(drug_pathways: List[Dict[str, object]]) -> Dict:

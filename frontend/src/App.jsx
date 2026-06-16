@@ -10,6 +10,7 @@ import { queryAnswer } from './api';
 function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingPhase, setLoadingPhase] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
@@ -41,7 +42,7 @@ function App() {
     const t2 = setTimeout(() => setLoadingPhase(2), 1100);
 
     try {
-      const resp = await queryAnswer(q, { signal: abortController.signal });
+      const resp = await queryAnswer(q, { history, signal: abortController.signal });
       clearTimeout(t1);
       clearTimeout(t2);
 
@@ -58,6 +59,11 @@ function App() {
         followups: generateFollowups(resp.intent_type),
       };
       setMessages(prev => [...prev, aMsg]);
+      setHistory(prev => [
+        ...prev,
+        { role: "user", content: q },
+        { role: "assistant", content: resp.answer },
+      ]);
       setLoading(false);
 
       if (resp.evidence) {
@@ -95,6 +101,7 @@ function App() {
 
   const newSession = () => {
     setMessages([]);
+    setHistory([]);
     setHasStarted(false);
     setPanelOpen(false);
     setPinnedMessageId(null);
@@ -173,6 +180,7 @@ function App() {
         {hasStarted && panelOpen && (
           <aside className="ctx-col">
             <ContextPanel
+              key={pinnedMessageId}
               message={pinnedMessage}
               pinnedQuestion={pinnedMessage?.question || ""}
               onClose={() => setPanelOpen(false)}

@@ -1,9 +1,10 @@
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-export async function queryAnswer(question, { temperature, maxTokens, signal } = {}) {
+export async function queryAnswer(question, { temperature, maxTokens, history, signal } = {}) {
   const body = {
     question,
     return_context: true,
+    history: history || [],
   };
   if (temperature !== undefined) body.temperature = temperature;
   if (maxTokens !== undefined) body.max_tokens = maxTokens;
