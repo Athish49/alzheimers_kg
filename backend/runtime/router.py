@@ -5,11 +5,12 @@ Top-level FastAPI router for the enterprise runtime plane.
 Mounted on the existing app in backend/main.py.
 
 Routes added per phase:
-  GET  /runtime/health         Phase 0.1
-  GET  /runtime/personas       Phase 2.1 — list selectable personas
+  GET  /runtime/health                Phase 0.1
+  GET  /runtime/personas              Phase 2.1 — list selectable personas
   POST /runtime/personas/{id}/select  Phase 2.1 — mint JWT + clone session
-  POST /runtime/break-glass    Phase 2.3 — write break-glass grant
-  GET  /runtime/audit          Phase 2.4 — read audit log for session
+  POST /runtime/break-glass           Phase 2.3 — write break-glass grant
+  GET  /runtime/audit                 Phase 2.4 — read audit log for session
+  POST /runtime/orchestrate           Phase 4   — secure clinical Q&A loop
 """
 
 from __future__ import annotations
@@ -19,7 +20,7 @@ import uuid
 from typing import Annotated, Optional
 
 import jwt as pyjwt
-from fastapi import APIRouter, Depends, Header, HTTPException, status
+from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/runtime", tags=["runtime"])
@@ -247,3 +248,77 @@ def get_audit_log(claims: dict = Depends(_verify)) -> list[AuditRow]:
         ]
     finally:
         conn.close()
+
+
+# ---------------------------------------------------------------------------
+# Phase 4 — Orchestrate: secure clinical Q&A loop
+# ---------------------------------------------------------------------------
+
+class OrchestrateRequest(BaseModel):
+    question:   str
+    patient_id: Optional[str] = None   # the pinned chart patient
+
+
+class OrchestrateResponse(BaseModel):
+    answer:             str
+    patient_evidence:   list[str]
+    knowledge_evidence: list[dict]
+    abstained_on:       list[str]
+    session_id:         str
+
+
+@router.post("/orchestrate", response_model=OrchestrateResponse)
+def orchestrate_endpoint(
+    body: OrchestrateRequest,
+    request: Request,
+    claims: dict = Depends(_verify),
+) -> OrchestrateResponse:
+    """
+    Single entry point for the secure clinical Q&A loop.
+
+    Checks LLM usage caps, runs the orchestrator tool-call loop, calls the
+    join layer for synthesis, records the cap unit, and returns the answer
+    with evidence and abstained_on fields.
+
+    Non-LLM routes (/personas, /audit, /break-glass) never call this endpoint
+    and are unaffected by cap state.
+    """
+    from runtime.gateway import CapExceededError, check_cap, record_call
+    from runtime.join import synthesize
+    from runtime.orchestrator.agent import orchestrate
+
+    session_id = claims["session_id"]
+
+    # Prefer X-Forwarded-For (set by Render's proxy) for per-IP cap accuracy.
+    forwarded = request.headers.get("x-forwarded-for", "")
+    ip = forwarded.split(",")[0].strip() if forwarded else (
+        request.client.host if request.client else None
+    )
+
+    try:
+        check_cap(session_id, ip)
+    except CapExceededError as exc:
+        raise HTTPException(status_code=429, detail=str(exc))
+
+    bundle = orchestrate(
+        question=body.question,
+        claims=claims,
+        pinned_patient_id=body.patient_id,
+        session_id=session_id,
+    )
+
+    result = synthesize(
+        question=body.question,
+        patient_bundle=bundle["patient_bundle"],
+        knowledge_results=bundle["knowledge_results"],
+    )
+
+    record_call(session_id, ip)
+
+    return OrchestrateResponse(
+        answer=result["answer"],
+        patient_evidence=result["patient_evidence"],
+        knowledge_evidence=result["knowledge_evidence"],
+        abstained_on=result["abstained_on"],
+        session_id=session_id,
+    )
