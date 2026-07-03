@@ -12,8 +12,11 @@ Render / Docker:
 
 from __future__ import annotations
 
+import logging
 import os
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
+from typing import AsyncGenerator
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,6 +27,27 @@ from typing import Optional, Dict, Any
 from graph_rag.pipeline import get_pipeline, QuestionRequest, AnswerResponse
 from graph_rag.llm_client import LLMUnavailableError
 from runtime.router import router as runtime_router
+
+logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Lifespan: runtime plane startup on boot
+# ---------------------------------------------------------------------------
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    """Run the runtime startup sequence once on boot, then yield."""
+    try:
+        from runtime.seed import startup_reset
+        startup_reset()
+    except Exception as exc:
+        logger.warning(
+            "Runtime startup failed (DATABASE_URL missing or Neon unreachable): %s. "
+            "Existing /answer endpoint is unaffected.",
+            exc,
+        )
+    yield
 
 # ---------------------------------------------------------------------------
 # App setup
@@ -36,6 +60,7 @@ app = FastAPI(
     title="Alzheimer Graph RAG API",
     description="Answer Alzheimer-related questions using the knowledge graph + LLM.",
     version=VERSION,
+    lifespan=lifespan,
 )
 
 app.add_middleware(
