@@ -25,3 +25,6 @@ frontend/dist/
 
 # Mac system files
 .DS_Store
+
+# Claude files
+.claude/

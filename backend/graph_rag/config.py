@@ -220,9 +220,48 @@ TOPK_DRUGS:            int  = int(_env("GRAPH_RAG_TOPK_DRUGS",      "50"))
 TOPK_PATHWAYS:         int  = int(_env("GRAPH_RAG_TOPK_PATHWAYS",   "50"))
 TOPK_GENES:            int  = int(_env("GRAPH_RAG_TOPK_GENES",      "50"))
 
+# ---------------------------------------------------------------------------
+# Runtime plane config (Neon Postgres, JWT, rate/cap settings)
+# New additions — existing Neo4j/LLM config above is unchanged.
+# ---------------------------------------------------------------------------
+
+DATABASE_URL: str = _env("DATABASE_URL", "")
+JWT_SECRET:   str = _env("JWT_SECRET",   "")
+JWT_EXPIRY_MINUTES: int = int(_env("JWT_EXPIRY_MINUTES", "30"))
+
+# Rate / cap settings (enforced in runtime/gateway/)
+RATE_LIMIT_PER_MINUTE:     int = int(_env("RATE_LIMIT_PER_MINUTE",     "20"))
+CAP_LLM_PER_SESSION:       int = int(_env("CAP_LLM_PER_SESSION",       "10"))
+CAP_LLM_PER_IP_PER_HOUR:   int = int(_env("CAP_LLM_PER_IP_PER_HOUR",  "30"))
+CAP_LLM_GLOBAL_PER_DAY:    int = int(_env("CAP_LLM_GLOBAL_PER_DAY",   "200"))
+
+
+def _check_runtime_config() -> None:
+    """
+    Fail fast with a clear message if runtime-plane secrets are absent in cloud.
+    Skipped in local environment to allow graph-RAG-only development.
+    """
+    if ENVIRONMENT != "cloud":
+        return
+    missing = []
+    if not DATABASE_URL:
+        missing.append("DATABASE_URL")
+    if not JWT_SECRET:
+        missing.append("JWT_SECRET")
+    if missing:
+        logger.warning(
+            "Runtime plane config missing: %s. "
+            "Set these env vars in Render for the full enterprise demo. "
+            "Graph-RAG /answer endpoint will still work.",
+            ", ".join(missing),
+        )
+
+
+_check_runtime_config()
+
 
 # ---------------------------------------------------------------------------
-# Aggregate config dataclass (same public interface as before)
+# Aggregate config dataclass (same public interface as before + new fields)
 # ---------------------------------------------------------------------------
 
 @dataclass(frozen=True)
@@ -261,13 +300,24 @@ class AppConfig:
     max_hops:      int = DEFAULT_MAX_HOPS
     max_edges:     int = DEFAULT_MAX_EDGES
 
+    # Runtime plane — Postgres + JWT + caps
+    database_url:             str = DATABASE_URL
+    jwt_secret:               str = JWT_SECRET
+    jwt_expiry_minutes:       int = JWT_EXPIRY_MINUTES
+    rate_limit_per_minute:    int = RATE_LIMIT_PER_MINUTE
+    cap_llm_per_session:      int = CAP_LLM_PER_SESSION
+    cap_llm_per_ip_per_hour:  int = CAP_LLM_PER_IP_PER_HOUR
+    cap_llm_global_per_day:   int = CAP_LLM_GLOBAL_PER_DAY
+
 
 CONFIG = AppConfig()
 
 logger.info(
-    "Config loaded | environment=%s | llm_provider=%s | model=%s | neo4j=%s",
+    "Config loaded | environment=%s | llm_provider=%s | model=%s | neo4j=%s | db=%s | jwt=%s",
     CONFIG.environment,
     CONFIG.llm_provider,
     CONFIG.llm_model,
     CONFIG.neo4j_uri,
+    "set" if CONFIG.database_url else "unset",
+    "set" if CONFIG.jwt_secret else "unset",
 )

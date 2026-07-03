@@ -23,6 +23,7 @@ from typing import Optional, Dict, Any
 
 from graph_rag.pipeline import get_pipeline, QuestionRequest, AnswerResponse
 from graph_rag.llm_client import LLMUnavailableError
+from runtime.router import router as runtime_router
 
 # ---------------------------------------------------------------------------
 # App setup
@@ -44,6 +45,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount runtime plane routers (enterprise security plane — additive, never replaces existing routes)
+app.include_router(runtime_router)
 
 
 # ---------------------------------------------------------------------------
