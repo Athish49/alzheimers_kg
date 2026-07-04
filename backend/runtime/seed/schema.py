@@ -112,6 +112,7 @@ CREATE TABLE IF NOT EXISTS patients (
     insurance_id text,
     department   text,
     care_team    text,
+    headline     text,
     PRIMARY KEY (session_id, patient_id)
 );
 
@@ -223,7 +224,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON lab_results         TO app_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE ON genetic_markers     TO app_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE ON clinical_notes      TO app_runtime;
 
--- audit_log: INSERT + SELECT ONLY — the append-only invariant
+-- audit_log: INSERT + SELECT ONLY — the append-only invariant.
+-- Explicit REVOKE before GRANT so any previously accumulated permissions
+-- (UPDATE, DELETE) are stripped on every boot, not just newly added grants.
+REVOKE ALL ON audit_log FROM app_runtime;
 GRANT SELECT, INSERT ON audit_log TO app_runtime;
 
 -- Identity column sequences
@@ -333,6 +337,12 @@ CREATE POLICY rls_break_glass ON break_glass_grants FOR ALL TO app_runtime
 """
 
 
+_MIGRATIONS = """
+-- Column migrations (idempotent via IF NOT EXISTS)
+ALTER TABLE patients ADD COLUMN IF NOT EXISTS headline text;
+"""
+
+
 def apply_schema() -> None:
     """
     Create all tables, the app_runtime role, grants, and RLS policies.
@@ -345,6 +355,7 @@ def apply_schema() -> None:
         ("clinical tables",  _CLINICAL_TABLES),
         ("role + grants",    _ROLE_AND_GRANTS),
         ("RLS policies",     _RLS_POLICIES),
+        ("migrations",       _MIGRATIONS),
     ]
     with transaction() as conn:
         cur = conn.cursor()

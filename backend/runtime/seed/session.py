@@ -39,7 +39,7 @@ _SESSION_TABLES = [
 _TABLE_COLUMNS: dict[str, list[str]] = {
     "patients": [
         "patient_id", "name", "dob", "sex", "mrn",
-        "address", "insurance_id", "department", "care_team",
+        "address", "insurance_id", "department", "care_team", "headline",
     ],
     "patient_assignments": [
         "user_id", "patient_id", "relationship", "care_team",

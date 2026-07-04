@@ -57,20 +57,27 @@ def mint_token(
     return jwt.encode(payload, CONFIG.jwt_secret, algorithm=ALGORITHM)
 
 
+_REQUIRED_CLAIMS = {"sub", "role", "session_id", "scope"}
+
+
 def verify_token(token: str) -> dict:
     """
     Decode and verify the token. Raises jwt.InvalidTokenError on any failure
-    (expired, tampered signature, wrong audience, etc.).
+    (expired, tampered signature, wrong audience, missing required claims, etc.).
     Returns the decoded claims dict.
     """
     if not CONFIG.jwt_secret:
         raise RuntimeError("JWT_SECRET is not configured.")
-    return jwt.decode(
+    claims = jwt.decode(
         token,
         CONFIG.jwt_secret,
         algorithms=[ALGORITHM],
         audience=AUDIENCE,
     )
+    missing = _REQUIRED_CLAIMS - claims.keys()
+    if missing:
+        raise jwt.exceptions.MissingRequiredClaimError(next(iter(missing)))
+    return claims
 
 
 def require_scope(claims: dict, required: str) -> None:

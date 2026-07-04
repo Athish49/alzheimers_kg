@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons';
 import '../styles/home.css';
+import '../styles/enterprise.css';
 
 /* ─── Pre-canned demo data ─── */
 
@@ -462,6 +463,7 @@ export function HomePage() {
             <a className="nav-link" href="#who">Who it&apos;s for</a>
           </nav>
           <div style={{ display: 'flex', gap: 8 }}>
+            <Link className="btn btn-outline" to="/demo">Enterprise demo</Link>
             <Link className="btn btn-primary" to="/app">Open Atlas &rarr;</Link>
           </div>
         </div>
@@ -811,6 +813,92 @@ export function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Enterprise layer */}
+      <section className="band" id="enterprise">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="section-label">Enterprise layer</div>
+            <h2>The same graph, wrapped in a secure clinical runtime.</h2>
+            <p className="section-lede">
+              Atlas ships with a second layer built on top of the knowledge graph: deterministic,
+              server-side access control, role-based field minimization, row-level security,
+              audit logging, and break-glass — all enforced before any data reaches the LLM.
+            </p>
+          </div>
+
+          <div className="problem-grid">
+            <div className="prob-card">
+              <div className="prob-num">01</div>
+              <h3 className="prob-title">The LLM never holds a credential</h3>
+              <p className="prob-body">
+                Every access decision is deterministic server-side code. The model proposes
+                which resources to fetch; a trusted shim re-derives authorization from role
+                and patient assignment, and the policy engine enforces the final grant.
+              </p>
+            </div>
+            <div className="prob-card">
+              <div className="prob-num">02</div>
+              <h3 className="prob-title">Denied fields can&apos;t leak through the answer</h3>
+              <p className="prob-body">
+                Denied resources are excluded from the synthesis bundle before the LLM is called.
+                A nurse asking about genetic markers gets the same answer as one with no patient
+                selected — because the data never enters the prompt.
+              </p>
+            </div>
+            <div className="prob-card">
+              <div className="prob-num">03</div>
+              <h3 className="prob-title">Every access is audited, break-glass is flagged</h3>
+              <p className="prob-body">
+                Every permit and deny is appended to an immutable audit log visible in the workspace.
+                Emergency access (break-glass) requires a clinical reason, is time-limited to 15 minutes,
+                and is flagged in the audit panel.
+              </p>
+            </div>
+          </div>
+
+          {/* Honesty table */}
+          <div style={{ marginTop: 36 }}>
+            <div className="section-label" style={{ marginBottom: 14 }}>What&apos;s real vs. represented</div>
+            <div className="compare-table">
+              <div className="compare-grid" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                <div className="compare-feat-head"></div>
+                <div className="compare-col-head compare-atlas-head">Real</div>
+                <div className="compare-col-head">Represented / stubbed</div>
+                {[
+                  { feat: 'JWT auth (HS256, 30-min expiry)',             real: 'yes', stub: 'no' },
+                  { feat: 'Role-based access control (PDP)',             real: 'yes', stub: 'no' },
+                  { feat: 'Postgres RLS (two independent controls)',     real: 'yes', stub: 'no' },
+                  { feat: 'Audit log (append-only)',                     real: 'yes', stub: 'no' },
+                  { feat: 'Break-glass (time-boxed, reason-required)',   real: 'yes', stub: 'no' },
+                  { feat: 'LLM synthesis with injection-resistant prompt', real: 'yes', stub: 'no' },
+                  { feat: 'Knowledge graph (Neo4j Aura)',                real: 'yes', stub: 'no' },
+                  { feat: 'MFA / IdP / SSO',                            real: 'no',  stub: 'yes' },
+                  { feat: 'Multi-tenant data isolation',                 real: 'no',  stub: 'yes' },
+                  { feat: 'MCP wire protocol',                          real: 'no',  stub: 'yes' },
+                  { feat: 'WAF / DDoS protection',                      real: 'no',  stub: 'yes' },
+                ].map((row, i) => (
+                  <React.Fragment key={i}>
+                    <div className="compare-feat">{row.feat}</div>
+                    <div className={`compare-cell compare-atlas-cell chk-${row.real}`}>{CHK[row.real]}</div>
+                    <div className={`compare-cell chk-${row.stub}`}>{CHK[row.stub]}</div>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+            <p className="compare-legend">&#10003; yes &nbsp;&middot;&nbsp; - no</p>
+          </div>
+
+          <div style={{ marginTop: 36, display: 'flex', justifyContent: 'center' }}>
+            <Link className="btn btn-primary" to="/demo" style={{ padding: '13px 22px', fontSize: 15 }}>
+              Try the live enterprise demo &rarr;
+            </Link>
+          </div>
+          <p style={{ textAlign: 'center', marginTop: 12, fontSize: 12.5, color: 'var(--fg-subtle)' }}>
+            Synthetic data only · Sessions reset on server restart · All patient records are fictional
+          </p>
         </div>
       </section>
 

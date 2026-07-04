@@ -11,6 +11,8 @@ Routes added per phase:
   POST /runtime/break-glass           Phase 2.3 — write break-glass grant
   GET  /runtime/audit                 Phase 2.4 — read audit log for session
   POST /runtime/orchestrate           Phase 4   — secure clinical Q&A loop
+  GET  /runtime/patients              Phase 5   — list patients assigned to caller
+  GET  /runtime/chart/{patient_id}    Phase 5   — fetch permitted chart resources (no LLM)
 """
 
 from __future__ import annotations
@@ -40,6 +42,24 @@ def _verify(authorization: Annotated[str, Header()] = "") -> dict:
         return verify_token(token)
     except pyjwt.InvalidTokenError as exc:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(exc))
+
+
+def _verify_session_owner(session_id: str, user_id: str, conn) -> None:
+    """
+    Raise 403 if the session does not belong to the authenticated user.
+    Also implicitly rejects synthetic session IDs (e.g. 'TEMPLATE') that
+    are never inserted into the sessions table.
+    """
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT 1 FROM sessions WHERE session_id = %s AND user_id = %s",
+        (session_id, user_id),
+    )
+    if not cur.fetchone():
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Session does not belong to the authenticated user.",
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -169,14 +189,40 @@ def request_break_glass(
     conn = get_conn()
     try:
         cur = conn.cursor()
+
+        # B6: Validate that patient_id exists in this session before granting.
+        cur.execute(
+            "SELECT 1 FROM patients WHERE patient_id = %s AND session_id = %s",
+            (body.patient_id, session_id),
+        )
+        if not cur.fetchone():
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Patient '{body.patient_id}' not found in this session.",
+            )
+
+        # B5: Upsert semantics — extend existing active grant rather than stacking.
         cur.execute(
             """
-            INSERT INTO break_glass_grants
-              (session_id, user_id, patient_id, reason, expires_at)
-            VALUES (%s, %s, %s, %s, now() + interval '15 minutes')
+            UPDATE break_glass_grants
+               SET reason     = %s,
+                   expires_at = now() + interval '15 minutes'
+             WHERE session_id = %s
+               AND user_id    = %s
+               AND patient_id = %s
+               AND expires_at > now()
             """,
-            (session_id, user_id, body.patient_id, body.reason.strip()),
+            (body.reason.strip(), session_id, user_id, body.patient_id),
         )
+        if cur.rowcount == 0:
+            cur.execute(
+                """
+                INSERT INTO break_glass_grants
+                  (session_id, user_id, patient_id, reason, expires_at)
+                VALUES (%s, %s, %s, %s, now() + interval '15 minutes')
+                """,
+                (session_id, user_id, body.patient_id, body.reason.strip()),
+            )
         conn.commit()
 
         # Audit the break-glass request itself
@@ -223,20 +269,33 @@ def get_audit_log(claims: dict = Depends(_verify)) -> list[AuditRow]:
     from runtime.seed.db import get_conn
 
     session_id = claims["session_id"]
+    user_id    = claims["sub"]
     conn = get_conn()
     try:
         cur = conn.cursor()
-        # Read as superuser but filter to session (RLS would do this for app_runtime)
+        # Verify session ownership before returning audit rows. A forged
+        # session_id in the JWT must not allow reading another user's audit log.
+        cur.execute(
+            "SELECT 1 FROM sessions WHERE session_id = %s AND user_id = %s",
+            (session_id, user_id),
+        )
+        if not cur.fetchone():
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Session does not belong to the authenticated user.",
+            )
+
         cur.execute(
             """
             SELECT id, ts, user_id, role_id, action, resource,
                    patient_id, effect, reason, break_glass, fields_accessed
             FROM   audit_log
             WHERE  session_id = %s
+              AND  user_id    = %s
             ORDER  BY id DESC
             LIMIT  200
             """,
-            (session_id,),
+            (session_id, user_id),
         )
         return [
             AuditRow(
@@ -286,8 +345,16 @@ def orchestrate_endpoint(
     from runtime.gateway import CapExceededError, check_cap, record_call
     from runtime.join import synthesize
     from runtime.orchestrator.agent import orchestrate
+    from runtime.seed.db import get_conn
 
     session_id = claims["session_id"]
+    user_id    = claims["sub"]
+
+    conn = get_conn()
+    try:
+        _verify_session_owner(session_id, user_id, conn)
+    finally:
+        conn.close()
 
     # Prefer X-Forwarded-For (set by Render's proxy) for per-IP cap accuracy.
     forwarded = request.headers.get("x-forwarded-for", "")
@@ -300,18 +367,23 @@ def orchestrate_endpoint(
     except CapExceededError as exc:
         raise HTTPException(status_code=429, detail=str(exc))
 
-    bundle = orchestrate(
-        question=body.question,
-        claims=claims,
-        pinned_patient_id=body.patient_id,
-        session_id=session_id,
-    )
+    try:
+        bundle = orchestrate(
+            question=body.question,
+            claims=claims,
+            pinned_patient_id=body.patient_id,
+            session_id=session_id,
+        )
 
-    result = synthesize(
-        question=body.question,
-        patient_bundle=bundle["patient_bundle"],
-        knowledge_results=bundle["knowledge_results"],
-    )
+        result = synthesize(
+            question=body.question,
+            patient_bundle=bundle["patient_bundle"],
+            knowledge_results=bundle["knowledge_results"],
+        )
+    except Exception:
+        import logging
+        logging.getLogger(__name__).exception("orchestrate_endpoint unhandled error")
+        raise HTTPException(status_code=503, detail="Orchestration temporarily unavailable.")
 
     record_call(session_id, ip)
 
@@ -322,3 +394,102 @@ def orchestrate_endpoint(
         abstained_on=result["abstained_on"],
         session_id=session_id,
     )
+
+
+# ---------------------------------------------------------------------------
+# Phase 5 — Patient list and chart endpoints (no LLM)
+# ---------------------------------------------------------------------------
+
+class PatientSummary(BaseModel):
+    patient_id: str
+    name:       str
+    dob:        str
+    sex:        str
+    mrn:        str
+    headline:   str
+
+
+@router.get("/patients", response_model=list[PatientSummary])
+def list_patients(claims: dict = Depends(_verify)) -> list[PatientSummary]:
+    """
+    Return the patients assigned to the authenticated user for this session.
+    Assignment is read from the session-cloned patient_assignments table.
+    """
+    from runtime.seed.db import get_conn
+
+    session_id = claims["session_id"]
+    user_id    = claims["sub"]
+    conn = get_conn()
+    try:
+        _verify_session_owner(session_id, user_id, conn)
+        cur = conn.cursor()
+        cur.execute(
+            """
+            SELECT p.patient_id, p.name, p.dob::text, p.sex, p.mrn,
+                   COALESCE(p.headline, '') AS headline
+            FROM   patients p
+            JOIN   patient_assignments pa
+                   ON  pa.patient_id  = p.patient_id
+                   AND pa.session_id  = p.session_id
+            WHERE  pa.session_id = %s
+              AND  pa.user_id    = %s
+            ORDER  BY p.patient_id
+            """,
+            (session_id, user_id),
+        )
+        return [
+            PatientSummary(
+                patient_id=r[0], name=r[1], dob=r[2], sex=r[3],
+                mrn=r[4], headline=r[5],
+            )
+            for r in cur.fetchall()
+        ]
+    finally:
+        conn.close()
+
+
+class ChartResponse(BaseModel):
+    patient_id: Optional[str]   # None for research_analyst (deidentified path)
+    resources:  dict
+
+
+@router.get("/chart/{patient_id}", response_model=ChartResponse)
+def get_chart(
+    patient_id: str,
+    claims: dict = Depends(_verify),
+) -> ChartResponse:
+    """
+    Fetch all chart resources for the given patient using the PDP + Patient service.
+    Returns granted resources with their fields and denied resources with their reason.
+    Does not call the LLM.
+    """
+    from runtime.orchestrator.tool_client import ToolClient
+    from runtime.seed.db import get_conn
+
+    ALL_RESOURCES = [
+        "demographics", "conditions", "vitals", "medications",
+        "lab_results", "genetic_markers", "clinical_notes",
+    ]
+
+    session_id = claims["session_id"]
+    user_id    = claims["sub"]
+    role_id    = claims["role"]
+
+    conn = get_conn()
+    try:
+        _verify_session_owner(session_id, user_id, conn)
+    finally:
+        conn.close()
+
+    client = ToolClient(
+        claims=claims,
+        pinned_patient_id=patient_id,
+        session_id=session_id,
+    )
+    result = client.call("get_patient_record", {"resources": ALL_RESOURCES})
+    resources = result.get("resources", {}) if result.get("ok") else {}
+
+    # Omit patient_id for research_analyst — the stable ID is itself an identifier
+    # even when all resource fields are deidentified.
+    visible_patient_id = None if role_id == "research_analyst" else patient_id
+    return ChartResponse(patient_id=visible_patient_id, resources=resources)

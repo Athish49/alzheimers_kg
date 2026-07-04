@@ -57,4 +57,41 @@ export const Icon = {
       <path d="M7 5.5V8M7 10V10.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
     </svg>
   ),
+  Lock: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <rect x="2.5" y="6" width="9" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <circle cx="7" cy="9.5" r="1" fill="currentColor"/>
+    </svg>
+  ),
+  Shield: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <path d="M7 1.5L12 3.5V7c0 2.5-2 4.5-5 5.5C4 12 2 10 2 7.5V3.5L7 1.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+      <path d="M4.5 7L6.5 9L9.5 5.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  Clock: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M7 4.5V7L9 8.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  User: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+    </svg>
+  ),
+  Log: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <rect x="2" y="2" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M4.5 5h5M4.5 7h5M4.5 9h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+    </svg>
+  ),
+  Logout: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <path d="M5 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <path d="M9.5 9.5L12 7l-2.5-2.5M12 7H6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
 };

@@ -60,6 +60,20 @@ def decide(
 
     cur = conn.cursor()
 
+    # ── 0. Role integrity check ───────────────────────────────────────────
+    # JWT role is a hint, not a grant. Verify against the users table on
+    # every call so a forged role claim cannot escalate privileges.
+    cur.execute("SELECT role_id FROM users WHERE user_id = %s", (user_id,))
+    user_row = cur.fetchone()
+    if not user_row or user_row[0] != role_id:
+        return Decision(
+            effect="deny",
+            patient_scope=[],
+            allowed_fields=[],
+            obligations=["audit"],
+            reason=f"JWT role claim '{role_id}' does not match DB role for user '{user_id}'",
+        )
+
     # ── 1. Role gate ──────────────────────────────────────────────────────
     cur.execute(
         """

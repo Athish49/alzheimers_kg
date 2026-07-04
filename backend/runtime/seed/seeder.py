@@ -108,26 +108,32 @@ _USERS = [
     ("u_021", "Dr. Nadia Farouk", "attending_physician", "neurology",   "team_a", False),
 ]
 
-# (patient_id, name, dob, sex, mrn, address, insurance_id, department, care_team)
+# (patient_id, name, dob, sex, mrn, address, insurance_id, department, care_team, headline)
 _PATIENTS = [
     ("p_2201", "Robert Alvarez", date(1953, 3, 11),  "M", "MRN-77012",
      "142 Elmwood Dr, Springfield, IL 62701", "INS-004412",
-     "neurology", "team_a"),
+     "neurology", "team_a",
+     "Amnestic MCI → early Alzheimer's · APOE ε4/ε4"),
     ("p_2208", "Maria Santos",   date(1957, 7, 22),  "F", "MRN-77048",
      "87 Birchwood Ave, Springfield, IL 62702", "INS-008819",
-     "neurology", "team_a"),
+     "neurology", "team_a",
+     "Mild Alzheimer's dementia · APOE ε3/ε4"),
     ("p_4402", "Aisha Bello",    date(1960, 12, 2),  "F", "MRN-78190",
      "301 Lakeview Blvd, Springfield, IL 62703", "INS-011230",
-     "neurology", "team_a"),
+     "neurology", "team_a",
+     "Subjective cognitive decline workup"),
     ("p_2215", "George Miller",  date(1949, 1, 30),  "M", "MRN-77155",
      "55 Oak Street, Riverside, IL 60546", "INS-002277",
-     "neurology", "team_a"),
+     "neurology", "team_a",
+     "Alzheimer's dementia · moderate stage"),
     ("p_3310", "David Kim",      date(1955, 9, 14),  "M", "MRN-90233",
      "29 Hillcrest Rd, Northbrook, IL 60062", "INS-033901",
-     "neurology", "team_b"),
+     "neurology", "team_b",
+     "Frontotemporal dementia · C9orf72 expansion"),
     ("p_5501", "Chen Wei",       date(1962, 5, 8),   "M", "MRN-81007",
      "614 Magnolia Lane, Chicago, IL 60601", "INS-019944",
-     "endocrinology", "team_c"),
+     "endocrinology", "team_c",
+     "Hypothyroidism + T2DM · cross-department"),
 ]
 
 # (user_id, patient_id, relationship, care_team)
@@ -333,8 +339,8 @@ def seed() -> None:
         )
         cur.executemany(
             "INSERT INTO patients(session_id, patient_id, name, dob, sex, mrn,"
-            " address, insurance_id, department, care_team)"
-            " VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING",
+            " address, insurance_id, department, care_team, headline)"
+            " VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING",
             [(TEMPLATE,) + p for p in _PATIENTS],
         )
         cur.executemany(

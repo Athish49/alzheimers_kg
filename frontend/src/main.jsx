@@ -5,6 +5,8 @@ import './styles/tokens.css'
 import './styles/app.css'
 import App from './App.jsx'
 import { HomePage } from './pages/HomePage.jsx'
+import { DemoPage } from './pages/DemoPage.jsx'
+import { WorkspacePage } from './pages/WorkspacePage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -12,6 +14,8 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/app" element={<App />} />
+        <Route path="/demo" element={<DemoPage />} />
+        <Route path="/workspace" element={<WorkspacePage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
