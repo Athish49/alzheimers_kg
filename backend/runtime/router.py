@@ -397,7 +397,7 @@ def orchestrate_endpoint(
 
 
 # ---------------------------------------------------------------------------
-# Phase 5 — Patient list and chart endpoints (no LLM)
+# Phase 5 — EHR patient list and chart (Synthea data, no PDP)
 # ---------------------------------------------------------------------------
 
 class PatientSummary(BaseModel):
@@ -409,47 +409,52 @@ class PatientSummary(BaseModel):
     headline:   str
 
 
-@router.get("/patients", response_model=list[PatientSummary])
-def list_patients(claims: dict = Depends(_verify)) -> list[PatientSummary]:
-    """
-    Return the patients assigned to the authenticated user for this session.
-    Assignment is read from the session-cloned patient_assignments table.
-    """
-    from runtime.seed.db import get_conn
+class PatientListResponse(BaseModel):
+    total:    int
+    page:     int
+    limit:    int
+    patients: list[PatientSummary]
 
-    session_id = claims["session_id"]
-    user_id    = claims["sub"]
-    conn = get_conn()
-    try:
-        _verify_session_owner(session_id, user_id, conn)
-        cur = conn.cursor()
-        cur.execute(
-            """
-            SELECT p.patient_id, p.name, p.dob::text, p.sex, p.mrn,
-                   COALESCE(p.headline, '') AS headline
-            FROM   patients p
-            JOIN   patient_assignments pa
-                   ON  pa.patient_id  = p.patient_id
-                   AND pa.session_id  = p.session_id
-            WHERE  pa.session_id = %s
-              AND  pa.user_id    = %s
-            ORDER  BY p.patient_id
-            """,
-            (session_id, user_id),
-        )
-        return [
+
+@router.get("/patients", response_model=PatientListResponse)
+def list_patients(
+    page: int = 1,
+    limit: int = 20,
+    search: str = "",
+    claims: dict = Depends(_verify),
+) -> PatientListResponse:
+    """
+    Return paginated EHR patients from ehr.patients (Synthea synthetic data).
+    Supports name/MRN search. Requires a valid JWT; not session-scoped.
+    """
+    from runtime.ehr_service import list_patients as ehr_list, count_patients
+
+    limit = min(max(limit, 1), 100)
+    page  = max(page, 1)
+
+    rows  = ehr_list(page=page, limit=limit, search=search)
+    total = count_patients(search=search)
+
+    return PatientListResponse(
+        total=total,
+        page=page,
+        limit=limit,
+        patients=[
             PatientSummary(
-                patient_id=r[0], name=r[1], dob=r[2], sex=r[3],
-                mrn=r[4], headline=r[5],
+                patient_id=r["patient_id"],
+                name=r["name"],
+                dob=r["dob"] or "",
+                sex=r["sex"] or "",
+                mrn=r["mrn"] or "",
+                headline=r["headline"] or "",
             )
-            for r in cur.fetchall()
-        ]
-    finally:
-        conn.close()
+            for r in rows
+        ],
+    )
 
 
 class ChartResponse(BaseModel):
-    patient_id: Optional[str]   # None for research_analyst (deidentified path)
+    patient_id: str
     resources:  dict
 
 
@@ -459,37 +464,32 @@ def get_chart(
     claims: dict = Depends(_verify),
 ) -> ChartResponse:
     """
-    Fetch all chart resources for the given patient using the PDP + Patient service.
-    Returns granted resources with their fields and denied resources with their reason.
-    Does not call the LLM.
+    Fetch a comprehensive EHR chart from ehr.* tables for the given patient.
+    Returns banner, snapshot summary, and all clinical sub-resources.
+    Does not call the LLM and does not apply the PDP (EHR data is non-session-scoped).
     """
-    from runtime.orchestrator.tool_client import ToolClient
-    from runtime.seed.db import get_conn
+    from runtime import ehr_service as svc
 
-    ALL_RESOURCES = [
-        "demographics", "conditions", "vitals", "medications",
-        "lab_results", "genetic_markers", "clinical_notes",
-    ]
+    banner = svc.get_patient_banner(patient_id)
+    if not banner:
+        raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found.")
 
-    session_id = claims["session_id"]
-    user_id    = claims["sub"]
-    role_id    = claims["role"]
+    resources = {
+        "banner":         banner,
+        "alerts":         svc.get_patient_alerts(patient_id),
+        "emergency_contacts": svc.get_patient_emergency_contacts(patient_id),
+        "snapshot":       svc.get_snapshot(patient_id),
+        "encounters":     svc.get_encounters(patient_id),
+        "vitals":         svc.get_vitals(patient_id),
+        "conditions":     svc.get_conditions(patient_id),
+        "medications":    svc.get_medications(patient_id),
+        "labs":           svc.get_labs(patient_id),
+        "procedures":     svc.get_procedures(patient_id),
+        "imaging":        svc.get_imaging(patient_id),
+        "notes":          svc.get_notes(patient_id),
+        "care_plans":     svc.get_care_plans(patient_id),
+        "immunizations":  svc.get_immunizations(patient_id),
+        "social_history": svc.get_social_history(patient_id),
+    }
 
-    conn = get_conn()
-    try:
-        _verify_session_owner(session_id, user_id, conn)
-    finally:
-        conn.close()
-
-    client = ToolClient(
-        claims=claims,
-        pinned_patient_id=patient_id,
-        session_id=session_id,
-    )
-    result = client.call("get_patient_record", {"resources": ALL_RESOURCES})
-    resources = result.get("resources", {}) if result.get("ok") else {}
-
-    # Omit patient_id for research_analyst — the stable ID is itself an identifier
-    # even when all resource fields are deidentified.
-    visible_patient_id = None if role_id == "research_analyst" else patient_id
-    return ChartResponse(patient_id=visible_patient_id, resources=resources)
+    return ChartResponse(patient_id=patient_id, resources=resources)
