@@ -98,6 +98,18 @@ CREATE TABLE IF NOT EXISTS break_glass_grants (
 );
 """
 
+_EHR_ASSIGNMENT_TABLE = """
+-- ── EHR practitioner assignments (non-session-scoped, cross-schema) ───────
+-- Links runtime users to Synthea EHR patients by UUID.
+-- Not RLS-protected (EHR plane is not session-scoped); app-level enforcement only.
+
+CREATE TABLE IF NOT EXISTS ehr_patient_assignments (
+    practitioner_id  text REFERENCES users(user_id) ON DELETE CASCADE,
+    patient_id       uuid NOT NULL,   -- references ehr.patients(patient_id)
+    PRIMARY KEY (practitioner_id, patient_id)
+);
+"""
+
 _CLINICAL_TABLES = """
 -- ── Clinical (synthetic PHI, session-scoped) ──────────────────────────────
 
@@ -213,6 +225,9 @@ GRANT SELECT ON roles, permission_categories, role_permissions, users TO app_run
 -- Session/runtime tables: full CRUD except audit_log
 GRANT SELECT, INSERT, UPDATE, DELETE ON sessions           TO app_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE ON break_glass_grants TO app_runtime;
+
+-- EHR assignments: SELECT only — app reads to enforce patient filter
+GRANT SELECT ON ehr_patient_assignments TO app_runtime;
 
 -- Clinical + relationship: full CRUD (RLS provides the actual restriction)
 GRANT SELECT, INSERT, UPDATE, DELETE ON patients            TO app_runtime;
@@ -349,13 +364,14 @@ def apply_schema() -> None:
     Idempotent — safe to run on every boot.
     """
     blocks = [
-        ("policy tables",    _POLICY_TABLES),
-        ("identity tables",  _IDENTITY_TABLES),
-        ("runtime tables",   _RUNTIME_TABLES),
-        ("clinical tables",  _CLINICAL_TABLES),
-        ("role + grants",    _ROLE_AND_GRANTS),
-        ("RLS policies",     _RLS_POLICIES),
-        ("migrations",       _MIGRATIONS),
+        ("policy tables",        _POLICY_TABLES),
+        ("identity tables",      _IDENTITY_TABLES),
+        ("runtime tables",       _RUNTIME_TABLES),
+        ("EHR assignment table", _EHR_ASSIGNMENT_TABLE),
+        ("clinical tables",      _CLINICAL_TABLES),
+        ("role + grants",        _ROLE_AND_GRANTS),
+        ("RLS policies",         _RLS_POLICIES),
+        ("migrations",           _MIGRATIONS),
     ]
     with transaction() as conn:
         cur = conn.cursor()

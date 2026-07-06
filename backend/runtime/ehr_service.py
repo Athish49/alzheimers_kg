@@ -41,6 +41,20 @@ def _rows(cur, cols: list[str]) -> list[dict]:
 # Patient list
 # ---------------------------------------------------------------------------
 
+def get_ehr_assignments(user_id: str) -> list[str]:
+    """Return EHR patient UUIDs (as strings) assigned to this practitioner."""
+    conn = get_conn()
+    try:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT patient_id::text FROM ehr_patient_assignments WHERE practitioner_id = %s",
+            (user_id,),
+        )
+        return [row[0] for row in cur.fetchall()]
+    finally:
+        conn.close()
+
+
 def list_patients(page: int = 1, limit: int = 20, search: str = "") -> list[dict]:
     conn = _ehr_conn()
     try:
@@ -100,6 +114,71 @@ def count_patients(search: str = "") -> int:
             )
         else:
             cur.execute("SELECT COUNT(*) FROM patients")
+        return cur.fetchone()[0]
+    finally:
+        conn.close()
+
+
+def list_patients_filtered(
+    patient_ids: list[str],
+    page: int = 1,
+    limit: int = 20,
+    search: str = "",
+) -> list[dict]:
+    """List EHR patients restricted to the given patient_ids (UUID strings)."""
+    if not patient_ids:
+        return []
+    conn = _ehr_conn()
+    try:
+        cur = conn.cursor()
+        offset = (page - 1) * limit
+        uuid_list = [str(pid) for pid in patient_ids]
+        base = (
+            "SELECT p.patient_id::text, p.full_name, p.date_of_birth::text,"
+            " p.biological_sex, p.mrn,"
+            " COALESCE("
+            "  (SELECT string_agg(c.condition_name, ', ' ORDER BY c.onset_date DESC)"
+            "   FROM conditions c WHERE c.patient_id = p.patient_id AND c.status = 'active' LIMIT 3),"
+            " '') AS headline"
+            " FROM patients p"
+            " WHERE p.patient_id = ANY(%s::uuid[])"
+        )
+        if search:
+            cur.execute(
+                base + " AND (p.full_name ILIKE %s OR p.mrn ILIKE %s)"
+                " ORDER BY p.full_name LIMIT %s OFFSET %s",
+                (uuid_list, f"%{search}%", f"%{search}%", limit, offset),
+            )
+        else:
+            cur.execute(
+                base + " ORDER BY p.full_name LIMIT %s OFFSET %s",
+                (uuid_list, limit, offset),
+            )
+        cols = ["patient_id", "name", "dob", "sex", "mrn", "headline"]
+        return _rows(cur, cols)
+    finally:
+        conn.close()
+
+
+def count_patients_filtered(patient_ids: list[str], search: str = "") -> int:
+    """Count EHR patients restricted to the given patient_ids (UUID strings)."""
+    if not patient_ids:
+        return 0
+    conn = _ehr_conn()
+    try:
+        cur = conn.cursor()
+        uuid_list = [str(pid) for pid in patient_ids]
+        if search:
+            cur.execute(
+                "SELECT COUNT(*) FROM patients"
+                " WHERE patient_id = ANY(%s::uuid[]) AND (full_name ILIKE %s OR mrn ILIKE %s)",
+                (uuid_list, f"%{search}%", f"%{search}%"),
+            )
+        else:
+            cur.execute(
+                "SELECT COUNT(*) FROM patients WHERE patient_id = ANY(%s::uuid[])",
+                (uuid_list,),
+            )
         return cur.fetchone()[0]
     finally:
         conn.close()
@@ -410,6 +489,24 @@ def get_conditions(patient_id: str) -> list[dict]:
 # Medications + Allergies
 # ---------------------------------------------------------------------------
 
+def get_allergies(patient_id: str) -> list[dict]:
+    conn = _ehr_conn()
+    try:
+        cur = conn.cursor()
+        cur.execute(
+            """
+            SELECT allergen, reaction_detail, severity, recorded_date::text
+            FROM allergies
+            WHERE patient_id = %s::uuid
+            ORDER BY severity DESC NULLS LAST
+            """,
+            (patient_id,),
+        )
+        return _rows(cur, ["allergen", "reaction_detail", "severity", "recorded_date"])
+    finally:
+        conn.close()
+
+
 def get_medications(patient_id: str) -> dict:
     conn = _ehr_conn()
     try:
@@ -420,8 +517,11 @@ def get_medications(patient_id: str) -> dict:
                    m.route, m.frequency, m.ordered_at::text,
                    m.start_date::text, m.end_date::text,
                    m.status, m.delivery_type, m.refill_count,
-                   m.ordering_encounter_id::text
+                   m.ordering_encounter_id::text,
+                   p.full_name AS prescribing_physician
             FROM medications m
+            LEFT JOIN encounters e ON e.encounter_id = m.ordering_encounter_id
+            LEFT JOIN practitioners p ON p.practitioner_id = e.attending_physician_id
             WHERE m.patient_id = %s::uuid
             ORDER BY m.status, m.ordered_at DESC NULLS LAST
             """,
@@ -430,7 +530,7 @@ def get_medications(patient_id: str) -> dict:
         medications = _rows(cur, [
             "medication_id", "drug_name", "rxnorm_code", "dose", "route", "frequency",
             "ordered_at", "start_date", "end_date", "status", "delivery_type",
-            "refill_count", "ordering_encounter_id",
+            "refill_count", "ordering_encounter_id", "prescribing_physician",
         ])
 
         cur.execute(

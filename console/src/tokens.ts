@@ -1,0 +1,28 @@
+export const C = {
+  bg:           '#FAF9F7',
+  white:        '#FFFFFF',
+  border:       '#EAE7E0',
+  borderLight:  '#F1EFEA',
+  text:         '#1C1A17',
+  textSec:      '#6B6862',
+  textMid:      '#4A473F',
+  textMuted:    '#8A867C',
+  textFaint:    '#A7A399',
+  textFaintest: '#B4B0A6',
+  blue:         '#2860D8',
+  blueLight:    '#E6EDFB',
+  blueMid:      '#264F9E',
+  coral:        '#B23B2E',
+  coralLight:   '#FBE6E2',
+  amber:        '#8A5A06',
+  amberLight:   '#FBF0DA',
+  green:        '#1F7A4D',
+  greenLight:   '#E9F2EC',
+  chip:         '#EDEBE5',
+  chipText:     '#5B584F',
+  surface:      '#F0EEE8',
+  surfaceHover: '#F7F5F1',
+  tableBg:      '#FCFBF9',
+} as const
+
+export type Color = typeof C[keyof typeof C]

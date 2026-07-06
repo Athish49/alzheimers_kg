@@ -463,7 +463,7 @@ export function HomePage() {
             <a className="nav-link" href="#who">Who it&apos;s for</a>
           </nav>
           <div style={{ display: 'flex', gap: 8 }}>
-            <Link className="btn btn-outline" to="/demo">Enterprise demo</Link>
+            <a className="btn btn-outline" href={import.meta.env.VITE_ENTERPRISE_URL ?? 'http://localhost:5174'}>Enterprise demo</a>
             <Link className="btn btn-primary" to="/app">Open Atlas &rarr;</Link>
           </div>
         </div>
@@ -892,9 +892,9 @@ export function HomePage() {
           </div>
 
           <div style={{ marginTop: 36, display: 'flex', justifyContent: 'center' }}>
-            <Link className="btn btn-primary" to="/demo" style={{ padding: '13px 22px', fontSize: 15 }}>
+            <a className="btn btn-primary" href={import.meta.env.VITE_ENTERPRISE_URL ?? 'http://localhost:5174'} style={{ padding: '13px 22px', fontSize: 15 }}>
               Try the live enterprise demo &rarr;
-            </Link>
+            </a>
           </div>
           <p style={{ textAlign: 'center', marginTop: 12, fontSize: 12.5, color: 'var(--fg-subtle)' }}>
             Synthetic data only · Sessions reset on server restart · All patient records are fictional

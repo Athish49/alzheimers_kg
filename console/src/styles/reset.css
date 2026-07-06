@@ -1,0 +1,25 @@
+/* Scoped reset — only affects the console, no bleed from any global styles */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background: #FAF9F7;
+  color: #1C1A17;
+  -webkit-font-smoothing: antialiased;
+}
+details > summary::-webkit-details-marker { display: none; }
+button { font-family: 'Hanken Grotesk', sans-serif; }
+
+@keyframes slideIn {
+  from { transform: translateX(30px); opacity: 0.4; }
+  to   { transform: translateX(0);    opacity: 1;   }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1;   }
+}
+::selection { background: #DCE4FA; }

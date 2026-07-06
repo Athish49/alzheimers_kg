@@ -17,7 +17,7 @@ from __future__ import annotations
 import logging
 
 from .db import transaction
-from .seeder import seed, verify_template
+from .seeder import seed, seed_ehr_assignments, verify_template
 
 logger = logging.getLogger(__name__)
 
@@ -112,3 +112,5 @@ def reset() -> None:
         seed()
     else:
         logger.info("Template verified OK.")
+
+    seed_ehr_assignments()

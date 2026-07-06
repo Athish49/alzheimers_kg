@@ -14,6 +14,8 @@ __pycache__/
 # UI packages and build output
 frontend/node_modules/
 frontend/dist/
+console/node_modules/
+console/dist/
 
 # Ignore all HTML files (data / scraped pages elsewhere); allow the Vite app
 *.html

@@ -24,11 +24,28 @@ ALGORITHM = "HS256"
 # Coarse service-level scope per role.
 # The PDP enforces the fine-grained resource/action/field restrictions.
 _ROLE_SCOPES: dict[str, list[str]] = {
+    # Original RBAC demo roles (Alzheimer's memory clinic)
     "attending_physician": ["patient.read", "patient.write", "knowledge.read"],
     "nurse":               ["patient.read", "knowledge.read"],
     "pharmacist":          ["patient.read", "knowledge.read"],
     "lab_technician":      ["patient.read", "patient.write", "knowledge.read"],
     "research_analyst":    ["patient.read", "knowledge.read"],
+    # Specialist roles (EHR dashboard plane)
+    "cardiologist":            ["patient.read", "patient.write", "knowledge.read"],
+    "electrophysiologist":     ["patient.read", "patient.write", "knowledge.read"],
+    "heart_failure_specialist":["patient.read", "patient.write", "knowledge.read"],
+    "pulmonologist":           ["patient.read", "patient.write", "knowledge.read"],
+    "nephrologist":            ["patient.read", "patient.write", "knowledge.read"],
+    "endocrinologist":         ["patient.read", "patient.write", "knowledge.read"],
+    "gastroenterologist":      ["patient.read", "patient.write", "knowledge.read"],
+    "rheumatologist":          ["patient.read", "patient.write", "knowledge.read"],
+    "orthopedic_surgeon":      ["patient.read", "patient.write", "knowledge.read"],
+    "hematologist":            ["patient.read", "patient.write", "knowledge.read"],
+    "psychiatrist":            ["patient.read", "patient.write", "knowledge.read"],
+    "urologist":               ["patient.read", "patient.write", "knowledge.read"],
+    "allergist_immunologist":  ["patient.read", "patient.write", "knowledge.read"],
+    "primary_care_physician":  ["patient.read", "patient.write", "knowledge.read"],
+    "bariatrician":            ["patient.read", "patient.write", "knowledge.read"],
 }
 
 

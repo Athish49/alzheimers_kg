@@ -80,27 +80,33 @@ class PersonaOut(BaseModel):
     user_id:    str
     name:       str
     role_id:    str
+    role_label: str
     department: str
     care_team:  str
 
 
 @router.get("/personas", response_model=list[PersonaOut])
 def list_personas() -> list[PersonaOut]:
-    """Return the five selectable demo personas."""
+    """Return all selectable personas (is_persona=true users)."""
     from runtime.seed.db import get_conn
     conn = get_conn()
     try:
         cur = conn.cursor()
         cur.execute(
             """
-            SELECT u.user_id, u.name, u.role_id, u.department, u.care_team
+            SELECT u.user_id, u.name, u.role_id, COALESCE(r.label, u.role_id),
+                   u.department, u.care_team
             FROM   users u
+            LEFT JOIN roles r ON r.role_id = u.role_id
             WHERE  u.is_persona = true
             ORDER  BY u.user_id
             """
         )
         return [
-            PersonaOut(user_id=r[0], name=r[1], role_id=r[2], department=r[3], care_team=r[4])
+            PersonaOut(
+                user_id=r[0], name=r[1], role_id=r[2], role_label=r[3],
+                department=r[4], care_team=r[5],
+            )
             for r in cur.fetchall()
         ]
     finally:
@@ -425,15 +431,23 @@ def list_patients(
 ) -> PatientListResponse:
     """
     Return paginated EHR patients from ehr.patients (Synthea synthetic data).
-    Supports name/MRN search. Requires a valid JWT; not session-scoped.
+    If the caller has EHR patient assignments, only those patients are returned.
+    Falls back to all patients for original RBAC demo personas (no assignments).
     """
-    from runtime.ehr_service import list_patients as ehr_list, count_patients
+    import runtime.ehr_service as svc
 
     limit = min(max(limit, 1), 100)
     page  = max(page, 1)
+    user_id = claims["sub"]
 
-    rows  = ehr_list(page=page, limit=limit, search=search)
-    total = count_patients(search=search)
+    assigned_ids = svc.get_ehr_assignments(user_id)
+
+    if assigned_ids:
+        rows  = svc.list_patients_filtered(assigned_ids, page=page, limit=limit, search=search)
+        total = svc.count_patients_filtered(assigned_ids, search=search)
+    else:
+        rows  = svc.list_patients(page=page, limit=limit, search=search)
+        total = svc.count_patients(search=search)
 
     return PatientListResponse(
         total=total,
@@ -458,38 +472,180 @@ class ChartResponse(BaseModel):
     resources:  dict
 
 
+# Maps each chart section key to its permission resource name.
+# Sections that require a specific resource to be readable.
+_SECTION_RESOURCE: dict[str, str] = {
+    "banner":             "demographics",
+    "alerts":             "demographics",
+    "emergency_contacts": "demographics",
+    "allergies":          "demographics",
+    "snapshot":           "demographics",
+    "encounters":         "encounters",
+    "vitals":             "vitals",
+    "conditions":         "conditions",
+    "medications":        "medications",
+    "labs":               "lab_results",
+    "procedures":         "procedures",
+    "imaging":            "imaging",
+    "notes":              "clinical_notes",
+    "care_plans":         "care_plans",
+    "immunizations":      "immunizations",
+    "social_history":     "social_history",
+}
+
+
+def _get_allowed_resources(role_id: str, conn) -> set[str]:
+    """Return the set of resource names this role can read."""
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT resource FROM role_permissions WHERE role_id = %s AND action = 'read'",
+        (role_id,),
+    )
+    return {row[0] for row in cur.fetchall()}
+
+
+# Maps snapshot sub-keys to the permission resource they require.
+_SNAPSHOT_RESOURCE: dict[str, str] = {
+    "active_problems":    "conditions",
+    "active_medications": "medications",
+    "latest_vitals":      "vitals",
+    "recent_encounters":  "encounters",
+    "recent_labs":        "lab_results",
+    "allergies":          "medications",
+    "alerts":             "demographics",
+    "immunization_status":"immunizations",
+}
+
+# Maps encounter detail sub-keys (added after header fetch) to their resource.
+_ENCOUNTER_RESOURCE: dict[str, str] = {
+    "care_team":  "encounters",
+    "diagnoses":  "conditions",
+    "vitals":     "vitals",
+    "procedures": "procedures",
+    "medications":"medications",
+    "notes":      "clinical_notes",
+    "discharge":  "care_plans",
+}
+
+
+def _filter_snapshot(snapshot: dict, allowed: set[str]) -> dict:
+    return {k: v for k, v in snapshot.items() if _SNAPSHOT_RESOURCE.get(k, "demographics") in allowed}
+
+
+def _filter_encounter(detail: dict, allowed: set[str]) -> dict:
+    # header keys (encounter_id, visit_type, etc.) are always shown when encounters is allowed
+    return {k: v for k, v in detail.items() if _ENCOUNTER_RESOURCE.get(k, "encounters") in allowed}
+
+
 @router.get("/chart/{patient_id}", response_model=ChartResponse)
 def get_chart(
     patient_id: str,
     claims: dict = Depends(_verify),
 ) -> ChartResponse:
     """
-    Fetch a comprehensive EHR chart from ehr.* tables for the given patient.
-    Returns banner, snapshot summary, and all clinical sub-resources.
-    Does not call the LLM and does not apply the PDP (EHR data is non-session-scoped).
+    Fetch a role-filtered EHR chart from ehr.* tables.
+    - Specialists (with EHR assignments) can only access their assigned patients.
+    - Chart sections are filtered to the caller's role permissions.
+    - Original RBAC personas (no EHR assignments) bypass the assignment gate.
     """
     from runtime import ehr_service as svc
+    from runtime.seed.db import get_conn
+
+    user_id = claims["sub"]
+    role_id = claims["role"]
+
+    # Assignment gate: only enforce for practitioners who have EHR assignments
+    assigned_ids = svc.get_ehr_assignments(user_id)
+    if assigned_ids and patient_id not in assigned_ids:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You are not assigned to this patient.",
+        )
 
     banner = svc.get_patient_banner(patient_id)
     if not banner:
         raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found.")
 
-    resources = {
-        "banner":         banner,
-        "alerts":         svc.get_patient_alerts(patient_id),
+    # Determine which resources this role can read
+    conn = get_conn()
+    try:
+        allowed = _get_allowed_resources(role_id, conn)
+    finally:
+        conn.close()
+
+    # If the role has no permissions on record (e.g. unknown role), allow all
+    # to avoid breaking backwards-compat for old demo personas
+    if not allowed:
+        allowed = set(_SECTION_RESOURCE.values())
+
+    raw_snapshot = svc.get_snapshot(patient_id)
+    filtered_snapshot = _filter_snapshot(raw_snapshot, allowed)
+
+    all_resources = {
+        "banner":             banner,
+        "alerts":             svc.get_patient_alerts(patient_id),
         "emergency_contacts": svc.get_patient_emergency_contacts(patient_id),
-        "snapshot":       svc.get_snapshot(patient_id),
-        "encounters":     svc.get_encounters(patient_id),
-        "vitals":         svc.get_vitals(patient_id),
-        "conditions":     svc.get_conditions(patient_id),
-        "medications":    svc.get_medications(patient_id),
-        "labs":           svc.get_labs(patient_id),
-        "procedures":     svc.get_procedures(patient_id),
-        "imaging":        svc.get_imaging(patient_id),
-        "notes":          svc.get_notes(patient_id),
-        "care_plans":     svc.get_care_plans(patient_id),
-        "immunizations":  svc.get_immunizations(patient_id),
-        "social_history": svc.get_social_history(patient_id),
+        "allergies":          svc.get_allergies(patient_id),
+        "snapshot":           filtered_snapshot,
+        "encounters":         svc.get_encounters(patient_id),
+        "vitals":             svc.get_vitals(patient_id),
+        "conditions":         svc.get_conditions(patient_id),
+        "medications":        svc.get_medications(patient_id),
+        "labs":               svc.get_labs(patient_id),
+        "procedures":         svc.get_procedures(patient_id),
+        "imaging":            svc.get_imaging(patient_id),
+        "notes":              svc.get_notes(patient_id),
+        "care_plans":         svc.get_care_plans(patient_id),
+        "immunizations":      svc.get_immunizations(patient_id),
+        "social_history":     svc.get_social_history(patient_id),
+    }
+
+    # Filter sections to what this role is permitted to read
+    resources = {
+        section: data
+        for section, data in all_resources.items()
+        if _SECTION_RESOURCE.get(section, "demographics") in allowed
     }
 
     return ChartResponse(patient_id=patient_id, resources=resources)
+
+
+@router.get("/chart/{patient_id}/encounter/{encounter_id}")
+def get_encounter_detail(
+    patient_id: str,
+    encounter_id: str,
+    claims: dict = Depends(_verify),
+) -> dict:
+    """
+    Fetch role-filtered encounter detail.
+    - Assignment gate: same rule as /chart/{patient_id}.
+    - Sub-sections (vitals, procedures, meds, notes, discharge) filtered by role permissions.
+    """
+    from runtime import ehr_service as svc
+    from runtime.seed.db import get_conn
+
+    user_id = claims["sub"]
+    role_id = claims["role"]
+
+    # Assignment gate
+    assigned_ids = svc.get_ehr_assignments(user_id)
+    if assigned_ids and patient_id not in assigned_ids:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You are not assigned to this patient.",
+        )
+
+    detail = svc.get_encounter_detail(patient_id, encounter_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail="Encounter not found.")
+
+    conn = get_conn()
+    try:
+        allowed = _get_allowed_resources(role_id, conn)
+    finally:
+        conn.close()
+
+    if not allowed:
+        return detail
+
+    return _filter_encounter(detail, allowed)

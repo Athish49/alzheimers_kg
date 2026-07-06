@@ -26,14 +26,32 @@ TEMPLATE = "TEMPLATE"
 # ---------------------------------------------------------------------------
 
 _ROLES = [
-    ("attending_physician", "Attending Physician",  "Physician with full clinical access to assigned patients"),
-    ("nurse",               "Nurse",                "Clinical nurse with assigned-patient access"),
-    ("pharmacist",          "Pharmacist",           "Verifying pharmacist for medication review"),
-    ("lab_technician",      "Lab Technician",       "Biomarker assay technician"),
-    ("research_analyst",    "Research Analyst",     "De-identified data analyst, no PHI access"),
+    # ── Original RBAC demo roles (Alzheimer's memory clinic) ─────────────────
+    ("attending_physician",    "Attending Physician",       "Physician with full clinical access to assigned patients"),
+    ("nurse",                  "Nurse",                     "Clinical nurse with assigned-patient access"),
+    ("pharmacist",             "Pharmacist",                "Verifying pharmacist for medication review"),
+    ("lab_technician",         "Lab Technician",            "Biomarker assay technician"),
+    ("research_analyst",       "Research Analyst",          "De-identified data analyst, no PHI access"),
+    # ── Specialist roles for EHR dashboard (Synthea dataset) ────────────────
+    ("cardiologist",            "Cardiologist",              "Cardiovascular disease specialist"),
+    ("pulmonologist",           "Pulmonologist",             "Respiratory and lung disease specialist"),
+    ("nephrologist",            "Nephrologist",              "Kidney disease specialist"),
+    ("endocrinologist",         "Endocrinologist",           "Hormone and metabolic disease specialist"),
+    ("gastroenterologist",      "Gastroenterologist",        "Digestive system disease specialist"),
+    ("rheumatologist",          "Rheumatologist",            "Musculoskeletal and autoimmune specialist"),
+    ("orthopedic_surgeon",      "Orthopedic Surgeon",        "Bone, joint, and musculoskeletal surgeon"),
+    ("hematologist",            "Hematologist",              "Blood disorder specialist"),
+    ("psychiatrist",            "Psychiatrist",              "Mental health and psychiatric specialist"),
+    ("urologist",               "Urologist",                 "Urinary tract and reproductive specialist"),
+    ("allergist_immunologist",  "Allergist / Immunologist",  "Allergy and immune system specialist"),
+    ("primary_care_physician",  "Primary Care Physician",    "General and preventive medicine provider"),
+    ("electrophysiologist",     "Electrophysiologist",       "Cardiac rhythm and electrophysiology specialist"),
+    ("heart_failure_specialist","Heart Failure Specialist",  "Advanced heart failure and transplant medicine"),
+    ("bariatrician",            "Bariatrician",              "Obesity and metabolic medicine specialist"),
 ]
 
 _PERMISSION_CATEGORIES = [
+    # Original resources (RBAC demo plane)
     ("demographics",      "Patient identity fields"),
     ("conditions",        "Diagnoses and conditions"),
     ("vitals",            "Vital signs"),
@@ -43,6 +61,13 @@ _PERMISSION_CATEGORIES = [
     ("clinical_notes",    "Free-text clinical notes"),
     ("deident_aggregates","De-identified aggregate statistics"),
     ("knowledge",         "Non-PHI ontology knowledge graph"),
+    # Extended EHR-plane resources
+    ("imaging",           "Radiology and imaging studies"),
+    ("care_plans",        "Care planning, goals, and interventions"),
+    ("social_history",    "Social history and social determinants of health"),
+    ("immunizations",     "Immunization and vaccination records"),
+    ("procedures",        "Clinical and surgical procedures"),
+    ("encounters",        "Encounter and visit history"),
 ]
 
 # (role_id, resource, action, patient_binding, allowed_fields)
@@ -95,17 +120,301 @@ _ROLE_PERMISSIONS = [
     ("research_analyst", "lab_results",       "read", "deidentified", ["*"]),
     ("research_analyst", "deident_aggregates","read", "deidentified", ["*"]),
     ("research_analyst", "knowledge",         "read", "none",         ["*"]),
+
+    # ── Extended EHR resources for original roles ─────────────────────────
+    # attending_physician: full access to all EHR chart sections
+    ("attending_physician", "imaging",        "read",  "assigned", ["*"]),
+    ("attending_physician", "care_plans",     "read",  "assigned", ["*"]),
+    ("attending_physician", "care_plans",     "write", "assigned", ["*"]),
+    ("attending_physician", "social_history", "read",  "assigned", ["*"]),
+    ("attending_physician", "immunizations",  "read",  "assigned", ["*"]),
+    ("attending_physician", "procedures",     "read",  "assigned", ["*"]),
+    ("attending_physician", "encounters",     "read",  "assigned", ["*"]),
+    # nurse: encounters, care_plans, immunizations, procedures — no imaging, no social_history
+    ("nurse", "encounters",    "read", "assigned", ["*"]),
+    ("nurse", "care_plans",    "read", "assigned", ["*"]),
+    ("nurse", "immunizations", "read", "assigned", ["*"]),
+    ("nurse", "procedures",    "read", "assigned", ["*"]),
+
+    # ── Specialist roles — EHR dashboard plane ───────────────────────────
+    # cardiologist
+    ("cardiologist", "demographics",   "read",  "assigned", ["*"]),
+    ("cardiologist", "demographics",   "write", "assigned", ["*"]),
+    ("cardiologist", "conditions",     "read",  "assigned", ["*"]),
+    ("cardiologist", "conditions",     "write", "assigned", ["*"]),
+    ("cardiologist", "vitals",         "read",  "assigned", ["*"]),
+    ("cardiologist", "vitals",         "write", "assigned", ["*"]),
+    ("cardiologist", "medications",    "read",  "assigned", ["*"]),
+    ("cardiologist", "medications",    "write", "assigned", ["*"]),
+    ("cardiologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("cardiologist", "imaging",        "read",  "assigned", ["*"]),
+    ("cardiologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("cardiologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("cardiologist", "care_plans",     "read",  "assigned", ["*"]),
+    ("cardiologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # electrophysiologist
+    ("electrophysiologist", "demographics",   "read",  "assigned", ["*"]),
+    ("electrophysiologist", "demographics",   "write", "assigned", ["*"]),
+    ("electrophysiologist", "conditions",     "read",  "assigned", ["*"]),
+    ("electrophysiologist", "conditions",     "write", "assigned", ["*"]),
+    ("electrophysiologist", "vitals",         "read",  "assigned", ["*"]),
+    ("electrophysiologist", "vitals",         "write", "assigned", ["*"]),
+    ("electrophysiologist", "medications",    "read",  "assigned", ["*"]),
+    ("electrophysiologist", "medications",    "write", "assigned", ["*"]),
+    ("electrophysiologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("electrophysiologist", "imaging",        "read",  "assigned", ["*"]),
+    ("electrophysiologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("electrophysiologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("electrophysiologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # heart_failure_specialist
+    ("heart_failure_specialist", "demographics",   "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "demographics",   "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "conditions",     "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "conditions",     "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "vitals",         "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "vitals",         "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "medications",    "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "medications",    "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "lab_results",    "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "lab_results",    "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "imaging",        "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "clinical_notes", "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "care_plans",     "read",  "assigned", ["*"]),
+    ("heart_failure_specialist", "care_plans",     "write", "assigned", ["*"]),
+    ("heart_failure_specialist", "encounters",     "read",  "assigned", ["*"]),
+
+    # pulmonologist
+    ("pulmonologist", "demographics",   "read",  "assigned", ["*"]),
+    ("pulmonologist", "demographics",   "write", "assigned", ["*"]),
+    ("pulmonologist", "conditions",     "read",  "assigned", ["*"]),
+    ("pulmonologist", "conditions",     "write", "assigned", ["*"]),
+    ("pulmonologist", "vitals",         "read",  "assigned", ["*"]),
+    ("pulmonologist", "vitals",         "write", "assigned", ["*"]),
+    ("pulmonologist", "medications",    "read",  "assigned", ["*"]),
+    ("pulmonologist", "medications",    "write", "assigned", ["*"]),
+    ("pulmonologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("pulmonologist", "imaging",        "read",  "assigned", ["*"]),
+    ("pulmonologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("pulmonologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("pulmonologist", "procedures",     "read",  "assigned", ["*"]),
+    ("pulmonologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # nephrologist
+    ("nephrologist", "demographics",   "read",  "assigned", ["*"]),
+    ("nephrologist", "demographics",   "write", "assigned", ["*"]),
+    ("nephrologist", "conditions",     "read",  "assigned", ["*"]),
+    ("nephrologist", "conditions",     "write", "assigned", ["*"]),
+    ("nephrologist", "vitals",         "read",  "assigned", ["*"]),
+    ("nephrologist", "vitals",         "write", "assigned", ["*"]),
+    ("nephrologist", "medications",    "read",  "assigned", ["*"]),
+    ("nephrologist", "medications",    "write", "assigned", ["*"]),
+    ("nephrologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("nephrologist", "lab_results",    "write", "assigned", ["*"]),
+    ("nephrologist", "imaging",        "read",  "assigned", ["*"]),
+    ("nephrologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("nephrologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("nephrologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # endocrinologist
+    ("endocrinologist", "demographics",   "read",  "assigned", ["*"]),
+    ("endocrinologist", "demographics",   "write", "assigned", ["*"]),
+    ("endocrinologist", "conditions",     "read",  "assigned", ["*"]),
+    ("endocrinologist", "conditions",     "write", "assigned", ["*"]),
+    ("endocrinologist", "vitals",         "read",  "assigned", ["*"]),
+    ("endocrinologist", "vitals",         "write", "assigned", ["*"]),
+    ("endocrinologist", "medications",    "read",  "assigned", ["*"]),
+    ("endocrinologist", "medications",    "write", "assigned", ["*"]),
+    ("endocrinologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("endocrinologist", "lab_results",    "write", "assigned", ["*"]),
+    ("endocrinologist", "imaging",        "read",  "assigned", ["*"]),
+    ("endocrinologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("endocrinologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("endocrinologist", "social_history", "read",  "assigned", ["*"]),
+    ("endocrinologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # gastroenterologist
+    ("gastroenterologist", "demographics",   "read",  "assigned", ["*"]),
+    ("gastroenterologist", "demographics",   "write", "assigned", ["*"]),
+    ("gastroenterologist", "conditions",     "read",  "assigned", ["*"]),
+    ("gastroenterologist", "conditions",     "write", "assigned", ["*"]),
+    ("gastroenterologist", "vitals",         "read",  "assigned", ["*"]),
+    ("gastroenterologist", "vitals",         "write", "assigned", ["*"]),
+    ("gastroenterologist", "medications",    "read",  "assigned", ["*"]),
+    ("gastroenterologist", "medications",    "write", "assigned", ["*"]),
+    ("gastroenterologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("gastroenterologist", "imaging",        "read",  "assigned", ["*"]),
+    ("gastroenterologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("gastroenterologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("gastroenterologist", "procedures",     "read",  "assigned", ["*"]),
+    ("gastroenterologist", "procedures",     "write", "assigned", ["*"]),
+    ("gastroenterologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # rheumatologist
+    ("rheumatologist", "demographics",   "read",  "assigned", ["*"]),
+    ("rheumatologist", "demographics",   "write", "assigned", ["*"]),
+    ("rheumatologist", "conditions",     "read",  "assigned", ["*"]),
+    ("rheumatologist", "conditions",     "write", "assigned", ["*"]),
+    ("rheumatologist", "vitals",         "read",  "assigned", ["*"]),
+    ("rheumatologist", "medications",    "read",  "assigned", ["*"]),
+    ("rheumatologist", "medications",    "write", "assigned", ["*"]),
+    ("rheumatologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("rheumatologist", "imaging",        "read",  "assigned", ["*"]),
+    ("rheumatologist", "imaging",        "write", "assigned", ["*"]),
+    ("rheumatologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("rheumatologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("rheumatologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # orthopedic_surgeon
+    ("orthopedic_surgeon", "demographics",   "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "demographics",   "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "conditions",     "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "conditions",     "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "vitals",         "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "medications",    "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "medications",    "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "lab_results",    "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "imaging",        "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "imaging",        "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "clinical_notes", "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "clinical_notes", "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "procedures",     "read",  "assigned", ["*"]),
+    ("orthopedic_surgeon", "procedures",     "write", "assigned", ["*"]),
+    ("orthopedic_surgeon", "encounters",     "read",  "assigned", ["*"]),
+
+    # hematologist
+    ("hematologist", "demographics",   "read",  "assigned", ["*"]),
+    ("hematologist", "demographics",   "write", "assigned", ["*"]),
+    ("hematologist", "conditions",     "read",  "assigned", ["*"]),
+    ("hematologist", "conditions",     "write", "assigned", ["*"]),
+    ("hematologist", "vitals",         "read",  "assigned", ["*"]),
+    ("hematologist", "medications",    "read",  "assigned", ["*"]),
+    ("hematologist", "medications",    "write", "assigned", ["*"]),
+    ("hematologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("hematologist", "lab_results",    "write", "assigned", ["*"]),
+    ("hematologist", "imaging",        "read",  "assigned", ["*"]),
+    ("hematologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("hematologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("hematologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # psychiatrist — no lab_results, no imaging; social_history is core
+    ("psychiatrist", "demographics",   "read",  "assigned", ["*"]),
+    ("psychiatrist", "demographics",   "write", "assigned", ["*"]),
+    ("psychiatrist", "conditions",     "read",  "assigned", ["*"]),
+    ("psychiatrist", "conditions",     "write", "assigned", ["*"]),
+    ("psychiatrist", "vitals",         "read",  "assigned", ["*"]),
+    ("psychiatrist", "medications",    "read",  "assigned", ["*"]),
+    ("psychiatrist", "medications",    "write", "assigned", ["*"]),
+    ("psychiatrist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("psychiatrist", "clinical_notes", "write", "assigned", ["*"]),
+    ("psychiatrist", "social_history", "read",  "assigned", ["*"]),
+    ("psychiatrist", "social_history", "write", "assigned", ["*"]),
+    ("psychiatrist", "care_plans",     "read",  "assigned", ["*"]),
+    ("psychiatrist", "care_plans",     "write", "assigned", ["*"]),
+    ("psychiatrist", "encounters",     "read",  "assigned", ["*"]),
+
+    # urologist
+    ("urologist", "demographics",   "read",  "assigned", ["*"]),
+    ("urologist", "demographics",   "write", "assigned", ["*"]),
+    ("urologist", "conditions",     "read",  "assigned", ["*"]),
+    ("urologist", "conditions",     "write", "assigned", ["*"]),
+    ("urologist", "vitals",         "read",  "assigned", ["*"]),
+    ("urologist", "vitals",         "write", "assigned", ["*"]),
+    ("urologist", "medications",    "read",  "assigned", ["*"]),
+    ("urologist", "medications",    "write", "assigned", ["*"]),
+    ("urologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("urologist", "imaging",        "read",  "assigned", ["*"]),
+    ("urologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("urologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("urologist", "procedures",     "read",  "assigned", ["*"]),
+    ("urologist", "procedures",     "write", "assigned", ["*"]),
+    ("urologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # allergist_immunologist
+    ("allergist_immunologist", "demographics",   "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "demographics",   "write", "assigned", ["*"]),
+    ("allergist_immunologist", "conditions",     "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "conditions",     "write", "assigned", ["*"]),
+    ("allergist_immunologist", "vitals",         "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "vitals",         "write", "assigned", ["*"]),
+    ("allergist_immunologist", "medications",    "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "medications",    "write", "assigned", ["*"]),
+    ("allergist_immunologist", "lab_results",    "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "lab_results",    "write", "assigned", ["*"]),
+    ("allergist_immunologist", "imaging",        "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "clinical_notes", "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "clinical_notes", "write", "assigned", ["*"]),
+    ("allergist_immunologist", "immunizations",  "read",  "assigned", ["*"]),
+    ("allergist_immunologist", "encounters",     "read",  "assigned", ["*"]),
+
+    # primary_care_physician — broadest access; preventive + social
+    ("primary_care_physician", "demographics",   "read",  "assigned", ["*"]),
+    ("primary_care_physician", "demographics",   "write", "assigned", ["*"]),
+    ("primary_care_physician", "conditions",     "read",  "assigned", ["*"]),
+    ("primary_care_physician", "conditions",     "write", "assigned", ["*"]),
+    ("primary_care_physician", "vitals",         "read",  "assigned", ["*"]),
+    ("primary_care_physician", "vitals",         "write", "assigned", ["*"]),
+    ("primary_care_physician", "medications",    "read",  "assigned", ["*"]),
+    ("primary_care_physician", "medications",    "write", "assigned", ["*"]),
+    ("primary_care_physician", "lab_results",    "read",  "assigned", ["*"]),
+    ("primary_care_physician", "imaging",        "read",  "assigned", ["*"]),
+    ("primary_care_physician", "clinical_notes", "read",  "assigned", ["*"]),
+    ("primary_care_physician", "clinical_notes", "write", "assigned", ["*"]),
+    ("primary_care_physician", "care_plans",     "read",  "assigned", ["*"]),
+    ("primary_care_physician", "care_plans",     "write", "assigned", ["*"]),
+    ("primary_care_physician", "social_history", "read",  "assigned", ["*"]),
+    ("primary_care_physician", "social_history", "write", "assigned", ["*"]),
+    ("primary_care_physician", "immunizations",  "read",  "assigned", ["*"]),
+    ("primary_care_physician", "immunizations",  "write", "assigned", ["*"]),
+    ("primary_care_physician", "procedures",     "read",  "assigned", ["*"]),
+    ("primary_care_physician", "encounters",     "read",  "assigned", ["*"]),
+
+    # bariatrician — metabolic/obesity; social_history + care_plans core
+    ("bariatrician", "demographics",   "read",  "assigned", ["*"]),
+    ("bariatrician", "demographics",   "write", "assigned", ["*"]),
+    ("bariatrician", "conditions",     "read",  "assigned", ["*"]),
+    ("bariatrician", "conditions",     "write", "assigned", ["*"]),
+    ("bariatrician", "vitals",         "read",  "assigned", ["*"]),
+    ("bariatrician", "vitals",         "write", "assigned", ["*"]),
+    ("bariatrician", "medications",    "read",  "assigned", ["*"]),
+    ("bariatrician", "lab_results",    "read",  "assigned", ["*"]),
+    ("bariatrician", "clinical_notes", "read",  "assigned", ["*"]),
+    ("bariatrician", "clinical_notes", "write", "assigned", ["*"]),
+    ("bariatrician", "care_plans",     "read",  "assigned", ["*"]),
+    ("bariatrician", "care_plans",     "write", "assigned", ["*"]),
+    ("bariatrician", "social_history", "read",  "assigned", ["*"]),
+    ("bariatrician", "social_history", "write", "assigned", ["*"]),
+    ("bariatrician", "encounters",     "read",  "assigned", ["*"]),
 ]
 
 # (user_id, name, role_id, department, care_team, is_persona)
 _USERS = [
-    ("u_014", "Dr. Sarah Chen",   "attending_physician", "neurology",   "team_a", True),
-    ("u_027", "Raj Patel",        "nurse",               "neurology",   "team_a", True),
-    ("u_033", "Elena Rodriguez",  "pharmacist",          "pharmacy",    "none",   True),
-    ("u_041", "Mei Lin",          "lab_technician",      "laboratory",  "none",   True),
-    ("u_059", "Tom Baker",        "research_analyst",    "research",    "none",   True),
-    ("u_020", "Dr. Alan Pierce",  "attending_physician", "neurology",   "team_b", False),
-    ("u_021", "Dr. Nadia Farouk", "attending_physician", "neurology",   "team_a", False),
+    ("u_014", "Dr. Sarah Chen",   "attending_physician", "neurology",   "team_a", False),
+    ("u_027", "Raj Patel",        "nurse",               "neurology",   "team_a", False),
+    ("u_033", "Elena Rodriguez",  "pharmacist",          "pharmacy",    "none",   False),
+    ("u_041", "Mei Lin",          "lab_technician",      "laboratory",  "none",   False),
+    ("u_059", "Tom Baker",        "research_analyst",    "research",    "none",   False),
+    ("u_020", "Dr. Alan Pierce",        "attending_physician",    "neurology",          "team_b", False),
+    ("u_021", "Dr. Nadia Farouk",       "attending_physician",    "neurology",          "team_a", False),
+    # ── Specialist practitioners for EHR dashboard ─────────────────────────
+    ("u_100", "Dr. James Whitfield",    "cardiologist",           "cardiology",         "team_d", True),
+    ("u_101", "Dr. Fatima Al-Hassan",   "cardiologist",           "cardiology",         "team_e", True),
+    ("u_102", "Dr. Priya Nair",         "endocrinologist",        "endocrinology",      "team_d", True),
+    ("u_103", "Dr. Marcus Johnson",     "pulmonologist",          "pulmonology",        "team_e", True),
+    ("u_104", "Dr. Elena Vasquez",      "nephrologist",           "nephrology",         "team_d", True),
+    ("u_105", "Dr. David Park",         "gastroenterologist",     "gastroenterology",   "team_e", True),
+    ("u_106", "Dr. Ayasha Running Bear","rheumatologist",         "rheumatology",       "team_d", True),
+    ("u_107", "Dr. Robert Klein",       "orthopedic_surgeon",     "orthopedics",        "team_e", True),
+    ("u_108", "Dr. Lisa Chang",         "hematologist",           "hematology",         "team_d", True),
+    ("u_109", "Dr. Michael Torres",     "psychiatrist",           "psychiatry",         "team_e", True),
+    ("u_110", "Dr. Samantha Wells",     "urologist",              "urology",            "team_d", True),
+    ("u_111", "Dr. Amara Obi",          "allergist_immunologist", "allergy_immunology", "team_e", True),
+    ("u_112", "Dr. Thomas Rivera",      "primary_care_physician", "primary_care",       "team_d", True),
+    ("u_113", "Dr. Kenji Sato",         "electrophysiologist",    "electrophysiology",  "team_e", True),
+    ("u_114", "Dr. Nadia Rosenberg",    "heart_failure_specialist","heart_failure",     "team_d", True),
+    ("u_115", "Dr. Carlos Mendez",      "bariatrician",           "bariatrics",         "team_e", True),
 ]
 
 # (patient_id, name, dob, sex, mrn, address, insurance_id, department, care_team, headline)
@@ -415,5 +724,139 @@ def verify_template() -> bool:
         if cur.fetchone()[0] < 13:
             return False
         return True
+    finally:
+        conn.close()
+
+
+# ---------------------------------------------------------------------------
+# EHR patient assignments (Synthea dataset → specialist practitioners)
+# ---------------------------------------------------------------------------
+
+# Condition keyword → (role, priority). Higher priority wins when a patient has
+# multiple matching conditions. Case-insensitive substring match.
+_CONDITION_ROLE_MAP = [
+    ("atrial fibrillation",      "electrophysiologist",      95),
+    ("heart failure",            "heart_failure_specialist",  95),
+    ("anemia",                   "hematologist",              90),
+    ("chronic kidney disease",   "nephrologist",              90),
+    ("diabetes mellitus",        "endocrinologist",           85),
+    ("hypothyroid",              "endocrinologist",           85),
+    ("coronary artery disease",  "cardiologist",              85),
+    ("coronary heart disease",   "cardiologist",              85),
+    ("obstructive pulmonary",    "pulmonologist",             85),
+    ("gastroesophageal",         "gastroenterologist",        82),
+    ("prediabetes",              "endocrinologist",           80),
+    ("asthma",                   "pulmonologist",             80),
+    ("osteoarthritis",           "orthopedic_surgeon",        80),
+    ("anxiety",                  "psychiatrist",              75),
+    ("depression",               "psychiatrist",              75),
+    ("urinary tract",            "urologist",                 75),
+    ("obesity",                  "bariatrician",              70),
+    ("hyperlipidemia",           "primary_care_physician",    60),
+    ("hypertension",             "cardiologist",              55),
+]
+
+# Maps each role to its practitioner user_ids (round-robin distribution)
+_ROLE_PRACTITIONERS: dict[str, list[str]] = {
+    "cardiologist":             ["u_100", "u_101"],
+    "electrophysiologist":      ["u_113"],
+    "heart_failure_specialist": ["u_114"],
+    "pulmonologist":            ["u_103"],
+    "nephrologist":             ["u_104"],
+    "endocrinologist":          ["u_102"],
+    "gastroenterologist":       ["u_105"],
+    "rheumatologist":           ["u_106"],
+    "orthopedic_surgeon":       ["u_107"],
+    "hematologist":             ["u_108"],
+    "psychiatrist":             ["u_109"],
+    "urologist":                ["u_110"],
+    "allergist_immunologist":   ["u_111"],
+    "primary_care_physician":   ["u_112"],
+    "bariatrician":             ["u_115"],
+}
+
+
+def seed_ehr_assignments() -> None:
+    """
+    Assign Synthea EHR patients to specialist practitioners based on their conditions.
+    Idempotent — skips if ehr_patient_assignments already has rows.
+    Fails gracefully if the ehr schema or patients table does not yet exist.
+    """
+    from collections import defaultdict
+
+    from .db import get_conn
+
+    conn = get_conn()
+    try:
+        cur = conn.cursor()
+
+        # Skip if already seeded
+        cur.execute("SELECT COUNT(*) FROM ehr_patient_assignments")
+        if cur.fetchone()[0] > 0:
+            logger.info("EHR assignments already present — skipping.")
+            return
+
+        # Fetch all EHR patients with their active condition names
+        cur.execute("SET search_path TO ehr, public")
+        try:
+            cur.execute(
+                """
+                SELECT p.patient_id::text,
+                       array_agg(LOWER(c.condition_name)) FILTER (WHERE c.status = 'active') AS conds
+                FROM patients p
+                LEFT JOIN conditions c ON c.patient_id = p.patient_id
+                GROUP BY p.patient_id
+                ORDER BY p.patient_id
+                """
+            )
+        except Exception as exc:
+            logger.warning("EHR schema not available; skipping EHR assignments. (%s)", exc)
+            conn.rollback()
+            return
+
+        patient_rows = cur.fetchall()
+        if not patient_rows:
+            logger.info("No EHR patients found; skipping EHR assignments.")
+            return
+
+        # Round-robin counters per role
+        assignment_counts: dict[str, int] = defaultdict(int)
+
+        def pick_practitioner(role: str) -> str:
+            practitioners = _ROLE_PRACTITIONERS.get(role, ["u_112"])
+            idx = assignment_counts[role] % len(practitioners)
+            assignment_counts[role] += 1
+            return practitioners[idx]
+
+        assignments: list[tuple[str, str]] = []
+        for patient_id_str, conds in patient_rows:
+            conditions = conds or []
+            best_role = "primary_care_physician"
+            best_priority = -1
+
+            for cond_name in conditions:
+                for keyword, role, priority in _CONDITION_ROLE_MAP:
+                    if keyword in cond_name and priority > best_priority:
+                        best_role = role
+                        best_priority = priority
+
+            practitioner = pick_practitioner(best_role)
+            assignments.append((practitioner, patient_id_str))
+
+        cur.execute("SET search_path TO public")
+        cur.executemany(
+            "INSERT INTO ehr_patient_assignments(practitioner_id, patient_id)"
+            " VALUES(%s, %s::uuid) ON CONFLICT DO NOTHING",
+            assignments,
+        )
+        conn.commit()
+        logger.info("EHR assignments seeded: %d patients assigned.", len(assignments))
+
+    except Exception as exc:
+        logger.error("EHR assignment seeding failed: %s", exc)
+        try:
+            conn.rollback()
+        except Exception:
+            pass
     finally:
         conn.close()

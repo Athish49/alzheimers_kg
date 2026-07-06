@@ -461,3 +461,176 @@ class TestProjectScoping:
             f"session.run() calls in retriever.py missing project= param:\n"
             + "\n".join(f"  {b}" for b in bad)
         )
+
+
+# ─── EHR endpoint security tests ─────────────────────────────────────────────
+
+class TestEHREndpointSecurity:
+    """Integration tests for the EHR router endpoints.
+
+    Covers: assignment gate, chart section filtering, snapshot sub-field
+    filtering, and cross-specialist access denial for new specialist roles.
+
+    Marks: integration (requires DATABASE_URL and a seeded Neon Postgres DB).
+    """
+
+    @pytest.fixture(scope="class")
+    def client(self):
+        from fastapi.testclient import TestClient
+        from graph_rag.main import app
+        with TestClient(app) as c:
+            yield c
+
+    def _select_persona(self, client, user_id: str) -> str:
+        r = client.post(f"/runtime/personas/{user_id}/select")
+        assert r.status_code == 200, f"persona select failed for {user_id}: {r.text}"
+        return r.json()["token"]
+
+    def _patient_ids(self, client, token: str) -> list[str]:
+        r = client.get("/runtime/patients", headers={"Authorization": f"Bearer {token}"})
+        assert r.status_code == 200
+        return [p["patient_id"] for p in r.json().get("patients", [])]
+
+    @pytest.mark.integration
+    def test_specialist_patient_list_requires_auth(self, client):
+        """GET /runtime/patients without a token returns 401."""
+        r = client.get("/runtime/patients")
+        assert r.status_code == 401
+
+    @pytest.mark.integration
+    def test_cardiologist_sees_assigned_patients(self, client):
+        """Cardiologist (u_100) can fetch their patient list."""
+        token = self._select_persona(client, "u_100")
+        r = client.get("/runtime/patients", headers={"Authorization": f"Bearer {token}"})
+        assert r.status_code == 200
+        data = r.json()
+        assert "patients" in data
+
+    @pytest.mark.integration
+    def test_cardiologist_can_read_own_patient_chart(self, client):
+        """Cardiologist can access the chart of one of their assigned patients."""
+        token = self._select_persona(client, "u_100")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_100 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+
+    @pytest.mark.integration
+    def test_psychiatrist_chart_excludes_lab_results(self, client):
+        """Psychiatrist chart response omits lab_results (no permission for that resource)."""
+        token = self._select_persona(client, "u_109")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_109 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+        resources = r.json().get("resources", {})
+        assert "lab_results" not in resources, "psychiatrist must not see lab_results"
+
+    @pytest.mark.integration
+    def test_psychiatrist_chart_excludes_imaging(self, client):
+        """Psychiatrist chart response omits imaging (no permission)."""
+        token = self._select_persona(client, "u_109")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_109 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+        resources = r.json().get("resources", {})
+        assert "imaging" not in resources, "psychiatrist must not see imaging"
+
+    @pytest.mark.integration
+    def test_psychiatrist_snapshot_excludes_recent_labs(self, client):
+        """Psychiatrist snapshot sub-field filtering: recent_labs must be absent."""
+        token = self._select_persona(client, "u_109")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_109 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+        snapshot = r.json().get("resources", {}).get("snapshot", {})
+        assert "recent_labs" not in snapshot, "psychiatrist snapshot must not include recent_labs"
+
+    @pytest.mark.integration
+    def test_cross_specialist_chart_access_denied(self, client):
+        """Cardiologist cannot access a patient exclusively assigned to psychiatrist."""
+        card_token = self._select_persona(client, "u_100")
+        psych_token = self._select_persona(client, "u_109")
+
+        card_ids = set(self._patient_ids(client, card_token))
+        psych_ids = set(self._patient_ids(client, psych_token))
+
+        psych_only = psych_ids - card_ids
+        if not psych_only:
+            pytest.skip("No patient exclusively assigned to u_109 found")
+
+        target = next(iter(psych_only))
+        r = client.get(
+            f"/runtime/chart/{target}",
+            headers={"Authorization": f"Bearer {card_token}"},
+        )
+        assert r.status_code == 403, f"Expected 403, got {r.status_code}"
+
+    @pytest.mark.integration
+    def test_encounter_detail_assignment_gate(self, client):
+        """Encounter detail returns 403 for a patient not assigned to the requesting specialist."""
+        card_token = self._select_persona(client, "u_100")
+        psych_token = self._select_persona(client, "u_109")
+
+        card_ids = set(self._patient_ids(client, card_token))
+        psych_ids = set(self._patient_ids(client, psych_token))
+
+        psych_only = psych_ids - card_ids
+        if not psych_only:
+            pytest.skip("No patient exclusively assigned to u_109 found")
+
+        target = next(iter(psych_only))
+        # Any encounter ID is fine — assignment check fires before encounter lookup
+        r = client.get(
+            f"/runtime/chart/{target}/encounter/enc_00000000",
+            headers={"Authorization": f"Bearer {card_token}"},
+        )
+        assert r.status_code == 403, f"Expected 403 on encounter detail, got {r.status_code}"
+
+    @pytest.mark.integration
+    def test_cardiologist_chart_includes_lab_results(self, client):
+        """Cardiologist chart response includes lab_results (permitted resource)."""
+        token = self._select_persona(client, "u_100")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_100 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+        resources = r.json().get("resources", {})
+        assert "lab_results" in resources, "cardiologist must see lab_results"
+
+    @pytest.mark.integration
+    def test_cardiologist_chart_includes_imaging(self, client):
+        """Cardiologist chart response includes imaging (permitted resource)."""
+        token = self._select_persona(client, "u_100")
+        patients = self._patient_ids(client, token)
+        if not patients:
+            pytest.skip("u_100 has no EHR assignments seeded")
+        r = client.get(
+            f"/runtime/chart/{patients[0]}",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert r.status_code == 200
+        resources = r.json().get("resources", {})
+        assert "imaging" in resources, "cardiologist must see imaging"

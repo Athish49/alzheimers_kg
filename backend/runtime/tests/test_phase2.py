@@ -590,6 +590,147 @@ class TestAudit:
         cur.execute("RESET ROLE")
 
 
+# ─── Specialist role tests ────────────────────────────────────────────────────
+
+class TestSpecialistRolePermissions:
+    """Verify specialist role permissions seeded in the role_permissions table.
+
+    These roles operate on the EHR plane (ehr_patient_assignments), not the
+    session-scoped Alzheimer's plane. Tests query the DB directly — no session
+    fixture required — to validate the permission matrix is correctly seeded.
+    """
+
+    @pytest.fixture
+    def conn(self):
+        from runtime.seed.db import get_conn
+        c = get_conn()
+        yield c
+        c.close()
+
+    def _read_resources(self, conn, role_id: str) -> set[str]:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT DISTINCT resource FROM role_permissions WHERE role_id = %s AND action = 'read'",
+            (role_id,),
+        )
+        return {r[0] for r in cur.fetchall()}
+
+    def _write_resources(self, conn, role_id: str) -> set[str]:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT DISTINCT resource FROM role_permissions WHERE role_id = %s AND action = 'write'",
+            (role_id,),
+        )
+        return {r[0] for r in cur.fetchall()}
+
+    # ── JWT scope checks for new specialist roles ─────────────────────────────
+
+    def test_specialist_jwt_includes_knowledge_read(self):
+        """Every new specialist role gets at least knowledge.read in its JWT scope."""
+        specialists = [
+            "cardiologist", "psychiatrist", "pulmonologist", "nephrologist",
+            "endocrinologist", "gastroenterologist", "rheumatologist",
+            "orthopedic_surgeon", "hematologist", "urologist",
+            "allergist_immunologist", "primary_care_physician",
+            "electrophysiologist", "heart_failure_specialist", "bariatrician",
+        ]
+        for role in specialists:
+            token = mint_token("u_spec", role, "dept", "none", "s_spec")
+            claims = verify_token(token)
+            assert "knowledge.read" in claims["scope"], f"knowledge.read missing for {role}"
+
+    def test_specialist_jwt_includes_patient_read(self):
+        """Every new specialist role gets patient.read scope in its JWT."""
+        specialists = [
+            "cardiologist", "psychiatrist", "pulmonologist", "nephrologist",
+            "endocrinologist",
+        ]
+        for role in specialists:
+            token = mint_token("u_spec", role, "dept", "none", "s_spec")
+            claims = verify_token(token)
+            assert "patient.read" in claims["scope"], f"patient.read missing for {role}"
+
+    # ── Cardiologist permission matrix ────────────────────────────────────────
+
+    def test_cardiologist_reads_lab_results(self, conn):
+        assert "lab_results" in self._read_resources(conn, "cardiologist")
+
+    def test_cardiologist_reads_imaging(self, conn):
+        assert "imaging" in self._read_resources(conn, "cardiologist")
+
+    def test_cardiologist_reads_conditions(self, conn):
+        assert "conditions" in self._read_resources(conn, "cardiologist")
+
+    def test_cardiologist_no_social_history(self, conn):
+        """Cardiologist has no social_history permission."""
+        assert "social_history" not in self._read_resources(conn, "cardiologist")
+
+    def test_cardiologist_no_procedures_write(self, conn):
+        """Cardiologist cannot write procedures (read-only domain)."""
+        assert "procedures" not in self._write_resources(conn, "cardiologist")
+
+    # ── Psychiatrist permission matrix ────────────────────────────────────────
+
+    def test_psychiatrist_no_lab_results(self, conn):
+        """Psychiatrist has no lab_results access — outside clinical scope."""
+        assert "lab_results" not in self._read_resources(conn, "psychiatrist")
+
+    def test_psychiatrist_no_imaging(self, conn):
+        """Psychiatrist has no imaging access."""
+        assert "imaging" not in self._read_resources(conn, "psychiatrist")
+
+    def test_psychiatrist_reads_social_history(self, conn):
+        assert "social_history" in self._read_resources(conn, "psychiatrist")
+
+    def test_psychiatrist_writes_social_history(self, conn):
+        assert "social_history" in self._write_resources(conn, "psychiatrist")
+
+    def test_psychiatrist_reads_care_plans(self, conn):
+        assert "care_plans" in self._read_resources(conn, "psychiatrist")
+
+    def test_psychiatrist_reads_clinical_notes(self, conn):
+        assert "clinical_notes" in self._read_resources(conn, "psychiatrist")
+
+    # ── Cross-specialist contrast: imaging access ─────────────────────────────
+
+    def test_nephrologist_reads_lab_results(self, conn):
+        assert "lab_results" in self._read_resources(conn, "nephrologist")
+
+    def test_nephrologist_reads_imaging(self, conn):
+        assert "imaging" in self._read_resources(conn, "nephrologist")
+
+    def test_pulmonologist_reads_imaging(self, conn):
+        assert "imaging" in self._read_resources(conn, "pulmonologist")
+
+    # ── All specialists must read demographics and encounters ─────────────────
+
+    def test_all_specialists_read_demographics(self, conn):
+        """Every specialist role must be able to read demographics."""
+        specialists = [
+            "cardiologist", "psychiatrist", "pulmonologist", "nephrologist",
+            "endocrinologist", "gastroenterologist", "rheumatologist",
+            "orthopedic_surgeon", "hematologist", "urologist",
+            "allergist_immunologist", "primary_care_physician",
+            "electrophysiologist", "heart_failure_specialist", "bariatrician",
+        ]
+        for role in specialists:
+            resources = self._read_resources(conn, role)
+            assert "demographics" in resources, f"{role} missing demographics read"
+
+    def test_all_specialists_read_encounters(self, conn):
+        """Every specialist must be able to read encounter history."""
+        specialists = [
+            "cardiologist", "psychiatrist", "pulmonologist", "nephrologist",
+            "endocrinologist", "gastroenterologist", "rheumatologist",
+            "orthopedic_surgeon", "hematologist", "urologist",
+            "allergist_immunologist", "primary_care_physician",
+            "electrophysiologist", "heart_failure_specialist", "bariatrician",
+        ]
+        for role in specialists:
+            resources = self._read_resources(conn, role)
+            assert "encounters" in resources, f"{role} missing encounters read"
+
+
 # ─── Internal helpers ─────────────────────────────────────────────────────────
 
 def _audit_count(conn, session_id: str) -> int:
