@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE = "";
 
 export async function queryAnswer(question, { temperature, maxTokens, history, signal } = {}) {
   const body = {

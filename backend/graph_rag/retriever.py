@@ -109,14 +109,14 @@ class GraphRetriever:
         if did:
             return did
 
-        # 2) Fallback to specific MONDO ID we expect from normalize_entities
+        # 2) Fallback to configured MONDO ID
         q = """
-        MATCH (d:Disease {id: 'MONDO:0004975', project: $project})
+        MATCH (d:Disease {id: $disease_id, project: $project})
         RETURN d.id AS id
         LIMIT 1
         """
         with self._session() as session:
-            rec = session.run(q, project=self.project).single()
+            rec = session.run(q, disease_id=CONFIG.DEFAULT_AD_DISEASE_ID, project=self.project).single()
             return rec["id"] if rec else None
 
     # ------------------------------------------------------------------

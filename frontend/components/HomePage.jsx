@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Icon } from './Icons';
 
@@ -495,7 +495,7 @@ function FooterWithCopy() {
       <div className="f-links">
         <span className="f-built-by">Built by Athish Gopal Rajesh</span>
         <span className="f-divider" />
-        <a href="https://athish-gopal-rajesh.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio &amp; about</a>
+        <a href="https://grathish.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio &amp; about</a>
         <span>&middot;</span>
         <a href="https://www.linkedin.com/in/athishgr/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <span>&middot;</span>
@@ -516,6 +516,10 @@ function FooterWithCopy() {
 
 export function HomePage() {
   const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    fetch('/health').catch(() => {});
+  }, []);
   const demo = DEMOS[activeIdx];
   const Panel = PANELS[demo.id];
 

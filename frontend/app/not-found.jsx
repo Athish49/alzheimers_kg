@@ -24,7 +24,7 @@ export default function NotFound() {
         width: 48, height: 48, borderRadius: 12,
         background: 'var(--fg)', display: 'flex',
         alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'var(--font-serif)', fontStyle: 'italic',
+        fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 700,
         fontSize: 28, color: 'var(--bg)', marginBottom: 8,
       }}>A</div>
       <div style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.45 }}>

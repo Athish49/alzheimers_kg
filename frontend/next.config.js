@@ -11,7 +11,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",  // unsafe-eval needed by Next.js dev
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "connect-src 'self' https://*.vercel.app http://localhost:8000",
+      "connect-src 'self'",
       "img-src 'self' data:",
       "frame-ancestors 'none'",
     ].join('; '),
@@ -28,12 +28,11 @@ const nextConfig = {
   },
 
   async rewrites() {
-    if (process.env.NODE_ENV === 'development') {
-      return [
-        { source: '/answer', destination: 'http://localhost:8000/answer' },
-      ];
-    }
-    return [];
+    const backend = process.env.BACKEND_URL || 'http://localhost:8000';
+    return [
+      { source: '/answer', destination: `${backend}/answer` },
+      { source: '/health', destination: `${backend}/health` },
+    ];
   },
 };
 
