@@ -202,6 +202,157 @@ const CHK = {
   partial: <span className="chk-partial">~</span>,
 };
 
+/* ─── Knowledge Graph Schema ─── */
+
+function KnowledgeGraphSchema() {
+  const nodes = [
+    { id: 'disease',     label: 'Disease',     x: 450, y: 280, dark: true  },
+    { id: 'drug',        label: 'Drug',         x: 720, y: 270, dark: false },
+    { id: 'gene',        label: 'Gene',         x: 195, y: 340, dark: false },
+    { id: 'protein',     label: 'Protein',      x: 330, y: 430, dark: false },
+    { id: 'phenotype',   label: 'Phenotype',    x: 170, y: 230, dark: false },
+    { id: 'biomarker',   label: 'Biomarker',    x: 330, y: 100, dark: false },
+    { id: 'pathway',     label: 'Pathway',      x: 670, y: 110, dark: false },
+    { id: 'trial',       label: 'Trial',        x: 560, y: 390, dark: false },
+    { id: 'mechanism',   label: 'Mechanism',    x: 560, y: 490, dark: false },
+    { id: 'riskfactor',  label: 'RiskFactor',   x: 120, y: 440, dark: false },
+    { id: 'variant',     label: 'Variant',      x: 290, y: 510, dark: false },
+    { id: 'study',       label: 'Study',        x: 105, y: 140, dark: false },
+    { id: 'fluid',       label: 'Fluid',        x: 145, y: 55,  dark: false },
+    { id: 'company',     label: 'Company',      x: 860, y: 145, dark: false },
+    { id: 'therapytype', label: 'TherapyType',  x: 870, y: 380, dark: false },
+  ];
+
+  const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+  const edges = [
+    { from: 'biomarker',  to: 'fluid',      label: 'MEASURED_IN',             dashed: false },
+    { from: 'biomarker',  to: 'disease',    label: 'PREDICTS_PROGRESSION_TO', dashed: false },
+    { from: 'study',      to: 'disease',    label: 'REPORTS',                 dashed: false },
+    { from: 'phenotype',  to: 'disease',    label: 'HAS_PHENOTYPE',           dashed: false },
+    { from: 'gene',       to: 'disease',    label: 'ASSOCIATED_WITH_DISEASE', dashed: false },
+    { from: 'gene',       to: 'protein',    label: 'ENCODES',                 dashed: false },
+    { from: 'gene',       to: 'disease',    label: 'INCREASES_RISK_OF',       dashed: false },
+    { from: 'protein',    to: 'disease',    label: 'CLEAVES',                 dashed: false },
+    { from: 'riskfactor', to: 'disease',    label: 'INCREASES_RISK_OF',       dashed: false },
+    { from: 'variant',    to: 'gene',       label: 'LOCATED_IN',              dashed: false },
+    { from: 'drug',       to: 'disease',    label: 'TREATS',                  dashed: false },
+    { from: 'drug',       to: 'pathway',    label: 'AFFECTS_PATHWAY',         dashed: false },
+    { from: 'drug',       to: 'trial',      label: 'HAS_TRIAL',               dashed: false },
+    { from: 'drug',       to: 'company',    label: 'DEVELOPED_BY',            dashed: false },
+    { from: 'drug',       to: 'therapytype',label: 'HAS_THERAPY_TYPE',        dashed: false },
+    { from: 'trial',      to: 'disease',    label: 'FOR_DISEASE',             dashed: false },
+    { from: 'trial',      to: 'mechanism',  label: 'INVOLVES_PATHOLOGY',      dashed: false },
+  ];
+
+  const NW = 96;
+  const NH = 34;
+
+  function edgePath(e) {
+    const a = nodeMap[e.from];
+    const b = nodeMap[e.to];
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len = Math.sqrt(dx * dx + dy * dy) || 1;
+    const ux = dx / len;
+    const uy = dy / len;
+    return {
+      x1: a.x + ux * (NW / 2 + 4),
+      y1: a.y + uy * (NH / 2 + 4),
+      x2: b.x - ux * (NW / 2 + 10),
+      y2: b.y - uy * (NH / 2 + 10),
+      mx: (a.x + b.x) / 2,
+      my: (a.y + b.y) / 2,
+    };
+  }
+
+  return (
+    <section className="band" id="graph-schema">
+      <div className="wrap">
+        <div className="section-head">
+          <div className="section-label">The knowledge graph</div>
+          <h2>Every entity connected. Every edge carrying the evidence.</h2>
+          <p className="section-lede">Every node carries a canonical ontology ID. Every edge carries the evidence: direction, effect size, phase, or study count. Not just a link.</p>
+        </div>
+        <div className="kg-schema-wrap">
+          <svg
+            viewBox="0 0 980 560"
+            className="kg-schema-svg"
+            aria-label="Knowledge graph schema showing Disease at center connected to Drug, Gene, Protein, Phenotype, Biomarker, Pathway, Trial, Mechanism, RiskFactor, Variant, Study, Fluid, Company, and TherapyType nodes with labeled relationships"
+          >
+            <defs>
+              <marker id="kg-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M0,0.5 L7,3.5 L0,6.5" fill="none" stroke="#aaa" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
+              </marker>
+            </defs>
+
+            {edges.map((e, i) => {
+              const { x1, y1, x2, y2, mx, my } = edgePath(e);
+              const labelW = e.label.length * 5.2 + 8;
+              return (
+                <g key={i}>
+                  <line
+                    x1={x1} y1={y1} x2={x2} y2={y2}
+                    stroke="#ccc"
+                    strokeWidth="1.1"
+                    strokeDasharray={e.dashed ? '5,4' : undefined}
+                    markerEnd="url(#kg-arrow)"
+                  />
+                  <rect
+                    x={mx - labelW / 2}
+                    y={my - 7}
+                    width={labelW}
+                    height={13}
+                    rx="2"
+                    fill="#f5f4f0"
+                    opacity="0.92"
+                  />
+                  <text
+                    x={mx}
+                    y={my}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="7.5"
+                    fill="#999"
+                    letterSpacing="0.3"
+                    style={{ fontFamily: 'var(--font-mono, monospace)', userSelect: 'none' }}
+                  >
+                    {e.label}
+                  </text>
+                </g>
+              );
+            })}
+
+            {nodes.map(n => (
+              <g key={n.id} transform={`translate(${n.x},${n.y})`}>
+                <rect
+                  x={-NW / 2} y={-NH / 2}
+                  width={NW} height={NH}
+                  rx="10"
+                  fill={n.dark ? '#1a1a1a' : '#fff'}
+                  stroke={n.dark ? '#1a1a1a' : '#ddd'}
+                  strokeWidth="1.2"
+                />
+                <text
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  x={0}
+                  fontSize="12"
+                  fontWeight="500"
+                  fill={n.dark ? '#fff' : '#1a1a1a'}
+                  style={{ fontFamily: 'var(--font-sans, sans-serif)', userSelect: 'none' }}
+                >
+                  {n.label}
+                </text>
+              </g>
+            ))}
+          </svg>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Architecture diagram ─── */
 
 function ArchDiagram() {
@@ -396,10 +547,10 @@ export function HomePage() {
         <span className="eyebrow"><span className="dot"></span> Ontology-grounded knowledge graph &middot; Alzheimer&apos;s disease</span>
         <h1 className="hero-title">A research interface for the shape of Alzheimer&apos;s data.</h1>
         <p className="hero-sub">
-          Ask in plain English. Every answer is traced to a node and to the ontology behind it.
+          Ask in plain English. Every answer is traced to a node and the ontology behind it.
         </p>
         <p className="hero-sub-detail">
-          An <em>ontology-grounded</em> Graph RAG workbench over a curated Alzheimer&apos;s knowledge graph. Six biomedical ontologies and AlzForum&apos;s evidence base are reconciled into one graph, so biomarker effect sizes, trial phases, phenotype frequencies, and gene-to-pathway links all carry a canonical identity and trace back to a node.
+        Six biomedical ontologies, one graph. Every number traces to a node.
         </p>
         <div className="hero-cta">
           <Link className="btn btn-primary" href="/app">Open the workbench &rarr;</Link>
@@ -410,7 +561,7 @@ export function HomePage() {
         <div className="demo-intro">
           <div className="demo-intro-label">Interactive demo</div>
           <p className="demo-intro-head">Every query type. Each one shows its work.</p>
-          <p className="demo-intro-sub">Select a category on the right to see how Atlas classifies intent, routes to a retrieval strategy, and renders structured evidence alongside every answer. Nothing is invented; everything is traceable.</p>
+          <p className="demo-intro-sub">Pick a category. See how Atlas reads the question, picks a strategy, and grounds every answer in the graph.</p>
         </div>
 
         {/* Hero mock preview + floating sidebar */}
@@ -466,27 +617,29 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">The problem</div>
             <h2>Alzheimer&apos;s research lives in ten thousand disconnected rows.</h2>
-            <p className="section-lede">Disease ontologies, phenotype ontologies, gene and protein nomenclatures, pathway annotations, drug registries, biomarker meta-analyses. All are authoritative, all are siloed, each with its own IDs and semantics. Answering one question usually means opening six tabs and reconciling them in your head.</p>
+            <p className="section-lede">Six authoritative sources (ontologies, nomenclatures, drug registries, biomarker meta-analyses), each with its own IDs. Answering one question means opening six tabs and reconciling in your head.</p>
           </div>
           <div className="problem-grid">
             <div className="prob-card">
               <div className="prob-num">01</div>
               <h3 className="prob-title">Fragmented sources</h3>
-              <p className="prob-body">MONDO for disease. HPO for phenotypes. GO for pathways. PRO for proteins. ChEBI for drugs. HGNC for genes. Six vocabularies, six ID schemes, six update cadences with nothing that joins them.</p>
+              <p className="prob-body">Thousands of sources. No shared naming standard. The same gene has a different ID in every database.</p>
             </div>
             <div className="prob-card">
               <div className="prob-num">02</div>
               <h3 className="prob-title">Chat tools don&apos;t show their work</h3>
-              <p className="prob-body">General-purpose assistants will happily hallucinate a p-value. Researchers need to see the specific nodes and edges behind every claim, not just trust a paragraph.</p>
+              <p className="prob-body">General assistants hallucinate p-values. Researchers need nodes and edges, not trust in a paragraph.</p>
             </div>
             <div className="prob-card">
               <div className="prob-num">03</div>
               <h3 className="prob-title">Dashboards don&apos;t answer questions</h3>
-              <p className="prob-body">Classical BI tools show you what you already asked to see. They can&apos;t respond to &ldquo;which Phase 3 drugs target APOE-adjacent pathways?&rdquo; without a custom build.</p>
+              <p className="prob-body">BI tools show what you pre-built. They can&apos;t answer &quot;which Phase 3 drugs target APOE-adjacent pathways?&quot; without a custom build.</p>
             </div>
           </div>
         </div>
       </section>
+
+      <KnowledgeGraphSchema />
 
       {/* How it works */}
       <section className="band" id="how">
@@ -494,7 +647,7 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">How Atlas works</div>
             <h2>Questions are classified, routed, and grounded in the graph.</h2>
-            <p className="section-lede">Every query&apos;s intent is classified, then routed to a retrieval strategy that pulls the relevant subgraph. The model only writes the final answer. Nothing is invented; every claim traces to a node.</p>
+            <p className="section-lede">Intent classified. Subgraph pulled. Model writes from context only. Every claim traces to a node.</p>
           </div>
           <div className="how-grid">
             <div className="how-steps">
@@ -502,28 +655,28 @@ export function HomePage() {
                 <div className="step-num">01</div>
                 <div>
                   <h4 className="step-title">Classify intent</h4>
-                  <p className="step-body">A rule-based classifier labels your question as one of seven query classes in under a millisecond (no API call) and declines anything outside Alzheimer&apos;s. It surfaces its notes, so you can see how it read you.</p>
+                  <p className="step-body">Rule-based, sub-millisecond, no API call. Labels one of seven classes; declines out-of-scope. Shows its reasoning.</p>
                 </div>
               </div>
               <div className="step">
                 <div className="step-num">02</div>
                 <div>
                   <h4 className="step-title">Select a retrieval strategy</h4>
-                  <p className="step-body">Each intent routes to a named strategy (<code>AD_BIOMARKERS_V2</code>, <code>AD_DRUGS_V2</code>, &hellip;), a subgraph traversal tuned for that class of question.</p>
+                  <p className="step-body">Each intent maps to a named strategy: a subgraph traversal tuned to that question class.</p>
                 </div>
               </div>
               <div className="step">
                 <div className="step-num">03</div>
                 <div>
                   <h4 className="step-title">Retrieve the subgraph</h4>
-                  <p className="step-body">It pulls only the relevant nodes and edges: biomarkers with direction, effect size, p-value; drugs with phase, ChEBI ID, pathway links. All as typed structure, not free text.</p>
+                  <p className="step-body">Pulls only what&apos;s relevant: biomarkers with effect size and p-value, drugs with phase and pathway links. Typed structure, not free text.</p>
                 </div>
               </div>
               <div className="step">
                 <div className="step-num">04</div>
                 <div>
                   <h4 className="step-title">Synthesise, but show the evidence</h4>
-                  <p className="step-body">The model writes the answer at temperature zero, using only the retrieved context, never its own training knowledge. That context is rendered beside the prose as evidence, so every number maps to a row you can inspect.</p>
+                  <p className="step-body">Model writes at temperature zero from retrieved context only. Evidence renders beside the answer, with every number mapped to a row.</p>
                 </div>
               </div>
             </div>
@@ -569,7 +722,7 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">Capabilities</div>
             <h2>Six query classes, each with a tailored view.</h2>
-            <p className="section-lede">The intent you ask determines how the evidence is rendered. A biomarker question doesn&apos;t look like a drug question. The structure of the data is different, and the UI follows.</p>
+            <p className="section-lede">Intent shapes the view. Biomarker evidence looks different from drug evidence. The UI follows the data structure.</p>
           </div>
           <div className="cap-grid">
             <div className="cap-cell">
@@ -613,44 +766,33 @@ export function HomePage() {
       </section>
 
       {/* The Difference */}
+      {/* Why it works differently */}
       <section className="band" id="difference">
         <div className="wrap">
           <div className="section-head">
-            <div className="section-label">The difference</div>
-            <h2>Most &ldquo;graph RAG&rdquo; is a vector store with extra steps. Atlas is built on meaning.</h2>
-            <p className="section-lede">Typical retrieval chops text into chunks and hopes similarity lands near the truth. Atlas goes one level deeper: every entity reconciled to a canonical ontology ID, every edge carrying the evidence, not just a link.</p>
+            <div className="section-label">Why it works differently</div>
+            <h2>Most &ldquo;graph RAG&rdquo; retrieves text. Atlas retrieves structure.</h2>
+            <p className="section-lede">Assistants guess. Dashboards only answer what you pre-built. Atlas handles open-ended questions from curated data, with every claim traceable.</p>
           </div>
           <div className="problem-grid">
             <div className="prob-card">
               <div className="prob-num">01</div>
               <h3 className="prob-title">Canonical identity, not fuzzy strings</h3>
-              <p className="prob-body">Every node carries a real ontology ID (<code>MONDO:0004975</code>, <code>HP:0002354</code>, HGNC, ChEBI). So A&beta;42 in a biomarker table and A&beta;42 in a trial are the <em>same</em> node, not two strings that happen to match.</p>
+              <p className="prob-body">Every entity has a real ontology ID. Aβ42 in a biomarker study and Aβ42 in a trial record are the same node, not two strings that happen to match.</p>
             </div>
             <div className="prob-card">
               <div className="prob-num">02</div>
               <h3 className="prob-title">Edges that carry the evidence</h3>
-              <p className="prob-body">An edge isn&apos;t just a line. A biomarker edge carries direction, effect size, p-value, and study count; a drug&rarr;disease edge carries phase and status. The number lives <em>in the graph</em> and the model just reads it out.</p>
+              <p className="prob-body">Biomarker edges carry effect size and p-value. Drug edges carry phase and approval status. Numbers live in the graph; the model reads them out.</p>
             </div>
             <div className="prob-card">
               <div className="prob-num">03</div>
               <h3 className="prob-title">Reconciled, not concatenated</h3>
-              <p className="prob-body">Six ontologies plus AlzForum, normalized into one graph at build time. It knows the <em>APP gene</em> encodes the <em>APP protein</em>, that a drug <em>targets</em> it, that it sits in an amyloid pathway. Joined once, not re-guessed per query.</p>
+              <p className="prob-body">Six ontologies plus AlzForum, joined once at build time. APP gene → APP protein → drug → amyloid pathway. Not re-guessed per query.</p>
             </div>
           </div>
-          <p className="section-lede" style={{ textAlign: 'center', maxWidth: '100%' }}>Regular RAG retrieves text. Atlas retrieves structure.</p>
-        </div>
-      </section>
 
-      {/* Why Atlas */}
-      <section className="band" id="why">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-label">Why Atlas</div>
-            <h2>Why not just ChatGPT?</h2>
-            <p className="section-lede">General assistants are impressively capable; BI dashboards are rigorous but rigid. Atlas sits where they don&apos;t overlap: open-ended questions, answered from curated data, with every claim traceable. <em>The difference matters when a p-value is on the line.</em></p>
-          </div>
-
-          <div className="compare-table">
+          <div className="compare-table" style={{ marginTop: '2.5rem' }}>
             <div className="compare-grid">
               <div className="compare-feat-head"></div>
               <div className="compare-col-head compare-atlas-head">Atlas</div>
@@ -658,13 +800,12 @@ export function HomePage() {
               <div className="compare-col-head">BI dashboard</div>
 
               {[
-                { feat: 'Takes natural-language questions',               atlas: 'yes', chat: 'yes',     bi: 'partial' },
-                { feat: 'Answers open-ended, novel questions',            atlas: 'yes', chat: 'yes',     bi: 'no'      },
-                { feat: 'General-purpose across any topic',               atlas: 'no',  chat: 'yes',     bi: 'no'      },
-                { feat: 'Grounded in curated, authoritative data',        atlas: 'yes', chat: 'partial', bi: 'yes'     },
-                { feat: 'Exact, reproducible figures',                    atlas: 'yes', chat: 'partial', bi: 'yes'     },
-                { feat: 'Every claim traceable to its source',            atlas: 'yes', chat: 'partial', bi: 'yes'     },
-                { feat: 'Canonical ontology IDs + relationship traversal', atlas: 'yes', chat: 'no',    bi: 'no'      },
+                { feat: 'Takes natural-language questions',        atlas: 'yes', chat: 'yes',     bi: 'partial' },
+                { feat: 'Answers open-ended, novel questions',     atlas: 'yes', chat: 'yes',     bi: 'no'      },
+                { feat: 'Grounded in curated, authoritative data', atlas: 'yes', chat: 'partial', bi: 'yes'     },
+                { feat: 'Exact, reproducible figures',             atlas: 'yes', chat: 'partial', bi: 'yes'     },
+                { feat: 'Every claim traceable to its source',     atlas: 'yes', chat: 'partial', bi: 'yes'     },
+                { feat: 'Structured knowledge with canonical IDs', atlas: 'yes', chat: 'no',      bi: 'no'      },
               ].map((row, i) => (
                 <React.Fragment key={i}>
                   <div className="compare-feat">{row.feat}</div>
@@ -676,6 +817,7 @@ export function HomePage() {
             </div>
           </div>
           <p className="compare-legend">&#10003; yes &nbsp;&middot;&nbsp; ~ partial, with caveats &nbsp;&middot;&nbsp; - no</p>
+          <p className="section-lede" style={{ textAlign: 'center', maxWidth: '100%', marginTop: '1.5rem' }}>Regular RAG retrieves text. Atlas retrieves structure.</p>
         </div>
       </section>
 
@@ -685,7 +827,7 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">Under the hood</div>
             <h2>Two phases. One source of truth.</h2>
-            <p className="section-lede">One graph, built once and queried many times. Everything above the line is reconciled at build time; everything below it is answered at query time, and every answer reads from the same graph.</p>
+            <p className="section-lede">Built once. Queried many times. Every answer reads from the same graph.</p>
           </div>
           <ArchDiagram />
         </div>
@@ -697,7 +839,7 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">Who it&apos;s for</div>
             <h2>Built for people comfortable with p-values.</h2>
-            <p className="section-lede">Atlas is not a consumer assistant. It&apos;s an expert tool for the three constituencies that spend the most time reconciling AD evidence.</p>
+            <p className="section-lede">Not a consumer assistant. An expert tool for anyone who lives in AD evidence.</p>
           </div>
           <div className="audience-grid">
             <div className="aud-card">
@@ -707,7 +849,7 @@ export function HomePage() {
                 <div className="aud-avatar">DR</div>
                 <div>
                   <div className="aud-name">Preclinical discovery teams</div>
-                  <div className="aud-title">Industry &amp; academic pharma</div>
+                  <div className="aud-title">Pharma &amp; Biotech Labs</div>
                 </div>
               </div>
             </div>
@@ -729,7 +871,7 @@ export function HomePage() {
                 <div className="aud-avatar">DS</div>
                 <div>
                   <div className="aud-name">Computational biology</div>
-                  <div className="aud-title">Research informatics</div>
+                  <div className="aud-title">Research &amp; Informatics Companies</div>
                 </div>
               </div>
             </div>
@@ -740,7 +882,7 @@ export function HomePage() {
       {/* CTA */}
       <section className="cta-band">
         <h2>Start with a question.</h2>
-        <p>No setup, no API keys. Type what you want to know and watch the graph and the ontologies beneath it answer.</p>
+        <p>No setup. No API keys. Just ask.</p>
         <Link className="btn btn-primary" href="/app" style={{ padding: '13px 22px', fontSize: 15 }}>Open Atlas &rarr;</Link>
       </section>
 

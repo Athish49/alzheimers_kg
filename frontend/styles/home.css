@@ -7,10 +7,10 @@
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto;
-  padding: 14px 32px;
+  padding: 12px 32px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-link {
   font-size: 14px; color: var(--fg-secondary);
@@ -31,7 +31,7 @@
 .btn-outline:hover { background: var(--bg-subtle); }
 
 /* ——— Hero ——— */
-.hero { max-width: 1200px; margin: 0 auto; padding: 80px 32px 64px; }
+.hero { max-width: 1200px; margin: 0 auto; padding: 72px 32px 58px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 4px 10px; border: 1px solid var(--border);
@@ -41,24 +41,24 @@
 }
 .eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 h1.hero-title {
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(40px, 5.4vw, 65px);
   line-height: 1.02; letter-spacing: -0.035em;
-  font-weight: 600; margin: 24px 0 20px; max-width: 18ch;
+  font-weight: 600; margin: 22px 0 18px; max-width: 18ch;
 }
 h1.hero-title em {
   font-family: var(--font-serif); font-weight: 400;
   font-style: italic; letter-spacing: -0.02em;
 }
 .hero-sub {
-  font-size: 21px; color: var(--fg); line-height: 1.45; font-weight: 400;
-  max-width: 48ch; margin: 0 0 12px;
+  font-size: 19px; color: var(--fg); line-height: 1.45; font-weight: 400;
+  max-width: 48ch; margin: 0 0 11px;
 }
 .hero-sub-detail {
-  font-size: 17px; color: var(--fg-muted); line-height: 1.55;
-  max-width: 58ch; margin: 0 0 36px;
+  font-size: 15px; color: var(--fg-muted); line-height: 1.55;
+  max-width: 58ch; margin: 0 0 32px;
 }
 .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
-.hero-cta .btn { padding: 11px 18px; font-size: 14.5px; }
+.hero-cta .btn { padding: 10px 16px; font-size: 13px; }
 
 /* ——— Hero visual (mock UI preview card) ——— */
 /* Demo wrapper: card + floating sidebar side by side */
@@ -66,7 +66,7 @@ h1.hero-title em {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 36px;
 }
 .demo-wrapper .hero-visual { flex: 1; min-width: 0; margin-top: 0; }
 
@@ -125,21 +125,21 @@ h1.hero-title em {
 .bar > span { position: absolute; inset: 0; background: var(--fg-secondary); }
 
 /* ——— Section layout ——— */
-section.band { padding: 96px 32px; border-top: 1px solid var(--border); }
+section.band { padding: 86px 32px; border-top: 1px solid var(--border); }
 section.band > .wrap { max-width: 1200px; margin: 0 auto; }
-.section-head { margin-bottom: 56px; max-width: 680px; }
+.section-head { margin-bottom: 50px; max-width: 680px; }
 .section-label {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
   color: var(--fg-subtle); text-transform: uppercase; margin-bottom: 16px;
 }
 .home-page h2 {
-  font-size: clamp(30px, 3.6vw, 44px);
+  font-size: clamp(27px, 3.2vw, 40px);
   line-height: 1.1; letter-spacing: -0.025em;
   font-weight: 600; margin: 0 0 16px;
 }
 .home-page h2 em { font-family: var(--font-serif); font-weight: 400; font-style: italic; }
 .section-lede {
-  font-size: 17px; line-height: 1.55; color: var(--fg-muted); max-width: 60ch;
+  font-size: 15px; line-height: 1.55; color: var(--fg-muted); max-width: 60ch;
 }
 
 /* ——— Problem section ——— */
@@ -321,9 +321,9 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 }
 
 /* ——— Closing CTA ——— */
-.cta-band { padding: 120px 32px; text-align: center; border-top: 1px solid var(--border); background: var(--bg-subtle); }
-.cta-band h2 { font-size: clamp(36px, 5vw, 56px); margin: 0 auto 20px; max-width: 18ch; }
-.cta-band p { color: var(--fg-muted); font-size: 18px; max-width: 52ch; margin: 0 auto 32px; }
+.cta-band { padding: 108px 32px; text-align: center; border-top: 1px solid var(--border); background: var(--bg-subtle); }
+.cta-band h2 { font-size: clamp(32px, 4.5vw, 50px); margin: 0 auto 20px; max-width: 18ch; }
+.cta-band p { color: var(--fg-muted); font-size: 16px; max-width: 52ch; margin: 0 auto 32px; }
 
 /* Footer */
 .home-footer {
@@ -352,7 +352,7 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 
 /* ——— Demo section intro ——— */
 .demo-intro {
-  margin-top: 72px; padding-top: 52px;
+  margin-top: 65px; padding-top: 47px;
   border-top: 1px solid var(--border);
 }
 .demo-intro-label {
@@ -360,12 +360,12 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
   color: var(--fg-subtle); text-transform: uppercase; margin-bottom: 14px;
 }
 .demo-intro-head {
-  font-size: clamp(22px, 2.6vw, 30px); font-weight: 600;
+  font-size: clamp(20px, 2.3vw, 27px); font-weight: 600;
   letter-spacing: -0.022em; line-height: 1.1; margin: 0 0 12px; color: var(--fg);
 }
 .demo-intro-head em { font-family: var(--font-serif); font-weight: 400; font-style: italic; }
 .demo-intro-sub {
-  font-size: 17px; color: var(--fg-muted); line-height: 1.55;
+  font-size: 15px; color: var(--fg-muted); line-height: 1.55;
   max-width: 58ch; margin: 0;
 }
 
@@ -412,7 +412,7 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 .demo-fade { animation: demo-fade 220ms ease; }
 
 /* ——— Visual body height stability ——— */
-.visual-body { height: 440px; }
+.visual-body { height: 396px; }
 .visual-chat { overflow-y: auto; }
 .visual-ctx  { overflow-y: auto; }
 
@@ -512,6 +512,21 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 .ctx-gene-encodes { font-size: 12px; color: var(--fg-muted); line-height: 1.5; }
 .ctx-gene-encodes strong { color: var(--fg); font-weight: 600; }
 .ctx-gene-prid  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-subtle); margin-left: 4px; }
+
+/* ——— Knowledge graph schema ——— */
+.kg-schema-wrap {
+  margin-top: 48px;
+  background: #f7f6f2;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 24px;
+}
+.kg-schema-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* ——— Architecture diagram ——— */
 .arch-wrap {
@@ -617,8 +632,8 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
   /* ——— Hero ——— */
   .hero { padding: 32px 16px 36px; }
   h1.hero-title { max-width: 100%; }
-  .hero-sub { font-size: 17px; }
-  .hero-sub-detail { font-size: 15px; }
+  .hero-sub { font-size: 16px; }
+  .hero-sub-detail { font-size: 14px; }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; justify-content: center; }
 

@@ -4,7 +4,7 @@ import '@/styles/home.css';
 
 export const metadata = {
   title: {
-    default: 'Atlas — Alzheimer\'s Knowledge Graph',
+    default: 'Atlas: Alzheimer\'s Knowledge Graph',
     template: '%s | Atlas',
   },
   description:
@@ -22,20 +22,20 @@ export const metadata = {
   authors: [{ name: 'Athish Gopal Rajesh', url: 'https://athish-gopal-rajesh.vercel.app/' }],
   creator: 'Athish Gopal Rajesh',
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://atlas-alzheimers.vercel.app'
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://alzheimerskg.vercel.app'
   ),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
     siteName: 'Atlas',
-    title: "Atlas — Alzheimer's Knowledge Graph",
+    title: "Atlas: Alzheimer's Knowledge Graph",
     description:
       "Ontology-grounded Graph RAG interface for Alzheimer's disease. Every answer traces to a node.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Atlas — Alzheimer's Knowledge Graph",
+    title: "Atlas: Alzheimer's Knowledge Graph",
     description:
       "Ontology-grounded Graph RAG interface for Alzheimer's disease. Every answer traces to a node.",
   },
