@@ -1,13 +1,17 @@
+'use client';
 import { useEffect, useRef } from 'react';
 import { Icon } from './Icons';
 
 export function Composer({ value, onChange, onSubmit, onCancel, loading, inputRef }) {
-  const ref = inputRef || useRef(null);
+  const internalRef = useRef(null);
+  const ref = inputRef || internalRef;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { ref.current?.focus(); }, []);
   useEffect(() => {
     if (!ref.current) return;
     ref.current.style.height = "auto";
     ref.current.style.height = Math.min(200, ref.current.scrollHeight) + "px";
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (

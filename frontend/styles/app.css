@@ -1,7 +1,13 @@
 /* App shell — chat + context panel */
 
-body { overflow: hidden; height: 100vh; }
-#root { height: 100vh; display: flex; flex-direction: column; }
+/* .app-shell replaces the old body/root height constraints so the home page
+   body remains scrollable while the /app route gets a fixed viewport layout. */
+.app-shell {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ——— Header ——— */
 .app-header {

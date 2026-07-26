@@ -1,7 +1,8 @@
+'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Icon } from './Icons';
 import { CategoryGlyph } from './Badge';
-import { categories } from './data';
+import { categories } from '@/lib/data';
 
 export function Landing({ onSubmit, onPickCategory }) {
   const [val, setVal] = useState("");
@@ -19,7 +20,7 @@ export function Landing({ onSubmit, onPickCategory }) {
             <span className="brand-mark">A</span>
           </div>
           <h1>Atlas Workbench</h1>
-          <p>An ontology-grounded GraphRAG workbench for Alzheimer's research. Ask about biomarkers, drugs, genes, phenotypes, or pathways...</p>
+          <p>An ontology-grounded GraphRAG workbench for Alzheimer&apos;s research. Ask about biomarkers, drugs, genes, phenotypes, or pathways...</p>
         </div>
 
         <form className="landing-input" onSubmit={submit}>
@@ -64,7 +65,7 @@ export function Landing({ onSubmit, onPickCategory }) {
         </div>
 
         <div className="landing-foot">
-          <span className="landing-back">Ontology-grounded Alzheimer's knowledge graph</span>
+          <span className="landing-back">Ontology-grounded Alzheimer&apos;s knowledge graph</span>
         </div>
       </div>
     </div>

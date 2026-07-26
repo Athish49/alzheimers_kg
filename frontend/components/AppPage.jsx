@@ -1,13 +1,50 @@
+'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { Icon } from './components/Icons';
-import { Landing } from './components/Landing';
-import { Composer } from './components/Composer';
-import { AssistantMessage, LoadingMessage, ErrorMessage } from './components/Messages';
-import { ContextPanel } from './components/ContextPanel';
-import { queryAnswer } from './api';
+import Link from 'next/link';
+import { Icon } from '@/components/Icons';
+import { Landing } from '@/components/Landing';
+import { Composer } from '@/components/Composer';
+import { AssistantMessage, LoadingMessage, ErrorMessage } from '@/components/Messages';
+import { ContextPanel } from '@/components/ContextPanel';
+import { queryAnswer } from '@/lib/api';
 
-function App() {
+function generateFollowups(intentType) {
+  const followupMap = {
+    BIOMARKER: [
+      "Which of these biomarkers are detectable in plasma?",
+      "What is the clinical significance of p-tau181?",
+      "Which biomarkers track disease progression?",
+    ],
+    DRUG_TRIAL: [
+      "What pathways does lecanemab target?",
+      "Which Phase 3 trials are actively recruiting?",
+      "What are the ARIA rates across approved antibodies?",
+    ],
+    PHENOTYPE: [
+      "At what stage does agitation typically appear?",
+      "Which phenotypes differ between early and late onset AD?",
+      "What are the earliest prodromal symptoms?",
+    ],
+    PATHWAY: [
+      "How does donanemab's pathway profile compare?",
+      "Which drugs also target microglial phagocytosis?",
+      "What tau-related pathways are active in AD?",
+    ],
+    GENE_PROTEIN: [
+      "What protein does APOE encode and which pathways does it affect?",
+      "Which TREM2 variants raise AD risk?",
+      "How do early-onset AD genes differ mechanistically?",
+    ],
+    GENERAL_AD: [
+      "What are the main disease mechanisms in AD?",
+      "How have recent FDA approvals changed the landscape?",
+      "What unanswered questions remain?",
+    ],
+  };
+  return followupMap[intentType] || followupMap.GENERAL_AD;
+}
+
+export default function AppPage() {
   const [hasStarted, setHasStarted] = useState(false);
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
@@ -16,10 +53,14 @@ function App() {
   const [panelOpen, setPanelOpen] = useState(false);
   const [pinnedMessageId, setPinnedMessageId] = useState(null);
   const [composerVal, setComposerVal] = useState("");
-  const [sessionId] = useState(() => Math.random().toString(36).slice(2, 8).toUpperCase());
+  const [sessionId, setSessionId] = useState('');
   const abortRef = useRef(null);
   const threadRef = useRef(null);
   const composerRef = useRef(null);
+
+  useEffect(() => {
+    setSessionId(Math.random().toString(36).slice(2, 8).toUpperCase());
+  }, []);
 
   useEffect(() => {
     if (threadRef.current) {
@@ -87,7 +128,7 @@ function App() {
       }]);
       setLoading(false);
     }
-  }, []);
+  }, [history]);
 
   const cancel = () => {
     abortRef.current?.abort();
@@ -112,10 +153,10 @@ function App() {
   const pinnedMessage = messages.find(m => m.id === pinnedMessageId) || null;
 
   return (
-    <>
+    <div className="app-shell">
       <header className="app-header">
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Link className="app-brand" to="/">
+          <Link className="app-brand" href="/">
             <span className="brand-mark">A</span>
             <span>Atlas</span>
           </Link>
@@ -188,44 +229,6 @@ function App() {
           </aside>
         )}
       </main>
-    </>
+    </div>
   );
 }
-
-function generateFollowups(intentType) {
-  const followupMap = {
-    BIOMARKER: [
-      "Which of these biomarkers are detectable in plasma?",
-      "What is the clinical significance of p-tau181?",
-      "Which biomarkers track disease progression?",
-    ],
-    DRUG_TRIAL: [
-      "What pathways does lecanemab target?",
-      "Which Phase 3 trials are actively recruiting?",
-      "What are the ARIA rates across approved antibodies?",
-    ],
-    PHENOTYPE: [
-      "At what stage does agitation typically appear?",
-      "Which phenotypes differ between early and late onset AD?",
-      "What are the earliest prodromal symptoms?",
-    ],
-    PATHWAY: [
-      "How does donanemab's pathway profile compare?",
-      "Which drugs also target microglial phagocytosis?",
-      "What tau-related pathways are active in AD?",
-    ],
-    GENE_PROTEIN: [
-      "What protein does APOE encode and which pathways does it affect?",
-      "Which TREM2 variants raise AD risk?",
-      "How do early-onset AD genes differ mechanistically?",
-    ],
-    GENERAL_AD: [
-      "What are the main disease mechanisms in AD?",
-      "How have recent FDA approvals changed the landscape?",
-      "What unanswered questions remain?",
-    ],
-  };
-  return followupMap[intentType] || followupMap.GENERAL_AD;
-}
-
-export default App;

@@ -1,0 +1,12 @@
+{
+  "name": "Atlas — Alzheimer's Knowledge Graph",
+  "short_name": "Atlas",
+  "description": "An ontology-grounded Graph RAG interface for Alzheimer's disease research.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a19",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

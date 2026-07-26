@@ -60,6 +60,22 @@
   --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
 }
 
+/* Skip-to-main accessibility link — visually hidden until focused */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--r-md) 0;
+}
+.skip-link:focus { top: 0; }
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); max-width: 100%; overflow-x: hidden; }
 body {

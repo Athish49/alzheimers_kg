@@ -44,12 +44,12 @@ export function Badge({ variant = "strategy", children, mono = true, label, styl
 }
 
 const glyphs = {
-  BIOMARKER: "\u25D0",
-  DRUG_TRIAL: "\u25C7",
-  GENE_PROTEIN: "\u2715",
-  PHENOTYPE: "\u25CC",
-  PATHWAY: "\u21AC",
-  GENERAL_AD: "\u25EF",
+  BIOMARKER: "◐",
+  DRUG_TRIAL: "◇",
+  GENE_PROTEIN: "✕",
+  PHENOTYPE: "◌",
+  PATHWAY: "↬",
+  GENERAL_AD: "◯",
 };
 
 export function CategoryGlyph({ id }) {
@@ -57,6 +57,6 @@ export function CategoryGlyph({ id }) {
     <span style={{
       fontFamily: "var(--font-mono)", fontSize: 16,
       color: "var(--fg-secondary)", lineHeight: 1,
-    }}>{glyphs[id] || "\u00B7"}</span>
+    }}>{glyphs[id] || "·"}</span>
   );
 }

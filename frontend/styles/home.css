@@ -513,8 +513,6 @@ section.band > .wrap { max-width: 1200px; margin: 0 auto; }
 .ctx-gene-encodes strong { color: var(--fg); font-weight: 600; }
 .ctx-gene-prid  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-subtle); margin-left: 4px; }
 
-/* ——— The Difference section ——— */
-
 /* ——— Architecture diagram ——— */
 .arch-wrap {
   display: flex;

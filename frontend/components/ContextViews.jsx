@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { Badge } from './Badge';
 import { Icon } from './Icons';
@@ -7,7 +8,7 @@ export function BiomarkerView({ data }) {
   const fluids = Object.keys(data.biomarkers || {});
   const [fluid, setFluid] = useState(fluids[0] || "CSF");
   const current = data.biomarkers?.[fluid] || { increased: [], decreased: [] };
-  const directionHint = data.direction_hint; // 'increased' | 'decreased' | null
+  const directionHint = data.direction_hint;
   const maxEffect = Math.max(
     ...[...current.increased, ...current.decreased].map(b => Math.abs(b.effect)),
     1
@@ -30,7 +31,7 @@ export function BiomarkerView({ data }) {
             fontFamily: "var(--font-mono)", fontSize: 12, minWidth: 44, textAlign: "right",
             color: dir === "up" ? "var(--up)" : "var(--down)", fontWeight: 600,
           }}>
-            {dir === "up" ? "\u2191" : "\u2193"} {Math.abs(b.effect).toFixed(1)}
+            {dir === "up" ? "↑" : "↓"} {Math.abs(b.effect).toFixed(1)}
           </div>
         </div>
         <div className="ev-pvalue">p {b.p}</div>
@@ -89,7 +90,6 @@ export function DrugView({ data }) {
   );
   const counts = statusOrder.map(s => ({ s, n: allDrugs.filter(d => d.status === s).length }));
 
-  // Use backend status_hint if present; otherwise default to first status with drugs.
   const hinted = data.status_hint && counts.find(c => c.s === data.status_hint && c.n > 0)?.s;
   const firstWithDrugs = hinted || counts.find(c => c.n > 0)?.s || statusOrder[0];
   const [activeStatus, setActiveStatus] = useState(firstWithDrugs);
@@ -116,7 +116,7 @@ export function DrugView({ data }) {
 
       <div className="ev-list" style={{ marginTop: 16 }}>
         {filtered.length === 0 && (
-          <div className="ev-empty">No drugs with status "{activeStatus}".</div>
+          <div className="ev-empty">No drugs with status &quot;{activeStatus}&quot;.</div>
         )}
         {filtered.map((d, i) => {
           const open = expanded === i;
@@ -191,7 +191,7 @@ export function PhenotypeView({ data }) {
         <span className="sort-label">Sort by</span>
         {["frequency", "onset", "alpha"].map(k => (
           <button key={k} className={"sort-btn " + (sort === k ? "active" : "")} onClick={() => setSort(k)}>
-            {k === "alpha" ? "A\u2013Z" : k}
+            {k === "alpha" ? "A–Z" : k}
           </button>
         ))}
       </div>

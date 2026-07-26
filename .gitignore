@@ -1,27 +1,25 @@
-# Python virtual environments
+# ── Python ───────────────────────────────────────────────────────────────────
 venv/
 .venv/
 env/
-
-# Secrets — never commit
-.env
-!.env.example
-
-# Python cache
 __pycache__/
 *.pyc
+*.pyo
 
-# UI packages and build output
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+!.env.example
+# Next.js local env variables are excluded via frontend/.gitignore
+
+# ── Frontend (Next.js) ────────────────────────────────────────────────────────
 frontend/node_modules/
-frontend/dist/
+frontend/.next/
+frontend/out/
 
-# Ignore all HTML files (data / scraped pages elsewhere); allow the Vite app
+# ── Data / ontology files ─────────────────────────────────────────────────────
+# Scraped HTML pages and large OWL ontology files — not source code
 *.html
-!/frontend/**/*.html
-
-# Large ontology OWL files
 *.owl
 
-
-# Mac system files
+# ── macOS ─────────────────────────────────────────────────────────────────────
 .DS_Store

@@ -1,7 +1,7 @@
+'use client';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Icon } from '../components/Icons';
-import '../styles/home.css';
+import Link from 'next/link';
+import { Icon } from './Icons';
 
 /* ─── Pre-canned demo data ─── */
 
@@ -9,7 +9,7 @@ const DEMOS = [
   {
     id: 'biomarker',
     chip: 'CSF Biomarkers',
-    query: "What CSF biomarkers are elevated in Alzheimer’s disease?",
+    query: "What CSF biomarkers are elevated in Alzheimer's disease?",
     intent: 'BIOMARKER',
     strategy: 'AD_BIOMARKERS_V2',
     latency: '1.1s',
@@ -39,7 +39,7 @@ const DEMOS = [
   {
     id: 'phenotype',
     chip: 'AD Symptoms',
-    query: "What are the most frequent symptoms of Alzheimer’s disease?",
+    query: "What are the most frequent symptoms of Alzheimer's disease?",
     intent: 'PHENOTYPE',
     strategy: 'AD_PHENOTYPES_V2',
     latency: '0.8s',
@@ -76,7 +76,7 @@ function BiomarkerPanel() {
     { name: 'NFL (CSF)',         cat: 'neurodegeneration', effect: '5.2',  pval: '0.0001', bar: 44  },
     { name: 'tau-phospho (CSF)', cat: 'tau',              effect: '1.7',  pval: '0.0001', bar: 15  },
     { name: 'YKL-40 (CSF)',      cat: 'inflammation',     effect: '1.4',  pval: '0.0001', bar: 12  },
-    { name: 'Aβ42 (CSF)',   cat: 'amyloid',          effect: '1.1',  pval: '0.115',  bar: 9   },
+    { name: 'Aβ42 (CSF)',        cat: 'amyloid',          effect: '1.1',  pval: '0.115',  bar: 9   },
   ];
   return (
     <>
@@ -169,10 +169,10 @@ function PhenotypePanel() {
 
 function GenePanel() {
   const genes = [
-    { gene: 'APOE',  hgnc: '613',  protein: 'apolipoprotein E',                       pr: 'PR:000004155' },
-    { gene: 'MAPT',  hgnc: '6893', protein: 'microtubule-associated protein tau',      pr: 'PR:000010173' },
-    { gene: 'PSEN1', hgnc: '9508', protein: 'presenilin-1',                            pr: 'PR:000013344' },
-    { gene: 'PSEN2', hgnc: '9509', protein: 'presenilin-2',                            pr: 'PR:000013345' },
+    { gene: 'APOE',  hgnc: '613',  protein: 'apolipoprotein E',                  pr: 'PR:000004155' },
+    { gene: 'MAPT',  hgnc: '6893', protein: 'microtubule-associated protein tau', pr: 'PR:000010173' },
+    { gene: 'PSEN1', hgnc: '9508', protein: 'presenilin-1',                       pr: 'PR:000013344' },
+    { gene: 'PSEN2', hgnc: '9509', protein: 'presenilin-2',                       pr: 'PR:000013345' },
   ];
   return (
     <>
@@ -221,187 +221,110 @@ function ArchDiagram() {
       role="img"
       aria-label="Atlas two-phase pipeline: ontologies and curated evidence are reconciled into an Alzheimer's knowledge graph at build time; at query time a question with conversation history passes through a query rewriter, entity linker, intent classifier, graph router, subgraph retrieval, and grounded LLM synthesis to produce a traceable answer."
     >
-      {/* ── Desktop SVG: side-by-side sources, gutter dashed connector ── */}
+      {/* ── Desktop SVG ── */}
       <svg className="arch-svg arch-desktop" viewBox="0 0 520 1048">
         <defs>{arrowD}</defs>
-
-        {/* Phase 1 */}
         <text x="10" y="18" className="arch-t-phase">PHASE 1 · BUILD TIME</text>
-
-        {/* Source A */}
         <rect x="10" y="28" width="225" height="70" rx="11" className="arch-box"/>
         <text x="122.5" y="54" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Biomedical ontologies</text>
         <text x="122.5" y="75" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Six canonical vocabularies</text>
-
-        {/* Source B */}
         <rect x="285" y="28" width="225" height="70" rx="11" className="arch-box"/>
         <text x="397.5" y="54" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Curated AD evidence</text>
         <text x="397.5" y="75" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">AlzForum knowledge base</text>
-
-        {/* T-junction merge */}
         <path d="M 122.5,98 L 122.5,116" className="arch-line"/>
         <path d="M 397.5,98 L 397.5,116" className="arch-line"/>
         <path d="M 122.5,116 L 397.5,116" className="arch-line"/>
         <path d="M 260,116 L 260,130" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Reconcile */}
         <rect x="110" y="130" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="156" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Reconcile to canonical IDs</text>
         <text x="260" y="177" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">One identity per entity</text>
-
         <path d="M 260,200 L 260,230" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Hub */}
         <rect x="60" y="230" width="400" height="78" rx="11" className="arch-hub"/>
         <text x="260" y="259" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-title">Alzheimer&apos;s knowledge graph</text>
         <text x="260" y="281" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-sub">typed property graph · Neo4j</text>
-
-        {/* Dashed cross-phase connector through left gutter — lands at Subgraph retrieval (y=783) */}
         <path d="M 60,269 L 38,269 L 38,783 L 110,783" className="arch-dash" markerEnd="url(#arr-d)"/>
         <text x="24" y="526" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads" transform="rotate(-90 24 526)">reads the graph</text>
-
-        {/* Phase 2 */}
         <text x="10" y="324" className="arch-t-phase">PHASE 2 · QUERY TIME</text>
-
         <path d="M 260,308 L 260,348" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Query Rewriter */}
         <rect x="110" y="348" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="374" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Query rewriter</text>
         <text x="260" y="395" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 1 · coreference resolution</text>
-
         <path d="M 260,418 L 260,448" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Entity Linker */}
         <rect x="110" y="448" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="474" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Entity linker</text>
         <text x="260" y="495" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">in-memory vocab · synonym lookup</text>
-
         <path d="M 260,518 L 260,548" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Intent Classifier */}
         <rect x="110" y="548" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="574" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent classifier</text>
         <text x="260" y="595" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">entity-aware · seven classes</text>
-
         <path d="M 260,618 L 260,648" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Graph Router */}
         <rect x="110" y="648" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="674" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Graph router</text>
         <text x="260" y="695" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">targeted → bulk fallback</text>
-
         <path d="M 260,718 L 260,748" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Subgraph retrieval — dashed connector lands here */}
         <rect x="110" y="748" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="774" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
         <text x="260" y="795" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal · Neo4j</text>
-
         <path d="M 260,818 L 260,848" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Grounded synthesis */}
         <rect x="110" y="848" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="874" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
         <text x="260" y="895" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 2 · context-only</text>
-
         <path d="M 260,918 L 260,948" className="arch-line" markerEnd="url(#arr-d)"/>
-
-        {/* Answer */}
         <rect x="110" y="948" width="300" height="70" rx="11" className="arch-box"/>
         <text x="260" y="974" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
         <text x="260" y="995" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
       </svg>
 
-      {/* ── Mobile SVG: fully stacked, no gutter connector ── */}
+      {/* ── Mobile SVG ── */}
       <svg className="arch-svg arch-mobile" viewBox="0 0 340 1136">
         <defs>{arrowM}</defs>
-
-        {/* Phase 1 */}
         <text x="10" y="18" className="arch-t-phase">PHASE 1 · BUILD TIME</text>
-
-        {/* Source A */}
         <rect x="20" y="28" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="54" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Biomedical ontologies</text>
         <text x="170" y="75" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Six canonical vocabularies</text>
-
         <path d="M 170,98 L 170,118" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Source B */}
         <rect x="20" y="118" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="144" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Curated AD evidence</text>
         <text x="170" y="165" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">AlzForum knowledge base</text>
-
         <path d="M 170,188 L 170,218" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Reconcile */}
         <rect x="20" y="218" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="244" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Reconcile to canonical IDs</text>
         <text x="170" y="265" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">One identity per entity</text>
-
         <path d="M 170,288 L 170,318" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Hub */}
         <rect x="20" y="318" width="300" height="78" rx="11" className="arch-hub"/>
         <text x="170" y="347" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-title">Alzheimer&apos;s knowledge graph</text>
         <text x="170" y="369" textAnchor="middle" dominantBaseline="middle" className="arch-t-hub-sub">typed property graph · Neo4j</text>
-
-        {/* Phase 2 */}
         <text x="10" y="414" className="arch-t-phase">PHASE 2 · QUERY TIME</text>
-
         <path d="M 170,396 L 170,428" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Query Rewriter */}
         <rect x="20" y="428" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="454" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Query rewriter</text>
         <text x="170" y="475" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 1 · coreference resolution</text>
-
         <path d="M 170,498 L 170,528" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Entity Linker */}
         <rect x="20" y="528" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="554" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Entity linker</text>
         <text x="170" y="575" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">in-memory vocab · synonym lookup</text>
-
         <path d="M 170,598 L 170,628" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Intent Classifier */}
         <rect x="20" y="628" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="654" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Intent classifier</text>
         <text x="170" y="675" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">entity-aware · seven classes</text>
-
         <path d="M 170,698 L 170,728" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Graph Router */}
         <rect x="20" y="728" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="754" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Graph router</text>
         <text x="170" y="775" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">targeted → bulk fallback</text>
-
         <path d="M 170,798 L 170,828" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Subgraph retrieval */}
         <rect x="20" y="828" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="854" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Subgraph retrieval</text>
         <text x="170" y="875" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">Cypher traversal · Neo4j</text>
-
-        {/* reads-the-graph caption in place of gutter connector */}
         <text x="170" y="912" textAnchor="middle" dominantBaseline="middle" className="arch-t-reads">reads the knowledge graph</text>
-
         <path d="M 170,920 L 170,936" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Grounded synthesis */}
         <rect x="20" y="936" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="962" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Grounded synthesis</text>
         <text x="170" y="983" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">LLM Call 2 · context-only</text>
-
         <path d="M 170,1006 L 170,1036" className="arch-line" markerEnd="url(#arr-m)"/>
-
-        {/* Answer */}
         <rect x="20" y="1036" width="300" height="70" rx="11" className="arch-box"/>
         <text x="170" y="1062" textAnchor="middle" dominantBaseline="middle" className="arch-t-title">Answer + evidence</text>
         <text x="170" y="1083" textAnchor="middle" dominantBaseline="middle" className="arch-t-sub">every claim traces to a node</text>
       </svg>
-
     </div>
   );
 }
@@ -411,7 +334,7 @@ function ArchDiagram() {
 function FooterWithCopy() {
   const [copied, setCopied] = useState(false);
   const copyEmail = () => {
-    navigator.clipboard.writeText('agr@iu.edu');
+    navigator.clipboard.writeText('grathish49@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -426,7 +349,7 @@ function FooterWithCopy() {
         <a href="https://www.linkedin.com/in/athishgr/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <span>&middot;</span>
         <span className="f-email-wrap">
-          <a href="mailto:agr@iu.edu" onClick={(e) => { e.preventDefault(); copyEmail(); }}>agr@iu.edu</a>
+          <a href="mailto:grathish49@gmail.com" onClick={(e) => { e.preventDefault(); copyEmail(); }}>grathish49@gmail.com</a>
           <button className="f-copy-btn" onClick={copyEmail} aria-label="Copy email address">
             {copied
               ? <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:'var(--fg)'}}><polyline points="2,7 5.5,11 12,3"/></svg>
@@ -450,11 +373,11 @@ export function HomePage() {
       {/* Nav */}
       <header className="nav">
         <div className="nav-inner">
-          <Link className="brand" to="/">
+          <Link className="brand" href="/">
             <span className="brand-mark">A</span>
             <span>Atlas</span>
           </Link>
-          <nav className="nav-links">
+          <nav className="nav-links" aria-label="Main navigation">
             <a className="nav-link" href="#problem">Problem</a>
             <a className="nav-link" href="#how">How Atlas works</a>
             <a className="nav-link" href="#difference">The difference</a>
@@ -462,11 +385,12 @@ export function HomePage() {
             <a className="nav-link" href="#who">Who it&apos;s for</a>
           </nav>
           <div style={{ display: 'flex', gap: 8 }}>
-            <Link className="btn btn-primary" to="/app">Open Atlas &rarr;</Link>
+            <Link className="btn btn-primary" href="/app">Open Atlas &rarr;</Link>
           </div>
         </div>
       </header>
 
+      <main id="main-content">
       {/* Hero */}
       <section className="hero">
         <span className="eyebrow"><span className="dot"></span> Ontology-grounded knowledge graph &middot; Alzheimer&apos;s disease</span>
@@ -478,7 +402,7 @@ export function HomePage() {
           An <em>ontology-grounded</em> Graph RAG workbench over a curated Alzheimer&apos;s knowledge graph. Six biomedical ontologies and AlzForum&apos;s evidence base are reconciled into one graph, so biomarker effect sizes, trial phases, phenotype frequencies, and gene-to-pathway links all carry a canonical identity and trace back to a node.
         </p>
         <div className="hero-cta">
-          <Link className="btn btn-primary" to="/app">Open the workbench &rarr;</Link>
+          <Link className="btn btn-primary" href="/app">Open the workbench &rarr;</Link>
           <a className="btn btn-outline" href="#how">See how it works</a>
         </div>
 
@@ -570,7 +494,7 @@ export function HomePage() {
           <div className="section-head">
             <div className="section-label">How Atlas works</div>
             <h2>Questions are classified, routed, and grounded in the graph.</h2>
-            <p className="section-lede">Every query's intent is classified, then routed to a retrieval strategy that pulls the relevant subgraph. The model only writes the final answer. Nothing is invented; every claim traces to a node.</p>
+            <p className="section-lede">Every query&apos;s intent is classified, then routed to a retrieval strategy that pulls the relevant subgraph. The model only writes the final answer. Nothing is invented; every claim traces to a node.</p>
           </div>
           <div className="how-grid">
             <div className="how-steps">
@@ -647,7 +571,6 @@ export function HomePage() {
             <h2>Six query classes, each with a tailored view.</h2>
             <p className="section-lede">The intent you ask determines how the evidence is rendered. A biomarker question doesn&apos;t look like a drug question. The structure of the data is different, and the UI follows.</p>
           </div>
-
           <div className="cap-grid">
             <div className="cap-cell">
               <div className="cap-icon">01 &middot; BIOMARKER</div>
@@ -818,9 +741,10 @@ export function HomePage() {
       <section className="cta-band">
         <h2>Start with a question.</h2>
         <p>No setup, no API keys. Type what you want to know and watch the graph and the ontologies beneath it answer.</p>
-        <Link className="btn btn-primary" to="/app" style={{ padding: '13px 22px', fontSize: 15 }}>Open Atlas &rarr;</Link>
+        <Link className="btn btn-primary" href="/app" style={{ padding: '13px 22px', fontSize: 15 }}>Open Atlas &rarr;</Link>
       </section>
 
+      </main>
       <FooterWithCopy />
     </div>
   );
